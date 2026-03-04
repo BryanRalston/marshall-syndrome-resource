@@ -32,7 +32,8 @@
         { file: 'spine/immune-dysregulation.html', title: 'The Four-Mechanism Immune Cascade', k: 'immune complement mast cell inflammation NF-kB cytokine TNF IL-1 innate adaptive' },
         { file: 'spine/growth-spurt.html', title: 'Growth Spurt Vulnerability Map', k: 'growth velocity puberty rapid growth disc vulnerability stress biomechanical' },
         { file: 'spine/cervical-myelopathy.html', title: 'Cervical Myelopathy: A Critical Risk', k: 'cervical myelopathy cord compression Lhermitte sign electric shock neck zap spinal cord weakness legs numbness Hoffmann Babinski clonus MRI urgent' },
-        { file: 'spine/craniocervical-instability.html', title: 'Craniocervical Instability (CCI)', k: 'CCI AAI atlantoaxial instability craniocervical junction C1 C2 atlas axis transverse ligament Lhermitte sign leg weakness red ears evening fatigue Chiari settling fusion clivo-axial angle Grabb-Oakes ADI flexion extension upright MRI DMX' }
+        { file: 'spine/craniocervical-instability.html', title: 'Craniocervical Instability (CCI)', k: 'CCI AAI atlantoaxial instability craniocervical junction C1 C2 atlas axis transverse ligament Lhermitte sign leg weakness red ears evening fatigue Chiari settling fusion clivo-axial angle Grabb-Oakes ADI flexion extension upright MRI DMX' },
+        { file: 'spine/lhermitte-sign.html', title: 'Lhermitte\'s Sign: 12 Convergent Mechanisms', k: 'Lhermitte sign electric shock neck zap flexion dorsal column ephaptic transmission demyelination ferroptosis oligodendrocyte Chiari syringomyelia vascular posterior spinal artery tethered cord zinc copper B12 deficiency convergence myelopathy radiation' }
       ]
     },
     {
@@ -54,7 +55,10 @@
         { file: 'treatment/photobiomodulation.html', title: 'Photobiomodulation (Red Light Therapy)', k: 'photobiomodulation red light therapy near infrared PBM LED laser mitochondria ATP collagen healing' },
         { file: 'treatment/morning-protocol.html', title: 'The 90-Minute Morning Protocol', k: 'morning routine protocol stiffness wake up stretching warm up daily' },
         { file: 'treatment/complete-protocol.html', title: 'Complete 24-Hour Protocol', k: '24 hour protocol daily schedule morning afternoon evening night chronotherapy timing' },
-        { file: 'treatment/central-sensitization.html', title: 'Central Sensitization & Pain Amplification', k: 'central sensitization pain amplification wind-up glial microglia astrocyte BDNF KCC2 GABA Lhermitte sign autonomic red ears QST LDN naltrexone amitriptyline TENS alpha-delta sleep nociplastic trigeminovascular' }
+        { file: 'treatment/central-sensitization.html', title: 'Central Sensitization & Pain Amplification', k: 'central sensitization pain amplification wind-up glial microglia astrocyte BDNF KCC2 GABA Lhermitte sign autonomic red ears QST LDN naltrexone amitriptyline TENS alpha-delta sleep nociplastic trigeminovascular' },
+        { file: 'treatment/drug-repurposing.html', title: 'Drug Repurposing for Marshall Syndrome', k: 'drug repurposing carbamazepine ER stress 4-PBA TUDCA chemical chaperone doxycycline MMP inhibitor metformin AMPK DMF dimethyl fumarate omega-3 resolvin N-of-1 trial off-label' },
+        { file: 'treatment/vagus-nerve-stimulation.html', title: 'Vagus Nerve Stimulation (taVNS)', k: 'vagus nerve stimulation taVNS transcutaneous auricular cholinergic anti-inflammatory pathway CAP TNF IL-6 pain neuromodulation ear tragus FDA pediatric' },
+        { file: 'treatment/small-fiber-neuropathy.html', title: 'Small Fiber Neuropathy Testing', k: 'small fiber neuropathy SFN skin punch biopsy IENFD intraepidermal nerve fiber density burning pain allodynia autonomic C-fiber A-delta perineurium collagen nerve sheath QST sudomotor corneal confocal' }
       ]
     },
     {
@@ -72,7 +76,8 @@
         { file: 'nutrition/what-not-to-do.html', title: 'What NOT to Do', k: 'avoid dangerous harmful contraindicated mistakes warnings cracking chiropractic high impact' },
         { file: 'nutrition/gut-disc-axis.html', title: 'The Gut-Disc Axis', k: 'gut disc axis microbiome butyrate short chain fatty acids SCFA LPS endotoxin' },
         { file: 'nutrition/precision-nutrition.html', title: 'Precision Nutritional Biochemistry', k: 'precision nutrition biochemistry personalized nutrigenomics biomarker-guided micronutrient' },
-        { file: 'nutrition/environmental-toxins.html', title: 'Environmental Toxin Avoidance', k: 'environmental toxins BPA phthalates pesticides heavy metals air quality water filter endocrine disruptors' }
+        { file: 'nutrition/environmental-toxins.html', title: 'Environmental Toxin Avoidance', k: 'environmental toxins BPA phthalates pesticides heavy metals air quality water filter endocrine disruptors' },
+        { file: 'nutrition/gut-permeability.html', title: 'Gut Permeability & COL11A1', k: 'gut permeability leaky gut COL11A1 intestinal barrier goblet cell LPS translocation TLR4 NF-kB zonulin calprotectin glutamine butyrate probiotic microbiome bacterial translocation' }
       ]
     },
     {
