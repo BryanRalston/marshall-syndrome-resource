@@ -80,7 +80,9 @@
         { file: 'monitoring/sleep.html', title: 'Sleep & Circadian Health' },
         { file: 'monitoring/screening-tests.html', title: 'Screening Tests' },
         { file: 'monitoring/red-flags.html', title: 'Red Flags: Emergency Care' },
-        { file: 'monitoring/biomarker-dashboard.html', title: 'Biomarker Dashboard' }
+        { file: 'monitoring/biomarker-dashboard.html', title: '11-Domain Biomarker Dashboard' },
+        { file: 'monitoring/sleep-architecture.html', title: 'Sleep Architecture: Nocturnal Defense' },
+        { file: 'monitoring/growth-velocity.html', title: 'Growth Velocity Monitoring' }
       ]
     },
     {
@@ -89,7 +91,9 @@
         { file: 'future/gene-therapy.html', title: 'Gene Therapy Approaches' },
         { file: 'future/tissue-engineering.html', title: 'Tissue Engineering Timeline' },
         { file: 'future/clinical-trials.html', title: 'Clinical Trials & Registries' },
-        { file: 'future/advocacy.html', title: 'Rare Disease Advocacy' }
+        { file: 'future/advocacy.html', title: 'Rare Disease Advocacy' },
+        { file: 'future/gene-therapy-update.html', title: 'Gene Therapy: 2026 Update' },
+        { file: 'future/regenerative-medicine.html', title: 'Regenerative Medicine Roadmap' }
       ]
     },
     {
@@ -100,7 +104,8 @@
         { file: 'living/school-504.html', title: 'School 504 Plan' },
         { file: 'living/talking.html', title: 'Talking About Marshall' },
         { file: 'living/specialists.html', title: 'Specialists to Consult' },
-        { file: 'living/pain-neuroscience.html', title: 'Pain Neuroscience in Children' }
+        { file: 'living/pain-neuroscience.html', title: 'Pain Neuroscience in Children' },
+        { file: 'living/psychological-support.html', title: 'Psychological & Social Support' }
       ]
     },
     {
