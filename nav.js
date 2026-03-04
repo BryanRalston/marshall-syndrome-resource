@@ -31,7 +31,8 @@
         { file: 'spine/multi-organ-protection.html', title: 'Multi-Organ Protection: Eyes, Ears & Disc' },
         { file: 'spine/immune-dysregulation.html', title: 'The Four-Mechanism Immune Cascade' },
         { file: 'spine/growth-spurt.html', title: 'Growth Spurt Vulnerability Map' },
-        { file: 'spine/cervical-myelopathy.html', title: 'Cervical Myelopathy: A Critical Risk' }
+        { file: 'spine/cervical-myelopathy.html', title: 'Cervical Myelopathy: A Critical Risk' },
+        { file: 'spine/craniocervical-instability.html', title: 'Craniocervical Instability (CCI)' }
       ]
     },
     {
@@ -52,7 +53,8 @@
         { file: 'treatment/aquatic-therapy.html', title: 'Aquatic Therapy' },
         { file: 'treatment/photobiomodulation.html', title: 'Photobiomodulation (Red Light Therapy)' },
         { file: 'treatment/morning-protocol.html', title: 'The 90-Minute Morning Protocol' },
-        { file: 'treatment/complete-protocol.html', title: 'Complete 24-Hour Protocol' }
+        { file: 'treatment/complete-protocol.html', title: 'Complete 24-Hour Protocol' },
+        { file: 'treatment/central-sensitization.html', title: 'Central Sensitization & Pain Amplification' }
       ]
     },
     {
@@ -84,7 +86,9 @@
         { file: 'monitoring/red-flags.html', title: 'Red Flags: Emergency Care' },
         { file: 'monitoring/biomarker-dashboard.html', title: '11-Domain Biomarker Dashboard' },
         { file: 'monitoring/sleep-architecture.html', title: 'Sleep Architecture: Nocturnal Defense' },
-        { file: 'monitoring/growth-velocity.html', title: 'Growth Velocity Monitoring' }
+        { file: 'monitoring/growth-velocity.html', title: 'Growth Velocity Monitoring' },
+        { file: 'monitoring/endocrine-panel.html', title: 'Endocrine & Bone Health Monitoring' },
+        { file: 'monitoring/sleep-apnea.html', title: 'Sleep-Disordered Breathing & OSA' }
       ]
     },
     {
@@ -109,6 +113,8 @@
         { file: 'living/pain-neuroscience.html', title: 'Pain Neuroscience in Children' },
         { file: 'living/psychological-support.html', title: 'Psychological & Social Support' },
         { file: 'living/autonomic-dysfunction.html', title: 'Autonomic Dysfunction' },
+        { file: 'living/tmj-craniofacial.html', title: 'TMJ & Craniofacial Pain' },
+        { file: 'living/vestibular-dysfunction.html', title: 'Vestibular Dysfunction & Balance' },
         { file: 'living/symptom-tracker.html', title: 'Symptom Timeline & Tracker' },
         { file: 'living/symptom-navigator.html', title: 'Symptom Navigator' }
       ]
