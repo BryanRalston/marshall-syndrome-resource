@@ -30,7 +30,8 @@
         { file: 'spine/developmental-signaling.html', title: 'Developmental Signaling Pathways' },
         { file: 'spine/multi-organ-protection.html', title: 'Multi-Organ Protection: Eyes, Ears & Disc' },
         { file: 'spine/immune-dysregulation.html', title: 'The Four-Mechanism Immune Cascade' },
-        { file: 'spine/growth-spurt.html', title: 'Growth Spurt Vulnerability Map' }
+        { file: 'spine/growth-spurt.html', title: 'Growth Spurt Vulnerability Map' },
+        { file: 'spine/cervical-myelopathy.html', title: 'Cervical Myelopathy: A Critical Risk' }
       ]
     },
     {
