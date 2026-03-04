@@ -21,7 +21,12 @@
         { file: 'spine/spinal-pain.html', title: 'Spinal Pain Research' },
         { file: 'spine/puberty-window.html', title: 'Puberty: The Vulnerable Window' },
         { file: 'spine/growth.html', title: 'Growth, Puberty & the Spine' },
-        { file: 'spine/imaging.html', title: 'Imaging Protocol' }
+        { file: 'spine/imaging.html', title: 'Imaging Protocol' },
+        { file: 'spine/piezoelectricity.html', title: 'Collagen Piezoelectricity & PEMF' },
+        { file: 'spine/endplate-calcification.html', title: 'Endplate Calcification Cascade' },
+        { file: 'spine/exosome-signaling.html', title: 'Exosome Communication' },
+        { file: 'spine/iron-metabolism.html', title: 'Iron Metabolism in the Disc' },
+        { file: 'spine/developmental-signaling.html', title: 'Developmental Signaling Pathways' }
       ]
     },
     {
@@ -35,7 +40,9 @@
         { file: 'treatment/early-pain.html', title: 'Urgency: Early Pain Management' },
         { file: 'treatment/pain-management.html', title: 'Pain Management' },
         { file: 'treatment/daily-guide.html', title: 'Practical Daily Guide' },
-        { file: 'treatment/anesthesia.html', title: 'Anesthesia Safety' }
+        { file: 'treatment/anesthesia.html', title: 'Anesthesia Safety' },
+        { file: 'treatment/exercise-pathways.html', title: 'Exercise: 10 Molecular Pathways' },
+        { file: 'treatment/supplements-advanced.html', title: 'Advanced Supplement Targets' }
       ]
     },
     {
@@ -50,14 +57,16 @@
         { file: 'nutrition/supplements.html', title: 'Epigenetic Defense Protocol' },
         { file: 'nutrition/gut-spine.html', title: 'The Gut-Spine Connection' },
         { file: 'nutrition/autophagy.html', title: 'Disc Autophagy' },
-        { file: 'nutrition/what-not-to-do.html', title: 'What NOT to Do' }
+        { file: 'nutrition/what-not-to-do.html', title: 'What NOT to Do' },
+        { file: 'nutrition/gut-disc-axis.html', title: 'The Gut-Disc Axis' }
       ]
     },
     {
       folder: 'monitoring', title: 'Monitoring', pages: [
         { file: 'monitoring/index.html', title: 'Monitoring Overview' },
         { file: 'monitoring/biomarkers.html', title: 'Comprehensive Monitoring Panel' },
-        { file: 'monitoring/epigenetic-aging.html', title: 'Epigenetic Aging' },
+        { file: 'monitoring/epigenetic-aging.html', title: 'Epigenetic Age Monitoring' },
+        { file: 'monitoring/puberty-window.html', title: 'Puberty Vulnerability Window' },
         { file: 'monitoring/sleep.html', title: 'Sleep & Circadian Health' },
         { file: 'monitoring/screening-tests.html', title: 'Screening Tests' },
         { file: 'monitoring/red-flags.html', title: 'Red Flags: Emergency Care' }
@@ -68,7 +77,8 @@
         { file: 'future/index.html', title: 'Emerging Therapies' },
         { file: 'future/gene-therapy.html', title: 'Gene Therapy Approaches' },
         { file: 'future/tissue-engineering.html', title: 'Tissue Engineering Timeline' },
-        { file: 'future/clinical-trials.html', title: 'Clinical Trials & Registries' }
+        { file: 'future/clinical-trials.html', title: 'Clinical Trials & Registries' },
+        { file: 'future/advocacy.html', title: 'Rare Disease Advocacy' }
       ]
     },
     {
@@ -78,7 +88,8 @@
         { file: 'living/psychology.html', title: 'Psychological Impact' },
         { file: 'living/school-504.html', title: 'School 504 Plan' },
         { file: 'living/talking.html', title: 'Talking About Marshall' },
-        { file: 'living/specialists.html', title: 'Specialists to Consult' }
+        { file: 'living/specialists.html', title: 'Specialists to Consult' },
+        { file: 'living/pain-neuroscience.html', title: 'Pain Neuroscience in Children' }
       ]
     },
     {
