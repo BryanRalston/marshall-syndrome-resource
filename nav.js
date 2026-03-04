@@ -26,7 +26,10 @@
         { file: 'spine/endplate-calcification.html', title: 'Endplate Calcification Cascade' },
         { file: 'spine/exosome-signaling.html', title: 'Exosome Communication' },
         { file: 'spine/iron-metabolism.html', title: 'Iron Metabolism in the Disc' },
-        { file: 'spine/developmental-signaling.html', title: 'Developmental Signaling Pathways' }
+        { file: 'spine/developmental-signaling.html', title: 'Developmental Signaling Pathways' },
+        { file: 'spine/multi-organ-protection.html', title: 'Multi-Organ Protection: Eyes, Ears & Disc' },
+        { file: 'spine/immune-dysregulation.html', title: 'The Four-Mechanism Immune Cascade' },
+        { file: 'spine/growth-spurt.html', title: 'Growth Spurt Vulnerability Map' }
       ]
     },
     {
@@ -42,7 +45,12 @@
         { file: 'treatment/daily-guide.html', title: 'Practical Daily Guide' },
         { file: 'treatment/anesthesia.html', title: 'Anesthesia Safety' },
         { file: 'treatment/exercise-pathways.html', title: 'Exercise: 10 Molecular Pathways' },
-        { file: 'treatment/supplements-advanced.html', title: 'Advanced Supplement Targets' }
+        { file: 'treatment/supplements-advanced.html', title: 'Advanced Supplement Targets' },
+        { file: 'treatment/pain-stack.html', title: 'The 5-Agent Pain Convergence Stack' },
+        { file: 'treatment/aquatic-therapy.html', title: 'Aquatic Therapy' },
+        { file: 'treatment/photobiomodulation.html', title: 'Photobiomodulation (Red Light Therapy)' },
+        { file: 'treatment/morning-protocol.html', title: 'The 90-Minute Morning Protocol' },
+        { file: 'treatment/complete-protocol.html', title: 'Complete 24-Hour Protocol' }
       ]
     },
     {
@@ -58,7 +66,9 @@
         { file: 'nutrition/gut-spine.html', title: 'The Gut-Spine Connection' },
         { file: 'nutrition/autophagy.html', title: 'Disc Autophagy' },
         { file: 'nutrition/what-not-to-do.html', title: 'What NOT to Do' },
-        { file: 'nutrition/gut-disc-axis.html', title: 'The Gut-Disc Axis' }
+        { file: 'nutrition/gut-disc-axis.html', title: 'The Gut-Disc Axis' },
+        { file: 'nutrition/precision-nutrition.html', title: 'Precision Nutritional Biochemistry' },
+        { file: 'nutrition/environmental-toxins.html', title: 'Environmental Toxin Avoidance' }
       ]
     },
     {
@@ -69,7 +79,8 @@
         { file: 'monitoring/puberty-window.html', title: 'Puberty Vulnerability Window' },
         { file: 'monitoring/sleep.html', title: 'Sleep & Circadian Health' },
         { file: 'monitoring/screening-tests.html', title: 'Screening Tests' },
-        { file: 'monitoring/red-flags.html', title: 'Red Flags: Emergency Care' }
+        { file: 'monitoring/red-flags.html', title: 'Red Flags: Emergency Care' },
+        { file: 'monitoring/biomarker-dashboard.html', title: 'Biomarker Dashboard' }
       ]
     },
     {
