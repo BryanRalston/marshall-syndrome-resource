@@ -448,8 +448,18 @@
 
   <div class="page-body">
 
+    <div class="callout callout-warning" id="backupWarning" style="display:none;">
+      <strong>&#9888; Back up your data!</strong> You have <span id="backupCount">0</span> symptom entries stored in your browser. If you clear your browser history, cache, or cookies, <strong>this data will be lost permanently</strong>. Tap the button below to save a backup file to your phone.
+      <div style="margin-top:12px;display:flex;flex-wrap:wrap;gap:8px;">
+        <button class="btn-action primary" onclick="window._doBackup()" style="border:none;">&#11015; Download Backup Now</button>
+        <button class="btn-action" onclick="window._emailBackup()" style="border:none;">&#9993; Email Backup to Myself</button>
+        <button class="btn-action" onclick="window._dismissBackupWarning()" style="border:none;font-size:0.8rem;">Dismiss (7 days)</button>
+      </div>
+    </div>
+
     <div class="callout callout-info">
-      <strong>Your private symptom diary.</strong> All data is stored locally in your browser &mdash; nothing is sent anywhere. Use the Export button to save a backup, and Print for Doctor to generate a clean summary for appointments.
+      <strong>Your private symptom diary.</strong> All data is stored locally in your browser &mdash; nothing is sent anywhere. <strong style="color:var(--red-600);">Important:</strong> Clearing your browser data will erase your entries. Use the <strong>Download Backup</strong> button regularly to save a copy. You can always restore from a backup using <strong>Import Data</strong>.
+      <div id="lastBackupInfo" style="margin-top:8px;font-size:0.85rem;color:var(--warm-500);"></div>
     </div>
 
     <!-- Dashboard -->
@@ -558,9 +568,10 @@
 
     <!-- Action Bar -->
     <div class="action-bar">
-      <button class="btn-action primary" id="btnPrint">&#128424; Print for Doctor</button>
+      <button class="btn-action primary" id="btnExport">&#11015; Download Backup</button>
+      <button class="btn-action" id="btnEmail">&#9993; Email Backup</button>
+      <button class="btn-action" id="btnPrint">&#128424; Print for Doctor</button>
       <button class="btn-action" id="btnCopy">&#128203; Copy Summary</button>
-      <button class="btn-action" id="btnExport">&#11015; Export Data</button>
       <button class="btn-action" id="btnImportTrigger">&#11014; Import Data</button>
       <input type="file" accept=".json" class="import-input" id="btnImport">
     </div>
@@ -606,6 +617,9 @@
   'use strict';
 
   var STORAGE_KEY = 'marshall_symptom_tracker';
+  var BACKUP_KEY = 'marshall_tracker_last_backup';
+  var BACKUP_COUNT_KEY = 'marshall_tracker_entries_at_backup';
+  var DISMISS_KEY = 'marshall_tracker_backup_dismissed';
 
   // Category colors for timeline dots and badges
   var CAT_COLORS = {
@@ -736,6 +750,8 @@
 
     showToast('Entry added');
     renderAll();
+    updateBackupInfo();
+    checkBackupAfterEntry();
   });
 
   // ===== DELETE ENTRY =====
@@ -994,7 +1010,8 @@
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
-    showToast('Data exported');
+    markBackedUp();
+    showToast('Backup saved! Keep this file safe.');
   });
 
   // ===== IMPORT =====
@@ -1039,8 +1056,142 @@
     this.value = '';
   });
 
+  // ===== BACKUP TRACKING =====
+  function markBackedUp() {
+    localStorage.setItem(BACKUP_KEY, new Date().toISOString());
+    localStorage.setItem(BACKUP_COUNT_KEY, loadEntries().length.toString());
+    updateBackupInfo();
+    hideBackupWarning();
+  }
+
+  function updateBackupInfo() {
+    var lastBackup = localStorage.getItem(BACKUP_KEY);
+    var el = document.getElementById('lastBackupInfo');
+    if (lastBackup) {
+      var d = new Date(lastBackup);
+      var days = Math.floor((Date.now() - d.getTime()) / 86400000);
+      var ago = days === 0 ? 'today' : days === 1 ? 'yesterday' : days + ' days ago';
+      el.textContent = 'Last backup: ' + ago + ' (' + formatDate(lastBackup.split('T')[0]) + ')';
+      if (days > 7) {
+        el.style.color = 'var(--red-600)';
+        el.style.fontWeight = '600';
+      } else {
+        el.style.color = 'var(--warm-500)';
+        el.style.fontWeight = 'normal';
+      }
+    } else {
+      el.innerHTML = '<strong style="color:var(--red-600);">Never backed up.</strong> Please download a backup after adding entries.';
+    }
+  }
+
+  function shouldShowBackupWarning() {
+    var entries = loadEntries();
+    if (entries.length === 0) return false;
+
+    // Check if dismissed recently
+    var dismissed = localStorage.getItem(DISMISS_KEY);
+    if (dismissed) {
+      var dismissedDate = new Date(dismissed);
+      if (Date.now() - dismissedDate.getTime() < 7 * 86400000) return false;
+    }
+
+    // Check if never backed up
+    var lastBackup = localStorage.getItem(BACKUP_KEY);
+    if (!lastBackup && entries.length >= 3) return true;
+
+    // Check if it's been more than 7 days since last backup
+    if (lastBackup) {
+      var daysSince = Math.floor((Date.now() - new Date(lastBackup).getTime()) / 86400000);
+      if (daysSince >= 7) return true;
+    }
+
+    // Check if 5+ new entries since last backup
+    var countAtBackup = parseInt(localStorage.getItem(BACKUP_COUNT_KEY) || '0');
+    if (entries.length - countAtBackup >= 5) return true;
+
+    return false;
+  }
+
+  function showBackupWarning() {
+    var entries = loadEntries();
+    document.getElementById('backupCount').textContent = entries.length;
+    document.getElementById('backupWarning').style.display = 'block';
+  }
+
+  function hideBackupWarning() {
+    document.getElementById('backupWarning').style.display = 'none';
+  }
+
+  window._dismissBackupWarning = function() {
+    localStorage.setItem(DISMISS_KEY, new Date().toISOString());
+    hideBackupWarning();
+  };
+
+  window._doBackup = function() {
+    document.getElementById('btnExport').click();
+  };
+
+  window._emailBackup = function() {
+    document.getElementById('btnEmail').click();
+  };
+
+  // ===== EMAIL BACKUP =====
+  document.getElementById('btnEmail').addEventListener('click', function() {
+    var entries = loadEntries();
+    if (entries.length === 0) { showToast('No entries to email'); return; }
+
+    // Build a readable text summary for the email body
+    entries.sort(function(a, b) { return a.date.localeCompare(b.date); });
+    var lines = ['Marshall Syndrome Symptom Tracker Backup', 'Generated: ' + formatDate(today()), 'Total entries: ' + entries.length, '', 'Date | Time | Category | Severity | Duration | Notes', ''];
+    entries.forEach(function(e) {
+      lines.push(e.date + ' | ' + e.time + ' | ' + e.category + ' | ' + e.severity + '/10 | ' + (e.duration || '-') + ' | ' + (e.notes || '-'));
+    });
+    lines.push('', '---', 'To restore this data, save the attached JSON file and use Import Data on the tracker page.');
+    lines.push('', 'JSON DATA (copy everything between the lines below):', '---START---');
+    lines.push(JSON.stringify(entries));
+    lines.push('---END---');
+
+    var subject = encodeURIComponent('Marshall Symptom Tracker Backup - ' + today());
+    var body = encodeURIComponent(lines.join('\n'));
+
+    // mailto: has URL length limits, truncate body if needed
+    var mailtoUrl = 'mailto:?subject=' + subject + '&body=' + body;
+    if (mailtoUrl.length > 2000) {
+      // For large datasets, just include summary and remind to use Export
+      var shortLines = ['Marshall Syndrome Symptom Tracker Backup', 'Generated: ' + formatDate(today()), 'Total entries: ' + entries.length, '', 'Your data has too many entries to include in an email body.', 'Please use the "Download Backup" button on the tracker page to save a .json file,', 'then attach that file to an email to yourself.', '', 'Summary of recent entries:', ''];
+      var recentEntries = entries.slice(-10);
+      recentEntries.forEach(function(e) {
+        shortLines.push(e.date + ' | ' + e.time + ' | ' + e.category + ' | ' + e.severity + '/10 | ' + (e.notes || '-'));
+      });
+      body = encodeURIComponent(shortLines.join('\n'));
+      mailtoUrl = 'mailto:?subject=' + subject + '&body=' + body;
+    }
+
+    window.location.href = mailtoUrl;
+    markBackedUp();
+    showToast('Email opened — send it to yourself!');
+  });
+
+  // ===== POST-ENTRY BACKUP CHECK =====
+  function checkBackupAfterEntry() {
+    var entries = loadEntries();
+    var countAtBackup = parseInt(localStorage.getItem(BACKUP_COUNT_KEY) || '0');
+    var newSinceBackup = entries.length - countAtBackup;
+
+    if (newSinceBackup > 0 && newSinceBackup % 5 === 0) {
+      // Every 5 new entries since last backup, show reminder
+      setTimeout(function() {
+        showBackupWarning();
+      }, 500);
+    }
+  }
+
   // ===== INIT =====
   renderAll();
+  updateBackupInfo();
+  if (shouldShowBackupWarning()) {
+    showBackupWarning();
+  }
 
 })();
 </script>
