@@ -256,43 +256,105 @@
     });
   }
 
-  // ===== SIMPLE PAGE SEARCH =====
+  // ===== PAGE SEARCH (TreeWalker — safe for interactive pages) =====
   var searchInput = document.getElementById('searchInput');
   var searchCount = document.getElementById('searchCount');
   var pageBody = document.querySelector('.page-body') || document.querySelector('.content');
+  var searchDebounce = null;
+
+  function clearHighlights() {
+    var marks = document.querySelectorAll('mark.search-highlight');
+    for (var mi = 0; mi < marks.length; mi++) {
+      var parent = marks[mi].parentNode;
+      parent.replaceChild(document.createTextNode(marks[mi].textContent), marks[mi]);
+      parent.normalize();
+    }
+  }
+
+  function highlightTextNodes(root, regex) {
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null, false);
+    var textNodes = [];
+    var node;
+    while (node = walker.nextNode()) {
+      // Skip script, style, textarea, input, and already-highlighted marks
+      var tag = node.parentNode.tagName;
+      if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'TEXTAREA' || tag === 'INPUT' || tag === 'MARK') continue;
+      if (regex.test(node.nodeValue)) {
+        textNodes.push(node);
+      }
+      regex.lastIndex = 0;
+    }
+
+    var totalCount = 0;
+    var firstMark = null;
+
+    for (var ti = 0; ti < textNodes.length; ti++) {
+      var textNode = textNodes[ti];
+      var text = textNode.nodeValue;
+      var frag = document.createDocumentFragment();
+      var lastIdx = 0;
+      var match;
+      regex.lastIndex = 0;
+
+      while ((match = regex.exec(text)) !== null) {
+        // Text before match
+        if (match.index > lastIdx) {
+          frag.appendChild(document.createTextNode(text.substring(lastIdx, match.index)));
+        }
+        // Highlighted match
+        var mark = document.createElement('mark');
+        mark.className = 'search-highlight';
+        mark.textContent = match[0];
+        frag.appendChild(mark);
+        if (!firstMark) firstMark = mark;
+        totalCount++;
+        lastIdx = regex.lastIndex;
+      }
+
+      // Remaining text after last match
+      if (lastIdx < text.length) {
+        frag.appendChild(document.createTextNode(text.substring(lastIdx)));
+      }
+
+      textNode.parentNode.replaceChild(frag, textNode);
+    }
+
+    return { count: totalCount, firstMark: firstMark };
+  }
 
   if (searchInput && pageBody) {
-    var originalHTML = pageBody.innerHTML;
-
     searchInput.addEventListener('input', function() {
-      var query = this.value.trim();
-      if (query.length < 2) {
-        pageBody.innerHTML = originalHTML;
-        if (searchCount) searchCount.textContent = '';
-        return;
-      }
+      clearTimeout(searchDebounce);
+      searchDebounce = setTimeout(function() {
+        clearHighlights();
 
-      var escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-      var regex = new RegExp('(' + escaped + ')', 'gi');
-      var text = pageBody.textContent || pageBody.innerText;
-      var matches = text.match(regex);
-      var count = matches ? matches.length : 0;
-
-      if (searchCount) {
-        searchCount.textContent = count + ' match' + (count !== 1 ? 'es' : '');
-      }
-
-      if (count > 0) {
-        // Highlight text but skip inside HTML tags
-        var parts = originalHTML.split(/(<[^>]+>)/);
-        for (var k = 0; k < parts.length; k++) {
-          if (parts[k].charAt(0) !== '<') {
-            parts[k] = parts[k].replace(regex, '<mark class="search-highlight">$1</mark>');
-          }
+        var query = searchInput.value.trim();
+        if (query.length < 2) {
+          if (searchCount) searchCount.textContent = '';
+          return;
         }
-        pageBody.innerHTML = parts.join('');
-      } else {
-        pageBody.innerHTML = originalHTML;
+
+        var escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        var regex = new RegExp('(' + escaped + ')', 'gi');
+        var result = highlightTextNodes(pageBody, regex);
+
+        if (searchCount) {
+          searchCount.textContent = result.count + ' match' + (result.count !== 1 ? 'es' : '');
+        }
+
+        // Scroll to first match
+        if (result.firstMark) {
+          result.firstMark.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }, 200);
+    });
+
+    // Clear on Escape
+    searchInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        searchInput.value = '';
+        clearHighlights();
+        if (searchCount) searchCount.textContent = '';
       }
     });
   }
