@@ -12,7 +12,8 @@
       folder: 'basics', title: 'Basics', pages: [
         { file: 'basics/index.html', title: 'What is Marshall Syndrome?' },
         { file: 'basics/molecular-biology.html', title: 'The Molecular Biology' },
-        { file: 'basics/natural-history.html', title: 'Decade-by-Decade Natural History' }
+        { file: 'basics/natural-history.html', title: 'Decade-by-Decade Natural History' },
+        { file: 'basics/marshall-vs-stickler.html', title: 'Marshall vs. Stickler' }
       ]
     },
     {
@@ -126,7 +127,8 @@
         { file: 'emerging/nocturnal-destruction.html', title: 'The Nocturnal Destruction Window' },
         { file: 'emerging/pemf-timing.html', title: 'PEMF Timing & the Safe Window' },
         { file: 'emerging/complement-ferroptosis.html', title: 'Complement-Ferroptosis Interaction' },
-        { file: 'emerging/chronotherapy-protocol.html', title: 'Complete 24-Hour Chronotherapy Protocol' }
+        { file: 'emerging/chronotherapy-protocol.html', title: 'Complete 24-Hour Chronotherapy Protocol' },
+        { file: 'emerging/mcas-neuroinflammation.html', title: 'MCAS, Complement & Neuroinflammation' }
       ]
     }
   ];
