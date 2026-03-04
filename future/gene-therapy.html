@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gene Therapy Approaches - Marshall Syndrome Resource</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation">&#9776;</button>
+  <a href="../" class="header-title">Marshall Syndrome <span>Resource</span></a>
+  <div class="search-wrapper">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" id="searchInput" placeholder="Search this page..." aria-label="Search">
+  </div>
+  <span class="search-count" id="searchCount"></span>
+</header>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<nav class="sidebar" id="sidebar"></nav>
+
+<div class="main">
+<div class="content">
+
+  <nav class="breadcrumb" id="breadcrumb"></nav>
+
+  <div class="page-header">
+    <h1>Gene Therapy Approaches</h1>
+  </div>
+
+  <div class="page-body">
+    <p>Gene therapy for Marshall syndrome faces a unique challenge: the goal is not to add a missing gene (as in many gene therapies), but to <strong>silence the mutant allele</strong> that produces the dominant-negative protein. This distinction fundamentally shapes the therapeutic strategy.</p>
+
+    <h3>Why Silencing, Not Fixing</h3>
+    <div class="callout callout-info">
+      <strong>Key principle:</strong> People who carry a <strong>null mutation</strong> (one copy of COL11A1 simply does not produce protein) are <strong>clinically unaffected</strong>. Haploinsufficiency is benign. The disease is caused entirely by the <strong>dominant-negative protein</strong> actively sabotaging collagen XI trimers. Therefore, the therapeutic goal is to silence the mutant allele and let the normal allele work alone &mdash; not to fix the mutation.
+    </div>
+    <p>This is therapeutically advantageous because silencing a gene is generally easier than correcting a specific mutation.</p>
+
+    <h3>Allele-Specific Silencing: Proof of Concept</h3>
+    <p>In 2024, Bhatt et al. demonstrated <strong>allele-specific silencing for COL6A1 mutations</strong> (a related collagen disorder causing Bethlem myopathy and Ullrich congenital muscular dystrophy):</p>
+    <ul>
+      <li>Achieved <strong>&gt;80% silencing of the mutant allele</strong> while preserving normal allele expression</li>
+      <li>Used antisense oligonucleotides (ASOs) designed to target the specific mutation-bearing transcript</li>
+      <li>The approach is <strong>directly applicable in principle to COL11A1</strong> dominant-negative splice mutations</li>
+      <li>Marshall syndrome's splice-site mutations create distinctive mRNA sequences at the exon-skip junction that can serve as ASO binding targets</li>
+    </ul>
+
+    <h3>Gene Editing Technologies Under Development</h3>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Technology</th><th>Mechanism</th><th>Status for Collagen Disorders</th></tr></thead>
+      <tbody>
+        <tr><td><strong>CRISPR-Cas9</strong></td><td>Cuts DNA at target site; can disrupt mutant allele</td><td>Proven in iPSC-derived chondrocytes (2025). Risk: off-target cuts.</td></tr>
+        <tr><td><strong>Base editing</strong></td><td>Converts single DNA bases (e.g., C&rarr;T) without cutting DNA</td><td>Higher precision than CRISPR. Could correct point mutations at splice sites.</td></tr>
+        <tr><td><strong>Prime editing</strong></td><td>"Search and replace" &mdash; can insert, delete, or swap multiple bases</td><td>Most versatile but least efficient. Could potentially correct any COL11A1 mutation.</td></tr>
+        <tr><td><strong>Exon skipping (ASOs)</strong></td><td>Force specific exon inclusion or exclusion at mRNA level</td><td>Preclinical for collagen disorders. Already FDA-approved for DMD (eteplirsen).</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3>Delivery Challenge: Getting to the Disc</h3>
+    <p>The major unsolved problem is <strong>delivery</strong>. Intervertebral discs are avascular, hypoxic, and mechanically loaded &mdash; all factors that make gene therapy delivery difficult:</p>
+    <ul>
+      <li>Systemic (IV) delivery does not reliably reach disc tissue</li>
+      <li>Direct intradiscal injection is feasible but carries infection risk and may need to be repeated</li>
+      <li>AAV vectors (the most common gene therapy delivery vehicle) have limited cargo capacity and uncertain persistence in disc cells</li>
+      <li>Exosome-based delivery and nanoparticle approaches are being explored as alternatives</li>
+    </ul>
+
+    <h3>Realistic Timeline</h3>
+    <p>Based on current progress in related collagen disorders and the disc delivery challenge:</p>
+    <ul>
+      <li><strong>Allele-specific ASOs for COL11A1:</strong> 5&ndash;10 years to clinical trials (N-of-1 framework could accelerate this)</li>
+      <li><strong>Gene editing for COL11A1 in vivo:</strong> 10&ndash;15 years (requires solving the delivery problem)</li>
+      <li><strong>Ex vivo gene correction + cell transplant:</strong> 10&ndash;15 years (see <a href="./tissue-engineering.html">Tissue Engineering</a>)</li>
+    </ul>
+    <p>These timelines are speculative but grounded in the current pace of ASO and gene editing development for related conditions.</p>
+
+    <h3>What Vyjuvek Proved</h3>
+    <p>The 2023 FDA approval of <strong>Vyjuvek</strong> (beremagene geperpavec) for COL7A1 epidermolysis bullosa proved that collagen gene therapy can clear regulatory hurdles and reach patients. While skin delivery is far simpler than disc delivery, the manufacturing, safety, and regulatory precedents now exist for collagen-targeted gene therapies.</p>
+  </div>
+  </div>
+
+  <div class="prev-next">
+    <a href="./index.html" class="prev-next-link">&larr; Emerging Therapies and Research Frontiers</a>
+    <a href="./tissue-engineering.html" class="prev-next-link">Tissue Engineering Timeline &rarr;</a>
+  </div>
+
+</div>
+</div>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top">&#8593;</button>
+
+<script src="../nav.js"></script>
+</body>
+</html>
