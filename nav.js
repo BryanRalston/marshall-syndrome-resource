@@ -109,7 +109,8 @@
         { file: 'living/pain-neuroscience.html', title: 'Pain Neuroscience in Children' },
         { file: 'living/psychological-support.html', title: 'Psychological & Social Support' },
         { file: 'living/autonomic-dysfunction.html', title: 'Autonomic Dysfunction' },
-        { file: 'living/symptom-tracker.html', title: 'Symptom Timeline & Tracker' }
+        { file: 'living/symptom-tracker.html', title: 'Symptom Timeline & Tracker' },
+        { file: 'living/symptom-navigator.html', title: 'Symptom Navigator' }
       ]
     },
     {
