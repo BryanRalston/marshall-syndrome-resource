@@ -100,6 +100,16 @@
         { file: 'resources/support.html', title: 'Support Resources' },
         { file: 'resources/references.html', title: 'References' }
       ]
+    },
+    {
+      folder: 'emerging', title: 'Emerging Research', pages: [
+        { file: 'emerging/index.html', title: 'Emerging Research Overview' },
+        { file: 'emerging/nrf2-convergence.html', title: 'NRF2: The Master Convergence Node' },
+        { file: 'emerging/nocturnal-destruction.html', title: 'The Nocturnal Destruction Window' },
+        { file: 'emerging/pemf-timing.html', title: 'PEMF Timing & the Safe Window' },
+        { file: 'emerging/complement-ferroptosis.html', title: 'Complement-Ferroptosis Interaction' },
+        { file: 'emerging/chronotherapy-protocol.html', title: 'Complete 24-Hour Chronotherapy Protocol' }
+      ]
     }
   ];
 
