@@ -37,7 +37,9 @@
         { file: 'spine/craniocervical-instability.html', title: 'Craniocervical Instability (CCI)', k: 'CCI AAI atlantoaxial instability craniocervical junction C1 C2 atlas axis transverse ligament Lhermitte sign leg weakness red ears evening fatigue Chiari settling fusion clivo-axial angle Grabb-Oakes ADI flexion extension upright MRI DMX' },
         { file: 'spine/lhermitte-sign.html', title: 'Lhermitte\'s Sign: 12 Convergent Mechanisms', k: 'Lhermitte sign electric shock neck zap flexion dorsal column ephaptic transmission demyelination ferroptosis oligodendrocyte Chiari syringomyelia vascular posterior spinal artery tethered cord zinc copper B12 deficiency convergence myelopathy radiation' },
         { file: 'spine/scoliosis.html', title: 'Scoliosis & Kyphosis', k: 'scoliosis kyphosis Cobb angle bracing Boston Rigo Schroth SEAS platyspondyly Scheuermann curve progression Risser Sanders VBT vertebral body tethering growing rods MAGEC spinal fusion Adams forward bend EOS' },
-        { file: 'spine/csf-leak.html', title: 'CSF Leak & Intracranial Hypotension', k: 'CSF leak cerebrospinal fluid intracranial hypotension dura mater positional headache orthostatic headache brain sagging pachymeningeal enhancement epidural blood patch myelography dural ectasia dural weakness connective tissue collagen atraumatic needle lumbar puncture spinal anaesthesia CCI overlap prevention' }
+        { file: 'spine/csf-leak.html', title: 'CSF Leak & Intracranial Hypotension', k: 'CSF leak cerebrospinal fluid intracranial hypotension dura mater positional headache orthostatic headache brain sagging pachymeningeal enhancement epidural blood patch myelography dural ectasia dural weakness connective tissue collagen atraumatic needle lumbar puncture spinal anaesthesia CCI overlap prevention' },
+        { file: 'spine/lumbar-stenosis.html', title: 'Lumbar Spinal Stenosis', k: 'lumbar stenosis spinal canal narrowing neurogenic claudication radiculopathy cauda equina laminectomy foraminotomy decompression spondylolisthesis facet hypertrophy ligamentum flavum Williams flexion epidural' },
+        { file: 'spine/tethered-cord.html', title: 'Tethered Cord Syndrome', k: 'tethered cord filum terminale conus medullaris bladder bowel leg weakness foot deformity pes cavus growth spurt untethering neurosurgery occult spinal dysraphism SSEP urodynamic' }
       ]
     },
     {
@@ -64,7 +66,9 @@
         { file: 'treatment/vagus-nerve-stimulation.html', title: 'Vagus Nerve Stimulation (taVNS)', k: 'vagus nerve stimulation taVNS transcutaneous auricular cholinergic anti-inflammatory pathway CAP TNF IL-6 pain neuromodulation ear tragus FDA pediatric' },
         { file: 'treatment/small-fiber-neuropathy.html', title: 'Small Fiber Neuropathy Testing', k: 'small fiber neuropathy SFN skin punch biopsy IENFD intraepidermal nerve fiber density burning pain allodynia autonomic C-fiber A-delta perineurium collagen nerve sheath QST sudomotor corneal confocal' },
         { file: 'treatment/osteoarthritis.html', title: 'Early-Onset Osteoarthritis', k: 'osteoarthritis OA joint pain hip knee ankle cartilage degradation MMP-13 COMP hypermobility stiffness joint replacement arthroplasty hyaluronic acid PRP corticosteroid bracing orthotics rheumatologist pediatric' },
-        { file: 'treatment/hypermobility-management.html', title: 'Hypermobility Management', k: 'hypermobility Beighton score joint laxity proprioception balance training ring splint orthotics bracing closed chain exercise subluxation instability EDS connective tissue PT strengthening ankle knee shoulder wrist' }
+        { file: 'treatment/hypermobility-management.html', title: 'Hypermobility Management', k: 'hypermobility Beighton score joint laxity proprioception balance training ring splint orthotics bracing closed chain exercise subluxation instability EDS connective tissue PT strengthening ankle knee shoulder wrist' },
+        { file: 'treatment/tens-guide.html', title: 'TENS Practical Guide', k: 'TENS transcutaneous electrical nerve stimulation electrode placement gate control pain frequency pulse width burst mode pediatric drug-free non-invasive back knee neck hip shoulder' },
+        { file: 'treatment/medication-sensitivity.html', title: 'Medication Sensitivity & Drug Reactions', k: 'medication sensitivity drug reaction local anesthetic resistance fluoroquinolone tendon NSAID gastropathy corticosteroid opioid pharmacogenomics CYP2D6 CYP2C19 mast cell autonomic adverse effect' }
       ]
     },
     {
@@ -83,7 +87,8 @@
         { file: 'nutrition/gut-disc-axis.html', title: 'The Gut-Disc Axis', k: 'gut disc axis microbiome butyrate short chain fatty acids SCFA LPS endotoxin' },
         { file: 'nutrition/precision-nutrition.html', title: 'Precision Nutritional Biochemistry', k: 'precision nutrition biochemistry personalized nutrigenomics biomarker-guided micronutrient' },
         { file: 'nutrition/environmental-toxins.html', title: 'Environmental Toxin Avoidance', k: 'environmental toxins BPA phthalates pesticides heavy metals air quality water filter endocrine disruptors' },
-        { file: 'nutrition/gut-permeability.html', title: 'Gut Permeability & COL11A1', k: 'gut permeability leaky gut COL11A1 intestinal barrier goblet cell LPS translocation TLR4 NF-kB zonulin calprotectin glutamine butyrate probiotic microbiome bacterial translocation' }
+        { file: 'nutrition/gut-permeability.html', title: 'Gut Permeability & COL11A1', k: 'gut permeability leaky gut COL11A1 intestinal barrier goblet cell LPS translocation TLR4 NF-kB zonulin calprotectin glutamine butyrate probiotic microbiome bacterial translocation' },
+        { file: 'nutrition/reflux-gi-motility.html', title: 'Reflux & GI Motility', k: 'reflux GERD gastroesophageal LES hiatal hernia gastroparesis IBS constipation bloating dyspepsia PPI prokinetic fundoplication mast cell gut motility autonomic' }
       ]
     },
     {
@@ -100,7 +105,8 @@
         { file: 'monitoring/growth-velocity.html', title: 'Growth Velocity Monitoring', k: 'growth velocity height weight BMI percentile growth chart pediatric endocrinology bone age' },
         { file: 'monitoring/endocrine-panel.html', title: 'Endocrine & Bone Health Monitoring', k: 'endocrine bone health DEXA vitamin D calcium thyroid TSH IGF-1 growth hormone ferritin iron bone density osteoporosis osteopenia mineralization BSP Tanner puberty' },
         { file: 'monitoring/sleep-apnea.html', title: 'Sleep-Disordered Breathing & OSA', k: 'sleep apnea OSA obstructive central snoring airway CPAP polysomnography PSG adenotonsillectomy midface micrognathia Pierre Robin hypoxia triple-hit nocturnal HIF NF-kB' },
-        { file: 'monitoring/cardiac-screening.html', title: 'Cardiac Screening & MVP', k: 'cardiac heart mitral valve prolapse MVP echocardiogram echo aortic root palpitations arrhythmia endocarditis collagen valve myxomatous regurgitation cardiologist sports clearance autonomic POTS' }
+        { file: 'monitoring/cardiac-screening.html', title: 'Cardiac Screening & MVP', k: 'cardiac heart mitral valve prolapse MVP echocardiogram echo aortic root palpitations arrhythmia endocarditis collagen valve myxomatous regurgitation cardiologist sports clearance autonomic POTS' },
+        { file: 'monitoring/short-stature.html', title: 'Short Stature & Growth Hormone', k: 'short stature height growth hormone GH IGF-1 bone age platyspondyly disproportionate trunk endocrinology growth velocity percentile skeletal dysplasia psychosocial body image' }
       ]
     },
     {
@@ -134,7 +140,10 @@
         { file: 'living/transition-adult-care.html', title: 'Transition to Adult Care', k: 'transition adult care pediatric transfer self-advocacy medical summary insurance ADA employment disability pregnancy parenthood genetic risk specialist adult provider independence teen young adult' },
         { file: 'living/headaches.html', title: 'Headaches: 5 Types in Marshall Syndrome', k: 'headache migraine cervicogenic positional CSF leak tension medication overuse occipital neuralgia trigeminovascular Chiari intracranial hypotension red flag GON block headache diary' },
         { file: 'living/fatigue-management.html', title: 'Fatigue Management', k: 'fatigue energy spoon theory pacing post-exertional malaise brain fog cognitive fatigue exercise paradox sleep disruption autonomic deconditioning school accommodations energy envelope boom bust' },
-        { file: 'living/dental-orthodontic.html', title: 'Dental & Orthodontic Management', k: 'dental orthodontic teeth enamel malocclusion Pierre Robin palate cleft jaw mandible TMJ braces retention root resorption local anesthetic sedation airway fluoride sealant caries periodontal' }
+        { file: 'living/dental-orthodontic.html', title: 'Dental & Orthodontic Management', k: 'dental orthodontic teeth enamel malocclusion Pierre Robin palate cleft jaw mandible TMJ braces retention root resorption local anesthetic sedation airway fluoride sealant caries periodontal' },
+        { file: 'living/strabismus.html', title: 'Strabismus (Eye Misalignment)', k: 'strabismus esotropia exotropia hypertropia amblyopia lazy eye binocular vision depth perception eye muscle surgery recession resection prism patching scleral thinning pediatric ophthalmologist' },
+        { file: 'living/easy-bruising.html', title: 'Easy Bruising & Abuse Differentiation', k: 'bruising easy bruise capillary fragility vascular collagen child abuse non-accidental injury NAI CPS mandatory reporting geneticist letter documentation proactive von Willebrand coagulation' },
+        { file: 'living/vpi-nasal-speech.html', title: 'VPI & Nasal Speech', k: 'VPI velopharyngeal insufficiency nasal speech hypernasal cleft palate velum pharyngeal flap sphincter pharyngoplasty speech therapy SLP nasometry videofluoroscopy submucous cleft intelligibility articulation' }
       ]
     },
     {
