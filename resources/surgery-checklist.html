@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pre-Surgery Preparation Checklist — Marshall Syndrome Resource</title>
+<link rel="stylesheet" href="../styles.css">
+<style>
+  /* Print styles: only print the surgery letter template */
+  @media print {
+    .site-header, .sidebar, .sidebar-overlay, .breadcrumb, .page-header,
+    .prev-next, .back-to-top, .hamburger, .search-wrapper, .search-count,
+    .no-print, #backToTop {
+      display: none !important;
+    }
+    .main, .content {
+      margin: 0 !important;
+      padding: 0 !important;
+      max-width: 100% !important;
+    }
+    .page-body > *:not(.surgery-letter) {
+      display: none !important;
+    }
+    .surgery-letter {
+      border: 2px solid #000 !important;
+      background: #fff !important;
+      color: #000 !important;
+      padding: 24px !important;
+      margin: 0 !important;
+      box-shadow: none !important;
+      page-break-inside: avoid;
+      font-size: 11pt;
+    }
+    .surgery-letter h2,
+    .surgery-letter h3 {
+      color: #000 !important;
+    }
+    .surgery-letter .letter-header {
+      background: #000 !important;
+      color: #fff !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .surgery-letter .fill-line {
+      border-bottom: 1px solid #000 !important;
+    }
+    .surgery-letter .letter-alert {
+      border-color: #000 !important;
+      background: #f5f5f5 !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .print-btn {
+      display: none !important;
+    }
+  }
+
+  /* Screen styles for the surgery letter */
+  .surgery-letter {
+    border: 2px solid var(--warm-400);
+    border-radius: 12px;
+    padding: 24px;
+    margin: 24px 0;
+    background: var(--warm-50);
+  }
+  .letter-header {
+    background: #1e40af;
+    color: #fff;
+    text-align: center;
+    padding: 14px 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+  .letter-header small {
+    display: block;
+    font-weight: 400;
+    font-size: 0.8rem;
+    letter-spacing: 0;
+    margin-top: 4px;
+    opacity: 0.9;
+  }
+  .letter-alert {
+    border: 2px solid #b91c1c;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    background: #fef2f2;
+  }
+  .letter-alert strong {
+    color: #b91c1c;
+  }
+  .letter-section {
+    margin-bottom: 18px;
+  }
+  .letter-section h3 {
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    border-bottom: 2px solid var(--warm-300);
+    padding-bottom: 6px;
+    margin-bottom: 10px;
+  }
+  .letter-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 6px;
+    align-items: baseline;
+  }
+  .letter-row .label {
+    font-weight: 600;
+    min-width: 160px;
+    flex-shrink: 0;
+  }
+  .fill-line {
+    flex: 1;
+    border-bottom: 1px dashed var(--warm-400);
+    min-width: 100px;
+    height: 1.2em;
+  }
+  .print-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--blue-600, #2563eb);
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 16px 0;
+    transition: background 0.2s;
+  }
+  .print-btn:hover {
+    background: var(--blue-700, #1d4ed8);
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation">&#9776;</button>
+  <a href="../" class="header-title">Marshall Syndrome <span>Resource</span></a>
+  <div class="search-wrapper">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" id="searchInput" placeholder="Search this page..." aria-label="Search">
+  </div>
+  <span class="search-count" id="searchCount"></span>
+</header>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<nav class="sidebar" id="sidebar"></nav>
+
+<div class="main">
+<div class="content">
+
+  <nav class="breadcrumb" id="breadcrumb"></nav>
+
+  <div class="page-header">
+    <h1>Pre-Surgery Preparation Checklist</h1>
+  </div>
+
+  <div class="page-body">
+
+    <div class="callout callout-warning">
+      <strong>Every surgery &mdash; no matter how &ldquo;routine&rdquo; &mdash; carries unique risks for a child with Marshall syndrome.</strong> Defective type XI collagen affects the airway, cervical spine, eyes, connective tissue, wound healing, and pain processing. Surgical teams unfamiliar with COL11A1 mutations can miss critical precautions. This checklist exists to prevent that.
+    </div>
+
+    <!-- ============================================ -->
+    <!-- 1. WHY SURGERY IS DIFFERENT -->
+    <!-- ============================================ -->
+    <h2>Why Surgery is Different with Marshall Syndrome</h2>
+
+    <p>Children with COL11A1 mutations face more surgeries than the general pediatric population. Common procedures include:</p>
+
+    <ul>
+      <li><strong>Retinal detachment repair</strong> &mdash; vitrectomy, scleral buckle</li>
+      <li><strong>Ear tubes (myringotomy)</strong> &mdash; often repeated multiple times</li>
+      <li><strong>Adenotonsillectomy</strong> &mdash; for airway obstruction or sleep apnea</li>
+      <li><strong>Cleft palate / VPI repair</strong> &mdash; sometimes staged over several years</li>
+      <li><strong>Scoliosis correction</strong> &mdash; posterior spinal fusion</li>
+      <li><strong>Strabismus surgery</strong> &mdash; eye muscle repair</li>
+      <li><strong>Dental procedures requiring sedation</strong> &mdash; especially in children with micrognathia</li>
+      <li><strong>Spinal decompression</strong> &mdash; for cervical myelopathy or stenosis</li>
+    </ul>
+
+    <p>Each of these carries risks that standard surgical teams may not anticipate. The airway is not normal. The cervical spine may be unstable. The sclera is thinner than expected. Collagen-dependent wound healing is impaired. Pain processing may be altered by central sensitization. A &ldquo;routine&rdquo; procedure in a typical child is never routine in a child with Marshall syndrome.</p>
+
+    <div class="callout callout-info">
+      <strong>Key principle:</strong> Your job as the family is to ensure that every member of the surgical team &mdash; surgeon, anesthesiologist, nursing staff &mdash; understands the COL11A1-specific risks <em>before</em> the day of surgery. The pre-surgery letter below is your primary tool for making that happen.
+    </div>
+
+    <!-- ============================================ -->
+    <!-- 2. THE UNIVERSAL PRE-SURGERY LETTER -->
+    <!-- ============================================ -->
+    <h2 class="no-print">The Universal Pre-Surgery Letter</h2>
+
+    <p class="no-print">This letter template should accompany <strong>every surgical encounter</strong> &mdash; from ear tubes to spinal fusion, from dental sedation to retinal detachment repair. Print it, fill in the patient-specific fields, and provide copies to the surgeon, anesthesiologist, and pre-op nursing team. Request that it be placed in the front of the chart.</p>
+
+    <!-- PRINT BUTTON -->
+    <div class="no-print" style="text-align:center; margin: 24px 0;">
+      <button onclick="window.print()" class="print-btn">&#128424; Print Pre-Surgery Letter</button>
+      <p style="font-size:0.85rem; color: var(--warm-500); margin-top:8px;">Prints only the letter template below. All other page content is hidden automatically.</p>
+    </div>
+
+    <!-- === THE PRINTABLE SURGERY LETTER === -->
+    <div class="surgery-letter" id="surgeryLetter">
+
+      <div class="letter-header">
+        PRE-SURGERY MEDICAL ALERT &mdash; MARSHALL SYNDROME
+        <small>COL11A1 Mutation &bull; Type XI Collagenopathy &bull; Stickler Syndrome Type 2</small>
+      </div>
+
+      <div class="letter-section">
+        <h3>Patient Information</h3>
+        <div class="letter-row"><span class="label">Patient name:</span> <span class="fill-line"></span></div>
+        <div class="letter-row"><span class="label">Date of birth:</span> <span class="fill-line"></span></div>
+        <div class="letter-row"><span class="label">Scheduled procedure:</span> <span class="fill-line"></span></div>
+        <div class="letter-row"><span class="label">Procedure date:</span> <span class="fill-line"></span></div>
+        <div class="letter-row"><span class="label">Surgeon:</span> <span class="fill-line"></span></div>
+      </div>
+
+      <div class="letter-section">
+        <h3>Diagnosis</h3>
+        <p><strong>Marshall syndrome</strong> (COL11A1 mutation, type XI collagenopathy). Also classified as Stickler syndrome type 2. Autosomal dominant inheritance. This is a systemic connective tissue disorder affecting the eyes, ears, skeleton, orofacial structures, and all collagen-dependent tissues.</p>
+        <div class="letter-row"><span class="label">Specific mutation:</span> <span class="fill-line"></span></div>
+        <div class="letter-row"><span class="label">Confirming geneticist:</span> <span class="fill-line"></span></div>
+      </div>
+
+      <div class="letter-alert">
+        <strong>AIRWAY ALERT:</strong> History of Pierre Robin sequence / micrognathia / midface hypoplasia (circle applicable). Potential difficult intubation. Request experienced anesthesiologist with fiber-optic or video laryngoscope available. Multiple intubation attempts may be required. See OrphanAnesthesia guidelines for Stickler syndrome.
+      </div>
+
+      <div class="letter-alert">
+        <strong>CERVICAL SPINE:</strong> Risk of craniocervical instability (CCI). Avoid excessive neck extension during intubation and positioning. Request flexion-extension imaging clearance if not performed within the past 12 months. ADI measurement should be documented.
+      </div>
+
+      <div class="letter-alert">
+        <strong>EYES:</strong> High risk of retinal detachment (65% lifetime risk). Avoid Valsalva maneuvers during anesthesia. Position head carefully. Avoid prone positioning when possible. Alert ophthalmology if any acute vision changes post-operatively.
+      </div>
+
+      <div class="letter-section">
+        <h3>Cardiac Status</h3>
+        <div class="letter-row"><span class="label">Mitral valve prolapse:</span> <span class="fill-line"></span></div>
+        <div class="letter-row"><span class="label">Endocarditis prophylaxis:</span> <span class="fill-line"></span></div>
+        <div class="letter-row"><span class="label">Last echocardiogram:</span> <span class="fill-line"></span></div>
+      </div>
+
+      <div class="letter-section">
+        <h3>Current Medications</h3>
+        <div class="letter-row"><span class="label">Medications:</span> <span class="fill-line"></span></div>
+        <div class="letter-row"><span class="label"></span> <span class="fill-line"></span></div>
+        <div class="letter-row"><span class="label">Known sensitivities:</span> <span class="fill-line"></span></div>
+        <div class="letter-row"><span class="label">Allergies:</span> <span class="fill-line"></span></div>
+      </div>
+
+      <div class="letter-section">
+        <h3>Anesthetic History</h3>
+        <div class="letter-row"><span class="label">Prior intubation difficulties:</span> <span class="fill-line"></span></div>
+        <div class="letter-row"><span class="label">Medication reactions:</span> <span class="fill-line"></span></div>
+        <div class="letter-row"><span class="label">Number of prior general anesthetics:</span> <span class="fill-line"></span></div>
+        <div class="letter-row"><span class="label">Local anesthetic resistance noted:</span> <span class="fill-line"></span></div>
+      </div>
+
+      <div class="letter-section">
+        <h3>Bleeding &amp; Coagulation</h3>
+        <div class="letter-row"><span class="label">Easy bruising tendency:</span> <span class="fill-line"></span></div>
+        <div class="letter-row"><span class="label">Coagulation studies date:</span> <span class="fill-line"></span></div>
+        <div class="letter-row"><span class="label">Results:</span> <span class="fill-line"></span></div>
+      </div>
+
+      <div class="letter-section">
+        <h3>Wound Healing</h3>
+        <p>Defective type XI collagen impairs wound tensile strength. Expect slower healing (50&ndash;100% longer to reach adequate strength), wider scars, and higher risk of wound dehiscence. Consider delayed suture removal, prolonged drain placement, and extended wound support (steri-strips, surgical tape).</p>
+      </div>
+
+      <div class="letter-section">
+        <h3>Reference for Treating Team</h3>
+        <ul style="margin:0; padding-left:20px; font-size:0.9rem;">
+          <li><strong>OrphanAnesthesia:</strong> orphananesthesia.eu &mdash; anesthesia guidelines for Stickler syndrome</li>
+          <li><strong>GeneReviews:</strong> ncbi.nlm.nih.gov/books/NBK1302/ &mdash; Stickler syndrome clinical overview</li>
+        </ul>
+      </div>
+
+      <div class="letter-section">
+        <h3>Family Contact</h3>
+        <div class="letter-row"><span class="label">Parent/guardian name:</span> <span class="fill-line"></span></div>
+        <div class="letter-row"><span class="label">Phone:</span> <span class="fill-line"></span></div>
+        <div class="letter-row"><span class="label">Geneticist phone:</span> <span class="fill-line"></span></div>
+      </div>
+
+      <p style="font-size:0.75rem; text-align:center; margin-bottom:0; color:#666;">
+        Letter date: ______/______/______ &nbsp;&bull;&nbsp; Update before each surgical encounter.
+        <br>Template from marshallsyndrome.info &mdash; Marshall Syndrome Resource
+      </p>
+
+    </div>
+    <!-- === END SURGERY LETTER === -->
+
+    <div class="no-print" style="text-align:center; margin: 16px 0 32px;">
+      <button onclick="window.print()" class="print-btn">&#128424; Print Pre-Surgery Letter</button>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- 3. CERVICAL SPINE CLEARANCE PROTOCOL -->
+    <!-- ============================================ -->
+    <h2>Cervical Spine Clearance Protocol</h2>
+
+    <div class="callout callout-warning">
+      <strong>Before ANY procedure requiring neck extension or intubation, cervical spine clearance must be obtained.</strong> Craniocervical instability (CCI) in COL11A1 patients can lead to catastrophic spinal cord injury during intubation if the neck is hyperextended without imaging clearance.
+    </div>
+
+    <p>The following imaging and measurements should be completed:</p>
+
+    <ol>
+      <li><strong>Flexion-extension X-rays</strong> or <strong>dynamic MRI</strong> within the past 12 months. Static imaging alone is insufficient &mdash; instability is often only visible during movement.</li>
+      <li><strong>Atlantodental interval (ADI) measurement:</strong> An ADI greater than 3 mm in a child is abnormal and indicates potential atlantoaxial instability. The anesthesiologist must be informed of this value.</li>
+      <li><strong>If CCI is suspected:</strong> Obtain an upright MRI (gravity-loaded) and measure the clivo-axial angle. A clivo-axial angle less than 135 degrees suggests significant brainstem compression risk.</li>
+      <li><strong>Document clearance in the chart:</strong> Ensure the imaging report and clearance note are available to the anesthesiologist on the day of surgery, not buried in a radiology archive.</li>
+    </ol>
+
+    <div class="callout callout-tip">
+      <strong>Practical tip:</strong> Many families keep a copy of their most recent cervical imaging report in their surgery binder alongside the pre-surgery letter. If imaging is more than 12 months old, request updated imaging at the pre-surgical consult &mdash; not on the day of surgery.
+    </div>
+
+    <p>For detailed information on craniocervical instability in Marshall syndrome, see <a href="../spine/craniocervical-instability.html">Craniocervical Instability</a>.</p>
+
+    <!-- ============================================ -->
+    <!-- 4. ANESTHESIA CHECKLIST -->
+    <!-- ============================================ -->
+    <h2>Anesthesia Checklist</h2>
+
+    <p>Anesthesia in a child with Marshall syndrome is not &ldquo;standard pediatric anesthesia.&rdquo; The combination of a difficult airway, cervical spine risk, and connective tissue fragility requires specific preparation. For the full clinical discussion, see <a href="../treatment/anesthesia.html">Anesthesia &amp; Airway Management</a>.</p>
+
+    <h3>Before Surgery</h3>
+    <ul>
+      <li><strong>Request a pre-procedure anesthesia consult</strong> &mdash; ideally 1&ndash;2 weeks before the procedure, not on the day of surgery. This gives the anesthesiologist time to review the case, plan the airway approach, and gather specialized equipment.</li>
+      <li><strong>Bring the OrphanAnesthesia guidelines</strong> for Stickler syndrome. Print a copy from <a href="https://www.orphananesthesia.eu" target="_blank" rel="noopener">orphananesthesia.eu</a> and hand it to the anesthesiologist directly.</li>
+      <li><strong>Confirm fiberoptic or video laryngoscope availability.</strong> Standard direct laryngoscopy may fail due to micrognathia and limited mouth opening. The anesthesiologist should have a backup plan for a difficult airway, including equipment for awake fiberoptic intubation if needed.</li>
+      <li><strong>Alert about local anesthetic resistance.</strong> Some patients with connective tissue disorders report reduced effectiveness of local anesthetics (lidocaine, bupivacaine). Discuss this with the anesthesiologist so they can plan appropriate dosing. See <a href="../treatment/medication-sensitivity.html">Medication Sensitivity</a> for details.</li>
+      <li><strong>Consider total intravenous anesthesia (TIVA)</strong> if there are concerns about malignant hyperthermia susceptibility or if the patient has a history of significant post-operative nausea with inhaled agents.</li>
+      <li><strong>Review cervical spine clearance</strong> with the anesthesiologist &mdash; confirm that imaging is current and the ADI measurement is documented.</li>
+    </ul>
+
+    <h3>Day of Surgery</h3>
+    <ul>
+      <li>Provide copies of the pre-surgery letter to the anesthesiologist, surgeon, and pre-op nurse.</li>
+      <li>Verbally confirm that the anesthesiologist is aware of the difficult airway history.</li>
+      <li>Confirm the anesthesia plan &mdash; ask specifically about the intubation approach, cervical precautions, and eye protection.</li>
+      <li>Ensure the surgical team knows to avoid Valsalva maneuvers and excessive neck extension.</li>
+    </ul>
+
+    <div class="callout callout-info">
+      <strong>Key insight:</strong> The pre-procedure anesthesia consult is your single most important safety step. A 15-minute conversation before surgery can prevent a catastrophic airway emergency or cervical spine injury during intubation.
+    </div>
+
+    <!-- ============================================ -->
+    <!-- 5. WOUND HEALING EXPECTATIONS -->
+    <!-- ============================================ -->
+    <h2>Wound Healing Expectations</h2>
+
+    <p>Type XI collagen is a critical component of tissue structure. A COL11A1 mutation directly impairs the tensile strength of healing wounds. Surgical teams accustomed to standard healing timelines need to adjust their expectations.</p>
+
+    <ul>
+      <li><strong>Longer time to adequate strength:</strong> Surgical wounds may take 50&ndash;100% longer to reach the tensile strength that would be expected at a given time point. A wound that typically has good strength at 2 weeks may not reach the same level until 3&ndash;4 weeks.</li>
+      <li><strong>Delayed suture removal:</strong> Standard suture removal timelines (7&ndash;10 days for most locations) should be extended. Discuss with the surgeon before the procedure &mdash; plan for sutures to stay in 50&ndash;100% longer than the standard protocol.</li>
+      <li><strong>Wider scars:</strong> Wider, more prominent scars are expected. This is not a surgical technique failure &mdash; it is a consequence of defective collagen. The family should be counseled about this before surgery to set realistic expectations.</li>
+      <li><strong>Higher risk of wound dehiscence:</strong> The surgeon should use appropriate closure techniques:
+        <ul>
+          <li>Layered closure with absorbable deep sutures to reduce tension on the skin</li>
+          <li>Consider retention sutures for high-tension closures</li>
+          <li>Avoid relying solely on skin glue (cyanoacrylate) for anything beyond superficial wounds</li>
+        </ul>
+      </li>
+      <li><strong>Extended drain placement:</strong> Surgical drains may need to remain in place longer than standard protocols. Tissue remodeling is slower, and seroma or fluid collection risk is higher.</li>
+      <li><strong>Prolonged wound support:</strong> Use steri-strips, surgical tape, or silicone sheets for a longer post-operative period &mdash; typically 4&ndash;8 weeks rather than the standard 2&ndash;4 weeks. This external support helps compensate for the reduced internal tensile strength.</li>
+    </ul>
+
+    <div class="callout callout-tip">
+      <strong>Practical tip:</strong> Ask the surgeon before the procedure: &ldquo;Are you familiar with wound healing in connective tissue disorders? We expect slower healing and will need extended suture retention and wound support.&rdquo; Having this conversation before surgery is far better than dealing with a dehisced wound after.
+    </div>
+
+    <!-- ============================================ -->
+    <!-- 6. POST-OP PAIN MANAGEMENT -->
+    <!-- ============================================ -->
+    <h2>Post-Operative Pain Management</h2>
+
+    <p>Many children with Marshall syndrome develop chronic pain from joint hypermobility, skeletal abnormalities, and spinal pathology. Over time, the nervous system can develop <strong>central sensitization</strong> &mdash; an amplified pain response where the brain and spinal cord process pain signals more intensely. In a child with central sensitization, post-operative pain will be more severe and last longer than &ldquo;standard&rdquo; predictions suggest.</p>
+
+    <h3>Pre-Emptive Analgesia</h3>
+    <p>Start pain control <em>before</em> surgery, not after. The goal is to reduce the nervous system&rsquo;s sensitization response to surgical trauma:</p>
+    <ul>
+      <li>Oral acetaminophen and/or an NSAID (if renal function is adequate) given 1&ndash;2 hours before the procedure</li>
+      <li>Gabapentin or pregabalin started 1&ndash;3 days pre-operatively for procedures expected to cause significant post-operative pain (discuss with the surgical team)</li>
+      <li>Regional nerve blocks placed before the surgical incision, not after</li>
+    </ul>
+
+    <h3>Multimodal Approach</h3>
+    <p>No single medication is sufficient. Effective post-operative pain control in a child with central sensitization requires combining multiple mechanisms:</p>
+    <ul>
+      <li><strong>Regional blocks:</strong> Peripheral nerve blocks, epidural, or wound infiltration &mdash; reduces the pain signal at the source</li>
+      <li><strong>Acetaminophen:</strong> Scheduled (not as-needed) around the clock for 48&ndash;72 hours post-op</li>
+      <li><strong>NSAIDs:</strong> Ibuprofen or ketorolac if renal function is adequate and bleeding risk is acceptable</li>
+      <li><strong>Gabapentin / pregabalin:</strong> Modulates the central sensitization component &mdash; especially important for patients with chronic pain</li>
+      <li><strong>Low-dose ketamine:</strong> For major procedures, sub-anesthetic ketamine infusion can reduce central sensitization and opioid requirements</li>
+    </ul>
+
+    <h3>Minimizing Opioids</h3>
+    <p>Opioids should be a component of the plan, not the entire plan. In a child with central sensitization:</p>
+    <ul>
+      <li>Opioid tolerance develops faster than expected</li>
+      <li>Opioid-induced hyperalgesia (OIH) &mdash; where opioids paradoxically increase pain sensitivity &mdash; is a real risk</li>
+      <li>The multimodal approach above allows significant opioid dose reduction</li>
+      <li>If opioids are used, plan a taper rather than abrupt discontinuation</li>
+    </ul>
+
+    <h3>Non-Pharmacological Adjuncts</h3>
+    <ul>
+      <li><strong>TENS (transcutaneous electrical nerve stimulation):</strong> Can be started post-operatively once wounds are closed and stable. See <a href="../treatment/tens-guide.html">TENS Guide</a> for protocols.</li>
+      <li><strong>Ice and elevation</strong> as appropriate for the surgical site</li>
+      <li><strong>Distraction techniques:</strong> Especially important for children &mdash; music, games, VR distraction</li>
+    </ul>
+
+    <div class="callout callout-warning">
+      <strong>Expect higher pain levels and longer recovery than &ldquo;standard&rdquo; predictions.</strong> When the surgical team tells you recovery will take 2 weeks, plan for 3&ndash;4 weeks. When they say pain should be manageable with ibuprofen by day 3, plan for day 5&ndash;7. Underpreparing for pain is worse than overpreparing.
+    </div>
+
+    <!-- ============================================ -->
+    <!-- 7. PROCEDURE-SPECIFIC NOTES -->
+    <!-- ============================================ -->
+    <h2>Procedure-Specific Considerations</h2>
+
+    <p>The following table summarizes Marshall-syndrome-specific risks and considerations for the most common surgical procedures. This information should supplement (not replace) the universal pre-surgery letter.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Procedure</th>
+            <th>Marshall-Specific Considerations</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Eye surgery</strong> (vitrectomy, scleral buckle, retinal repair)</td>
+            <td>Scleral thinning &mdash; surgeon must account for reduced scleral strength when placing buckles or sutures. Avoid Valsalva maneuvers during emergence from anesthesia. Higher re-detachment rate than non-syndromic patients. Post-operative positioning compliance may be challenging in children.</td>
+          </tr>
+          <tr>
+            <td><strong>Ear tubes</strong> (myringotomy with PE tubes)</td>
+            <td>Although a &ldquo;minor&rdquo; procedure, it requires sedation &mdash; and sedation means airway management. All airway precautions apply. Tympanic membrane tissue may be thinner. Tubes may extrude earlier than expected due to tissue quality. Often requires multiple repeat procedures.</td>
+          </tr>
+          <tr>
+            <td><strong>Adenotonsillectomy</strong></td>
+            <td>High-risk airway procedure. Pierre Robin anatomy (micrognathia, glossoptosis) complicates both intubation and post-operative airway management. Risk of post-operative airway obstruction is higher &mdash; consider ICU or extended PACU monitoring. Post-tonsillectomy bleeding risk may be elevated due to tissue fragility.</td>
+          </tr>
+          <tr>
+            <td><strong>Scoliosis surgery</strong> (posterior spinal fusion)</td>
+            <td>Bone quality may be reduced. Risk of adjacent segment disease above and below the fusion. Cervical spine must be cleared before prone positioning. Intraoperative neuromonitoring is essential. Wound healing will be prolonged &mdash; plan for extended bracing and wound support.</td>
+          </tr>
+          <tr>
+            <td><strong>Strabismus surgery</strong></td>
+            <td>Scleral thinning increases perforation risk during muscle reattachment. Suture material may pull through thin sclera. Surgeon should be experienced with connective tissue disorder patients. Discuss scleral reinforcement if needed.</td>
+          </tr>
+          <tr>
+            <td><strong>Dental sedation</strong></td>
+            <td>All airway precautions apply, even for &ldquo;simple&rdquo; dental sedation. Local anesthetic resistance may require higher doses &mdash; inform the dentist. Cervical spine positioning must be managed during prolonged dental procedures. Consider hospital-based dental work rather than office sedation for complex cases.</td>
+          </tr>
+          <tr>
+            <td><strong>Spinal decompression</strong></td>
+            <td>Dural fragility &mdash; the dura is thinner than expected, increasing the risk of CSF leak during laminectomy or discectomy. Surgeon should be prepared for dural repair. Post-operative CSF leak monitoring is critical. See <a href="../spine/csf-leak.html">CSF Leak</a> for management details.</td>
+          </tr>
+          <tr>
+            <td><strong>Cleft palate / VPI surgery</strong></td>
+            <td>Tissue healing is impaired &mdash; fistula rates may be higher. Re-operation rates are elevated compared to non-syndromic cleft repair. Velopharyngeal insufficiency may persist after initial repair. Airway management is complicated by the combination of cleft anatomy and micrognathia.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- 8. RECOVERY TIMELINE ADJUSTMENTS -->
+    <!-- ============================================ -->
+    <h2>Recovery Timeline Adjustments</h2>
+
+    <div class="callout callout-info">
+      <strong>General principle:</strong> Multiply the &ldquo;standard&rdquo; recovery timeline by 1.5 to 2 times. If the surgeon says 6 weeks, plan for 9&ndash;12. If they say &ldquo;back to school in a week,&rdquo; plan for 2 weeks. This is not pessimism &mdash; it is realistic planning based on how defective collagen affects tissue repair.
+    </div>
+
+    <h3>Physical Therapy Timing</h3>
+    <ul>
+      <li>Physical therapy may need to <strong>start later</strong> than standard protocols &mdash; tissues need more time before they can tolerate rehabilitation forces.</li>
+      <li>When PT does begin, the progression should be <strong>slower and more gradual</strong>. Joint hypermobility means the risk of overstretching healing tissues is higher.</li>
+      <li>Ensure the physical therapist understands connective tissue disorders &mdash; not all PTs have experience with this population.</li>
+    </ul>
+
+    <h3>Return to Activity</h3>
+    <ul>
+      <li>Return to school, sports, and normal activities should be <strong>gradual and symptom-guided</strong>, not calendar-driven.</li>
+      <li>Contact sports restrictions should be extended beyond the standard timeline, especially after orthopedic or spinal procedures.</li>
+      <li>Even after the surgeon &ldquo;clears&rdquo; the child for activity, a cautious ramp-up period is wise.</li>
+    </ul>
+
+    <h3>Post-Operative Monitoring</h3>
+    <ul>
+      <li>Follow-up appointments should continue <strong>longer</strong> than the standard protocol &mdash; wound complications and healing issues can emerge later.</li>
+      <li>Monitor for signs of wound dehiscence, infection, and poor scar formation at each follow-up.</li>
+      <li>For eye surgeries, retinal re-detachment monitoring should continue for at least 6&ndash;12 months post-operatively.</li>
+    </ul>
+
+    <!-- ============================================ -->
+    <!-- 9. QUESTIONS TO ASK BEFORE SURGERY -->
+    <!-- ============================================ -->
+    <h2>Questions to Ask Before Surgery</h2>
+
+    <p>Bring this list to your pre-surgical consult. Write down the answers. If any answer is unsatisfactory, it is reasonable to seek a second opinion or request that the procedure be performed at a center experienced with connective tissue disorders.</p>
+
+    <ol>
+      <li><strong>&ldquo;Have you operated on a patient with Stickler syndrome or a collagen disorder before?&rdquo;</strong> &mdash; Experience matters. If the answer is no, ask whether they have reviewed the OrphanAnesthesia guidelines and GeneReviews for this condition.</li>
+      <li><strong>&ldquo;What is your airway management plan, and what is the backup plan if intubation is difficult?&rdquo;</strong> &mdash; You want to hear specific equipment (video laryngoscope, fiberoptic scope) and a clear escalation plan, not &ldquo;we&rsquo;ll figure it out.&rdquo;</li>
+      <li><strong>&ldquo;Has cervical spine clearance been confirmed, and does the anesthesiologist have the imaging results?&rdquo;</strong> &mdash; Do not assume this has been communicated. Confirm it directly.</li>
+      <li><strong>&ldquo;How will you adjust wound closure and suture removal timelines for a collagen disorder?&rdquo;</strong> &mdash; The surgeon should acknowledge that standard timelines do not apply and describe their plan for reinforced closure and extended suture retention.</li>
+      <li><strong>&ldquo;What is the pain management plan, and does it include a multimodal approach?&rdquo;</strong> &mdash; You want to hear about regional blocks, scheduled acetaminophen/NSAIDs, and central sensitization awareness &mdash; not just &ldquo;we&rsquo;ll give pain medication as needed.&rdquo;</li>
+      <li><strong>&ldquo;Where will recovery take place, and what monitoring is planned for the first 24 hours?&rdquo;</strong> &mdash; For airway-critical procedures (adenotonsillectomy, major dental work), ask whether ICU or extended monitoring is indicated rather than same-day discharge.</li>
+      <li><strong>&ldquo;What specific complications should we watch for at home, and when should we call or go to the ER?&rdquo;</strong> &mdash; Get a written list of red flags specific to this procedure and this patient, not just the standard post-op instruction sheet.</li>
+    </ol>
+
+    <div class="callout callout-tip">
+      <strong>Practical tip:</strong> If you are not satisfied with the surgical team&rsquo;s familiarity with connective tissue disorders, ask your geneticist to contact the surgeon directly. A physician-to-physician conversation carries more weight than a parent&rsquo;s concern and can ensure that the critical safety points are communicated effectively.
+    </div>
+
+    <div class="callout callout-info">
+      <strong>Related pages:</strong> <a href="emergency-card.html">Emergency Medical Card</a> for printable emergency information. <a href="../treatment/anesthesia.html">Anesthesia &amp; Airway Management</a> for the full clinical discussion. <a href="../spine/craniocervical-instability.html">Craniocervical Instability</a> for cervical spine details. <a href="../treatment/medication-sensitivity.html">Medication Sensitivity</a> for local anesthetic resistance.
+    </div>
+
+  </div>
+
+  <div class="prev-next">
+    <a href="emergency-card.html" class="prev-next-link">&larr; Emergency Medical Card</a>
+    <a href="../emerging/index.html" class="prev-next-link">Emerging Research &rarr;</a>
+  </div>
+
+</div>
+</div>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top">&#8593;</button>
+<script src="../nav.js"></script>
+</body>
+</html>

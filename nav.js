@@ -106,7 +106,8 @@
         { file: 'monitoring/endocrine-panel.html', title: 'Endocrine & Bone Health Monitoring', k: 'endocrine bone health DEXA vitamin D calcium thyroid TSH IGF-1 growth hormone ferritin iron bone density osteoporosis osteopenia mineralization BSP Tanner puberty' },
         { file: 'monitoring/sleep-apnea.html', title: 'Sleep-Disordered Breathing & OSA', k: 'sleep apnea OSA obstructive central snoring airway CPAP polysomnography PSG adenotonsillectomy midface micrognathia Pierre Robin hypoxia triple-hit nocturnal HIF NF-kB' },
         { file: 'monitoring/cardiac-screening.html', title: 'Cardiac Screening & MVP', k: 'cardiac heart mitral valve prolapse MVP echocardiogram echo aortic root palpitations arrhythmia endocarditis collagen valve myxomatous regurgitation cardiologist sports clearance autonomic POTS' },
-        { file: 'monitoring/short-stature.html', title: 'Short Stature & Growth Hormone', k: 'short stature height growth hormone GH IGF-1 bone age platyspondyly disproportionate trunk endocrinology growth velocity percentile skeletal dysplasia psychosocial body image' }
+        { file: 'monitoring/short-stature.html', title: 'Short Stature & Growth Hormone', k: 'short stature height growth hormone GH IGF-1 bone age platyspondyly disproportionate trunk endocrinology growth velocity percentile skeletal dysplasia psychosocial body image' },
+        { file: 'monitoring/bone-density.html', title: 'Bone Density & Osteoporosis Risk', k: 'bone density DEXA osteoporosis osteopenia BMD Z-score T-score trabecular vitamin D calcium bisphosphonate pamidronate peak bone mass vibration fracture P1NP CTX mineralization' }
       ]
     },
     {
@@ -143,7 +144,10 @@
         { file: 'living/dental-orthodontic.html', title: 'Dental & Orthodontic Management', k: 'dental orthodontic teeth enamel malocclusion Pierre Robin palate cleft jaw mandible TMJ braces retention root resorption local anesthetic sedation airway fluoride sealant caries periodontal' },
         { file: 'living/strabismus.html', title: 'Strabismus (Eye Misalignment)', k: 'strabismus esotropia exotropia hypertropia amblyopia lazy eye binocular vision depth perception eye muscle surgery recession resection prism patching scleral thinning pediatric ophthalmologist' },
         { file: 'living/easy-bruising.html', title: 'Easy Bruising & Abuse Differentiation', k: 'bruising easy bruise capillary fragility vascular collagen child abuse non-accidental injury NAI CPS mandatory reporting geneticist letter documentation proactive von Willebrand coagulation' },
-        { file: 'living/vpi-nasal-speech.html', title: 'VPI & Nasal Speech', k: 'VPI velopharyngeal insufficiency nasal speech hypernasal cleft palate velum pharyngeal flap sphincter pharyngoplasty speech therapy SLP nasometry videofluoroscopy submucous cleft intelligibility articulation' }
+        { file: 'living/vpi-nasal-speech.html', title: 'VPI & Nasal Speech', k: 'VPI velopharyngeal insufficiency nasal speech hypernasal cleft palate velum pharyngeal flap sphincter pharyngoplasty speech therapy SLP nasometry videofluoroscopy submucous cleft intelligibility articulation' },
+        { file: 'living/family-impact.html', title: 'Family & Sibling Impact', k: 'family sibling caregiver burnout glass child guilt de novo inheritance parent marriage financial respite support rare disease coping' },
+        { file: 'living/sports-clearance.html', title: 'Sports Clearance & Activity Guide', k: 'sports clearance PE physical education activity green yellow red traffic light swimming cycling trampoline gymnastics contact sport coach letter camp retinal cervical cardiac' },
+        { file: 'living/wound-healing.html', title: 'Wound Healing & Skin', k: 'wound healing scar skin collagen surgery suture dehiscence tensile strength connective tissue dermal fragility bruising surgical recovery closure' }
       ]
     },
     {
@@ -153,7 +157,8 @@
         { file: 'resources/latest-research.html', title: 'Latest Research', k: 'latest research papers publications PubMed studies new findings 2025 2026' },
         { file: 'resources/support.html', title: 'Support Resources', k: 'support groups families communities online forums Facebook foundation Stickler Involved People' },
         { file: 'resources/references.html', title: 'References', k: 'references bibliography citations sources papers journals authors' },
-        { file: 'resources/emergency-card.html', title: 'Emergency Medical Card', k: 'emergency card medical alert ID bracelet travel school nurse print airway cervical spine retinal detachment MedicAlert ICE 504 IEP sedation anesthesia' }
+        { file: 'resources/emergency-card.html', title: 'Emergency Medical Card', k: 'emergency card medical alert ID bracelet travel school nurse print airway cervical spine retinal detachment MedicAlert ICE 504 IEP sedation anesthesia' },
+        { file: 'resources/surgery-checklist.html', title: 'Pre-Surgery Checklist', k: 'surgery checklist pre-operative preparation anesthesia cervical spine clearance wound healing letter template print OrphanAnesthesia intubation pain recovery procedure' }
       ]
     },
     {
@@ -164,7 +169,12 @@
         { file: 'emerging/pemf-timing.html', title: 'PEMF Timing & the Safe Window', k: 'PEMF timing pulsed electromagnetic field safe window morning evening protocol frequency duration' },
         { file: 'emerging/complement-ferroptosis.html', title: 'Complement-Ferroptosis Interaction', k: 'complement ferroptosis C3 C5 MAC membrane attack iron lipid peroxidation interaction synergy' },
         { file: 'emerging/chronotherapy-protocol.html', title: 'Complete 24-Hour Chronotherapy Protocol', k: 'chronotherapy 24 hour protocol timing circadian supplement exercise sleep schedule optimization' },
-        { file: 'emerging/mcas-neuroinflammation.html', title: 'MCAS, Complement & Neuroinflammation', k: 'MCAS mast cell activation syndrome complement neuroinflammation tryptase histamine C3a C5a perineurial collagen XI antibodies autoimmune' }
+        { file: 'emerging/mcas-neuroinflammation.html', title: 'MCAS, Complement & Neuroinflammation', k: 'MCAS mast cell activation syndrome complement neuroinflammation tryptase histamine C3a C5a perineurial collagen XI antibodies autoimmune' },
+        { file: 'emerging/er-stress-upr.html', title: 'ER Stress & the Unfolded Protein Response', k: 'ER stress endoplasmic reticulum unfolded protein response UPR IRE1 PERK ATF6 CHOP BiP GRP78 misfolded collagen dominant-negative chaperone 4-PBA TUDCA carbamazepine apoptosis' },
+        { file: 'emerging/yap-taz-mechanosensing.html', title: 'YAP/TAZ: The Mechanosensing Bridge', k: 'YAP TAZ mechanosensing mechanotransduction integrin FAK Rho ROCK matrix stiffness Piezo1 ferroptosis senescence fibrosis CTGF irisin verteporfin Hippo pathway' },
+        { file: 'emerging/glial-neuroinflammation.html', title: 'Glial Activation & Neuroinflammation', k: 'glia microglia astrocyte neuroinflammation BDNF KCC2 GABA reversal central pain LDN naltrexone TLR4 oligodendrocyte PEA palmitoylethanolamide mast cell spinal cord' },
+        { file: 'emerging/mmp-cascade.html', title: 'The MMP Cascade: Destruction Executors', k: 'MMP matrix metalloproteinase MMP-3 MMP-13 stromelysin collagenase ADAMTS aggrecanase PAX1 TIMP doxycycline omega-3 DDR2 biomarker cartilage destruction' },
+        { file: 'emerging/circadian-disc-clock.html', title: 'Circadian Biology & the Disc Clock', k: 'circadian BMAL1 CLOCK REV-ERB clock gene peripheral oscillator disc timing chronotherapy morning exercise melatonin complement gate 2AM vulnerability desynchronization' }
       ]
     }
   ];
