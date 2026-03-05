@@ -39,7 +39,8 @@
         { file: 'spine/scoliosis.html', title: 'Scoliosis & Kyphosis', k: 'scoliosis kyphosis Cobb angle bracing Boston Rigo Schroth SEAS platyspondyly Scheuermann curve progression Risser Sanders VBT vertebral body tethering growing rods MAGEC spinal fusion Adams forward bend EOS' },
         { file: 'spine/csf-leak.html', title: 'CSF Leak & Intracranial Hypotension', k: 'CSF leak cerebrospinal fluid intracranial hypotension dura mater positional headache orthostatic headache brain sagging pachymeningeal enhancement epidural blood patch myelography dural ectasia dural weakness connective tissue collagen atraumatic needle lumbar puncture spinal anaesthesia CCI overlap prevention' },
         { file: 'spine/lumbar-stenosis.html', title: 'Lumbar Spinal Stenosis', k: 'lumbar stenosis spinal canal narrowing neurogenic claudication radiculopathy cauda equina laminectomy foraminotomy decompression spondylolisthesis facet hypertrophy ligamentum flavum Williams flexion epidural' },
-        { file: 'spine/tethered-cord.html', title: 'Tethered Cord Syndrome', k: 'tethered cord filum terminale conus medullaris bladder bowel leg weakness foot deformity pes cavus growth spurt untethering neurosurgery occult spinal dysraphism SSEP urodynamic' }
+        { file: 'spine/tethered-cord.html', title: 'Tethered Cord Syndrome', k: 'tethered cord filum terminale conus medullaris bladder bowel leg weakness foot deformity pes cavus growth spurt untethering neurosurgery occult spinal dysraphism SSEP urodynamic' },
+        { file: 'spine/chiari-syringomyelia.html', title: 'Chiari Malformation & Syringomyelia', k: 'Chiari malformation syringomyelia syrinx tonsillar herniation foramen magnum CCI acquired congenital posterior fossa decompression craniocervical fusion Valsalva headache cough occipital EDS triad upright MRI cine-flow CSF' }
       ]
     },
     {
@@ -68,7 +69,9 @@
         { file: 'treatment/osteoarthritis.html', title: 'Early-Onset Osteoarthritis', k: 'osteoarthritis OA joint pain hip knee ankle cartilage degradation MMP-13 COMP hypermobility stiffness joint replacement arthroplasty hyaluronic acid PRP corticosteroid bracing orthotics rheumatologist pediatric' },
         { file: 'treatment/hypermobility-management.html', title: 'Hypermobility Management', k: 'hypermobility Beighton score joint laxity proprioception balance training ring splint orthotics bracing closed chain exercise subluxation instability EDS connective tissue PT strengthening ankle knee shoulder wrist' },
         { file: 'treatment/tens-guide.html', title: 'TENS Practical Guide', k: 'TENS transcutaneous electrical nerve stimulation electrode placement gate control pain frequency pulse width burst mode pediatric drug-free non-invasive back knee neck hip shoulder' },
-        { file: 'treatment/medication-sensitivity.html', title: 'Medication Sensitivity & Drug Reactions', k: 'medication sensitivity drug reaction local anesthetic resistance fluoroquinolone tendon NSAID gastropathy corticosteroid opioid pharmacogenomics CYP2D6 CYP2C19 mast cell autonomic adverse effect' }
+        { file: 'treatment/medication-sensitivity.html', title: 'Medication Sensitivity & Drug Reactions', k: 'medication sensitivity drug reaction local anesthetic resistance fluoroquinolone tendon NSAID gastropathy corticosteroid opioid pharmacogenomics CYP2D6 CYP2C19 mast cell autonomic adverse effect' },
+        { file: 'treatment/deconditioning-spiral.html', title: 'The Deconditioning Spiral', k: 'deconditioning spiral inactivity muscle weakness joint instability cardiovascular orthostatic intolerance bed rest exercise paradox fear avoidance pain cycle vicious cycle graded exercise isometrics' },
+        { file: 'treatment/proprioception-balance.html', title: 'Proprioception & Fall Prevention', k: 'proprioception balance fall prevention triple deficit vestibular visual joint position sense Romberg BOSU tandem home safety nightlight grab bar footwear stability perturbation training' }
       ]
     },
     {
@@ -88,7 +91,8 @@
         { file: 'nutrition/precision-nutrition.html', title: 'Precision Nutritional Biochemistry', k: 'precision nutrition biochemistry personalized nutrigenomics biomarker-guided micronutrient' },
         { file: 'nutrition/environmental-toxins.html', title: 'Environmental Toxin Avoidance', k: 'environmental toxins BPA phthalates pesticides heavy metals air quality water filter endocrine disruptors' },
         { file: 'nutrition/gut-permeability.html', title: 'Gut Permeability & COL11A1', k: 'gut permeability leaky gut COL11A1 intestinal barrier goblet cell LPS translocation TLR4 NF-kB zonulin calprotectin glutamine butyrate probiotic microbiome bacterial translocation' },
-        { file: 'nutrition/reflux-gi-motility.html', title: 'Reflux & GI Motility', k: 'reflux GERD gastroesophageal LES hiatal hernia gastroparesis IBS constipation bloating dyspepsia PPI prokinetic fundoplication mast cell gut motility autonomic' }
+        { file: 'nutrition/reflux-gi-motility.html', title: 'Reflux & GI Motility', k: 'reflux GERD gastroesophageal LES hiatal hernia gastroparesis IBS constipation bloating dyspepsia PPI prokinetic fundoplication mast cell gut motility autonomic' },
+        { file: 'nutrition/vitamin-d.html', title: 'Vitamin D: The Multi-System Protector', k: 'vitamin D cholecalciferol D3 D2 calcitriol 25-OH bone disc immune pain muscle eye sleep target range dosing K2 MK-7 DEXA calcium deficiency supplementation fat-soluble' }
       ]
     },
     {
@@ -147,7 +151,9 @@
         { file: 'living/vpi-nasal-speech.html', title: 'VPI & Nasal Speech', k: 'VPI velopharyngeal insufficiency nasal speech hypernasal cleft palate velum pharyngeal flap sphincter pharyngoplasty speech therapy SLP nasometry videofluoroscopy submucous cleft intelligibility articulation' },
         { file: 'living/family-impact.html', title: 'Family & Sibling Impact', k: 'family sibling caregiver burnout glass child guilt de novo inheritance parent marriage financial respite support rare disease coping' },
         { file: 'living/sports-clearance.html', title: 'Sports Clearance & Activity Guide', k: 'sports clearance PE physical education activity green yellow red traffic light swimming cycling trampoline gymnastics contact sport coach letter camp retinal cervical cardiac' },
-        { file: 'living/wound-healing.html', title: 'Wound Healing & Skin', k: 'wound healing scar skin collagen surgery suture dehiscence tensile strength connective tissue dermal fragility bruising surgical recovery closure' }
+        { file: 'living/wound-healing.html', title: 'Wound Healing & Skin', k: 'wound healing scar skin collagen surgery suture dehiscence tensile strength connective tissue dermal fragility bruising surgical recovery closure' },
+        { file: 'living/travel-planning.html', title: 'Travel & Vacation Planning', k: 'travel flying airplane altitude retinal detachment cabin pressure medical kit hearing aid airport security medication time zone specialist road trip amusement park camp international vacation' },
+        { file: 'living/pregnancy-management.html', title: 'Pregnancy & Obstetric Management', k: 'pregnancy obstetric high-risk MFM maternal fetal medicine cervical competence cerclage epidural cesarean retinal Valsalva relaxin postpartum breastfeeding newborn PGT-M prenatal airway anesthesia' }
       ]
     },
     {
@@ -158,7 +164,10 @@
         { file: 'resources/support.html', title: 'Support Resources', k: 'support groups families communities online forums Facebook foundation Stickler Involved People' },
         { file: 'resources/references.html', title: 'References', k: 'references bibliography citations sources papers journals authors' },
         { file: 'resources/emergency-card.html', title: 'Emergency Medical Card', k: 'emergency card medical alert ID bracelet travel school nurse print airway cervical spine retinal detachment MedicAlert ICE 504 IEP sedation anesthesia' },
-        { file: 'resources/surgery-checklist.html', title: 'Pre-Surgery Checklist', k: 'surgery checklist pre-operative preparation anesthesia cervical spine clearance wound healing letter template print OrphanAnesthesia intubation pain recovery procedure' }
+        { file: 'resources/surgery-checklist.html', title: 'Pre-Surgery Checklist', k: 'surgery checklist pre-operative preparation anesthesia cervical spine clearance wound healing letter template print OrphanAnesthesia intubation pain recovery procedure' },
+        { file: 'resources/newly-diagnosed.html', title: 'Newly Diagnosed: First 30 Days', k: 'newly diagnosed first 30 days start here guide roadmap specialists tests school accommodations emotional support onboarding triage checklist' },
+        { file: 'resources/insurance-navigation.html', title: 'Insurance Navigation & Financial Advocacy', k: 'insurance prior authorization denial appeal hearing aid coverage GINA SSI SSDI financial assistance NORD copay charity care peer-to-peer review patient advocate rare disease coverage medical necessity' },
+        { file: 'resources/n-of-1-trials.html', title: 'N-of-1 Trials & Building Evidence', k: 'N-of-1 trial single patient crossover washout evidence rare disease case report publication outcome measure biomarker doxycycline LDN sulforaphane CARE guidelines statistical analysis' }
       ]
     },
     {
@@ -174,7 +183,8 @@
         { file: 'emerging/yap-taz-mechanosensing.html', title: 'YAP/TAZ: The Mechanosensing Bridge', k: 'YAP TAZ mechanosensing mechanotransduction integrin FAK Rho ROCK matrix stiffness Piezo1 ferroptosis senescence fibrosis CTGF irisin verteporfin Hippo pathway' },
         { file: 'emerging/glial-neuroinflammation.html', title: 'Glial Activation & Neuroinflammation', k: 'glia microglia astrocyte neuroinflammation BDNF KCC2 GABA reversal central pain LDN naltrexone TLR4 oligodendrocyte PEA palmitoylethanolamide mast cell spinal cord' },
         { file: 'emerging/mmp-cascade.html', title: 'The MMP Cascade: Destruction Executors', k: 'MMP matrix metalloproteinase MMP-3 MMP-13 stromelysin collagenase ADAMTS aggrecanase PAX1 TIMP doxycycline omega-3 DDR2 biomarker cartilage destruction' },
-        { file: 'emerging/circadian-disc-clock.html', title: 'Circadian Biology & the Disc Clock', k: 'circadian BMAL1 CLOCK REV-ERB clock gene peripheral oscillator disc timing chronotherapy morning exercise melatonin complement gate 2AM vulnerability desynchronization' }
+        { file: 'emerging/circadian-disc-clock.html', title: 'Circadian Biology & the Disc Clock', k: 'circadian BMAL1 CLOCK REV-ERB clock gene peripheral oscillator disc timing chronotherapy morning exercise melatonin complement gate 2AM vulnerability desynchronization' },
+        { file: 'emerging/nfkb-inflammatory-hub.html', title: 'NF-kB: The Central Inflammatory Hub', k: 'NF-kB nuclear factor kappa B p50 p65 RelA IKK IkBa inflammation convergence MMP cytokine TNF IL-1 IL-6 iNOS COX-2 SASP amplification loop omega-3 resolvin curcumin LDN vagus cholinergic' }
       ]
     }
   ];
