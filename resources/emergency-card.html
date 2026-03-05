@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emergency Medical Card — Marshall Syndrome Resource</title>
+<link rel="stylesheet" href="../styles.css">
+<style>
+  /* Print styles: only print the emergency card */
+  @media print {
+    .site-header, .sidebar, .sidebar-overlay, .breadcrumb, .page-header,
+    .prev-next, .back-to-top, .hamburger, .search-wrapper, .search-count,
+    .no-print, #backToTop {
+      display: none !important;
+    }
+    .main, .content {
+      margin: 0 !important;
+      padding: 0 !important;
+      max-width: 100% !important;
+    }
+    .page-body > *:not(.emergency-card) {
+      display: none !important;
+    }
+    .emergency-card {
+      border: 2px solid #000 !important;
+      background: #fff !important;
+      color: #000 !important;
+      padding: 20px !important;
+      margin: 0 !important;
+      box-shadow: none !important;
+      page-break-inside: avoid;
+      font-size: 11pt;
+    }
+    .emergency-card h2,
+    .emergency-card h3,
+    .emergency-card h4 {
+      color: #000 !important;
+    }
+    .emergency-card .card-alert-banner {
+      background: #000 !important;
+      color: #fff !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .emergency-card .critical-alert {
+      border-color: #000 !important;
+      background: #f5f5f5 !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .emergency-card .fill-line {
+      border-bottom: 1px solid #000 !important;
+    }
+    .emergency-card .checkbox-item input[type="checkbox"] {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .print-btn {
+      display: none !important;
+    }
+  }
+
+  /* Screen styles for the emergency card */
+  .emergency-card {
+    border: 2px solid var(--warm-400);
+    border-radius: 12px;
+    padding: 24px;
+    margin: 24px 0;
+    background: var(--warm-50);
+  }
+  .card-alert-banner {
+    background: #b91c1c;
+    color: #fff;
+    text-align: center;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  .card-alert-banner small {
+    display: block;
+    font-weight: 400;
+    font-size: 0.75rem;
+    letter-spacing: 0;
+    margin-top: 4px;
+    opacity: 0.9;
+  }
+  .critical-alert {
+    border: 2px solid #b91c1c;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    background: #fef2f2;
+  }
+  .critical-alert strong {
+    color: #b91c1c;
+  }
+  .card-section {
+    margin-bottom: 20px;
+  }
+  .card-section h3 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    border-bottom: 2px solid var(--warm-300);
+    padding-bottom: 6px;
+    margin-bottom: 10px;
+  }
+  .card-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 6px;
+    align-items: baseline;
+  }
+  .card-row .label {
+    font-weight: 600;
+    min-width: 120px;
+    flex-shrink: 0;
+  }
+  .fill-line {
+    flex: 1;
+    border-bottom: 1px dashed var(--warm-400);
+    min-width: 100px;
+    height: 1.2em;
+  }
+  .checkbox-item {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+  }
+  .checkbox-item input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .checkbox-item .fill-inline {
+    border-bottom: 1px dashed var(--warm-400);
+    min-width: 80px;
+    display: inline-block;
+  }
+  .specialist-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+    align-items: baseline;
+  }
+  .specialist-row .label {
+    font-weight: 600;
+    min-width: 180px;
+    flex-shrink: 0;
+  }
+  .specialist-row .fill-line {
+    flex: 1;
+  }
+  .med-line {
+    border-bottom: 1px dashed var(--warm-400);
+    height: 1.6em;
+    margin-bottom: 4px;
+  }
+  .print-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--blue-600, #2563eb);
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 16px 0;
+    transition: background 0.2s;
+  }
+  .print-btn:hover {
+    background: var(--blue-700, #1d4ed8);
+  }
+  .bracelet-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+    margin: 16px 0;
+  }
+  .bracelet-option {
+    border: 1px solid var(--warm-300);
+    border-radius: 8px;
+    padding: 16px;
+    background: var(--warm-50);
+  }
+  .bracelet-option h4 {
+    margin-top: 0;
+    margin-bottom: 8px;
+  }
+  .engrave-example {
+    background: var(--warm-200);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-family: monospace;
+    font-size: 0.95rem;
+    text-align: center;
+    margin: 12px 0;
+    letter-spacing: 0.03em;
+    border: 1px solid var(--warm-300);
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation">&#9776;</button>
+  <a href="../" class="header-title">Marshall Syndrome <span>Resource</span></a>
+  <div class="search-wrapper">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" id="searchInput" placeholder="Search this page..." aria-label="Search">
+  </div>
+  <span class="search-count" id="searchCount"></span>
+</header>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<nav class="sidebar" id="sidebar"></nav>
+
+<div class="main">
+<div class="content">
+
+  <nav class="breadcrumb" id="breadcrumb"></nav>
+
+  <div class="page-header">
+    <h1>Emergency Medical Card &amp; Travel Information</h1>
+  </div>
+
+  <div class="page-body">
+
+    <div class="callout callout-warning">
+      <strong>Every family should carry a printed emergency card and ensure the child wears a medical ID bracelet.</strong> In an emergency, the treating physician needs to know about the difficult airway, cervical spine precautions, and retinal detachment risk within the first minutes. ER doctors will not know Marshall syndrome &mdash; your card speaks for you when you cannot.
+    </div>
+
+    <!-- WHY YOU NEED A MEDICAL EMERGENCY CARD -->
+    <h2 class="no-print">Why You Need a Medical Emergency Card</h2>
+
+    <p class="no-print">Marshall syndrome is a rare genetic condition affecting approximately 1 in 7,500&ndash;9,000 people. Most emergency physicians will never have encountered it. In time-critical situations &mdash; a car accident, a sudden retinal detachment, an allergic reaction requiring intubation &mdash; there is no time to research a rare diagnosis. A printed emergency card provides the critical information a treating physician needs within seconds.</p>
+
+    <p class="no-print">Two situations make this especially urgent:</p>
+    <ul class="no-print">
+      <li><strong>Airway emergencies:</strong> The midface hypoplasia and micrognathia common in Marshall syndrome create a <a href="anesthesia.html">difficult airway</a>. Standard intubation may fail. The anesthesiologist needs to know this <em>before</em> the first attempt, not after multiple failed attempts in a crisis.</li>
+      <li><strong>Retinal detachment:</strong> With a 65% lifetime risk, a <a href="red-flags.html">sudden vision emergency</a> can happen anywhere. The ER team needs to know this is not a routine eye complaint &mdash; it requires immediate vitreoretinal surgical consultation.</li>
+    </ul>
+
+    <!-- PRINT BUTTON -->
+    <div class="no-print" style="text-align:center; margin: 24px 0;">
+      <button onclick="window.print()" class="print-btn">&#128424; Print Emergency Card</button>
+      <p style="font-size:0.85rem; color: var(--warm-500); margin-top:8px;">Prints only the emergency card below. All other page content is hidden automatically.</p>
+    </div>
+
+    <!-- === THE PRINTABLE EMERGENCY CARD === -->
+    <div class="emergency-card" id="emergencyCard">
+
+      <div class="card-alert-banner">
+        &#9888; MARSHALL SYNDROME &mdash; MEDICAL ALERT &#9888;
+        <small>Stickler Syndrome Type 2 &bull; COL11A1 Collagen Disorder</small>
+      </div>
+
+      <!-- Patient Info -->
+      <div class="card-section">
+        <h3>Patient Information</h3>
+        <div class="card-row"><span class="label">Name:</span> <span class="fill-line"></span></div>
+        <div class="card-row"><span class="label">Date of Birth:</span> <span class="fill-line"></span></div>
+        <div class="card-row"><span class="label">Diagnosis:</span> Marshall Syndrome (Stickler Syndrome Type 2)</div>
+        <div class="card-row"><span class="label">Gene:</span> COL11A1 mutation &mdash; <span class="fill-line"></span></div>
+        <div class="card-row"><span class="label">Inheritance:</span> Autosomal dominant</div>
+      </div>
+
+      <!-- Critical Alerts -->
+      <div class="card-section">
+        <h3>&#9888; Critical Alerts</h3>
+
+        <div class="critical-alert">
+          <strong>DIFFICULT AIRWAY:</strong> Micrognathia and midface hypoplasia. Request experienced anesthesiologist. Have fiber-optic intubation available. Multiple intubation attempts may be needed (7% require multiple attempts in this population). See OrphanAnesthesia guidelines.
+        </div>
+
+        <div class="critical-alert">
+          <strong>CERVICAL SPINE PRECAUTIONS:</strong> Do NOT hyperextend neck without imaging clearance. Risk of craniocervical instability and cervical myelopathy. Obtain cervical spine imaging before manipulation.
+        </div>
+
+        <div class="critical-alert">
+          <strong>RETINAL DETACHMENT RISK:</strong> 65% lifetime risk. Any sudden vision change, new flashes/floaters, or curtain over vision = EMERGENCY. Contact vitreoretinal surgeon immediately.
+        </div>
+
+        <div class="critical-alert">
+          <strong>DO NOT USE (allergies/reactions):</strong> <span class="fill-line" style="display:inline-block; min-width:250px;"></span>
+        </div>
+      </div>
+
+      <!-- Active Conditions -->
+      <div class="card-section">
+        <h3>Active Conditions</h3>
+        <p style="font-size:0.85rem; margin-bottom:10px; font-style:italic;">Check all that apply and fill in details:</p>
+
+        <div class="checkbox-item"><input type="checkbox"> Hearing loss (type: <span class="fill-inline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>)</div>
+        <div class="checkbox-item"><input type="checkbox"> High myopia (diopters: <span class="fill-inline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>)</div>
+        <div class="checkbox-item"><input type="checkbox"> Previous retinal detachment</div>
+        <div class="checkbox-item"><input type="checkbox"> Scoliosis (degrees: <span class="fill-inline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>)</div>
+        <div class="checkbox-item"><input type="checkbox"> Pierre Robin sequence / cleft palate</div>
+        <div class="checkbox-item"><input type="checkbox"> Sleep apnea / CPAP use</div>
+        <div class="checkbox-item"><input type="checkbox"> Mitral valve prolapse</div>
+        <div class="checkbox-item"><input type="checkbox"> Cervical instability</div>
+        <div class="checkbox-item"><input type="checkbox"> Chronic pain medication use</div>
+      </div>
+
+      <!-- Current Medications -->
+      <div class="card-section">
+        <h3>Current Medications</h3>
+        <div class="med-line"></div>
+        <div class="med-line"></div>
+        <div class="med-line"></div>
+        <div class="med-line"></div>
+      </div>
+
+      <!-- Specialists -->
+      <div class="card-section">
+        <h3>Specialists &amp; Emergency Contacts</h3>
+        <div class="specialist-row"><span class="label">Geneticist:</span> <span class="fill-line"></span></div>
+        <div class="specialist-row"><span class="label">Vitreoretinal surgeon:</span> <span class="fill-line"></span></div>
+        <div class="specialist-row"><span class="label">Orthopedic spine:</span> <span class="fill-line"></span></div>
+        <div class="specialist-row"><span class="label">ENT / Audiologist:</span> <span class="fill-line"></span></div>
+        <div class="specialist-row"><span class="label">Primary care:</span> <span class="fill-line"></span></div>
+        <div class="specialist-row"><span class="label">Emergency contact:</span> <span class="fill-line"></span></div>
+      </div>
+
+      <!-- Key References -->
+      <div class="card-section">
+        <h3>Key References for Treating Physician</h3>
+        <ul style="margin:0; padding-left:20px; font-size:0.9rem;">
+          <li><strong>OrphanAnesthesia:</strong> orphananesthesia.eu &mdash; anesthesia guidelines for Stickler syndrome</li>
+          <li><strong>GeneReviews:</strong> ncbi.nlm.nih.gov/books/NBK1302/ &mdash; Stickler syndrome clinical overview</li>
+        </ul>
+      </div>
+
+      <p style="font-size:0.75rem; text-align:center; margin-bottom:0; color:#666;">
+        Card date: ______/______/______ &nbsp;&bull;&nbsp; Review annually or after any new diagnosis.
+        <br>Generated from marshallsyndrome.info &mdash; Marshall Syndrome Resource
+      </p>
+
+    </div>
+    <!-- === END EMERGENCY CARD === -->
+
+    <div class="no-print" style="text-align:center; margin: 16px 0 32px;">
+      <button onclick="window.print()" class="print-btn">&#128424; Print Emergency Card</button>
+    </div>
+
+    <!-- MEDICAL ID BRACELETS -->
+    <h2 class="no-print">Medical ID Bracelets</h2>
+
+    <p class="no-print">A medical ID bracelet ensures first responders are immediately alerted to critical information even if the patient is unconscious or unable to communicate. For Marshall syndrome, the airway alert alone justifies wearing one.</p>
+
+    <h3 class="no-print">What to Engrave</h3>
+    <div class="engrave-example no-print">
+      MARSHALL SYNDROME<br>
+      DIFFICULT AIRWAY - COL11A1<br>
+      SEE WALLET CARD
+    </div>
+    <p class="no-print">If space allows, add: <strong>NO NECK HYPEREXTENSION</strong> and any critical drug allergies.</p>
+
+    <h3 class="no-print">Recommended Services</h3>
+    <div class="bracelet-options no-print">
+      <div class="bracelet-option">
+        <h4>MedicAlert Foundation</h4>
+        <p>The gold standard. Links to a 24/7 hotline where responders can access your full medical profile. Annual membership includes emergency response services. Engraving + digital record. Recommended for children.</p>
+        <p><strong>medicalert.org</strong></p>
+      </div>
+      <div class="bracelet-option">
+        <h4>Road ID</h4>
+        <p>Popular for active families. Durable silicone and metal options. Interactive model links to online profile via QR code. No annual fee for basic service. Good for sports and outdoor activities.</p>
+        <p><strong>roadid.com</strong></p>
+      </div>
+      <div class="bracelet-option">
+        <h4>American Medical ID</h4>
+        <p>Wide variety of styles for children and adults. Custom engraving with up to 6 lines. Stainless steel and sterling silver options. One-time purchase, no subscription required.</p>
+        <p><strong>americanmedical-id.com</strong></p>
+      </div>
+      <div class="bracelet-option">
+        <h4>StickyJ Medical ID</h4>
+        <p>Budget-friendly options. Kid-friendly designs and colors. Sport bands suitable for active children. Custom engraving available.</p>
+        <p><strong>stickyj.com</strong></p>
+      </div>
+    </div>
+
+    <h3 class="no-print">When to Start Wearing One</h3>
+    <ul class="no-print">
+      <li><strong>Immediately after diagnosis</strong> &mdash; there is no age too young. Infant and toddler medical ID anklets and shoe tags are available.</li>
+      <li>Update the bracelet after significant medical changes (new diagnosis, new medication, surgery).</li>
+      <li>Consider a second ID for the diaper bag, car seat, or backpack for very young children.</li>
+      <li>Involve the child in choosing their bracelet &mdash; they are more likely to wear one they helped pick out.</li>
+    </ul>
+
+    <!-- DIGITAL OPTIONS -->
+    <h2 class="no-print">Digital Emergency Information</h2>
+
+    <p class="no-print">Supplement your physical card and bracelet with digital emergency information stored on the patient's phone. First responders are trained to check for these.</p>
+
+    <h3 class="no-print">Apple Health Medical ID (iPhone)</h3>
+    <ol class="no-print">
+      <li>Open the <strong>Health</strong> app &rarr; tap your profile picture &rarr; <strong>Medical ID</strong>.</li>
+      <li>Tap <strong>Edit</strong> and fill in:
+        <ul>
+          <li><strong>Medical Conditions:</strong> Marshall Syndrome (Stickler Type 2) - COL11A1 - Difficult Airway - Cervical Spine Precautions - High Retinal Detachment Risk</li>
+          <li><strong>Medical Notes:</strong> See wallet card. Do NOT hyperextend neck. Request fiber-optic intubation. OrphanAnesthesia.eu for anesthesia guidelines.</li>
+          <li><strong>Allergies &amp; Reactions:</strong> List all known allergies.</li>
+          <li><strong>Medications:</strong> List all current medications.</li>
+          <li><strong>Emergency Contacts:</strong> Add parents/guardians and key specialists.</li>
+        </ul>
+      </li>
+      <li>Enable <strong>"Show When Locked"</strong> so it is accessible without unlocking the phone.</li>
+    </ol>
+
+    <h3 class="no-print">Google Emergency Information (Android)</h3>
+    <ol class="no-print">
+      <li>Open <strong>Settings</strong> &rarr; <strong>Safety &amp; emergency</strong> &rarr; <strong>Medical information</strong>.</li>
+      <li>Fill in the same information as above.</li>
+      <li>Also add emergency contacts under <strong>Settings</strong> &rarr; <strong>Safety &amp; emergency</strong> &rarr; <strong>Emergency contacts</strong>.</li>
+    </ol>
+
+    <h3 class="no-print">ICE Contacts</h3>
+    <p class="no-print">Add <strong>ICE</strong> (In Case of Emergency) as a prefix to key contacts in the phone&rsquo;s address book: "ICE - Mom," "ICE - Dad," "ICE - Dr. [Geneticist]." Many first responders still check the contact list for ICE entries.</p>
+
+    <!-- SCHOOL EMERGENCY CARD -->
+    <h2 class="no-print">School Emergency Card</h2>
+
+    <p class="no-print">School nurses and administrators need a version of the emergency card adapted to the school setting. Provide a copy at the start of every school year and update it whenever medical information changes. Request a meeting with the school nurse to walk through it.</p>
+
+    <div class="callout callout-info no-print">
+      <strong>Tip:</strong> Combine this with a <strong>504 Plan</strong> or <strong>IEP</strong> (Individualized Education Program) that documents medical accommodations, PE modifications, and emergency protocols.
+    </div>
+
+    <p class="no-print">The school card should include everything on the standard emergency card above, plus:</p>
+
+    <ul class="no-print">
+      <li><strong>Fainting / vasovagal protocol:</strong> If the child has a history of syncope or vasovagal episodes, include positioning instructions (lay flat, elevate legs) and when to call 911 vs. the school nurse.</li>
+      <li><strong>Seizure protocol:</strong> If applicable, include seizure first aid steps and when to administer rescue medication.</li>
+      <li><strong>Medication administration:</strong> List any medications that may need to be given during school hours, with dosing, timing, and who is authorized to administer them.</li>
+      <li><strong>PE and physical activity modifications:</strong> Specify restrictions based on the child&rsquo;s specific profile &mdash; contact sports restrictions (cervical instability, retinal detachment risk), impact limitations, activity-specific guidance from the orthopedic specialist and ophthalmologist. See <a href="specialists.html">building your specialist team</a>.</li>
+      <li><strong>Hearing accommodations:</strong> Preferential seating, FM system use, captioning needs, quiet testing environment if applicable.</li>
+      <li><strong>Vision accommodations:</strong> Large print materials, seating position, screen magnification, lighting needs.</li>
+      <li><strong>Parent/guardian contacts:</strong> Multiple phone numbers with the order to try them.</li>
+      <li><strong>Authorized pickup:</strong> Who is authorized to pick up the child in a medical emergency.</li>
+    </ul>
+
+    <!-- TRAVEL CONSIDERATIONS -->
+    <h2 class="no-print">Travel Considerations</h2>
+
+    <p class="no-print">Traveling with a rare genetic condition requires advance preparation. Most of this is straightforward once set up, but the first trip takes some planning.</p>
+
+    <h3 class="no-print">Carry Medical Records</h3>
+    <ul class="no-print">
+      <li>Keep a <strong>printed copy of the emergency card</strong> in your carry-on, wallet, and checked luggage.</li>
+      <li>Carry a <strong>letter from the geneticist</strong> on hospital letterhead summarizing the diagnosis, key precautions, and current medications. This is invaluable if you need emergency care in an unfamiliar hospital.</li>
+      <li>Store a <strong>digital copy</strong> of all medical records, recent test results, and imaging reports in a secure cloud service (Google Drive, iCloud, etc.) accessible from any device.</li>
+      <li>If the child has hearing aids or cochlear implants, carry <strong>documentation for airport security</strong> explaining that these devices cannot go through certain scanners.</li>
+    </ul>
+
+    <h3 class="no-print">Airport Security &amp; TSA</h3>
+    <ul class="no-print">
+      <li>TSA allows you to request a <strong>TSA Notification Card</strong> (available at tsa.gov) to discreetly inform officers about medical conditions.</li>
+      <li>Hearing aids can stay in during screening. Cochlear implant processors may need to be removed for certain scanners &mdash; check with your audiologist.</li>
+      <li>Carry medications in original labeled containers with a doctor&rsquo;s letter if traveling internationally.</li>
+      <li>Consider <strong>TSA PreCheck</strong> or <strong>TSA Cares</strong> (a helpline for travelers with disabilities: 855-787-2227) for a smoother experience.</li>
+    </ul>
+
+    <h3 class="no-print">International Travel</h3>
+    <ul class="no-print">
+      <li><strong>Translate key medical terms</strong> into the language of your destination. Critical phrases:
+        <ul>
+          <li>"Difficult airway &mdash; do not force intubation"</li>
+          <li>"Do not hyperextend the neck"</li>
+          <li>"High risk of retinal detachment &mdash; emergency ophthalmology consult"</li>
+          <li>"Collagen disorder &mdash; COL11A1 gene mutation"</li>
+        </ul>
+      </li>
+      <li>Research hospitals near your destination <strong>before you travel</strong>. Identify the nearest facility with a vitreoretinal surgeon and pediatric anesthesiology.</li>
+      <li>Carry your geneticist&rsquo;s letter translated into the destination language if possible.</li>
+      <li>MedicAlert&rsquo;s 24/7 hotline offers multilingual translation services &mdash; another reason to consider their service.</li>
+    </ul>
+
+    <h3 class="no-print">Travel Insurance</h3>
+    <ul class="no-print">
+      <li>Standard travel insurance often excludes pre-existing conditions. Look for policies that explicitly cover them, or purchase a <strong>"pre-existing condition waiver"</strong> add-on.</li>
+      <li>Ensure the policy covers <strong>emergency medical evacuation</strong> &mdash; critical if traveling to areas with limited specialist availability.</li>
+      <li>Document your medical history honestly on the application. An undisclosed pre-existing condition can void coverage entirely.</li>
+      <li>Keep the insurance company&rsquo;s emergency number in your phone and on the printed emergency card.</li>
+    </ul>
+
+    <div class="callout callout-tip no-print">
+      <strong>Related pages:</strong> <a href="anesthesia.html">Anesthesia &amp; Surgery Guidelines</a> for detailed airway management protocols. <a href="red-flags.html">Red Flags &amp; Emergencies</a> for when to go to the ER. <a href="specialists.html">Building Your Specialist Team</a> for coordinating care.
+    </div>
+
+  </div>
+
+  <div class="prev-next">
+    <a href="references.html" class="prev-next-link">&larr; References &amp; Further Reading</a>
+    <a href="../emerging/index.html" class="prev-next-link">Emerging Research &rarr;</a>
+  </div>
+
+</div>
+</div>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top">&#8593;</button>
+<script src="../nav.js"></script>
+</body>
+</html>

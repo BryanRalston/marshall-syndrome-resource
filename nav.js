@@ -63,7 +63,8 @@
         { file: 'treatment/drug-repurposing.html', title: 'Drug Repurposing for Marshall Syndrome', k: 'drug repurposing carbamazepine ER stress 4-PBA TUDCA chemical chaperone doxycycline MMP inhibitor metformin AMPK DMF dimethyl fumarate omega-3 resolvin N-of-1 trial off-label' },
         { file: 'treatment/vagus-nerve-stimulation.html', title: 'Vagus Nerve Stimulation (taVNS)', k: 'vagus nerve stimulation taVNS transcutaneous auricular cholinergic anti-inflammatory pathway CAP TNF IL-6 pain neuromodulation ear tragus FDA pediatric' },
         { file: 'treatment/small-fiber-neuropathy.html', title: 'Small Fiber Neuropathy Testing', k: 'small fiber neuropathy SFN skin punch biopsy IENFD intraepidermal nerve fiber density burning pain allodynia autonomic C-fiber A-delta perineurium collagen nerve sheath QST sudomotor corneal confocal' },
-        { file: 'treatment/osteoarthritis.html', title: 'Early-Onset Osteoarthritis', k: 'osteoarthritis OA joint pain hip knee ankle cartilage degradation MMP-13 COMP hypermobility stiffness joint replacement arthroplasty hyaluronic acid PRP corticosteroid bracing orthotics rheumatologist pediatric' }
+        { file: 'treatment/osteoarthritis.html', title: 'Early-Onset Osteoarthritis', k: 'osteoarthritis OA joint pain hip knee ankle cartilage degradation MMP-13 COMP hypermobility stiffness joint replacement arthroplasty hyaluronic acid PRP corticosteroid bracing orthotics rheumatologist pediatric' },
+        { file: 'treatment/hypermobility-management.html', title: 'Hypermobility Management', k: 'hypermobility Beighton score joint laxity proprioception balance training ring splint orthotics bracing closed chain exercise subluxation instability EDS connective tissue PT strengthening ankle knee shoulder wrist' }
       ]
     },
     {
@@ -130,7 +131,10 @@
         { file: 'living/symptom-navigator.html', title: 'Symptom Navigator', k: 'symptom navigator assessment checklist triage routing personalized recommendations specialist gap analysis' },
         { file: 'living/hearing-management.html', title: 'Hearing Management', k: 'hearing loss sensorineural conductive mixed tectorial membrane audiogram hearing aid BTE bone conduction BAHA cochlear implant FM system Roger speech language tinnitus ear infection otitis media tympanostomy tube noise protection audiologist ABR OAE' },
         { file: 'living/eye-management.html', title: 'Eye Management', k: 'eye retinal detachment vitreous degeneration myopia nearsightedness cataract glaucoma prophylactic cryotherapy laser retinopexy Cambridge Protocol lattice degeneration giant retinal tear scleral buckle vitrectomy IOL polycarbonate UV protection ophthalmologist vitreoretinal' },
-        { file: 'living/transition-adult-care.html', title: 'Transition to Adult Care', k: 'transition adult care pediatric transfer self-advocacy medical summary insurance ADA employment disability pregnancy parenthood genetic risk specialist adult provider independence teen young adult' }
+        { file: 'living/transition-adult-care.html', title: 'Transition to Adult Care', k: 'transition adult care pediatric transfer self-advocacy medical summary insurance ADA employment disability pregnancy parenthood genetic risk specialist adult provider independence teen young adult' },
+        { file: 'living/headaches.html', title: 'Headaches: 5 Types in Marshall Syndrome', k: 'headache migraine cervicogenic positional CSF leak tension medication overuse occipital neuralgia trigeminovascular Chiari intracranial hypotension red flag GON block headache diary' },
+        { file: 'living/fatigue-management.html', title: 'Fatigue Management', k: 'fatigue energy spoon theory pacing post-exertional malaise brain fog cognitive fatigue exercise paradox sleep disruption autonomic deconditioning school accommodations energy envelope boom bust' },
+        { file: 'living/dental-orthodontic.html', title: 'Dental & Orthodontic Management', k: 'dental orthodontic teeth enamel malocclusion Pierre Robin palate cleft jaw mandible TMJ braces retention root resorption local anesthetic sedation airway fluoride sealant caries periodontal' }
       ]
     },
     {
@@ -139,7 +143,8 @@
         { file: 'resources/questions.html', title: 'Questions for Doctors', k: 'questions doctors appointments preparation what to ask specialist visit' },
         { file: 'resources/latest-research.html', title: 'Latest Research', k: 'latest research papers publications PubMed studies new findings 2025 2026' },
         { file: 'resources/support.html', title: 'Support Resources', k: 'support groups families communities online forums Facebook foundation Stickler Involved People' },
-        { file: 'resources/references.html', title: 'References', k: 'references bibliography citations sources papers journals authors' }
+        { file: 'resources/references.html', title: 'References', k: 'references bibliography citations sources papers journals authors' },
+        { file: 'resources/emergency-card.html', title: 'Emergency Medical Card', k: 'emergency card medical alert ID bracelet travel school nurse print airway cervical spine retinal detachment MedicAlert ICE 504 IEP sedation anesthesia' }
       ]
     },
     {
