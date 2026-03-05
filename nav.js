@@ -13,7 +13,8 @@
         { file: 'basics/index.html', title: 'What is Marshall Syndrome?', k: 'COL11A1 collagen XI mutation genetics diagnosis definition overview type II collagenopathy autosomal dominant splice site exon' },
         { file: 'basics/molecular-biology.html', title: 'The Molecular Biology', k: 'COL11A1 collagen XI fibril diameter haploinsufficiency dominant-negative protein misfolding ER stress UPR' },
         { file: 'basics/natural-history.html', title: 'Decade-by-Decade Natural History', k: 'prognosis progression timeline age childhood adolescence adult symptoms worsening hearing vision joints' },
-        { file: 'basics/marshall-vs-stickler.html', title: 'Marshall vs. Stickler', k: 'stickler syndrome type 2 difference distinction advocacy OMIM geneticist splice site 54bp exon dominant-negative' }
+        { file: 'basics/marshall-vs-stickler.html', title: 'Marshall vs. Stickler', k: 'stickler syndrome type 2 difference distinction advocacy OMIM geneticist splice site 54bp exon dominant-negative' },
+        { file: 'basics/pierre-robin.html', title: 'Pierre Robin Sequence', k: 'Pierre Robin sequence micrognathia glossoptosis cleft palate airway obstruction mandibular distraction osteogenesis feeding neonatal NICU prone positioning Haberman bottle speech velopharyngeal insufficiency VPI craniofacial' }
       ]
     },
     {
@@ -33,7 +34,8 @@
         { file: 'spine/growth-spurt.html', title: 'Growth Spurt Vulnerability Map', k: 'growth velocity puberty rapid growth disc vulnerability stress biomechanical' },
         { file: 'spine/cervical-myelopathy.html', title: 'Cervical Myelopathy: A Critical Risk', k: 'cervical myelopathy cord compression Lhermitte sign electric shock neck zap spinal cord weakness legs numbness Hoffmann Babinski clonus MRI urgent' },
         { file: 'spine/craniocervical-instability.html', title: 'Craniocervical Instability (CCI)', k: 'CCI AAI atlantoaxial instability craniocervical junction C1 C2 atlas axis transverse ligament Lhermitte sign leg weakness red ears evening fatigue Chiari settling fusion clivo-axial angle Grabb-Oakes ADI flexion extension upright MRI DMX' },
-        { file: 'spine/lhermitte-sign.html', title: 'Lhermitte\'s Sign: 12 Convergent Mechanisms', k: 'Lhermitte sign electric shock neck zap flexion dorsal column ephaptic transmission demyelination ferroptosis oligodendrocyte Chiari syringomyelia vascular posterior spinal artery tethered cord zinc copper B12 deficiency convergence myelopathy radiation' }
+        { file: 'spine/lhermitte-sign.html', title: 'Lhermitte\'s Sign: 12 Convergent Mechanisms', k: 'Lhermitte sign electric shock neck zap flexion dorsal column ephaptic transmission demyelination ferroptosis oligodendrocyte Chiari syringomyelia vascular posterior spinal artery tethered cord zinc copper B12 deficiency convergence myelopathy radiation' },
+        { file: 'spine/scoliosis.html', title: 'Scoliosis & Kyphosis', k: 'scoliosis kyphosis Cobb angle bracing Boston Rigo Schroth SEAS platyspondyly Scheuermann curve progression Risser Sanders VBT vertebral body tethering growing rods MAGEC spinal fusion Adams forward bend EOS' }
       ]
     },
     {
@@ -58,7 +60,8 @@
         { file: 'treatment/central-sensitization.html', title: 'Central Sensitization & Pain Amplification', k: 'central sensitization pain amplification wind-up glial microglia astrocyte BDNF KCC2 GABA Lhermitte sign autonomic red ears QST LDN naltrexone amitriptyline TENS alpha-delta sleep nociplastic trigeminovascular' },
         { file: 'treatment/drug-repurposing.html', title: 'Drug Repurposing for Marshall Syndrome', k: 'drug repurposing carbamazepine ER stress 4-PBA TUDCA chemical chaperone doxycycline MMP inhibitor metformin AMPK DMF dimethyl fumarate omega-3 resolvin N-of-1 trial off-label' },
         { file: 'treatment/vagus-nerve-stimulation.html', title: 'Vagus Nerve Stimulation (taVNS)', k: 'vagus nerve stimulation taVNS transcutaneous auricular cholinergic anti-inflammatory pathway CAP TNF IL-6 pain neuromodulation ear tragus FDA pediatric' },
-        { file: 'treatment/small-fiber-neuropathy.html', title: 'Small Fiber Neuropathy Testing', k: 'small fiber neuropathy SFN skin punch biopsy IENFD intraepidermal nerve fiber density burning pain allodynia autonomic C-fiber A-delta perineurium collagen nerve sheath QST sudomotor corneal confocal' }
+        { file: 'treatment/small-fiber-neuropathy.html', title: 'Small Fiber Neuropathy Testing', k: 'small fiber neuropathy SFN skin punch biopsy IENFD intraepidermal nerve fiber density burning pain allodynia autonomic C-fiber A-delta perineurium collagen nerve sheath QST sudomotor corneal confocal' },
+        { file: 'treatment/osteoarthritis.html', title: 'Early-Onset Osteoarthritis', k: 'osteoarthritis OA joint pain hip knee ankle cartilage degradation MMP-13 COMP hypermobility stiffness joint replacement arthroplasty hyaluronic acid PRP corticosteroid bracing orthotics rheumatologist pediatric' }
       ]
     },
     {
@@ -121,7 +124,9 @@
         { file: 'living/tmj-craniofacial.html', title: 'TMJ & Craniofacial Pain', k: 'TMJ temporomandibular joint jaw pain clicking popping micrognathia malocclusion auriculotemporal nerve red ear syndrome DDR2 MMP-13 orthodontic dental' },
         { file: 'living/vestibular-dysfunction.html', title: 'Vestibular Dysfunction & Balance', k: 'vestibular dysfunction balance dizziness vertigo BPPV inner ear stereocilia tectorial membrane vHIT VEMP posturography falls legs giving out vestibulospinal VRT rehabilitation' },
         { file: 'living/symptom-tracker.html', title: 'Symptom Timeline & Tracker', k: 'symptom tracker diary log timeline pain record history documentation backup export' },
-        { file: 'living/symptom-navigator.html', title: 'Symptom Navigator', k: 'symptom navigator assessment checklist triage routing personalized recommendations specialist gap analysis' }
+        { file: 'living/symptom-navigator.html', title: 'Symptom Navigator', k: 'symptom navigator assessment checklist triage routing personalized recommendations specialist gap analysis' },
+        { file: 'living/hearing-management.html', title: 'Hearing Management', k: 'hearing loss sensorineural conductive mixed tectorial membrane audiogram hearing aid BTE bone conduction BAHA cochlear implant FM system Roger speech language tinnitus ear infection otitis media tympanostomy tube noise protection audiologist ABR OAE' },
+        { file: 'living/eye-management.html', title: 'Eye Management', k: 'eye retinal detachment vitreous degeneration myopia nearsightedness cataract glaucoma prophylactic cryotherapy laser retinopexy Cambridge Protocol lattice degeneration giant retinal tear scleral buckle vitrectomy IOL polycarbonate UV protection ophthalmologist vitreoretinal' }
       ]
     },
     {
