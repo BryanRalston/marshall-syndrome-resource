@@ -14,7 +14,8 @@
         { file: 'basics/molecular-biology.html', title: 'The Molecular Biology', k: 'COL11A1 collagen XI fibril diameter haploinsufficiency dominant-negative protein misfolding ER stress UPR' },
         { file: 'basics/natural-history.html', title: 'Decade-by-Decade Natural History', k: 'prognosis progression timeline age childhood adolescence adult symptoms worsening hearing vision joints' },
         { file: 'basics/marshall-vs-stickler.html', title: 'Marshall vs. Stickler', k: 'stickler syndrome type 2 difference distinction advocacy OMIM geneticist splice site 54bp exon dominant-negative' },
-        { file: 'basics/pierre-robin.html', title: 'Pierre Robin Sequence', k: 'Pierre Robin sequence micrognathia glossoptosis cleft palate airway obstruction mandibular distraction osteogenesis feeding neonatal NICU prone positioning Haberman bottle speech velopharyngeal insufficiency VPI craniofacial' }
+        { file: 'basics/pierre-robin.html', title: 'Pierre Robin Sequence', k: 'Pierre Robin sequence micrognathia glossoptosis cleft palate airway obstruction mandibular distraction osteogenesis feeding neonatal NICU prone positioning Haberman bottle speech velopharyngeal insufficiency VPI craniofacial' },
+        { file: 'basics/genetic-counseling.html', title: 'Genetic Counseling & Family Planning', k: 'genetic counseling inheritance autosomal dominant 50% risk family planning prenatal testing CVS amniocentesis PGT-M IVF cascade testing VUS variant genetic counselor GINA insurance NSGC de novo mutation pregnancy' }
       ]
     },
     {
@@ -35,7 +36,8 @@
         { file: 'spine/cervical-myelopathy.html', title: 'Cervical Myelopathy: A Critical Risk', k: 'cervical myelopathy cord compression Lhermitte sign electric shock neck zap spinal cord weakness legs numbness Hoffmann Babinski clonus MRI urgent' },
         { file: 'spine/craniocervical-instability.html', title: 'Craniocervical Instability (CCI)', k: 'CCI AAI atlantoaxial instability craniocervical junction C1 C2 atlas axis transverse ligament Lhermitte sign leg weakness red ears evening fatigue Chiari settling fusion clivo-axial angle Grabb-Oakes ADI flexion extension upright MRI DMX' },
         { file: 'spine/lhermitte-sign.html', title: 'Lhermitte\'s Sign: 12 Convergent Mechanisms', k: 'Lhermitte sign electric shock neck zap flexion dorsal column ephaptic transmission demyelination ferroptosis oligodendrocyte Chiari syringomyelia vascular posterior spinal artery tethered cord zinc copper B12 deficiency convergence myelopathy radiation' },
-        { file: 'spine/scoliosis.html', title: 'Scoliosis & Kyphosis', k: 'scoliosis kyphosis Cobb angle bracing Boston Rigo Schroth SEAS platyspondyly Scheuermann curve progression Risser Sanders VBT vertebral body tethering growing rods MAGEC spinal fusion Adams forward bend EOS' }
+        { file: 'spine/scoliosis.html', title: 'Scoliosis & Kyphosis', k: 'scoliosis kyphosis Cobb angle bracing Boston Rigo Schroth SEAS platyspondyly Scheuermann curve progression Risser Sanders VBT vertebral body tethering growing rods MAGEC spinal fusion Adams forward bend EOS' },
+        { file: 'spine/csf-leak.html', title: 'CSF Leak & Intracranial Hypotension', k: 'CSF leak cerebrospinal fluid intracranial hypotension dura mater positional headache orthostatic headache brain sagging pachymeningeal enhancement epidural blood patch myelography dural ectasia dural weakness connective tissue collagen atraumatic needle lumbar puncture spinal anaesthesia CCI overlap prevention' }
       ]
     },
     {
@@ -96,7 +98,8 @@
         { file: 'monitoring/sleep-architecture.html', title: 'Sleep Architecture: Nocturnal Defense', k: 'sleep architecture NREM REM deep sleep stages nocturnal defense repair growth hormone melatonin cortisol' },
         { file: 'monitoring/growth-velocity.html', title: 'Growth Velocity Monitoring', k: 'growth velocity height weight BMI percentile growth chart pediatric endocrinology bone age' },
         { file: 'monitoring/endocrine-panel.html', title: 'Endocrine & Bone Health Monitoring', k: 'endocrine bone health DEXA vitamin D calcium thyroid TSH IGF-1 growth hormone ferritin iron bone density osteoporosis osteopenia mineralization BSP Tanner puberty' },
-        { file: 'monitoring/sleep-apnea.html', title: 'Sleep-Disordered Breathing & OSA', k: 'sleep apnea OSA obstructive central snoring airway CPAP polysomnography PSG adenotonsillectomy midface micrognathia Pierre Robin hypoxia triple-hit nocturnal HIF NF-kB' }
+        { file: 'monitoring/sleep-apnea.html', title: 'Sleep-Disordered Breathing & OSA', k: 'sleep apnea OSA obstructive central snoring airway CPAP polysomnography PSG adenotonsillectomy midface micrognathia Pierre Robin hypoxia triple-hit nocturnal HIF NF-kB' },
+        { file: 'monitoring/cardiac-screening.html', title: 'Cardiac Screening & MVP', k: 'cardiac heart mitral valve prolapse MVP echocardiogram echo aortic root palpitations arrhythmia endocarditis collagen valve myxomatous regurgitation cardiologist sports clearance autonomic POTS' }
       ]
     },
     {
@@ -126,7 +129,8 @@
         { file: 'living/symptom-tracker.html', title: 'Symptom Timeline & Tracker', k: 'symptom tracker diary log timeline pain record history documentation backup export' },
         { file: 'living/symptom-navigator.html', title: 'Symptom Navigator', k: 'symptom navigator assessment checklist triage routing personalized recommendations specialist gap analysis' },
         { file: 'living/hearing-management.html', title: 'Hearing Management', k: 'hearing loss sensorineural conductive mixed tectorial membrane audiogram hearing aid BTE bone conduction BAHA cochlear implant FM system Roger speech language tinnitus ear infection otitis media tympanostomy tube noise protection audiologist ABR OAE' },
-        { file: 'living/eye-management.html', title: 'Eye Management', k: 'eye retinal detachment vitreous degeneration myopia nearsightedness cataract glaucoma prophylactic cryotherapy laser retinopexy Cambridge Protocol lattice degeneration giant retinal tear scleral buckle vitrectomy IOL polycarbonate UV protection ophthalmologist vitreoretinal' }
+        { file: 'living/eye-management.html', title: 'Eye Management', k: 'eye retinal detachment vitreous degeneration myopia nearsightedness cataract glaucoma prophylactic cryotherapy laser retinopexy Cambridge Protocol lattice degeneration giant retinal tear scleral buckle vitrectomy IOL polycarbonate UV protection ophthalmologist vitreoretinal' },
+        { file: 'living/transition-adult-care.html', title: 'Transition to Adult Care', k: 'transition adult care pediatric transfer self-advocacy medical summary insurance ADA employment disability pregnancy parenthood genetic risk specialist adult provider independence teen young adult' }
       ]
     },
     {
