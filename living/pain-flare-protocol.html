@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pain Flare Protocol: Traffic Light System - Marshall Syndrome Resource</title>
+<link rel="stylesheet" href="../styles.css">
+<style>
+  .zone-card {
+    border-radius: 14px;
+    padding: 22px 24px;
+    margin: 18px 0;
+    font-size: 0.93rem;
+    line-height: 1.75;
+  }
+  .zone-card h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .zone-card ul { margin-left: 18px; }
+  .zone-card li { padding: 3px 0; }
+  .zone-green {
+    background: #edf7ee;
+    border: 1px solid #c3e0c5;
+    border-left: 5px solid #3d7837;
+  }
+  .zone-green h3 { color: #2d6a2e; }
+  .zone-yellow {
+    background: #fdf8ed;
+    border: 1px solid #f0e0b0;
+    border-left: 5px solid #b8860b;
+  }
+  .zone-yellow h3 { color: #8a6508; }
+  .zone-red {
+    background: #fdf2f0;
+    border: 1px solid #fce4df;
+    border-left: 5px solid #a44a43;
+  }
+  .zone-red h3 { color: #8b1a1a; }
+  .zone-black {
+    background: #1c1917;
+    border: 1px solid #44403a;
+    border-left: 5px solid #d4726a;
+    color: #f2efe8;
+  }
+  .zone-black h3 { color: #fce4df; }
+  .zone-black a { color: #f9edcf; }
+  .zone-black strong { color: #fce4df; }
+  .flare-plan {
+    background: var(--warm-100);
+    border: 2px dashed var(--warm-300);
+    border-radius: 14px;
+    padding: 22px 26px;
+    margin: 20px 0;
+  }
+  .flare-plan h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--warm-700);
+    margin-bottom: 14px;
+  }
+  .flare-plan .plan-field {
+    margin-bottom: 12px;
+    font-size: 0.93rem;
+  }
+  .flare-plan .plan-field label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 2px;
+    color: var(--warm-600);
+  }
+  .flare-plan .plan-field .line {
+    border-bottom: 1px solid var(--warm-300);
+    min-height: 28px;
+    margin-top: 2px;
+  }
+  .boom-bust-diagram {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 18px 0;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--warm-600);
+  }
+  .boom-bust-diagram .step {
+    background: var(--warm-100);
+    border: 1px solid var(--warm-200);
+    border-radius: 10px;
+    padding: 8px 14px;
+    text-align: center;
+    max-width: 140px;
+  }
+  .boom-bust-diagram .arrow {
+    font-size: 1.2rem;
+    color: var(--rose-500);
+  }
+  @media print {
+    .zone-card { break-inside: avoid; }
+    .flare-plan { break-inside: avoid; }
+    .zone-black { background: #eee !important; color: #000 !important; }
+    .zone-black h3 { color: #333 !important; }
+    .zone-black strong { color: #333 !important; }
+  }
+  @media (max-width: 600px) {
+    .boom-bust-diagram { gap: 4px; }
+    .boom-bust-diagram .step { padding: 6px 8px; font-size: 0.8rem; max-width: 110px; }
+    .boom-bust-diagram .arrow { font-size: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation">&#9776;</button>
+  <a href="../" class="header-title">Marshall Syndrome <span>Resource</span></a>
+  <div class="search-wrapper">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" id="searchInput" placeholder="Search this page..." aria-label="Search">
+  </div>
+  <span class="search-count" id="searchCount"></span>
+</header>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<nav class="sidebar" id="sidebar"></nav>
+
+<div class="main">
+<div class="content">
+
+  <nav class="breadcrumb" id="breadcrumb"></nav>
+
+  <div class="page-header">
+    <h1>Pain Flare Protocol: The Traffic Light System</h1>
+  </div>
+
+  <div class="page-body">
+
+    <p>Pain flares are inevitable with Marshall syndrome. Your child&rsquo;s collagen is structurally different, and some days will be harder than others. The goal of this page is not to prevent all flares &mdash; that is unrealistic &mdash; but to give your family a <strong>clear, actionable plan</strong> so that when a flare happens, everyone knows exactly what to do.</p>
+
+    <div class="callout callout-warning">
+      <strong>The single most important principle:</strong> During a pain flare, reduce activity &mdash; but <strong>never stop moving entirely</strong>. Complete bed rest makes pain worse, not better. This is counterintuitive but supported by every major guideline on chronic pain management in children.
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- THE BOOM-BUST CYCLE -->
+    <!-- ============================================================ -->
+    <h2 id="boom-bust">The Boom-Bust Cycle</h2>
+
+    <p>Before learning the traffic light system, you need to understand the pattern it is designed to break. The <strong>boom-bust cycle</strong> (also called the overactivity-rest cycle) is the #1 pattern to recognize and interrupt in chronic pain management for children:</p>
+
+    <div class="boom-bust-diagram">
+      <div class="step">Good day: child does everything</div>
+      <span class="arrow">&rarr;</span>
+      <div class="step">Overexertion triggers flare</div>
+      <span class="arrow">&rarr;</span>
+      <div class="step">Pain flare: complete rest</div>
+      <span class="arrow">&rarr;</span>
+      <div class="step">Deconditioning from inactivity</div>
+      <span class="arrow">&rarr;</span>
+      <div class="step">Muscles weaker, joints less stable</div>
+      <span class="arrow">&rarr;</span>
+      <div class="step">More vulnerable to next flare</div>
+      <span class="arrow">&circlearrowleft;</span>
+    </div>
+
+    <p>This cycle is destructive because each loop makes the next flare more likely and more severe. The child becomes progressively deconditioned, which destabilizes hypermobile joints, increases fatigue, worsens sleep, and amplifies pain through central sensitization. Many families get trapped in this pattern for months or years without recognizing it.</p>
+
+    <p><strong>How to recognize it in your family:</strong></p>
+    <ul>
+      <li>Your child &ldquo;makes up for lost time&rdquo; on good days by cramming in activities</li>
+      <li>Flares seem to follow a predictable 2&ndash;4 day pattern: good day &rarr; crash</li>
+      <li>Your child oscillates between full participation and complete withdrawal</li>
+      <li>Rest never seems to be enough &mdash; the flare keeps coming back</li>
+      <li>Activities are all-or-nothing rather than graded and consistent</li>
+    </ul>
+
+    <p>The traffic light system replaces this boom-bust cycle with a <strong>graded, consistent approach</strong> that maintains baseline activity through all phases, preventing deconditioning while allowing appropriate rest during flares.</p>
+
+    <!-- ============================================================ -->
+    <!-- THE TRAFFIC LIGHT SYSTEM -->
+    <!-- ============================================================ -->
+    <h2 id="traffic-light">The Traffic Light System</h2>
+
+    <p>This color-coded system gives your family a shared language for pain days. Print it, post it on the fridge, and share it with your child&rsquo;s school. When your child says &ldquo;I&rsquo;m in the yellow zone today,&rdquo; everyone instantly knows what that means and what to do.</p>
+
+    <div class="callout callout-tip">
+      <strong>Teach your child to self-identify their zone.</strong> Even children as young as 6 can learn to say &ldquo;I&rsquo;m green today&rdquo; or &ldquo;I think I&rsquo;m yellow.&rdquo; This builds body awareness, self-advocacy, and a sense of control &mdash; all of which reduce pain-related anxiety.
+    </div>
+
+    <!-- GREEN ZONE -->
+    <div class="zone-card zone-green">
+      <h3>GREEN ZONE &mdash; Pain 0&ndash;3 out of 10 &mdash; Baseline</h3>
+      <p>This is your child&rsquo;s normal operating range. Some background discomfort is typical in Marshall syndrome, so &ldquo;green&rdquo; does not necessarily mean zero pain &mdash; it means pain is manageable and not limiting function.</p>
+      <ul>
+        <li><strong>Normal activities with pacing</strong> &mdash; school, play, social activities, homework. Full participation.</li>
+        <li><strong>Movement breaks every 30 minutes</strong> &mdash; brief stretching or position changes, especially during seated activities. This prevents stiffness from building up.</li>
+        <li><strong>Preventive stretching routine</strong> &mdash; a daily 10&ndash;15 minute routine targeting the areas your child tends to flare (neck, back, hips, knees). Consistency here reduces flare frequency.</li>
+        <li><strong>Full school day</strong> &mdash; standard schedule with 504 accommodations in place.</li>
+        <li><strong>Approved exercise and sports</strong> &mdash; all GREEN-category activities from the <a href="./sports-clearance.html">Sports Clearance Guide</a>.</li>
+        <li><strong>Sleep hygiene</strong> &mdash; consistent bedtime, screen limits, comfortable positioning. Good sleep is the single best flare preventive.</li>
+      </ul>
+      <p><strong>Green zone is the time to build capacity.</strong> Gentle progressive loading &mdash; gradually increasing the intensity and duration of exercise over weeks &mdash; happens during green phases. Do not wait until the child &ldquo;feels perfect&rdquo; to exercise. Green is already good enough.</p>
+    </div>
+
+    <!-- YELLOW ZONE -->
+    <div class="zone-card zone-yellow">
+      <h3>YELLOW ZONE &mdash; Pain 4&ndash;5 out of 10 &mdash; Mild Flare</h3>
+      <p>Pain is elevated above baseline but still tolerable. This is the critical zone where most families make mistakes &mdash; either by pushing through at full speed (triggering the boom) or by stopping everything (triggering the bust).</p>
+      <ul>
+        <li><strong>Reduce load by 30&ndash;50% &mdash; NOT to zero.</strong> If the normal walk to school is 20 minutes, drive halfway. If the normal PE class is 45 minutes, do 20 minutes. Cut back, do not cut out.</li>
+        <li><strong>Modify activities, do not stop them.</strong> Switch from running to walking. Switch from writing to typing. Switch from standing to sitting with breaks. The key word is <em>modify</em>.</li>
+        <li><strong>Gentle movement is medicine.</strong> Walking, stretching, warm water (bath or pool), and gentle range-of-motion exercises. These activate descending pain inhibition pathways &mdash; the body&rsquo;s built-in pain relief system.</li>
+        <li><strong>Use comfort strategies.</strong> Heat packs on sore areas, supportive positioning (pillows, ergonomic seating), breathing exercises, and distraction. See <a href="./fatigue-management.html">Fatigue Management</a> for energy conservation techniques that also apply during flares.</li>
+        <li><strong>School modifications.</strong> May need a shortened day, extra rest breaks, permission to stand or move during class, reduced homework load, or access to a quiet space. This is why having a <a href="./school-504.html">504 Plan</a> already in place matters &mdash; the accommodations are pre-approved and ready.</li>
+        <li><strong>Keep moving at reduced intensity.</strong> Even 10 minutes of gentle walking is vastly better than a full day in bed.</li>
+      </ul>
+      <div class="callout callout-info" style="margin-top: 12px;">
+        <strong>48-hour rule:</strong> If your child stays in the yellow zone for more than 48 hours without improvement, reassess. Consider whether a new trigger is present (illness, poor sleep, emotional stress), whether medication adjustment is needed, or whether you need to contact your care team.
+      </div>
+    </div>
+
+    <!-- RED ZONE -->
+    <div class="zone-card zone-red">
+      <h3>RED ZONE &mdash; Pain 6+ out of 10 &mdash; Crisis</h3>
+      <p>Pain is severe and significantly limiting. Your child may be tearful, withdrawn, unable to concentrate, or unable to attend school. This is the phase where the instinct to &ldquo;just rest&rdquo; is strongest &mdash; and where complete rest does the most damage.</p>
+      <ul>
+        <li><strong>Prioritize comfort and safety.</strong> This is not the time to push through. Use every available comfort tool.</li>
+        <li><strong>Use all available comfort tools:</strong>
+          <ul>
+            <li>Heat packs or warm baths (warmth relaxes muscle spasm and improves blood flow)</li>
+            <li>TENS unit if prescribed (transcutaneous electrical nerve stimulation)</li>
+            <li>Medications as prescribed by your care team</li>
+            <li>Breathing exercises: 4-7-8 breathing (inhale 4 seconds, hold 7, exhale 8) or box breathing</li>
+            <li>Distraction: audiobooks, gentle music, guided imagery, low-stimulation screen time</li>
+            <li>Supportive positioning: body pillows, rolled towels, whatever configuration your child finds most comfortable</li>
+          </ul>
+        </li>
+        <li><strong>Gentle movement only &mdash; but do not skip it.</strong> Short walks (even 5 minutes), supported position changes every 30&ndash;60 minutes, gentle arm and leg movements while lying down. The goal is to prevent complete immobility, not to exercise.</li>
+        <li><strong>Do NOT go to complete bed rest.</strong> This is the hardest instruction for parents to follow, but it is the most important. Complete immobility causes rapid deconditioning, increases joint stiffness, worsens mood, and amplifies central sensitization. Each day of complete bed rest can take multiple days to recover from.</li>
+        <li><strong>Contact your care team if:</strong>
+          <ul>
+            <li>New symptoms appear that are different from the usual flare pattern</li>
+            <li>Neurological changes occur (weakness, numbness, tingling)</li>
+            <li>Pain does not respond to any of the usual strategies</li>
+            <li>Your child cannot tolerate any oral intake</li>
+            <li>You see any of the red flag symptoms listed below</li>
+          </ul>
+        </li>
+        <li><strong>Plan for recovery.</strong> A red zone flare will ease. When it does, transition to yellow zone activities first, then green. Do not jump straight from red to full activity &mdash; this restarts the boom-bust cycle.</li>
+      </ul>
+    </div>
+
+    <!-- RED FLAGS -->
+    <div class="zone-card zone-black">
+      <h3>RED FLAGS &mdash; Bypass the Traffic Light &mdash; Seek Medical Attention</h3>
+      <p>These symptoms are <strong>not part of a normal pain flare</strong>. They indicate a potentially serious complication that requires urgent medical evaluation. Do not wait to see if they improve.</p>
+      <ul>
+        <li><strong>Sudden new weakness in arms or legs</strong> &mdash; could indicate cervical spinal cord compression, especially in Marshall syndrome with cervical instability</li>
+        <li><strong>Loss of bladder or bowel control</strong> &mdash; cauda equina syndrome requires emergency evaluation</li>
+        <li><strong>Sudden vision changes</strong> &mdash; flashes of light, new floaters, a curtain or shadow across vision. This may indicate <strong>retinal detachment</strong>, which is an ophthalmic emergency in Marshall syndrome</li>
+        <li><strong>Fever combined with severe back pain</strong> &mdash; must rule out infection (discitis, epidural abscess)</li>
+        <li><strong>Pain after trauma or fall</strong> &mdash; standard X-ray protocols may miss cervical injuries in children with connective tissue disorders; mention Marshall syndrome to the ER</li>
+        <li><strong>Electric shock sensation down the spine with neck movement</strong> (Lhermitte sign) &mdash; indicates possible cervical cord irritation. Immobilize the neck and seek evaluation. See <a href="./autonomic-dysfunction.html">Autonomic Dysfunction</a> for more on Lhermitte sign in Marshall syndrome.</li>
+        <li><strong>Sudden severe headache unlike any previous headache</strong> &mdash; especially with neck stiffness or vomiting</li>
+      </ul>
+      <p>Bring the <a href="./emergency-card.html">Emergency Protocol Card</a> to any ER visit. It contains Marshall-specific information that emergency physicians need to see immediately.</p>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- PACING STRATEGIES -->
+    <!-- ============================================================ -->
+    <h2 id="pacing">Pacing Strategies for Kids</h2>
+
+    <p>Pacing is the art of spreading activity evenly throughout the day instead of front-loading it. For adults, this is a discipline. For children, it needs to be made concrete and visual.</p>
+
+    <h3>The Battery Metaphor</h3>
+    <p>Explain to your child: &ldquo;You have a daily energy battery. Every activity uses some charge. Green zone activities cost 1 bar. Yellow zone days mean your battery starts at half. Red zone days mean you only have a few bars. The goal is to use your battery steadily through the day &mdash; not to drain it all by lunchtime.&rdquo;</p>
+    <ul>
+      <li>Use a visual &mdash; draw a battery on a whiteboard, use a phone battery icon, or use colored blocks</li>
+      <li>In the morning, assess together: &ldquo;How many bars do you have today?&rdquo;</li>
+      <li>Plan the day&rsquo;s activities based on available energy, spreading high-cost activities apart</li>
+      <li>This metaphor connects naturally to the <a href="./fatigue-management.html">Fatigue Management</a> page&rsquo;s energy envelope concept</li>
+    </ul>
+
+    <h3>Activity-Rest Cycling</h3>
+    <p>A structured rhythm that prevents overexertion:</p>
+    <ul>
+      <li><strong>Green days:</strong> 30 minutes of activity, then a 5-minute movement break (stretch, walk, change position)</li>
+      <li><strong>Yellow days:</strong> 20 minutes of activity, then a 5&ndash;10 minute rest</li>
+      <li><strong>Red days:</strong> 10&ndash;15 minutes of any activity, then rest as needed</li>
+      <li>Use a visible timer &mdash; a kitchen timer, phone alarm, or smartwatch vibration. Making it external removes the burden of self-monitoring from the child.</li>
+    </ul>
+
+    <h3>The &ldquo;Good Day Trap&rdquo;</h3>
+    <div class="callout callout-warning">
+      <strong>This is the hardest pacing concept for families to accept.</strong> On good days, your child will want to do everything they missed during the flare &mdash; play with friends, catch up on schoolwork, go to activities, run around. This is the &ldquo;boom&rdquo; that triggers the next &ldquo;bust.&rdquo;
+    </div>
+    <p>The rule: <strong>On good days, stay at 70% of maximum capacity.</strong> Your child can do most things, but not everything. Save 30% in the tank. This feels frustrating in the moment, but it is the single most effective strategy for reducing flare frequency over time.</p>
+    <ul>
+      <li>Pick the 2&ndash;3 most important activities for a good day, not all 5</li>
+      <li>Keep exercise intensity and duration at the current prescribed level &mdash; do not double it because it &ldquo;feels fine today&rdquo;</li>
+      <li>Maintain the same rest breaks as a normal green day</li>
+      <li>Celebrate consistency: &ldquo;You did your normal routine perfectly today&rdquo; is more valuable than &ldquo;You did so much today!&rdquo;</li>
+    </ul>
+
+    <!-- ============================================================ -->
+    <!-- PERSONAL FLARE PLAN -->
+    <!-- ============================================================ -->
+    <h2 id="flare-plan">Building a Personal Flare Plan</h2>
+
+    <p>Every child&rsquo;s flare is different. The strategies that help one child may not help another. Use this template to create your child&rsquo;s personal plan. Fill it in together &mdash; even young children should have input. Print it, laminate it, and keep copies at home, at school, and with any caregiver.</p>
+
+    <div class="flare-plan">
+      <h3>My Pain Flare Plan</h3>
+
+      <div class="plan-field">
+        <label>My name:</label>
+        <div class="line"></div>
+      </div>
+      <div class="plan-field">
+        <label>My green zone activities (what I do on a normal day):</label>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <div class="plan-field">
+        <label>My yellow zone modifications (what changes when pain is 4&ndash;5):</label>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <div class="plan-field">
+        <label>My red zone comfort tools (what helps most when pain is 6+):</label>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <div class="plan-field">
+        <label>My red flag symptoms (go straight to the doctor if these happen):</label>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <div class="plan-field">
+        <label>Who to call (name and phone number):</label>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <div class="plan-field">
+        <label>Medications I can take (name, dose, how often):</label>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <div class="plan-field">
+        <label>What helps me most when I&rsquo;m in pain:</label>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <div class="plan-field">
+        <label>What makes my pain worse:</label>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+    </div>
+
+    <div class="callout callout-tip">
+      <strong>Review and update the plan every 3&ndash;6 months</strong>, or after any significant change &mdash; a new medication, a new school year, a growth spurt, or a particularly informative flare. What works evolves as your child grows.
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- FOR SCHOOLS -->
+    <!-- ============================================================ -->
+    <h2 id="schools">For Schools: Sharing the Traffic Light System</h2>
+
+    <p>Schools are your partners in flare management. When teachers and school staff understand the traffic light system, they can respond appropriately without having to make medical judgments.</p>
+
+    <h3>What to Share with Your Child&rsquo;s School</h3>
+    <ul>
+      <li><strong>A copy of the traffic light zones</strong> (print this page) &mdash; post it in the classroom, the nurse&rsquo;s office, and the PE office</li>
+      <li><strong>Your child&rsquo;s personal flare plan</strong> &mdash; so the school knows exactly what to do in each zone</li>
+      <li><strong>Clear instructions for each zone:</strong>
+        <ul>
+          <li><strong>Green:</strong> Normal participation with existing 504 accommodations</li>
+          <li><strong>Yellow:</strong> The child needs modifications, NOT absence. Shorten assignments, offer rest breaks, modify PE, allow position changes. The child should remain in school if at all possible.</li>
+          <li><strong>Red:</strong> The child may need a quiet space with low stimulation, but should still be encouraged to do gentle movement (walking to the bathroom, changing positions). Complete immobility in the nurse&rsquo;s office all day is not appropriate unless waiting for pickup.</li>
+        </ul>
+      </li>
+      <li><strong>Red flag symptoms</strong> &mdash; the school needs to know when to call you immediately vs. when to implement yellow/red zone modifications</li>
+    </ul>
+
+    <p>If your child does not yet have a 504 Plan, the <a href="./school-504.html">School 504 Plan Template</a> provides a complete guide to establishing one. The traffic light system works best when it is formally documented in the 504 Plan as the framework for activity modification during flares.</p>
+
+    <h3>Avoiding Unnecessary Absences</h3>
+    <p>Chronic pain is not an all-or-nothing condition. A child in the yellow zone can learn, socialize, and participate &mdash; just at a modified level. Each full day missed from school has cascading consequences: missed instruction, social isolation, increased anxiety about return, and reinforcement of the avoidance pattern. The goal is <strong>maximum attendance with appropriate modification</strong>.</p>
+
+    <!-- ============================================================ -->
+    <!-- RECOVERY TRAJECTORY -->
+    <!-- ============================================================ -->
+    <h2 id="recovery">The Recovery Trajectory: Red to Yellow to Green</h2>
+
+    <p>When a flare begins to ease, the temptation is to jump straight back to full activity. This is the boom-bust cycle reasserting itself. Instead, follow a deliberate recovery path:</p>
+
+    <ol>
+      <li><strong>Red to Yellow:</strong> When pain drops from 6+ to 4&ndash;5, increase gentle movement. Add short walks, light stretching, and brief school attendance (partial day if needed). Do not increase to full activity yet.</li>
+      <li><strong>Yellow to Green:</strong> When pain drops to 0&ndash;3, gradually increase activity over 2&ndash;3 days. Start at 50% of normal on day one, 75% on day two, then full on day three. This staged return prevents the &ldquo;relief overload&rdquo; that triggers the next flare.</li>
+      <li><strong>Green with caution:</strong> For the first 3&ndash;5 days after returning to green, maintain the 70% rule even on good days. The body is still recovering, even if the child feels fine.</li>
+    </ol>
+
+    <div class="callout callout-info">
+      <strong>Track the pattern.</strong> Keep a simple log of zone, activities, and sleep for each day. Over time, patterns emerge &mdash; specific triggers, recovery timelines, and which strategies work best. The <a href="./symptom-tracker.html">Symptom Timeline &amp; Tracker</a> can help with this. Share the pattern data with your care team.
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- EVIDENCE BASE -->
+    <!-- ============================================================ -->
+    <h2 id="evidence">Evidence Base</h2>
+
+    <p>The traffic light approach to pain flare management is adapted from established pediatric chronic pain frameworks:</p>
+
+    <ul>
+      <li><strong>Cincinnati Children&rsquo;s Hospital Evidence-Based Clinical Practice Guideline</strong> for therapeutic management of pediatric hypermobility spectrum disorder &mdash; provides the evidence for graded activity, pacing, and avoiding complete rest during flares</li>
+      <li><strong>WHO 2021 Guidelines on the Management of Chronic Pain in Children</strong> &mdash; emphasizes multimodal approaches including physical activity maintenance, psychological strategies, and the central role of pacing in chronic pain self-management</li>
+      <li><strong>Graded motor imagery and graded exposure principles</strong> &mdash; the neurophysiological basis for maintaining movement during pain, which activates descending inhibitory pathways and prevents central sensitization from worsening. See <a href="./pain-neuroscience.html">Pain Neuroscience in Children</a> for a detailed explanation.</li>
+      <li><strong>HOPE (Hypermobile Online Pain managemEnt) program</strong> &mdash; the 2025 pilot RCT validating pacing and activity modification as effective strategies for hypermobility-related pain, described further on the <a href="./pain-neuroscience.html">Pain Neuroscience</a> page</li>
+    </ul>
+
+    <!-- ============================================================ -->
+    <!-- CROSS-REFERENCES -->
+    <!-- ============================================================ -->
+    <h2 id="related">Related Pages</h2>
+
+    <ul>
+      <li><a href="./pain-neuroscience.html">Pain Neuroscience in Children</a> &mdash; understanding why chronic pain behaves differently from acute pain, central sensitization, and the fear-avoidance cycle</li>
+      <li><a href="./school-504.html">School 504 Plan Template</a> &mdash; formalizing traffic light accommodations in a legally binding document</li>
+      <li><a href="./sports-clearance.html">Sports Clearance &amp; Activity Guide</a> &mdash; which physical activities are safe, modified, or prohibited in Marshall syndrome</li>
+      <li><a href="./fatigue-management.html">Fatigue Management</a> &mdash; energy envelope, spoon theory, and the boom-bust cycle as it relates to fatigue (closely linked to pain flares)</li>
+      <li><a href="./emergency-card.html">Emergency Protocol Card</a> &mdash; what to bring to the ER when a flare includes red flag symptoms</li>
+      <li><a href="./symptom-tracker.html">Symptom Timeline &amp; Tracker</a> &mdash; logging tool for tracking zones, triggers, and recovery patterns</li>
+    </ul>
+
+  </div>
+
+  <div class="prev-next">
+    <a href="./pain-neuroscience.html" class="prev-next-link">&larr; Pain Neuroscience in Children</a>
+    <a href="./sports-clearance.html" class="prev-next-link">Sports Clearance &amp; Activity Guide &rarr;</a>
+  </div>
+
+</div>
+</div>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top">&#8593;</button>
+<script src="../nav.js"></script>
+</body>
+</html>
