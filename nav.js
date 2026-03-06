@@ -150,6 +150,7 @@
         { file: 'living/school-504.html', title: 'School 504 Plan', k: 'school 504 plan IEP accommodations classroom seating standing desk breaks PE modifications teacher letter' },
         { file: 'living/talking.html', title: 'Talking About Marshall', k: 'talking explaining communication friends family teachers doctors child-friendly language' },
         { file: 'living/specialists.html', title: 'Specialists to Consult', k: 'specialists doctors team geneticist orthopedic rheumatologist ophthalmologist audiologist pain medicine PT psychologist' },
+        { file: 'living/doctor-letter.html', title: 'Doctor Letter', k: 'doctor letter medical summary print specialist ER emergency anesthesia airway cervical spine provider handout one-page COL11A1 clinical features surveillance' },
         { file: 'living/pain-neuroscience.html', title: 'Pain Neuroscience in Children', k: 'pain neuroscience education PNE children pediatric alarm system metaphor fear avoidance catastrophizing graded exposure CBT' },
         { file: 'living/psychological-support.html', title: 'Psychological & Social Support', k: 'psychological support mental health counseling CBT family therapy peer support chronic illness identity resilience MBSR mindfulness-based stress reduction adolescent brain imaging disability improvement' },
         { file: 'living/autonomic-dysfunction.html', title: 'Autonomic Dysfunction', k: 'autonomic dysfunction dysautonomia POTS orthostatic red ears flushing Lhermitte sign sympathetic parasympathetic cervical heart rate blood pressure temperature fatigue' },
@@ -173,7 +174,8 @@
         { file: 'living/sports-clearance.html', title: 'Sports Clearance & Activity Guide', k: 'sports clearance PE physical education activity green yellow red traffic light swimming cycling trampoline gymnastics contact sport coach letter camp retinal cervical cardiac' },
         { file: 'living/wound-healing.html', title: 'Wound Healing & Skin', k: 'wound healing scar skin collagen surgery suture dehiscence tensile strength connective tissue dermal fragility bruising surgical recovery closure' },
         { file: 'living/travel-planning.html', title: 'Travel & Vacation Planning', k: 'travel flying airplane altitude retinal detachment cabin pressure medical kit hearing aid airport security medication time zone specialist road trip amusement park camp international vacation' },
-        { file: 'living/pregnancy-management.html', title: 'Pregnancy & Obstetric Management', k: 'pregnancy obstetric high-risk MFM maternal fetal medicine cervical competence cerclage epidural cesarean retinal Valsalva relaxin postpartum breastfeeding newborn PGT-M prenatal airway anesthesia' }
+        { file: 'living/pregnancy-management.html', title: 'Pregnancy & Obstetric Management', k: 'pregnancy obstetric high-risk MFM maternal fetal medicine cervical competence cerclage epidural cesarean retinal Valsalva relaxin postpartum breastfeeding newborn PGT-M prenatal airway anesthesia' },
+        { file: 'living/emergency-card.html', title: 'Emergency Protocol Card', k: 'emergency ER protocol card triage airway difficult intubation cervical spine CCI retinal detachment ototoxic aminoglycoside wound healing joint laxity dislocation phone nurse hospital crisis 2am' }
       ]
     },
     {

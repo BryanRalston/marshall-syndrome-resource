@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doctor Letter - Marshall Syndrome Resource</title>
+<link rel="stylesheet" href="../styles.css">
+<style>
+/* ===== Doctor Letter On-Screen Styles ===== */
+.doctor-letter-printable {
+  background: #fff;
+  border: 1px solid var(--warm-200);
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  padding: 40px 48px;
+  margin: 24px 0;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  color: #1a1a1a;
+  line-height: 1.65;
+  font-size: 0.95rem;
+}
+.doctor-letter-printable h2 {
+  font-size: 1.35rem;
+  color: #1a1a1a;
+  border-bottom: 2px solid #333;
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+  letter-spacing: 0.02em;
+}
+.doctor-letter-printable h3 {
+  font-size: 1.05rem;
+  color: #1a1a1a;
+  margin-top: 24px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 4px;
+}
+.doctor-letter-printable h4 {
+  font-size: 0.95rem;
+  color: #1a1a1a;
+  margin-top: 16px;
+  margin-bottom: 6px;
+}
+.doctor-letter-printable p {
+  margin-bottom: 10px;
+}
+.doctor-letter-printable ul,
+.doctor-letter-printable ol {
+  margin-bottom: 12px;
+  padding-left: 24px;
+}
+.doctor-letter-printable li {
+  margin-bottom: 6px;
+}
+.patient-info {
+  background: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+}
+.patient-info p {
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+.patient-info .blank-line {
+  display: inline-block;
+  border-bottom: 1px solid #666;
+  min-width: 220px;
+  margin-left: 8px;
+}
+.letter-footer {
+  margin-top: 28px;
+  padding-top: 14px;
+  border-top: 1px solid #ccc;
+  font-size: 0.82rem;
+  color: #555;
+  font-style: italic;
+}
+.letter-references {
+  font-size: 0.85rem;
+  color: #333;
+}
+.letter-references ol {
+  padding-left: 20px;
+}
+.letter-references li {
+  margin-bottom: 4px;
+}
+.critical-list {
+  counter-reset: critical-item;
+  list-style: none;
+  padding-left: 0;
+}
+.critical-list > li {
+  counter-increment: critical-item;
+  padding-left: 28px;
+  position: relative;
+  margin-bottom: 10px;
+}
+.critical-list > li::before {
+  content: counter(critical-item) ".";
+  position: absolute;
+  left: 0;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+.btn-print {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: var(--sage-600);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin: 16px 0;
+}
+.btn-print:hover {
+  background: var(--sage-700);
+}
+.btn-print svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+/* ===== Print Styles ===== */
+@media print {
+  .site-header, .sidebar, .sidebar-overlay, .breadcrumb,
+  .back-to-top, .no-print, .prev-next, .hamburger,
+  .search-wrapper, .search-count, .doctor-letter-instructions,
+  .btn-print, .page-header { display: none !important; }
+  .main { margin: 0; padding: 0; }
+  .content { max-width: 100%; padding: 20px; }
+  body { background: #fff; color: #000; font-size: 11pt; line-height: 1.5; }
+  .doctor-letter-printable {
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+    font-size: 10.5pt;
+    line-height: 1.5;
+  }
+  .doctor-letter-printable h2 { font-size: 14pt; }
+  .doctor-letter-printable h3 { font-size: 12pt; }
+  .doctor-letter-printable h4 { font-size: 11pt; }
+  .patient-info { background: #fff; border: 1px solid #999; }
+  .letter-footer { font-size: 8.5pt; }
+  .letter-references { font-size: 9pt; }
+  a { color: #000; text-decoration: none; }
+  a[href]::after { content: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation">&#9776;</button>
+  <a href="../" class="header-title">Marshall Syndrome <span>Resource</span></a>
+  <div class="search-wrapper">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" id="searchInput" placeholder="Search this page..." aria-label="Search">
+  </div>
+  <span class="search-count" id="searchCount"></span>
+</header>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<nav class="sidebar" id="sidebar"></nav>
+
+<div class="main">
+<div class="content">
+
+  <nav class="breadcrumb" id="breadcrumb"></nav>
+
+  <div class="page-header">
+    <h1>Doctor Letter</h1>
+  </div>
+
+  <div class="page-body">
+
+    <!-- ============================================================ -->
+    <!-- SECTION 1: Instructions for Parents (not printed)            -->
+    <!-- ============================================================ -->
+    <div class="doctor-letter-instructions">
+
+      <p>This is a one-page medical summary you can print and hand to <strong>any provider who has never heard of Marshall syndrome</strong>. Most doctors will not have encountered this condition before. This letter gives them what they need immediately: what Marshall syndrome is, what systems it affects, and &mdash; most critically &mdash; what to watch out for during procedures and treatment.</p>
+
+      <h3>When to Use This Letter</h3>
+      <ul>
+        <li><strong>New specialist appointments</strong> &mdash; hand it to the doctor or nurse at check-in so they can review it before the visit</li>
+        <li><strong>Emergency room visits</strong> &mdash; give it to the triage nurse immediately; it flags airway and cervical spine precautions they need to know <em>before</em> any intervention</li>
+        <li><strong>School nurse</strong> &mdash; keep a copy in your child&rsquo;s school health file</li>
+        <li><strong>Surgical pre-op</strong> &mdash; ensure the anesthesiologist and surgical team each receive a copy well in advance</li>
+        <li><strong>Urgent care or walk-in clinics</strong> &mdash; any setting where providers are seeing your child for the first time</li>
+      </ul>
+
+      <h3>How to Customize It</h3>
+      <p>The letter includes blank fields for your child&rsquo;s specific information. Before printing, you can either:</p>
+      <ul>
+        <li>Print it and fill in the blanks by hand, or</li>
+        <li>Save the page as a PDF (Ctrl+P &rarr; &ldquo;Save as PDF&rdquo;), then use a PDF editor to type in the fields</li>
+      </ul>
+      <p>Fill in your child&rsquo;s name, date of birth, specific COL11A1 variant (from the genetic testing report), and the name of the diagnosing geneticist. If you do not yet have genetic confirmation, you can write &ldquo;clinical diagnosis&rdquo; or &ldquo;pending&rdquo; in the variant field.</p>
+
+      <div class="callout callout-tip">
+        <strong>Tip:</strong> Print several copies and keep them in your child&rsquo;s medical binder, your car, and your emergency bag. Have a digital copy on your phone as well.
+      </div>
+
+      <button class="btn-print" onclick="window.print()">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
+        Print This Letter
+      </button>
+
+    </div>
+
+
+    <!-- ============================================================ -->
+    <!-- SECTION 2: The Printable Letter                              -->
+    <!-- ============================================================ -->
+    <div class="doctor-letter-printable">
+
+      <h2>Medical Summary: Marshall Syndrome (OMIM #154780)</h2>
+
+      <!-- Patient Information -->
+      <div class="patient-info">
+        <p><strong>Patient Name:</strong> <span class="blank-line"></span></p>
+        <p><strong>Date of Birth:</strong> <span class="blank-line"></span></p>
+        <p><strong>COL11A1 Variant:</strong> <span class="blank-line"></span></p>
+        <p><strong>Diagnosing Geneticist:</strong> <span class="blank-line"></span></p>
+      </div>
+
+      <!-- What is Marshall Syndrome? -->
+      <h3>What Is Marshall Syndrome?</h3>
+      <p>Marshall syndrome is a rare autosomal dominant connective tissue disorder caused by mutations in the <em>COL11A1</em> gene (chromosome 1p21.1), which encodes the &alpha;1 chain of type XI collagen. Type XI collagen is a critical structural component of cartilage, the vitreous humor of the eye, the inner ear, and the intervertebral discs. Marshall syndrome is allelic to Stickler syndrome type II &mdash; the same gene is involved, but different mutation types (typically splice-site mutations causing exon skipping in Marshall syndrome) produce a distinct and generally more severe phenotype. Estimated prevalence is fewer than 1 in 1,000,000.</p>
+
+      <!-- Key Clinical Features -->
+      <h3>Key Clinical Features</h3>
+      <ul>
+        <li><strong>Craniofacial:</strong> Flat midface (midface hypoplasia), underdeveloped nasal bones, short nose with anteverted nares. Pierre Robin sequence (micrognathia, glossoptosis, cleft palate) occurs in approximately 24% of cases.</li>
+        <li><strong>Eyes:</strong> High myopia (often exceeding &minus;8 diopters), early cataracts, vitreous degeneration (membranous or beaded vitreous), and elevated lifetime risk of retinal detachment.</li>
+        <li><strong>Hearing:</strong> Early-onset progressive sensorineural hearing loss, often bilateral. Tinnitus is common. Hearing loss may begin in childhood and worsen over time.</li>
+        <li><strong>Skeletal:</strong> Spondyloepiphyseal dysplasia, early-onset osteoarthritis, joint hypermobility, and short stature relative to family background.</li>
+        <li><strong>Spine:</strong> Cervical instability risk (craniocervical junction), accelerated intervertebral disc degeneration, and risk of spinal stenosis at earlier ages than typical.</li>
+        <li><strong>Calvarium:</strong> Thickened skull bones (intracranial calcification of the frontal bone) &mdash; a distinguishing radiographic finding that helps differentiate Marshall syndrome from Stickler syndrome type II.</li>
+      </ul>
+
+      <!-- Critical Considerations -->
+      <h3>Critical Considerations for Any Provider</h3>
+      <ol class="critical-list">
+        <li><strong>Anesthesia &mdash; Difficult Airway Anticipated.</strong> Midface hypoplasia and micrognathia create a potentially difficult airway. Cervical instability may be present. Avoid excessive neck extension during intubation. Video laryngoscopy is recommended. Fiberoptic intubation should be available. Notify the anesthesiologist in advance of any procedure requiring sedation or general anesthesia. Consult OrphanAnesthesia (orphananesthesia.eu) for disorder-specific protocols.</li>
+        <li><strong>Cervical Spine &mdash; Instability Risk.</strong> Risk of craniocervical instability due to abnormal collagen in ligaments and intervertebral structures. Obtain flexion-extension cervical spine imaging before any procedure requiring neck manipulation or positioning. Avoid forceful neck extension or rotation. Use cervical precautions during intubation, physical examination, and manual therapy.</li>
+        <li><strong>Eyes &mdash; Retinal Detachment Risk.</strong> Retinal detachment can occur with minimal or no trauma due to abnormal vitreous structure. Avoid high-impact activities and Valsalva-inducing procedures when possible. Any sudden increase in floaters, flashes of light, or vision loss constitutes an emergency requiring immediate referral to a vitreoretinal specialist.</li>
+        <li><strong>Medications to Use with Caution.</strong> Ototoxic drugs &mdash; aminoglycosides (gentamicin, tobramycin), high-dose loop diuretics (furosemide), and cisplatin &mdash; should be avoided or used only when no alternative exists. This patient already has sensorineural hearing loss; ototoxic agents may accelerate irreversible damage. Monitor hearing with audiometry if these medications are unavoidable. Fluoroquinolones may also pose additional risk to collagen-deficient tissues.</li>
+        <li><strong>Wound Healing &amp; Tissue Integrity.</strong> Collagen disorder may affect wound healing, tissue tensile strength, and surgical closure integrity. Dural tears are more likely during spinal procedures. Use appropriate wound closure techniques and plan for longer healing timelines. Easy bruising and skin fragility may be present.</li>
+        <li><strong>Joint Laxity.</strong> Generalized joint hypermobility increases the risk of dislocation and subluxation. Use gentle manipulation during procedures and physical examinations. Avoid forceful joint positioning under anesthesia.</li>
+      </ol>
+
+      <!-- Recommended Surveillance -->
+      <h3>Recommended Surveillance Schedule</h3>
+      <ul>
+        <li><strong>Ophthalmology:</strong> Every 6&ndash;12 months &mdash; dilated retinal examination with peripheral retinal assessment. Assess for posterior vitreous detachment, lattice degeneration, and retinal breaks.</li>
+        <li><strong>Audiology:</strong> Annually &mdash; pure-tone audiometry and speech audiometry. Establish baseline early and track progression.</li>
+        <li><strong>Orthopedics / Spine:</strong> As clinically indicated. Baseline cervical spine imaging (including flexion-extension views) is recommended. Monitor for scoliosis, joint degeneration, and spinal symptoms.</li>
+        <li><strong>Genetics:</strong> Periodic re-evaluation as understanding of COL11A1-related disorders evolves and new therapeutic options emerge.</li>
+      </ul>
+
+      <!-- References -->
+      <div class="letter-references">
+        <h3>Key References</h3>
+        <ol>
+          <li>Annunen S, Korkko J, Czarny M, et al. Splicing mutations of 54-bp exons in the COL11A1 gene cause Marshall syndrome, but other mutations cause overlapping Marshall/Stickler phenotypes. <em>Am J Hum Genet.</em> 1999;65(4):974&ndash;983.</li>
+          <li>Stickler GB, Belau PG, Farrell FJ, et al. Hereditary progressive arthro-ophthalmopathy. <em>Mayo Clin Proc.</em> 1965;40:433&ndash;455.</li>
+          <li>Robin NH, Moran RT, Ala-Kokko L. Stickler Syndrome. In: Adam MP, et al., eds. <em>GeneReviews.</em> University of Washington, Seattle; updated 2021.</li>
+        </ol>
+      </div>
+
+      <!-- Footer -->
+      <div class="letter-footer">
+        This summary was prepared using marshallsyndromeresource.com &mdash; a comprehensive, evidence-based resource for Marshall syndrome and related COL11A1 disorders.
+      </div>
+
+    </div>
+    <!-- end .doctor-letter-printable -->
+
+  </div>
+</div>
+</div>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top">&#8593;</button>
+<script src="../nav.js"></script>
+</body>
+</html>

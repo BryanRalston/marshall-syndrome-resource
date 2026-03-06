@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emergency Protocol Card — Marshall Syndrome Resource</title>
+<link rel="stylesheet" href="../styles.css">
+<style>
+/* ===== EMERGENCY CARD PAGE STYLES ===== */
+
+/* Print: strip site chrome, show only the card */
+@media print {
+  .site-header, .sidebar, .sidebar-overlay, .breadcrumb, .back-to-top,
+  .prev-next, .no-print, .emergency-instructions, #backToTop,
+  .hamburger, .search-wrapper, .search-count, .page-header {
+    display: none !important;
+  }
+  .main { margin: 0 !important; padding: 0 !important; }
+  .content { max-width: 100% !important; padding: 10px !important; }
+  body { background: #fff !important; }
+  .er-card { box-shadow: none !important; border: 2px solid #000 !important; }
+  .er-card-critical { border-left-color: #000 !important; }
+  .er-card-important { border-left-color: #555 !important; }
+  .er-scenario-table th { background: #ddd !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+/* Instruction block at top */
+.emergency-instructions {
+  background: var(--sage-50);
+  border: 1px solid var(--sage-200);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin-bottom: 28px;
+}
+.emergency-instructions p {
+  margin: 0 0 10px;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.emergency-instructions .bookmark-note {
+  font-style: italic;
+  color: var(--warm-500);
+  font-size: 0.95rem;
+}
+
+/* Patient info form */
+.patient-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 20px;
+  margin: 16px 0 8px;
+}
+@media (max-width: 600px) {
+  .patient-info-grid { grid-template-columns: 1fr; }
+}
+.patient-info-grid label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--warm-600);
+  display: block;
+  margin-bottom: 2px;
+}
+.patient-info-grid input {
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 1rem;
+  font-family: inherit;
+  border: 1px solid var(--warm-300);
+  border-radius: 4px;
+  background: #fff;
+  color: var(--warm-700);
+}
+.patient-info-grid input:focus {
+  outline: 2px solid var(--sage-400);
+  border-color: var(--sage-400);
+}
+
+/* The emergency card container */
+.er-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 28px 28px 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+@media (max-width: 600px) {
+  .er-card { padding: 18px 14px 14px; }
+}
+
+/* Banner at the very top of the card */
+.er-banner {
+  background: #b91c1c;
+  color: #fff;
+  text-align: center;
+  padding: 14px 16px;
+  border-radius: 6px;
+  margin: -4px 0 24px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1.3;
+}
+.er-banner small {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  margin-top: 4px;
+  opacity: 0.92;
+}
+
+/* Section headings inside the card */
+.er-section-heading {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 28px 0 14px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  letter-spacing: 0.02em;
+}
+.er-section-heading-critical {
+  background: #fef2f2;
+  color: #991b1b;
+  border-left: 5px solid #dc2626;
+}
+.er-section-heading-important {
+  background: #fffbeb;
+  color: #92400e;
+  border-left: 5px solid #d97706;
+}
+.er-section-heading-scenarios {
+  background: var(--sage-50);
+  color: var(--sage-700);
+  border-left: 5px solid var(--sage-400);
+}
+
+/* Critical item cards */
+.er-card-critical {
+  background: #fff;
+  border: 1px solid #fecaca;
+  border-left: 5px solid #dc2626;
+  border-radius: 6px;
+  padding: 16px 18px;
+  margin-bottom: 16px;
+}
+.er-card-critical h4 {
+  color: #991b1b;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+/* Important item cards */
+.er-card-important {
+  background: #fff;
+  border: 1px solid #fde68a;
+  border-left: 5px solid #d97706;
+  border-radius: 6px;
+  padding: 16px 18px;
+  margin-bottom: 16px;
+}
+.er-card-important h4 {
+  color: #92400e;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+/* Bullet lists inside cards */
+.er-card-critical ul,
+.er-card-important ul {
+  margin: 0;
+  padding-left: 20px;
+  list-style: disc;
+}
+.er-card-critical li,
+.er-card-important li {
+  font-size: 1rem;
+  line-height: 1.55;
+  margin-bottom: 4px;
+  color: var(--warm-700);
+}
+.er-card-critical li strong,
+.er-card-important li strong {
+  color: var(--warm-800);
+}
+
+/* Scenario table */
+.er-scenario-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  margin-top: 8px;
+}
+.er-scenario-table th {
+  background: var(--sage-100);
+  color: var(--sage-700);
+  font-weight: 700;
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 2px solid var(--sage-300);
+}
+.er-scenario-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--warm-200);
+  vertical-align: top;
+  line-height: 1.5;
+}
+.er-scenario-table tr:last-child td {
+  border-bottom: none;
+}
+.er-scenario-table td:first-child {
+  font-weight: 700;
+  white-space: nowrap;
+  color: var(--warm-700);
+  width: 28%;
+}
+@media (max-width: 600px) {
+  .er-scenario-table { font-size: 0.88rem; }
+  .er-scenario-table td:first-child { white-space: normal; }
+  .er-scenario-table th, .er-scenario-table td { padding: 8px 8px; }
+}
+
+/* Footer inside card */
+.er-footer {
+  border-top: 1px solid var(--warm-200);
+  margin-top: 24px;
+  padding-top: 14px;
+  font-size: 0.88rem;
+  color: var(--warm-500);
+  line-height: 1.7;
+}
+.er-footer strong {
+  color: var(--warm-600);
+}
+
+/* Priority number badge */
+.er-priority {
+  display: inline-block;
+  background: #dc2626;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  border-radius: 50%;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+.er-priority-amber {
+  background: #d97706;
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation">&#9776;</button>
+  <a href="../" class="header-title">Marshall Syndrome <span>Resource</span></a>
+  <div class="search-wrapper">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" id="searchInput" placeholder="Search this page..." aria-label="Search">
+  </div>
+  <span class="search-count" id="searchCount"></span>
+</header>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<nav class="sidebar" id="sidebar"></nav>
+
+<div class="main">
+<div class="content">
+
+  <nav class="breadcrumb" id="breadcrumb"></nav>
+
+  <div class="page-header">
+    <h1>Emergency Protocol Card</h1>
+  </div>
+
+  <div class="page-body">
+
+    <!-- ============================================================ -->
+    <!-- INSTRUCTIONS (hidden when printing) -->
+    <!-- ============================================================ -->
+    <div class="emergency-instructions no-print">
+      <p><strong>Show this page to the ER team.</strong> It contains critical safety information about your child's rare connective tissue disorder. Hand your phone to the triage nurse or attending physician and let them read the card below.</p>
+
+      <p>Fill in your child's details so the card is ready when you need it:</p>
+
+      <div class="patient-info-grid">
+        <div>
+          <label for="patientName">Patient Name</label>
+          <input type="text" id="patientName" placeholder="First Last">
+        </div>
+        <div>
+          <label for="patientDOB">Date of Birth</label>
+          <input type="text" id="patientDOB" placeholder="MM/DD/YYYY">
+        </div>
+        <div>
+          <label for="emergencyContact">Emergency Contact &amp; Phone</label>
+          <input type="text" id="emergencyContact" placeholder="Name — (555) 555-5555">
+        </div>
+        <div>
+          <label for="primaryGeneticist">Primary Geneticist &amp; Phone</label>
+          <input type="text" id="primaryGeneticist" placeholder="Dr. Name — (555) 555-5555">
+        </div>
+      </div>
+
+      <p class="bookmark-note">Bookmark this page on your phone for fast access. You can also print it (Ctrl+P / Cmd+P) &mdash; the print version strips the site navigation and shows only the card.</p>
+    </div>
+
+
+    <!-- ============================================================ -->
+    <!-- THE EMERGENCY CARD -->
+    <!-- ============================================================ -->
+    <div class="er-card">
+
+      <div class="er-banner">
+        Marshall Syndrome &mdash; Emergency Protocol
+        <small>Rare connective tissue disorder &bull; COL11A1 gene &bull; Type XI collagen deficiency</small>
+      </div>
+
+
+      <!-- ========== CRITICAL ========== -->
+      <div class="er-section-heading er-section-heading-critical">
+        CRITICAL &mdash; Tell the ER Team Immediately
+      </div>
+
+      <!-- 1. Difficult Airway -->
+      <div class="er-card-critical">
+        <h4><span class="er-priority">1</span> DIFFICULT AIRWAY</h4>
+        <ul>
+          <li>Marshall syndrome causes <strong>midface hypoplasia</strong> and possible <strong>micrognathia</strong> &mdash; anticipate difficult mask ventilation and intubation</li>
+          <li><strong>Cervical spine may be unstable</strong> &mdash; do NOT hyperextend neck for intubation</li>
+          <li><strong>Video laryngoscopy recommended</strong> as first-line approach</li>
+          <li>Have <strong>difficult airway cart</strong> at bedside before any airway intervention</li>
+          <li>If <strong>Pierre Robin sequence</strong> is present: especially high risk &mdash; consider early call to anesthesiology</li>
+        </ul>
+      </div>
+
+      <!-- 2. Cervical Spine Precautions -->
+      <div class="er-card-critical">
+        <h4><span class="er-priority">2</span> CERVICAL SPINE PRECAUTIONS</h4>
+        <ul>
+          <li>Risk of <strong>craniocervical instability (CCI)</strong> due to ligamentous laxity from collagen disorder</li>
+          <li>Apply <strong>C-collar</strong> if any neck trauma suspected</li>
+          <li>Obtain <strong>flexion-extension imaging</strong> before any neck manipulation</li>
+          <li>Symptoms of CCI: <strong>severe headache with neck movement</strong>, arm/leg weakness, electric shock sensation down spine (<strong>Lhermitte sign</strong>)</li>
+        </ul>
+      </div>
+
+      <!-- 3. Retinal Detachment Risk -->
+      <div class="er-card-critical">
+        <h4><span class="er-priority">3</span> RETINAL DETACHMENT RISK</h4>
+        <ul>
+          <li>If patient reports sudden <strong>flashes, new floaters, or curtain/shadow over vision</strong> &rarr; <strong>EMERGENCY vitreoretinal consult</strong></li>
+          <li><strong>Do NOT wait</strong> &mdash; retinal detachment in high myopes progresses rapidly and delay risks permanent vision loss</li>
+          <li>This patient likely has <strong>very high myopia</strong> (often &gt; &minus;8 D) and <strong>vitreous degeneration</strong> from abnormal type XI collagen</li>
+        </ul>
+      </div>
+
+
+      <!-- ========== IMPORTANT ========== -->
+      <div class="er-section-heading er-section-heading-important">
+        IMPORTANT &mdash; Medication &amp; Procedural Cautions
+      </div>
+
+      <!-- 4. Ototoxic Drugs -->
+      <div class="er-card-important">
+        <h4><span class="er-priority er-priority-amber">4</span> OTOTOXIC DRUGS &mdash; USE WITH CAUTION</h4>
+        <ul>
+          <li>Patient has <strong>sensorineural hearing loss</strong> &mdash; protect remaining hearing</li>
+          <li><strong>AVOID if possible:</strong> gentamicin, tobramycin, amikacin (aminoglycosides)</li>
+          <li><strong>CAUTION:</strong> high-dose furosemide, vancomycin (monitor trough levels closely)</li>
+          <li>If aminoglycoside absolutely required: use <strong>once-daily dosing</strong>, monitor peak/trough levels, limit duration to shortest effective course</li>
+        </ul>
+      </div>
+
+      <!-- 5. Wound Healing -->
+      <div class="er-card-important">
+        <h4><span class="er-priority er-priority-amber">5</span> WOUND HEALING</h4>
+        <ul>
+          <li><strong>Collagen disorder</strong> &mdash; wounds may heal slowly or with poor tensile strength</li>
+          <li>Use extra care with <strong>wound closure</strong>: consider longer retention of sutures/staples, lower tension techniques</li>
+          <li><strong>Dural tears</strong> more likely if spinal procedure or lumbar puncture is needed &mdash; use atraumatic (pencil-point) needle for LP</li>
+        </ul>
+      </div>
+
+      <!-- 6. Joint Laxity -->
+      <div class="er-card-important">
+        <h4><span class="er-priority er-priority-amber">6</span> JOINT LAXITY</h4>
+        <ul>
+          <li>Joints are <strong>hypermobile and prone to subluxation/dislocation</strong></li>
+          <li><strong>Gentle handling</strong> during positioning, transfers, and procedures</li>
+          <li>Shoulder, hip, and knee most commonly affected</li>
+          <li>Check for associated <strong>fracture</strong> with dislocations &mdash; osteopenia may be present</li>
+        </ul>
+      </div>
+
+
+      <!-- ========== COMMON SCENARIOS ========== -->
+      <div class="er-section-heading er-section-heading-scenarios">
+        Common Marshall Syndrome ER Scenarios
+      </div>
+
+      <table class="er-scenario-table">
+        <thead>
+          <tr>
+            <th>Scenario</th>
+            <th>Key Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Head / neck trauma</td>
+            <td>C-spine precautions. CT head + cervical spine. Flexion-extension imaging when safe. Neurological exam for cord signs (Lhermitte, weakness, hyperreflexia).</td>
+          </tr>
+          <tr>
+            <td>Sudden vision changes</td>
+            <td>Immediate ophthalmology / vitreoretinal consult. Do not delay for other workup. Dilated fundus exam urgently.</td>
+          </tr>
+          <tr>
+            <td>Severe headache + neck pain</td>
+            <td>Evaluate for CCI, CSF leak, Chiari malformation. Ask about positional component (worse upright = CSF leak; worse supine/Valsalva = Chiari). MRI brain + cervical spine with sagittal views.</td>
+          </tr>
+          <tr>
+            <td>Joint dislocation</td>
+            <td>Gentle reduction. Obtain X-ray to check for associated fracture (osteopenia possible). Immobilize and refer to orthopedics for follow-up.</td>
+          </tr>
+          <tr>
+            <td>Respiratory distress</td>
+            <td>Anticipate difficult airway. Have video laryngoscope, LMA, and difficult airway cart ready. Early anesthesiology involvement. Avoid neck hyperextension.</td>
+          </tr>
+          <tr>
+            <td>Post-surgical fever</td>
+            <td>Standard fever workup. If recent spinal procedure: evaluate for CSF leak (positional headache, clear rhinorrhea/otorrhea, wound drainage). Dural tears are more common in collagen disorders.</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <!-- ========== FOOTER ========== -->
+      <div class="er-footer">
+        <strong>Diagnosis:</strong> Marshall Syndrome &mdash; OMIM #154780 &bull; COL11A1 gene &bull; Autosomal dominant<br>
+        <strong>Full resource:</strong> <a href="https://marshallsyndromeresource.com">marshallsyndromeresource.com</a><br>
+        <strong>Printable doctor letter:</strong> <a href="https://marshallsyndromeresource.com/living/doctor-letter.html">marshallsyndromeresource.com/living/doctor-letter.html</a>
+      </div>
+
+    </div>
+    <!-- end .er-card -->
+
+  </div>
+  <!-- end .page-body -->
+
+  <div class="prev-next">
+    <a href="./travel-planning.html" class="prev-next-link">&larr; Travel &amp; Vacation Planning</a>
+    <a href="./specialists.html" class="prev-next-link">Specialists to Consult &rarr;</a>
+  </div>
+
+</div>
+</div>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top">&#8593;</button>
+
+<script src="../nav.js"></script>
+</body>
+</html>
