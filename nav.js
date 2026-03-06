@@ -15,7 +15,8 @@
         { file: 'basics/natural-history.html', title: 'Decade-by-Decade Natural History', k: 'prognosis progression timeline age childhood adolescence adult symptoms worsening hearing vision joints' },
         { file: 'basics/marshall-vs-stickler.html', title: 'Marshall vs. Stickler', k: 'stickler syndrome type 2 difference distinction advocacy OMIM geneticist splice site 54bp exon dominant-negative' },
         { file: 'basics/pierre-robin.html', title: 'Pierre Robin Sequence', k: 'Pierre Robin sequence micrognathia glossoptosis cleft palate airway obstruction mandibular distraction osteogenesis feeding neonatal NICU prone positioning Haberman bottle speech velopharyngeal insufficiency VPI craniofacial' },
-        { file: 'basics/genetic-counseling.html', title: 'Genetic Counseling & Family Planning', k: 'genetic counseling inheritance autosomal dominant 50% risk family planning prenatal testing CVS amniocentesis PGT-M IVF cascade testing VUS variant genetic counselor GINA insurance NSGC de novo mutation pregnancy' }
+        { file: 'basics/genetic-counseling.html', title: 'Genetic Counseling & Family Planning', k: 'genetic counseling inheritance autosomal dominant 50% risk family planning prenatal testing CVS amniocentesis PGT-M IVF cascade testing VUS variant genetic counselor GINA insurance NSGC de novo mutation pregnancy' },
+        { file: 'basics/midface-hypoplasia.html', title: 'Midface Hypoplasia & Facial Features', k: 'midface hypoplasia maxillary flat face nasal bridge anteverted nares philtrum Marshall facies micrognathia airway anesthesia mask ventilation intubation Eustachian sinus cephalometric Le Fort distraction osteogenesis' }
       ]
     },
     {
@@ -40,7 +41,9 @@
         { file: 'spine/csf-leak.html', title: 'CSF Leak & Intracranial Hypotension', k: 'CSF leak cerebrospinal fluid intracranial hypotension dura mater positional headache orthostatic headache brain sagging pachymeningeal enhancement epidural blood patch myelography dural ectasia dural weakness connective tissue collagen atraumatic needle lumbar puncture spinal anaesthesia CCI overlap prevention' },
         { file: 'spine/lumbar-stenosis.html', title: 'Lumbar Spinal Stenosis', k: 'lumbar stenosis spinal canal narrowing neurogenic claudication radiculopathy cauda equina laminectomy foraminotomy decompression spondylolisthesis facet hypertrophy ligamentum flavum Williams flexion epidural' },
         { file: 'spine/tethered-cord.html', title: 'Tethered Cord Syndrome', k: 'tethered cord filum terminale conus medullaris bladder bowel leg weakness foot deformity pes cavus growth spurt untethering neurosurgery occult spinal dysraphism SSEP urodynamic' },
-        { file: 'spine/chiari-syringomyelia.html', title: 'Chiari Malformation & Syringomyelia', k: 'Chiari malformation syringomyelia syrinx tonsillar herniation foramen magnum CCI acquired congenital posterior fossa decompression craniocervical fusion Valsalva headache cough occipital EDS triad upright MRI cine-flow CSF' }
+        { file: 'spine/chiari-syringomyelia.html', title: 'Chiari Malformation & Syringomyelia', k: 'Chiari malformation syringomyelia syrinx tonsillar herniation foramen magnum CCI acquired congenital posterior fossa decompression craniocervical fusion Valsalva headache cough occipital EDS triad upright MRI cine-flow CSF' },
+        { file: 'spine/platyspondyly.html', title: 'Platyspondyly & Vertebral Body Changes', k: 'platyspondyly flat vertebrae vertebral body height width ratio DEXA BMAD bone density overestimate disproportionate short trunk arm span kyphosis wedging endplate growth plate chondrocyte Scheuermann surgical pedicle' },
+        { file: 'spine/schmorl-nodes.html', title: 'Schmorl\'s Nodes & Endplate Failure', k: 'Schmorl node endplate failure herniation vertical disc vertebral body Modic changes edema inflammation active chronic MRI STIR imaging growth spurt prevention 64% hallmark radiographic' }
       ]
     },
     {
@@ -71,7 +74,11 @@
         { file: 'treatment/tens-guide.html', title: 'TENS Practical Guide', k: 'TENS transcutaneous electrical nerve stimulation electrode placement gate control pain frequency pulse width burst mode pediatric drug-free non-invasive back knee neck hip shoulder' },
         { file: 'treatment/medication-sensitivity.html', title: 'Medication Sensitivity & Drug Reactions', k: 'medication sensitivity drug reaction local anesthetic resistance fluoroquinolone tendon NSAID gastropathy corticosteroid opioid pharmacogenomics CYP2D6 CYP2C19 mast cell autonomic adverse effect' },
         { file: 'treatment/deconditioning-spiral.html', title: 'The Deconditioning Spiral', k: 'deconditioning spiral inactivity muscle weakness joint instability cardiovascular orthostatic intolerance bed rest exercise paradox fear avoidance pain cycle vicious cycle graded exercise isometrics' },
-        { file: 'treatment/proprioception-balance.html', title: 'Proprioception & Fall Prevention', k: 'proprioception balance fall prevention triple deficit vestibular visual joint position sense Romberg BOSU tandem home safety nightlight grab bar footwear stability perturbation training' }
+        { file: 'treatment/proprioception-balance.html', title: 'Proprioception & Fall Prevention', k: 'proprioception balance fall prevention triple deficit vestibular visual joint position sense Romberg BOSU tandem home safety nightlight grab bar footwear stability perturbation training' },
+        { file: 'treatment/orthotics-bracing.html', title: 'Orthotics, Bracing & Supportive Devices', k: 'orthotics bracing AFO SMO UCBL foot ankle knee wrist ring splint Boston brace scoliosis cervical collar insole custom pedorthist orthotist compliance fitting insurance HCPCS' },
+        { file: 'treatment/flare-management.html', title: 'Flare Management & Pain Crisis Protocol', k: 'flare pain crisis acute worsening trigger barometric growth spurt first hour protocol red flag rescue medication ice heat recovery pacing flare plan action plan ER emergency' },
+        { file: 'treatment/complementary-therapies.html', title: 'Complementary & Manual Therapies', k: 'complementary therapy massage acupuncture chiropractic contraindicated craniosacral osteopathic OMT yoga tai chi dry needling prolotherapy PRP manual therapy safety green yellow red' },
+        { file: 'treatment/low-dose-naltrexone.html', title: 'Low-Dose Naltrexone (LDN)', k: 'LDN low-dose naltrexone TLR4 glial modulation neuroinflammation NF-kB endorphin OGF opioid growth factor compounding pharmacy titration off-label fibromyalgia Crohn pain amplification' }
       ]
     },
     {
@@ -122,7 +129,8 @@
         { file: 'future/clinical-trials.html', title: 'Clinical Trials & Registries', k: 'clinical trials registry ClinicalTrials.gov recruitment eligibility rare disease study research' },
         { file: 'future/advocacy.html', title: 'Rare Disease Advocacy', k: 'advocacy rare disease orphan drug patient organization support group lobbying awareness NORD' },
         { file: 'future/gene-therapy-update.html', title: 'Gene Therapy: 2026 Update', k: 'gene therapy 2026 update CRISPR prime editing delivery AAV lipid nanoparticle progress' },
-        { file: 'future/regenerative-medicine.html', title: 'Regenerative Medicine Roadmap', k: 'regenerative medicine stem cell MSC iPSC disc repair cartilage restoration growth factor PRP' }
+        { file: 'future/regenerative-medicine.html', title: 'Regenerative Medicine Roadmap', k: 'regenerative medicine stem cell MSC iPSC disc repair cartilage restoration growth factor PRP' },
+        { file: 'future/cell-banking.html', title: 'Cell Banking & Biobanking', k: 'cell banking biobanking fibroblast skin biopsy dental pulp stem cell PBMC cord blood iPSC cryopreservation Coriell NIGMS future therapy gene therapy regenerative medicine baby teeth' }
       ]
     },
     {
