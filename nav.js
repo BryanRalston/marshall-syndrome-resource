@@ -63,7 +63,8 @@
         { file: 'treatment/pain-stack.html', title: 'The 5-Agent Pain Convergence Stack', k: 'pain convergence stack multi-target synergy combined therapy protocol' },
         { file: 'treatment/aquatic-therapy.html', title: 'Aquatic Therapy', k: 'aquatic therapy swimming pool hydrotherapy water exercise buoyancy joint protection low impact' },
         { file: 'treatment/photobiomodulation.html', title: 'Photobiomodulation (Red Light Therapy)', k: 'photobiomodulation red light therapy near infrared PBM LED laser mitochondria ATP collagen healing' },
-        { file: 'treatment/morning-protocol.html', title: 'The 90-Minute Morning Protocol', k: 'morning routine protocol stiffness wake up stretching warm up daily' },
+        { file: 'treatment/hyperbaric-oxygen.html', title: 'Hyperbaric Oxygen Therapy (HBOT)', k: 'hyperbaric oxygen HBOT HBO chamber pressure ATA NRF2 stem cells disc paradox HIF ferroptosis pediatric' },
+        { file: 'treatment/morning-protocol.html', title: 'The Morning Protocol', k: 'morning routine protocol stiffness wake up stretching warm up daily sulforaphane PBM PEMF exercise' },
         { file: 'treatment/complete-protocol.html', title: 'Complete 24-Hour Protocol', k: '24 hour protocol daily schedule morning afternoon evening night chronotherapy timing' },
         { file: 'treatment/central-sensitization.html', title: 'Central Sensitization & Pain Amplification', k: 'central sensitization pain amplification wind-up glial microglia astrocyte BDNF KCC2 GABA Lhermitte sign autonomic red ears QST LDN naltrexone amitriptyline TENS alpha-delta sleep nociplastic trigeminovascular' },
         { file: 'treatment/drug-repurposing.html', title: 'Drug Repurposing for Marshall Syndrome', k: 'drug repurposing carbamazepine ER stress 4-PBA TUDCA chemical chaperone doxycycline MMP inhibitor metformin AMPK DMF dimethyl fumarate omega-3 resolvin N-of-1 trial off-label' },
@@ -97,6 +98,7 @@
         { file: 'nutrition/gut-disc-axis.html', title: 'The Gut-Disc Axis', k: 'gut disc axis microbiome butyrate short chain fatty acids SCFA LPS endotoxin' },
         { file: 'nutrition/precision-nutrition.html', title: 'Precision Nutritional Biochemistry', k: 'precision nutrition biochemistry personalized nutrigenomics biomarker-guided micronutrient' },
         { file: 'nutrition/environmental-toxins.html', title: 'Environmental Toxin Avoidance', k: 'environmental toxins BPA phthalates pesticides heavy metals air quality water filter endocrine disruptors' },
+        { file: 'nutrition/age-crosslinking.html', title: 'AGE Crosslinking Prevention', k: 'AGE advanced glycation end products crosslinking pentosidine sugar collagen stiffness cooking methods polyphenols HbA1c non-enzymatic browning Maillard diet' },
         { file: 'nutrition/gut-permeability.html', title: 'Gut Permeability & COL11A1', k: 'gut permeability leaky gut COL11A1 intestinal barrier goblet cell LPS translocation TLR4 NF-kB zonulin calprotectin glutamine butyrate probiotic microbiome bacterial translocation' },
         { file: 'nutrition/reflux-gi-motility.html', title: 'Reflux & GI Motility', k: 'reflux GERD gastroesophageal LES hiatal hernia gastroparesis IBS constipation bloating dyspepsia PPI prokinetic fundoplication mast cell gut motility autonomic' },
         { file: 'nutrition/vitamin-d.html', title: 'Vitamin D: The Multi-System Protector', k: 'vitamin D cholecalciferol D3 D2 calcitriol 25-OH bone disc immune pain muscle eye sleep target range dosing K2 MK-7 DEXA calcium deficiency supplementation fat-soluble' }
@@ -172,9 +174,11 @@
         { file: 'resources/support.html', title: 'Support Resources', k: 'support groups families communities online forums Facebook foundation Stickler Involved People' },
         { file: 'resources/references.html', title: 'References', k: 'references bibliography citations sources papers journals authors' },
         { file: 'resources/emergency-card.html', title: 'Emergency Medical Card', k: 'emergency card medical alert ID bracelet travel school nurse print airway cervical spine retinal detachment MedicAlert ICE 504 IEP sedation anesthesia' },
+        { file: 'resources/surgical-checklist.html', title: 'Pre-Surgical Checklist', k: 'surgical checklist pre-surgical airway micrognathia midface hypoplasia cervical spine anesthetic resistance articaine lidocaine tissue fragility wound healing mitral valve prolapse retinal detachment eye protection fluoroquinolone letter template' },
         { file: 'resources/surgery-checklist.html', title: 'Pre-Surgery Checklist', k: 'surgery checklist pre-operative preparation anesthesia cervical spine clearance wound healing letter template print OrphanAnesthesia intubation pain recovery procedure' },
         { file: 'resources/newly-diagnosed.html', title: 'Newly Diagnosed: First 30 Days', k: 'newly diagnosed first 30 days start here guide roadmap specialists tests school accommodations emotional support onboarding triage checklist' },
         { file: 'resources/insurance-navigation.html', title: 'Insurance Navigation & Financial Advocacy', k: 'insurance prior authorization denial appeal hearing aid coverage GINA SSI SSDI financial assistance NORD copay charity care peer-to-peer review patient advocate rare disease coverage medical necessity' },
+        { file: 'resources/genetic-counseling.html', title: 'Genetic Counseling & Family Planning', k: 'genetic counseling family planning autosomal dominant inheritance de novo mutation parental mosaicism gonadal germline sibling screening recurrence risk phenotypic variability COL11A1 carrier testing prenatal CVS amniocentesis PGT-M IVF preimplantation donor gametes reproductive options' },
         { file: 'resources/n-of-1-trials.html', title: 'N-of-1 Trials & Building Evidence', k: 'N-of-1 trial single patient crossover washout evidence rare disease case report publication outcome measure biomarker doxycycline LDN sulforaphane CARE guidelines statistical analysis' }
       ]
     },
@@ -349,15 +353,31 @@
     }
   }
 
+  // Detect mobile (matches CSS breakpoint)
+  var isMobile = function() { return window.innerWidth <= 900; };
+
   // Create cross-page results dropdown
   var searchDropdown = document.createElement('div');
   searchDropdown.className = 'search-dropdown';
   searchDropdown.style.cssText = 'display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border:1px solid #d1d5db;border-radius:0 0 8px 8px;max-height:360px;overflow-y:auto;z-index:1001;box-shadow:0 8px 24px rgba(0,0,0,0.15);';
+
+  // Create overlay for mobile (dims background behind dropdown)
+  var searchOverlay = document.createElement('div');
+  searchOverlay.className = 'search-dropdown-overlay';
+  document.body.appendChild(searchOverlay);
+
   var searchWrapper = document.querySelector('.search-wrapper');
   if (searchWrapper) {
     searchWrapper.style.position = 'relative';
     searchWrapper.appendChild(searchDropdown);
   }
+
+  // Close search on overlay tap (mobile)
+  searchOverlay.addEventListener('click', function() {
+    searchDropdown.style.display = 'none';
+    searchOverlay.classList.remove('active');
+    if (searchInput) searchInput.blur();
+  });
 
   function clearHighlights() {
     var marks = document.querySelectorAll('mark.search-highlight');
@@ -463,6 +483,7 @@
     }
     searchDropdown.innerHTML = html;
     searchDropdown.style.display = 'block';
+    if (isMobile()) searchOverlay.classList.add('active');
   }
 
   if (searchInput && pageBody) {
@@ -478,6 +499,7 @@
         if (query.length < 2) {
           if (searchCount) searchCount.textContent = '';
           searchDropdown.style.display = 'none';
+          searchOverlay.classList.remove('active');
           return;
         }
 
@@ -497,8 +519,8 @@
           searchCount.textContent = parts.join(' · ');
         }
 
-        // Scroll to first in-page match
-        if (result.firstMark) {
+        // Scroll to first in-page match (skip on mobile — fights with iOS keyboard)
+        if (result.firstMark && !isMobile()) {
           result.firstMark.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
       }, 200);
@@ -511,13 +533,15 @@
         clearHighlights();
         if (searchCount) searchCount.textContent = '';
         searchDropdown.style.display = 'none';
+        searchOverlay.classList.remove('active');
       }
     });
 
-    // Close dropdown when clicking outside
+    // Close dropdown when clicking/tapping outside
     document.addEventListener('click', function(e) {
       if (!searchWrapper.contains(e.target)) {
         searchDropdown.style.display = 'none';
+        searchOverlay.classList.remove('active');
       }
     });
 

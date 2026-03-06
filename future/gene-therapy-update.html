@@ -39,10 +39,22 @@
 
     <p>The gene therapy landscape has shifted dramatically in the past 18 months. Multiple proof-of-concept successes in related collagen disorders, combined with a transformative FDA regulatory pathway change in February 2026, have moved targeted collagen gene correction from &ldquo;someday&rdquo; to &ldquo;plausible within a decade.&rdquo; This page synthesizes the current state as of early 2026.</p>
 
-    <h3>Proven Technologies: What Works Now</h3>
+    <div class="callout callout-info">
+      <strong>The key biological fact.</strong> Gene therapy for collagen disorders is no longer theoretical &mdash; it is <strong>FDA-approved for one condition</strong>. The path to COL11A1 correction is emerging across multiple technology platforms, each with distinct advantages for Marshall syndrome.
+    </div>
 
-    <h4>Vyjuvek (beremagene geperpavec) &mdash; FDA Approved</h4>
-    <p>Vyjuvek is the first FDA-approved gene therapy for any collagen disorder. It delivers functional <strong>COL7A1</strong> via a topical herpes simplex virus vector for dystrophic epidermolysis bullosa (DEB). While COL7A1 is not the gene affected in Marshall syndrome, Vyjuvek establishes critical precedents:</p>
+    <h3>Critical Finding: Haploinsufficiency Is Safe</h3>
+
+    <p>The single most important biological finding underpinning gene therapy for Marshall syndrome is this: <strong>COL11A1 haploinsufficiency is safe.</strong> Col11a1+/delta-ten mice &mdash; which produce only 50% of normal collagen XI protein &mdash; show <strong>no clinical phenotype</strong>. They are completely asymptomatic carriers.</p>
+
+    <p>This means that any therapy capable of <strong>silencing the mutant allele</strong> while leaving the normal allele intact would effectively convert a patient from someone with Marshall syndrome to an asymptomatic carrier. The mutant protein is the problem, not insufficient quantity. Remove the poison, and 50% production is enough.</p>
+
+    <p>This haploinsufficiency safety profile shapes the entire gene therapy strategy: allele-specific approaches that silence the dominant-negative allele are the priority.</p>
+
+    <h3>FDA-Approved Precedent</h3>
+
+    <h4>Vyjuvek (beremagene geperpavec) &mdash; First Collagen Gene Therapy</h4>
+    <p>Approved in 2023, Vyjuvek is the <strong>first FDA-approved gene therapy for any collagen disorder</strong>. It delivers functional <strong>COL7A1</strong> via a topical herpes simplex virus type 1 (HSV-1) vector for dystrophic epidermolysis bullosa (DEB). While COL7A1 is not the gene affected in Marshall syndrome, Vyjuvek establishes critical precedents:</p>
     <ul>
       <li>Regulatory proof that collagen gene delivery can achieve FDA approval</li>
       <li>Demonstrated safety of viral vector-mediated collagen gene delivery in humans</li>
@@ -50,52 +62,102 @@
       <li>Insurance coverage pathways for rare collagen disorders</li>
     </ul>
 
-    <h4>Allele-Specific CRISPR for COL6A1</h4>
-    <p>Researchers have demonstrated allele-specific CRISPR editing for <strong>COL6A1</strong> dominant-negative mutations, achieving <strong>&gt;80% mutant allele knockdown</strong> while preserving the normal allele. This is directly relevant to Marshall syndrome because:</p>
+    <h3>Allele-Specific Approaches (Most Promising for Dominant-Negative)</h3>
+
+    <p>Because Marshall syndrome operates through a dominant-negative mechanism &mdash; the mutant protein actively disrupts normal collagen XI &mdash; the most promising therapies specifically target and silence the mutant allele while preserving the normal one.</p>
+
+    <h4>1. CRISPR Allele-Specific Knockout</h4>
+    <p>Researchers have demonstrated allele-specific CRISPR editing for <strong>COL6A1</strong> dominant-negative mutations, achieving <strong>&gt;80% mutant allele reduction</strong> while preserving the normal allele. This is directly relevant to Marshall syndrome because:</p>
     <ul>
       <li>COL11A1 (the Marshall gene) has the same dominant-negative pathology as COL6A1 &mdash; the mutant protein poisons the normal protein&rsquo;s function</li>
-      <li>The allele-specific CRISPR strategy (target a mutation-specific PAM site or SNP) is transferable across collagen genes</li>
-      <li>Selective knockdown of the mutant allele converts a dominant-negative disorder into haploinsufficiency &mdash; which is substantially milder</li>
+      <li>Uses SNP-directed guide RNA to discriminate between the mutant and normal alleles</li>
+      <li>The allele-specific strategy (target a mutation-specific PAM site or SNP) is transferable across collagen genes</li>
+      <li><strong>Marshall advantage:</strong> splice-site mutations create unique sequences at the genomic level that are ideal CRISPR targets &mdash; the mutation itself provides the discriminating sequence</li>
+      <li>Selective knockdown of the mutant allele converts a dominant-negative disorder into haploinsufficiency &mdash; which, as noted above, is asymptomatic</li>
     </ul>
+    <p><strong>Challenge:</strong> Delivery to nucleus pulposus (disc) cells in vivo remains an unsolved problem. Ex vivo correction (see below) sidesteps this.</p>
 
-    <h4>siRNA Proven for Multiple Collagen Genes</h4>
-    <p>Small interfering RNA (siRNA) has demonstrated successful knockdown of mutant alleles for <strong>COL1A1, COL1A2, COL3A1, and COL6A1</strong>. siRNA advantages include:</p>
+    <h4>2. siRNA/RNAi (Most Clinically Mature)</h4>
+    <p>Small interfering RNA (siRNA) has demonstrated successful knockdown of mutant alleles for <strong>COL1A1, COL1A2, COL3A1, and COL6A1</strong>. The clinical validation of this platform is strong:</p>
     <ul>
+      <li><strong>Patisiran (Onpattro)</strong> &mdash; FDA-approved in 2018 &mdash; proves that RNAi works in humans for protein knockdown</li>
+      <li>Allele-specific siRNA has been demonstrated for multiple dominant-negative collagen mutations</li>
       <li>No permanent genomic modification &mdash; effects are reversible (safety advantage)</li>
-      <li>Can be re-dosed and dose-adjusted</li>
-      <li>Lipid nanoparticle delivery technology is mature (mRNA vaccine infrastructure)</li>
+      <li>Can be re-dosed and dose-adjusted &mdash; not a permanent fix, but controllable and tunable</li>
+      <li>GalNAc conjugation enables liver targeting; disc-specific targeting would require nanoparticle innovation</li>
       <li>Allele-specificity achievable through single-nucleotide discrimination</li>
     </ul>
+
+    <h4>3. ASO (Antisense Oligonucleotides)</h4>
+    <p>Antisense oligonucleotides offer a distinct mechanism with particular relevance to Marshall splice-site mutations:</p>
+    <ul>
+      <li><strong>Nusinersen (Spinraza)</strong> &mdash; FDA-approved for spinal muscular atrophy &mdash; proves ASO delivery to the central nervous system is feasible</li>
+      <li>ASOs can force <strong>exon skipping</strong> &mdash; for Marshall splice-site mutations, this could potentially skip the mutant exon entirely</li>
+      <li>Intrathecal delivery reaches spinal structures, which is relevant for disc-adjacent tissues</li>
+      <li>Well-established safety profile from multiple approved ASO drugs</li>
+    </ul>
+    <p><strong>Challenge:</strong> The exon skip must maintain the reading frame to produce a functional (if shorter) collagen XI protein. Not all splice mutations are amenable to this approach.</p>
+
+    <h4>4. Base and Prime Editing</h4>
+    <p>Next-generation CRISPR variants that could correct point mutations without double-strand DNA breaks:</p>
+    <ul>
+      <li><strong>Base editing:</strong> Can convert specific single bases (C&rarr;T or A&rarr;G) with high precision. Limited by the requirement for a PAM site near the target mutation.</li>
+      <li><strong>Prime editing:</strong> More flexible &mdash; can make any small edit at a target site &mdash; but currently less efficient than base editing.</li>
+      <li>Neither technology creates double-strand breaks, reducing the risk of unintended large deletions or translocations</li>
+      <li>Not yet viable for COL11A1 splice-site corrections, but the technology is advancing rapidly</li>
+    </ul>
+
+    <h4>5. CRISPRa &ldquo;Silence-and-Boost&rdquo; Combined Strategy</h4>
+    <p>The most comprehensive approach &mdash; a novel two-pronged strategy combining:</p>
+    <ul>
+      <li><strong>Silence:</strong> Allele-specific CRISPR or siRNA to knock down the dominant-negative mutant allele</li>
+      <li><strong>Boost:</strong> CRISPRa (CRISPR activation) to upregulate expression of the remaining normal allele, compensating for any functional deficit from haploinsufficiency</li>
+    </ul>
+    <p>This combined strategy addresses both aspects of the dominant-negative pathology: eliminating the toxic protein and increasing normal protein production. Could theoretically restore near-normal collagen XI levels. Early data in COL6A1 models show promise. This is the most complex approach but offers the most complete solution.</p>
+
+    <h3>Delivery: AAV Serotypes for Disc Tissue</h3>
+
+    <p>Getting the therapeutic payload into disc cells is one of the largest challenges for in vivo gene therapy targeting Marshall syndrome. Adeno-associated virus (AAV) vectors are the leading delivery platform:</p>
+
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>AAV Serotype</th><th>Relevance</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td><strong>AAV6</strong></td><td>Best transduction of NP cells</td><td>Shows highest efficiency in nucleus pulposus cells in preclinical models</td></tr>
+        <tr><td><strong>AAV9</strong></td><td>Crosses blood-brain barrier</td><td>Relevant for intrathecal delivery to spinal-adjacent structures</td></tr>
+        <tr><td><strong>scAAV</strong></td><td>Higher efficiency in disc cells</td><td>Self-complementary AAV vectors bypass the rate-limiting second-strand synthesis step</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <p><strong>Challenge:</strong> Immune response to AAV capsid proteins limits redosing. A patient who receives AAV-based therapy may develop neutralizing antibodies that prevent future AAV treatments. This makes getting the first dose right critically important, and favors approaches (like siRNA or ASO) that do not rely on viral vectors for redosable therapies.</p>
 
     <h3>Emerging Approaches</h3>
 
     <h4>Ex Vivo iPSC Correction Pipeline</h4>
-    <p>The iPSC (induced pluripotent stem cell) correction approach represents the most comprehensive potential cure:</p>
+    <p>The iPSC (induced pluripotent stem cell) correction approach represents the most comprehensive potential cure and sidesteps the in vivo delivery challenge entirely:</p>
     <ol>
-      <li>Harvest patient cells (skin biopsy or blood draw)</li>
-      <li>Reprogram to iPSCs</li>
-      <li>Correct the COL11A1 mutation via CRISPR in vitro (where efficiency and off-target effects can be fully characterized)</li>
+      <li><strong>Bank patient cells NOW</strong> (skin fibroblast biopsy or blood draw)</li>
+      <li>Generate iPSCs (induced pluripotent stem cells) from banked cells</li>
+      <li>CRISPR-correct the COL11A1 mutation in vitro (where efficiency and off-target effects can be fully characterized)</li>
       <li>Differentiate corrected iPSCs into nucleus pulposus (disc) cells or chondrocytes</li>
-      <li>Implant corrected cells into target tissues</li>
+      <li>Inject corrected cells into target disc tissue</li>
     </ol>
-    <p>Each step in this pipeline has been independently demonstrated. The integration into a single clinical workflow is the remaining challenge.</p>
+
+    <div class="callout callout-info">
+      <strong>Key advance:</strong> iPSC-to-notochordal cell differentiation (the precursor to disc NP cells) has been <strong>demonstrated in published literature</strong>. Each step in this pipeline has been independently validated. The integration into a single clinical workflow is the remaining challenge.
+    </div>
 
     <h4>mRNA Therapy</h4>
     <p>Transient delivery of functional COL11A1 mRNA could provide temporary but meaningful collagen XI production in target tissues:</p>
     <ul>
+      <li>Lipid nanoparticle delivery &mdash; the same platform proven by COVID-19 mRNA vaccines</li>
       <li>No genomic modification required</li>
-      <li>COVID vaccine infrastructure provides manufacturing scale</li>
+      <li>Temporary effect (days to weeks per dose), requiring repeated administration</li>
+      <li>Useful as a <strong>bridge therapy</strong> while definitive approaches mature, or for <strong>acute protection during growth spurts</strong> when disc stress is highest</li>
+      <li>COVID vaccine infrastructure provides manufacturing scale and delivery know-how</li>
       <li>Challenge: achieving sustained delivery to avascular disc tissue</li>
-      <li>Potential role as a &ldquo;bridge therapy&rdquo; while definitive approaches mature</li>
     </ul>
-
-    <h4>CRISPRa &ldquo;Silence-and-Boost&rdquo; Combined Strategy</h4>
-    <p>A novel two-pronged approach combining:</p>
-    <ul>
-      <li><strong>Silence:</strong> Allele-specific CRISPR or siRNA to knock down the dominant-negative mutant allele</li>
-      <li><strong>Boost:</strong> CRISPRa (CRISPR activation) to upregulate expression of the remaining normal allele, compensating for haploinsufficiency</li>
-    </ul>
-    <p>This combined strategy addresses both aspects of the dominant-negative pathology: eliminating the toxic protein and increasing normal protein production. Early data in COL6A1 models show promise.</p>
 
     <h3>FDA Plausible Mechanism Pathway (February 2026)</h3>
 
@@ -119,11 +181,13 @@
     <table>
       <thead><tr><th>Timeframe</th><th>Technology</th><th>Likelihood</th><th>Notes</th></tr></thead>
       <tbody>
-        <tr><td><strong>3&ndash;5 years</strong></td><td>Allele-specific siRNA for COL11A1</td><td>Moderate-High</td><td>Platform technology is proven for other collagen genes. COL11A1-specific design and disc delivery are the remaining challenges. Could enter clinical trials by 2028&ndash;2029.</td></tr>
-        <tr><td><strong>3&ndash;5 years</strong></td><td>Allele-specific CRISPR for COL11A1</td><td>Moderate</td><td>Requires identification of mutation-specific guide RNAs. In vivo disc delivery is harder than ex vivo applications. Plausible Mechanism Pathway dramatically accelerates regulatory timeline.</td></tr>
+        <tr><td><strong>NOW</strong></td><td>Cell banking</td><td>Certain</td><td>Bank fibroblasts and blood (PBMCs) at a commercial biobank. This is not speculative &mdash; it is preparation that ensures access to any future therapy.</td></tr>
+        <tr><td><strong>2&ndash;3 years</strong></td><td>Allele-specific siRNA/ASO preclinical</td><td>High</td><td>Platform technologies are proven for other collagen genes. COL11A1-specific design and disc delivery optimization are active areas of research.</td></tr>
+        <tr><td><strong>3&ndash;5 years</strong></td><td>Allele-specific CRISPR for COL11A1</td><td>Moderate-High</td><td>Requires identification of mutation-specific guide RNAs. In vivo disc delivery is harder than ex vivo applications. Plausible Mechanism Pathway dramatically accelerates regulatory timeline.</td></tr>
+        <tr><td><strong>5&ndash;7 years</strong></td><td>First-in-human trials for dominant-negative collagen</td><td>Moderate</td><td>Most likely COL1A1 (osteogenesis imperfecta) first, given larger patient population. Paves the way for COL11A1-specific trials.</td></tr>
         <tr><td><strong>5&ndash;8 years</strong></td><td>Ex vivo iPSC disc cell implantation</td><td>Moderate</td><td>iPSC-to-NP cell differentiation is demonstrated. GMP manufacturing and surgical implantation protocols need development. Most likely first application: focal disc repair in adolescents.</td></tr>
-        <tr><td><strong>5&ndash;8 years</strong></td><td>CRISPRa silence-and-boost combination</td><td>Moderate</td><td>Requires dual delivery system. Complexity increases both development time and regulatory scrutiny. But the biological rationale is compelling.</td></tr>
-        <tr><td><strong>10&ndash;15 years</strong></td><td>In vivo systemic gene correction</td><td>Lower (but possible)</td><td>Full body-wide correction of COL11A1. Requires solving tissue-specific delivery at scale. Farthest out but most transformative &mdash; would essentially cure the disorder.</td></tr>
+        <tr><td><strong>7&ndash;10 years</strong></td><td>COL11A1-specific trials</td><td>Moderate</td><td>Building on infrastructure and safety data from earlier collagen gene therapy trials. Plausible Mechanism Pathway enables small-cohort approval.</td></tr>
+        <tr><td><strong>10&ndash;15 years</strong></td><td>Approved COL11A1 therapy</td><td>Possible</td><td>Full approval of a gene therapy specifically for COL11A1 dominant-negative mutations. Most transformative &mdash; would essentially convert patients to asymptomatic carriers.</td></tr>
       </tbody>
     </table>
     </div>
@@ -131,7 +195,7 @@
     <h3>BANK CELLS NOW</h3>
 
     <div class="callout callout-warning">
-      <strong>Critical action item &mdash; do this regardless of timeline.</strong> Bank your child&rsquo;s cells (skin fibroblasts or PBMCs from blood) as soon as possible. Younger cells have fewer accumulated mutations, shorter telomeres, and a younger epigenetic profile. The cells banked today will be the starting material for any future iPSC correction, gene therapy vector testing, or personalized medicine approach. Cryopreservation costs are typically $500&ndash;2,000 for initial banking plus $100&ndash;300/year for storage. Several biobanking services accept samples from children.
+      <strong>Critical action item &mdash; do this regardless of timeline.</strong> Bank your child&rsquo;s cells (skin fibroblasts and PBMCs from blood) as soon as possible. Younger cells have fewer accumulated mutations, shorter telomeres, and a younger epigenetic profile. The cells banked today will be the starting material for any future iPSC correction, gene therapy vector testing, or personalized medicine approach. Cryopreservation costs are typically $500&ndash;2,000 for initial banking plus $100&ndash;300/year for storage. Several biobanking services accept samples from children.
     </div>
 
     <p>Why banking now matters:</p>
@@ -142,15 +206,22 @@
       <li><strong>Research participation:</strong> Banked cells can be provided to researchers working on COL11A1 therapies, accelerating development for the entire Marshall community.</li>
     </ul>
 
-    <h3>What This Means Today</h3>
-    <p>Gene therapy for Marshall syndrome is not imminent, but it is no longer speculative. The practical implications for families today are:</p>
+    <h3>Action Steps for Families Today</h3>
+
+    <p>Gene therapy for Marshall syndrome is not imminent, but it is no longer speculative. Here are the concrete actions families can take now to be positioned when therapies arrive:</p>
+
     <ol>
-      <li><strong>Bank cells now</strong> &mdash; the single most impactful action you can take for future treatment access</li>
-      <li><strong>Protect the discs</strong> &mdash; every year of preserved disc health is a year closer to definitive therapy</li>
-      <li><strong>Register in clinical databases</strong> &mdash; ClinicalTrials.gov, NORD Patient Registry, GeneMatcher</li>
-      <li><strong>Connect with research groups</strong> &mdash; labs working on collagen gene therapy need Marshall patients and families</li>
-      <li><strong>The Plausible Mechanism Pathway changes everything</strong> &mdash; ultra-rare diseases are no longer regulatory orphans</li>
+      <li><strong>Bank cells now</strong> &mdash; fibroblast biopsy + blood draw, store at a commercial biobank. This is the single most impactful action you can take for future treatment access.</li>
+      <li><strong>Get genetic testing</strong> &mdash; identify the exact COL11A1 mutation. This is <strong>essential</strong> for allele-specific therapy design. Without knowing the precise mutation, no personalized gene therapy can be developed.</li>
+      <li><strong>Protect the discs</strong> &mdash; every year of preserved disc health is a year closer to definitive therapy. Minimize high-impact loading; maximize core strength and flexibility.</li>
+      <li><strong>Register in patient databases</strong> &mdash; <a href="https://clinicaltrials.gov" target="_blank">ClinicalTrials.gov</a>, <a href="https://rarediseases.org" target="_blank">NORD Patient Registry</a>, <a href="https://genematcher.org" target="_blank">GeneMatcher</a>, and the <a href="https://stickler.org" target="_blank">Stickler Syndrome Support Group</a> registry</li>
+      <li><strong>Connect with research groups</strong> &mdash; labs working on COL6A1 CRISPR correction may be interested in COL11A1 collaboration. Contact researchers publishing in dominant-negative collagen gene therapy.</li>
+      <li><strong>The Plausible Mechanism Pathway changes everything</strong> &mdash; ultra-rare diseases are no longer regulatory orphans. Advocate for Marshall syndrome to be included in pathway discussions.</li>
     </ol>
+
+    <div class="callout callout-info">
+      <strong>The bottom line.</strong> The convergence of proven allele-specific editing (CRISPR, siRNA, ASO), an FDA-approved collagen gene therapy precedent (Vyjuvek), and a new ultra-rare disease regulatory pathway means that targeted therapy for COL11A1 dominant-negative mutations is a realistic prospect. The haploinsufficiency safety data tells us that silencing the mutant allele alone is sufficient &mdash; we do not need to deliver a replacement gene. That dramatically simplifies the problem. Bank cells, get genotyped, stay connected to the research community, and protect the discs in the meantime.
+    </div>
 
   </div>
 
