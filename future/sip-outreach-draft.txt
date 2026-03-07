@@ -1,0 +1,33 @@
+========================================================================
+EMAIL DRAFT — To Stickler Involved People (SIP)
+========================================================================
+
+Subject: Comprehensive Marshall/Stickler Type 2 Resource — Would You Consider Sharing?
+
+Hi,
+
+My name is Bryan, and I'm a parent of a child with Marshall syndrome (COL11A1 / Stickler type 2). Like most families, when we got the diagnosis we found ourselves piecing together information from scattered papers, brief clinic visits, and late-night searches that raised more questions than they answered. Over the past year I've been building a free, open resource site to put everything in one place — not just the science, but the practical tools I wish someone had handed us on day one.
+
+The site is at: https://bryanralston.github.io/marshall-syndrome-resource/
+
+For families in the thick of it, the most immediately useful pieces are probably the Doctor Letter (a one-page medical summary you can print and hand to any new specialist), the Emergency Card (a phone-optimized ER protocol covering difficult airway, cervical precautions, and retinal detachment warnings), and the Pain Flare Protocol (a traffic-light system for managing flare days). There's also a School 504 Plan template, an insurance navigation playbook, and scripts for explaining the condition to doctors, teachers, and other parents.
+
+For families ready to dig deeper, the site includes a Drug Repurposing Screen mapping 30+ existing medications to the 8 destructive cascades that drive disease progression, an N-of-1 Trial Protocol families can bring to their doctors as a structured framework for trying interventions safely, and a Biomarker Tracker tool that runs entirely on your phone with no data leaving your device. The Research Roadmap page makes the case — grounded in published literature — that Marshall syndrome is more tractable than most genetic conditions because COL11A1 is haplosufficient: silencing the mutant allele is enough. The site even includes candidate ASO (antisense oligonucleotide) sequence designs for exon skipping, intended as a starting point for researchers. Everything is cited and clearly marked as informational, not medical advice.
+
+I'm reaching out because SIP is the community hub for Stickler families, and many Marshall/Stickler type 2 families either already belong to your network or would find their way to you first. Would you be willing to share this resource with your community — whether through your newsletter, website, or however you see fit? I'd also welcome the chance to collaborate. If there are gaps you've heard families ask about, or content you think could be improved, I'd genuinely appreciate the feedback.
+
+Thank you for everything SIP does for our community. It matters more than you probably hear.
+
+Best,
+Bryan
+
+
+========================================================================
+SHORTER VERSION — For Facebook groups / forums
+========================================================================
+
+I'm a parent of a child with Marshall syndrome (COL11A1 / Stickler type 2), and I've spent the past year building a free resource site for families like ours. It covers the practical stuff — a one-page Doctor Letter you can print for any specialist, a phone-optimized Emergency Card for ER visits, a Pain Flare Protocol, School 504 templates — plus deeper research: a drug repurposing screen mapping 30+ existing medications to the cascades driving disease progression, an N-of-1 trial protocol you can bring to your doctor, a biomarker tracker that runs on your phone, and a research roadmap laying out why Marshall syndrome may be more treatable than most of us have been told. Everything is cited, free, and clearly not medical advice.
+
+https://bryanralston.github.io/marshall-syndrome-resource/
+
+If you find it useful, please share it. And if you spot gaps or have questions I should be covering, I'd love to hear about them. We're all figuring this out together.

@@ -456,6 +456,151 @@
   .form-row { grid-template-columns: 1fr; }
   .dashboard-grid { grid-template-columns: 1fr; }
 }
+
+/* ===== SCAN LAB RESULTS ===== */
+.scan-section {
+  background: white;
+  border: 1px solid var(--warm-200);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.scan-section h3 {
+  font-size: 1rem;
+  color: var(--sage-700);
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--warm-100);
+}
+.scan-privacy-note {
+  font-size: 0.8rem;
+  color: var(--warm-500);
+  margin-bottom: 14px;
+  line-height: 1.5;
+  font-style: italic;
+}
+.scan-upload-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.scan-upload-area input[type="file"] {
+  font-size: 0.85rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+.scan-preview {
+  max-height: 300px;
+  max-width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--warm-200);
+  margin-bottom: 14px;
+  display: none;
+  object-fit: contain;
+  background: var(--warm-50);
+}
+.scan-preview.visible {
+  display: block;
+}
+.scan-progress {
+  width: 100%;
+  height: 8px;
+  background: var(--warm-100);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 8px;
+  display: none;
+}
+.scan-progress.visible {
+  display: block;
+}
+.scan-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--sage-500);
+  border-radius: 4px;
+  transition: width 0.2s ease;
+}
+.scan-progress-text {
+  font-size: 0.8rem;
+  color: var(--warm-500);
+  margin-bottom: 14px;
+  display: none;
+}
+.scan-progress-text.visible {
+  display: block;
+}
+.scan-error {
+  background: var(--rose-50);
+  border: 1px solid var(--rose-300);
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  color: var(--rose-700);
+  margin-bottom: 14px;
+  display: none;
+}
+.scan-error.visible {
+  display: block;
+}
+.scan-results-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 0.85rem;
+  margin-bottom: 14px;
+}
+.scan-results-table th,
+.scan-results-table td {
+  padding: 8px 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--warm-100);
+}
+.scan-results-table th {
+  font-weight: 600;
+  color: var(--warm-600);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: var(--warm-50);
+}
+.scan-results-table tr:hover {
+  background: var(--warm-50);
+}
+.scan-results-table input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: var(--sage-600);
+}
+.scan-confidence {
+  font-size: 0.8rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+.scan-confidence.high {
+  background: var(--earth-50);
+  color: var(--earth-700);
+}
+.scan-confidence.medium {
+  background: var(--honey-50, #fef9ee);
+  color: var(--honey-700, #92600a);
+}
+.scan-confidence.low {
+  background: var(--rose-50);
+  color: var(--rose-700);
+}
+.scan-results-wrap {
+  display: none;
+}
+.scan-results-wrap.visible {
+  display: block;
+}
+@media (max-width: 480px) {
+  .scan-upload-area { flex-direction: column; align-items: stretch; }
+}
 </style>
 </head>
 <body>
@@ -541,6 +686,43 @@
 
     <!-- ============== DATA ENTRY PANEL ============== -->
     <div class="tracker-panel" id="panel-entry" role="tabpanel">
+
+      <!-- Scan Lab Results -->
+      <div class="scan-section form-section" id="scanSection">
+        <h3>Scan Lab Results</h3>
+        <p class="scan-privacy-note">Image processing happens entirely on your device. No data is uploaded.</p>
+        <div class="scan-upload-area">
+          <input type="file" id="scanFileInput" accept="image/*" capture="environment" aria-label="Upload photo of lab results" onchange="BT.handleScanUpload(event)">
+        </div>
+        <img id="scanPreview" class="scan-preview" alt="Preview of uploaded lab results">
+        <div class="scan-progress" id="scanProgress">
+          <div class="scan-progress-bar" id="scanProgressBar"></div>
+        </div>
+        <p class="scan-progress-text" id="scanProgressText"></p>
+        <div class="scan-error" id="scanError"></div>
+        <div class="btn-group" id="scanActions" style="display:none;">
+          <button class="btn btn-primary" onclick="BT.runOCR()" aria-label="Scan results from image">Scan Results</button>
+          <button class="btn btn-secondary" onclick="BT.clearScan()" aria-label="Clear uploaded image">Clear</button>
+        </div>
+        <div class="scan-results-wrap" id="scanResultsWrap">
+          <h4 style="font-size:0.9rem; color:var(--sage-700); margin:14px 0 8px;">Extracted Values</h4>
+          <table class="scan-results-table">
+            <thead>
+              <tr>
+                <th style="width:30px;"></th>
+                <th>Biomarker</th>
+                <th>Extracted Value</th>
+                <th>Confidence</th>
+              </tr>
+            </thead>
+            <tbody id="scanResultsBody"></tbody>
+          </table>
+          <div class="btn-group">
+            <button class="btn btn-primary" onclick="BT.applyScannedValues()" aria-label="Apply extracted values to form">Apply to Form</button>
+            <button class="btn btn-secondary" onclick="BT.clearScan()" aria-label="Discard scan results">Discard</button>
+          </div>
+        </div>
+      </div>
 
       <!-- Phase setting -->
       <div class="phase-setting">
@@ -858,6 +1040,7 @@
 </div>
 
 <button class="back-to-top" id="backToTop" aria-label="Back to top">&#8593;</button>
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
 <script src="../nav.js"></script>
 <script>
 /**
@@ -1846,6 +2029,299 @@ var BT = (function() {
     }
   }
 
+  // ===== SCAN LAB RESULTS (OCR) =====
+  var SCAN_ALIASES = {
+    hsCRP:        ['hs-CRP', 'C-Reactive Protein', 'CRP', 'High Sensitivity CRP', 'hs CRP', 'hsCRP'],
+    IL6:          ['IL-6', 'Interleukin-6', 'Interleukin 6', 'IL6'],
+    MMP3:         ['MMP-3', 'Matrix Metalloproteinase-3', 'Stromelysin', 'MMP3'],
+    CTXII:        ['CTX-II', 'CTX-2', 'C-terminal telopeptide', 'CrossLaps', 'CTXII'],
+    Ferritin:     ['Ferritin'],
+    SerumIron:    ['Serum Iron', 'Iron, Serum', 'Iron', 'Fe'],
+    TIBC:         ['TIBC', 'Total Iron Binding', 'Iron Binding Capacity'],
+    GPX:          ['GPX', 'Glutathione Peroxidase'],
+    Selenium:     ['Selenium', 'Se'],
+    VitD:         ['Vitamin D', '25-OH Vitamin D', '25-Hydroxy', 'Vit D', '25(OH)D'],
+    ucMGP:        ['ucMGP', 'Uncarboxylated MGP', 'Matrix Gla Protein'],
+    Zonulin:      ['Zonulin'],
+    Calprotectin: ['Calprotectin', 'Fecal Calprotectin'],
+    ESR:          ['ESR', 'Sed Rate', 'Sedimentation Rate', 'Erythrocyte Sedimentation']
+  };
+  // Skip Pain and PedsQL — not lab values
+
+  var scanImageDataUrl = null;
+  var scanResults = [];
+
+  function handleScanUpload(event) {
+    var file = event.target.files && event.target.files[0];
+    if (!file) return;
+    var preview = document.getElementById('scanPreview');
+    var actions = document.getElementById('scanActions');
+    var error = document.getElementById('scanError');
+    var resultsWrap = document.getElementById('scanResultsWrap');
+    error.classList.remove('visible');
+    resultsWrap.classList.remove('visible');
+    scanResults = [];
+
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      scanImageDataUrl = e.target.result;
+      preview.src = scanImageDataUrl;
+      preview.classList.add('visible');
+      actions.style.display = '';
+    };
+    reader.onerror = function() {
+      showScanError('Could not read the selected file. Please try again.');
+    };
+    reader.readAsDataURL(file);
+  }
+
+  function runOCR() {
+    if (!scanImageDataUrl) {
+      showScanError('Please upload an image first.');
+      return;
+    }
+    if (typeof Tesseract === 'undefined') {
+      showScanError('OCR library (Tesseract.js) failed to load. Please check your internet connection and reload the page. You can still enter values manually below.');
+      return;
+    }
+
+    var progressDiv = document.getElementById('scanProgress');
+    var progressBar = document.getElementById('scanProgressBar');
+    var progressText = document.getElementById('scanProgressText');
+    var error = document.getElementById('scanError');
+    var resultsWrap = document.getElementById('scanResultsWrap');
+
+    error.classList.remove('visible');
+    resultsWrap.classList.remove('visible');
+    progressDiv.classList.add('visible');
+    progressText.classList.add('visible');
+    progressBar.style.width = '0%';
+    progressText.textContent = 'Initializing OCR engine...';
+
+    Tesseract.recognize(scanImageDataUrl, 'eng', {
+      logger: function(m) {
+        if (m.status === 'recognizing text') {
+          var pct = Math.round((m.progress || 0) * 100);
+          progressBar.style.width = pct + '%';
+          progressText.textContent = 'Scanning... ' + pct + '%';
+        } else if (m.status) {
+          progressText.textContent = m.status + '...';
+        }
+      }
+    }).then(function(result) {
+      progressBar.style.width = '100%';
+      progressText.textContent = 'Scan complete. Matching biomarkers...';
+
+      var text = result.data.text || '';
+      var ocrConfidence = result.data.confidence || 0;
+      scanResults = parseOCRText(text, ocrConfidence);
+
+      if (scanResults.length === 0) {
+        progressDiv.classList.remove('visible');
+        progressText.classList.remove('visible');
+        showScanError('No biomarker values could be extracted from this image. The text may be too blurry, or the lab format may not be recognized. You can still enter values manually below.');
+        return;
+      }
+
+      renderScanResults(scanResults);
+      progressDiv.classList.remove('visible');
+      progressText.classList.remove('visible');
+    }).catch(function(err) {
+      progressDiv.classList.remove('visible');
+      progressText.classList.remove('visible');
+      showScanError('OCR processing failed: ' + (err.message || err) + '. You can still enter values manually below.');
+    });
+  }
+
+  function parseOCRText(text, ocrConfidence) {
+    var lines = text.split(/\n/);
+    var matches = [];
+    var matched = {};
+
+    // Build a sorted list of alias->biomarkerId pairs, longest alias first to avoid partial matches
+    var aliasPairs = [];
+    Object.keys(SCAN_ALIASES).forEach(function(bioId) {
+      SCAN_ALIASES[bioId].forEach(function(alias) {
+        aliasPairs.push({ bioId: bioId, alias: alias, aliasLower: alias.toLowerCase() });
+      });
+    });
+    aliasPairs.sort(function(a, b) { return b.alias.length - a.alias.length; });
+
+    lines.forEach(function(line) {
+      var lineLower = line.toLowerCase();
+
+      aliasPairs.forEach(function(pair) {
+        if (matched[pair.bioId]) return; // Already matched this biomarker
+
+        var idx = lineLower.indexOf(pair.aliasLower);
+        if (idx === -1) return;
+
+        // Extract the first number from the portion of the line after the alias
+        var afterAlias = line.substring(idx + pair.alias.length);
+        var num = extractNumber(afterAlias);
+
+        // If no number after alias, try the whole line
+        if (num === null) {
+          num = extractNumberFromLine(line);
+        }
+
+        if (num !== null) {
+          // Compute a confidence score
+          var conf = computeConfidence(pair.alias, line, ocrConfidence);
+          var bio = BIOMARKERS.find(function(b) { return b.id === pair.bioId; });
+          matches.push({
+            bioId: pair.bioId,
+            label: bio ? bio.label : pair.bioId,
+            value: num,
+            confidence: conf,
+            matchedAlias: pair.alias,
+            rawLine: line.trim(),
+            checked: true
+          });
+          matched[pair.bioId] = true;
+        }
+      });
+    });
+
+    return matches;
+  }
+
+  function extractNumber(text) {
+    // Match patterns like: 0.5, <0.5, < 0.5, 1,234.5, 1234
+    var m = text.match(/[<>]?\s*(\d{1,3}(?:,\d{3})*(?:\.\d+)?|\d+(?:\.\d+)?)/);
+    if (m) {
+      var numStr = m[1].replace(/,/g, '');
+      var val = parseFloat(numStr);
+      if (!isNaN(val)) return val;
+    }
+    return null;
+  }
+
+  function extractNumberFromLine(line) {
+    // Find all numbers in the line, pick the most likely value (not a date, not a reference range)
+    var numbers = [];
+    var regex = /(?<![\/\-])(\d{1,3}(?:,\d{3})*(?:\.\d+)?|\d+(?:\.\d+)?)(?![\/\-]\d)/g;
+    var m;
+    while ((m = regex.exec(line)) !== null) {
+      var val = parseFloat(m[1].replace(/,/g, ''));
+      if (!isNaN(val) && val < 100000) { // Reasonable lab value range
+        numbers.push(val);
+      }
+    }
+    // Return the first plausible number (skip very large numbers that might be IDs)
+    return numbers.length > 0 ? numbers[0] : null;
+  }
+
+  function computeConfidence(alias, line, ocrConfidence) {
+    var score = 0;
+    // Base from OCR confidence (0-100 scale)
+    score += (ocrConfidence / 100) * 40;
+
+    // Alias specificity: longer, more specific aliases get higher confidence
+    if (alias.length >= 10) score += 25;
+    else if (alias.length >= 5) score += 15;
+    else score += 5;
+
+    // Does the line contain a unit? That helps confirm it is a lab result
+    var unitPatterns = /mg\/[ld]|pg\/ml|ng\/ml|mcg|u\/g|pmol|mm\/hr|um\/l/i;
+    if (unitPatterns.test(line)) score += 20;
+
+    // Number proximity: if number is close to the alias on the same line, higher confidence
+    var aliasIdx = line.toLowerCase().indexOf(alias.toLowerCase());
+    if (aliasIdx >= 0) {
+      var numMatch = line.substring(aliasIdx).match(/\d/);
+      if (numMatch && numMatch.index < 40) score += 15;
+      else score += 5;
+    }
+
+    return Math.min(Math.round(score), 100);
+  }
+
+  function renderScanResults(results) {
+    var tbody = document.getElementById('scanResultsBody');
+    var html = '';
+    results.forEach(function(r, idx) {
+      var confClass = r.confidence >= 70 ? 'high' : r.confidence >= 40 ? 'medium' : 'low';
+      var confLabel = r.confidence >= 70 ? 'High' : r.confidence >= 40 ? 'Medium' : 'Low';
+      html += '<tr>';
+      html += '<td><input type="checkbox" id="scanCheck_' + idx + '" ' + (r.checked ? 'checked' : '') + ' aria-label="Include ' + r.label + '"></td>';
+      html += '<td>' + r.label + '<br><span style="font-size:0.75rem;color:var(--warm-400);" title="' + escapeAttr(r.rawLine) + '">Matched: "' + r.matchedAlias + '"</span></td>';
+      html += '<td><strong>' + r.value + '</strong></td>';
+      html += '<td><span class="scan-confidence ' + confClass + '">' + confLabel + ' (' + r.confidence + '%)</span></td>';
+      html += '</tr>';
+    });
+    tbody.innerHTML = html;
+    document.getElementById('scanResultsWrap').classList.add('visible');
+  }
+
+  function escapeAttr(str) {
+    return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  function applyScannedValues() {
+    if (!scanResults || scanResults.length === 0) return;
+
+    var applied = 0;
+    scanResults.forEach(function(r, idx) {
+      var checkbox = document.getElementById('scanCheck_' + idx);
+      if (checkbox && checkbox.checked) {
+        var input = document.getElementById('bio_' + r.bioId);
+        if (input) {
+          input.value = r.value;
+          // Briefly highlight the field
+          input.style.transition = 'background 0.3s';
+          input.style.background = 'var(--earth-50)';
+          setTimeout(function() { input.style.background = ''; }, 1500);
+          applied++;
+        }
+      }
+    });
+
+    if (applied > 0) {
+      // Set today's date if not already set
+      var dateField = document.getElementById('bioDate');
+      if (dateField && !dateField.value) {
+        dateField.value = new Date().toISOString().split('T')[0];
+      }
+      // Scroll to the biomarker form (the one with the Lab Biomarkers heading)
+      var allFormSections = document.querySelectorAll('#panel-entry .form-section');
+      var bioSection = allFormSections.length > 1 ? allFormSections[1] : null;
+      if (bioSection) bioSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    clearScan();
+    if (applied > 0) {
+      alert(applied + ' value' + (applied !== 1 ? 's' : '') + ' applied to the form. Review the values and click "Save Biomarker Entry" when ready.');
+    }
+  }
+
+  function clearScan() {
+    scanImageDataUrl = null;
+    scanResults = [];
+    var preview = document.getElementById('scanPreview');
+    var actions = document.getElementById('scanActions');
+    var resultsWrap = document.getElementById('scanResultsWrap');
+    var progress = document.getElementById('scanProgress');
+    var progressText = document.getElementById('scanProgressText');
+    var error = document.getElementById('scanError');
+    var fileInput = document.getElementById('scanFileInput');
+
+    preview.classList.remove('visible');
+    preview.src = '';
+    actions.style.display = 'none';
+    resultsWrap.classList.remove('visible');
+    progress.classList.remove('visible');
+    progressText.classList.remove('visible');
+    error.classList.remove('visible');
+    if (fileInput) fileInput.value = '';
+  }
+
+  function showScanError(msg) {
+    var el = document.getElementById('scanError');
+    el.textContent = msg;
+    el.classList.add('visible');
+  }
+
   // ===== INIT =====
   function init() {
     // Set today's date as defaults
@@ -1897,7 +2373,11 @@ var BT = (function() {
     clearAllData: clearAllData,
     deleteBioEntry: deleteBioEntry,
     deleteSymEntry: deleteSymEntry,
-    deleteIntervention: deleteIntervention
+    deleteIntervention: deleteIntervention,
+    handleScanUpload: handleScanUpload,
+    runOCR: runOCR,
+    applyScannedValues: applyScannedValues,
+    clearScan: clearScan
   };
 })();
 </script>
