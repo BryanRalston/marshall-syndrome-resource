@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cascade Simulation - Marshall Syndrome Resource</title>
+<link rel="stylesheet" href="../styles.css">
+<style>
+/* ===== SIMULATION-SPECIFIC STYLES ===== */
+.sim-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+.sim-panel {
+  background: var(--warm-100);
+  border: 1px solid var(--warm-200);
+  border-radius: 16px;
+  padding: 20px 24px;
+}
+.sim-panel h3 {
+  margin-top: 0;
+  font-size: 1.1rem;
+  color: var(--sage-700);
+  border-bottom: 1px solid var(--warm-200);
+  padding-bottom: 10px;
+  margin-bottom: 14px;
+}
+.sim-canvas-wrap {
+  position: relative;
+  width: 100%;
+  background: #fff;
+  border: 1px solid var(--warm-200);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.sim-canvas-wrap canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Controls */
+.sim-controls {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.sim-btn {
+  padding: 8px 18px;
+  border: 1px solid var(--warm-300);
+  border-radius: 8px;
+  background: var(--warm-50);
+  color: var(--warm-700);
+  font-size: 0.88rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+.sim-btn:hover {
+  border-color: var(--sage-400);
+  color: var(--sage-700);
+  background: var(--sage-50);
+}
+.sim-btn.active {
+  background: var(--sage-600);
+  color: #fff;
+  border-color: var(--sage-600);
+}
+.sim-btn-primary {
+  background: var(--sage-600);
+  color: #fff;
+  border-color: var(--sage-600);
+}
+.sim-btn-primary:hover {
+  background: var(--sage-700);
+}
+
+/* Speed control */
+.speed-control {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: var(--warm-500);
+  margin-left: auto;
+}
+.speed-control select {
+  padding: 4px 8px;
+  border: 1px solid var(--warm-300);
+  border-radius: 6px;
+  font-size: 0.85rem;
+  background: var(--warm-50);
+}
+
+/* Drug grid */
+.drug-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+}
+.drug-card {
+  background: var(--warm-50);
+  border: 1px solid var(--warm-200);
+  border-radius: 10px;
+  padding: 12px 14px;
+  transition: border-color 0.25s;
+}
+.drug-card.enabled {
+  border-color: var(--sage-400);
+  background: var(--sage-50);
+}
+.drug-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.drug-header label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--warm-700);
+  cursor: pointer;
+  flex: 1;
+}
+.drug-header input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--sage-600);
+  cursor: pointer;
+}
+.drug-targets {
+  font-size: 0.8rem;
+  color: var(--warm-500);
+  margin-bottom: 6px;
+}
+.drug-timing {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--warm-500);
+}
+.drug-timing input[type="range"] {
+  flex: 1;
+  accent-color: var(--sage-500);
+  height: 4px;
+}
+.drug-timing .week-label {
+  min-width: 50px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Presets */
+.preset-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.preset-btn {
+  padding: 8px 14px;
+  border: 1px solid var(--warm-300);
+  border-radius: 8px;
+  background: var(--warm-50);
+  color: var(--warm-600);
+  font-size: 0.83rem;
+  cursor: pointer;
+  transition: all 0.25s;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+.preset-btn:hover {
+  border-color: var(--sage-400);
+  color: var(--sage-700);
+}
+.preset-btn.active {
+  background: var(--sage-600);
+  color: #fff;
+  border-color: var(--sage-600);
+}
+
+/* Legend */
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 10px;
+  font-size: 0.8rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--warm-600);
+}
+.legend-swatch {
+  width: 14px;
+  height: 3px;
+  border-radius: 2px;
+}
+
+/* Stats bar */
+.burden-bar {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: var(--warm-600);
+}
+.burden-value {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--rose-600);
+  font-variant-numeric: tabular-nums;
+}
+.burden-value.low {
+  color: var(--earth-600);
+}
+.burden-reduction {
+  font-size: 0.85rem;
+  color: var(--earth-600);
+  font-weight: 500;
+}
+
+/* Network + sensitivity side by side on desktop */
+.sim-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+/* Sensitivity bars */
+.sens-bar-wrap {
+  margin-bottom: 8px;
+}
+.sens-label {
+  font-size: 0.82rem;
+  color: var(--warm-600);
+  margin-bottom: 3px;
+  display: flex;
+  justify-content: space-between;
+}
+.sens-bar-track {
+  height: 18px;
+  background: var(--warm-200);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+.sens-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.4s ease;
+}
+.sens-bar-fill.hub {
+  background: var(--rose-500);
+}
+.sens-bar-fill.high {
+  background: var(--honey-500);
+}
+.sens-bar-fill.mod {
+  background: var(--sage-500);
+}
+.sens-bar-fill.low {
+  background: var(--warm-400);
+}
+
+/* Info text */
+.sim-info {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--warm-600);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+.sim-info p {
+  margin-bottom: 12px;
+}
+
+/* Week display */
+.week-display {
+  font-size: 0.9rem;
+  color: var(--warm-500);
+  font-variant-numeric: tabular-nums;
+  min-width: 80px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .sim-two-col {
+    grid-template-columns: 1fr;
+  }
+  .drug-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .sim-panel {
+    padding: 14px 16px;
+  }
+  .sim-controls {
+    gap: 6px;
+  }
+  .sim-btn {
+    padding: 6px 12px;
+    font-size: 0.82rem;
+  }
+  .preset-btn {
+    font-size: 0.78rem;
+    padding: 6px 10px;
+  }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation">&#9776;</button>
+  <a href="../" class="header-title">Marshall Syndrome <span>Resource</span></a>
+  <div class="search-wrapper">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" id="searchInput" placeholder="Search this page..." aria-label="Search">
+  </div>
+  <span class="search-count" id="searchCount"></span>
+</header>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<nav class="sidebar" id="sidebar"></nav>
+
+<div class="main">
+<div class="content">
+
+  <nav class="breadcrumb" id="breadcrumb"></nav>
+
+  <div class="page-header">
+    <h1>Cascade Simulation: Modeling the 8 Destructive Loops</h1>
+  </div>
+
+  <div class="page-body">
+
+    <div class="callout callout-warning">
+      <strong>Educational Model &mdash; Not a Clinical Tool.</strong> This simulation uses estimated parameters to illustrate how the 8 self-amplifying cascades in Marshall syndrome interact and how drug interventions might reduce total disease burden. The coupling strengths, growth rates, and drug effects shown here are approximations based on published research, not experimentally validated values. This tool is meant to build intuition, not to predict actual treatment outcomes. Always discuss treatment decisions with your medical team.
+    </div>
+
+    <p>The <a href="../basics/unified-model.html">Unified Cascade Model</a> identifies 8 self-amplifying destructive loops triggered by the COL11A1 mutation. These loops feed each other through a network of connections, meaning the disease is not 8 separate problems but one interconnected system. This simulation models that system as coupled differential equations, letting you see how cascade activity evolves over time and how different drug interventions change the trajectory.</p>
+
+
+    <!-- ============================================================ -->
+    <!-- SIMULATION PANEL -->
+    <!-- ============================================================ -->
+
+    <div class="sim-layout">
+
+      <div class="sim-panel">
+        <h3>Time Series: Cascade Activity Over 52 Weeks</h3>
+
+        <div class="sim-controls">
+          <button class="sim-btn sim-btn-primary" id="btnRun">Run</button>
+          <button class="sim-btn" id="btnPause">Pause</button>
+          <button class="sim-btn" id="btnReset">Reset</button>
+          <span class="week-display" id="weekDisplay">Week 0</span>
+          <div class="speed-control">
+            <label for="speedSelect">Speed:</label>
+            <select id="speedSelect">
+              <option value="0.5">0.5x</option>
+              <option value="1" selected>1x</option>
+              <option value="2">2x</option>
+              <option value="5">5x</option>
+              <option value="20">Instant</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="sim-canvas-wrap">
+          <canvas id="tsCanvas" width="800" height="400"></canvas>
+        </div>
+
+        <div class="legend" id="tsLegend"></div>
+
+        <div class="burden-bar">
+          <span>Total cascade burden at week 52:</span>
+          <span class="burden-value" id="burdenValue">--</span>
+          <span class="burden-reduction" id="burdenReduction"></span>
+        </div>
+      </div>
+
+
+      <!-- ============================================================ -->
+      <!-- NETWORK + SENSITIVITY -->
+      <!-- ============================================================ -->
+
+      <div class="sim-two-col">
+
+        <div class="sim-panel">
+          <h3>Network Graph: Cascade Connections</h3>
+          <div class="sim-canvas-wrap">
+            <canvas id="netCanvas" width="400" height="400"></canvas>
+          </div>
+          <div class="sim-info" style="margin-top:10px;">
+            <p style="margin-bottom:4px;">Node size = current activity level. Color shifts from green (inactive) to red (fully active). Arrows show feeding relationships between cascades.</p>
+          </div>
+        </div>
+
+        <div class="sim-panel">
+          <h3>Sensitivity: Single-Loop 50% Reduction</h3>
+          <p class="sim-info" style="margin-bottom:12px;">If you could reduce just ONE cascade by 50%, which one would lower total burden the most?</p>
+          <div id="sensChart"></div>
+          <div class="sim-info" style="margin-top:10px;">
+            <p style="margin-bottom:4px;"><strong>Result:</strong> <span id="sensResult">Run simulation to see results.</span></p>
+          </div>
+        </div>
+
+      </div>
+
+
+      <!-- ============================================================ -->
+      <!-- DRUG INTERVENTIONS -->
+      <!-- ============================================================ -->
+
+      <div class="sim-panel">
+        <h3>Drug Interventions</h3>
+        <p class="sim-info" style="margin-bottom:14px;">Toggle drugs on/off and adjust when they are introduced. The simulation will re-run automatically with your selections.</p>
+
+        <div class="drug-grid" id="drugGrid"></div>
+      </div>
+
+
+      <!-- ============================================================ -->
+      <!-- PRESETS -->
+      <!-- ============================================================ -->
+
+      <div class="sim-panel">
+        <h3>Combination Strategy Presets</h3>
+        <div class="preset-grid" id="presetGrid"></div>
+      </div>
+
+
+      <!-- ============================================================ -->
+      <!-- EXPLANATION -->
+      <!-- ============================================================ -->
+
+      <div class="sim-panel">
+        <h3>Understanding the Math (Plain Language)</h3>
+        <div class="sim-info">
+          <p>This simulation tracks 8 numbers, one for each cascade. Each number represents how active that cascade is, on a scale from 0 (completely inactive) to 1 (maximally active).</p>
+          <p><strong>How each cascade changes over time:</strong> At every time step, each cascade's activity level is updated by three forces:</p>
+          <ul style="margin-left:20px; margin-bottom:12px;">
+            <li><strong>Self-amplification:</strong> Active cascades tend to grow (like a fire that feeds itself), but they saturate &mdash; they can't grow past 1.0. This is modeled as logistic growth.</li>
+            <li><strong>Cross-feeding:</strong> Other cascades push this one up. For example, the senescence cascade (Loop 3) feeds the MMP cascade (Loop 1), so when senescence is high, MMP activity also increases. The strength of each connection is based on the biological relationships described in the <a href="../basics/unified-model.html">Unified Model</a>.</li>
+            <li><strong>Decay:</strong> Without ongoing stimulation, cascades naturally decline (the body has some repair capacity).</li>
+            <li><strong>Drug effects:</strong> When a drug is active, it reduces cascade activity by a percentage specific to each drug-cascade pair. This is subtracted at each time step.</li>
+          </ul>
+          <p><strong>The solver:</strong> Because these equations are coupled (each cascade depends on all the others), we use a 4th-order Runge-Kutta integrator &mdash; a standard numerical method that computes each time step accurately by sampling the rate of change at four points within each step. This avoids the numerical instability that simpler methods produce with interconnected systems.</p>
+          <p><strong>What this shows:</strong> The key insight is that cascade interconnections create outsized effects from intervention. Reducing one cascade doesn't just lower that cascade &mdash; it reduces the input to every cascade it feeds, which reduces their inputs to others, and so on. This is why multi-target, early intervention has disproportionately large effects compared to single-target or late intervention.</p>
+        </div>
+      </div>
+
+    </div><!-- /sim-layout -->
+
+  </div><!-- /page-body -->
+
+</div>
+</div>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top">&#8593;</button>
+<script src="../nav.js"></script>
+
+<script>
+(function() {
+  'use strict';
+
+  // =========================================================================
+  // CASCADE MODEL PARAMETERS
+  // =========================================================================
+
+  var N = 8; // Number of cascades
+
+  var CASCADE_NAMES = [
+    '1. MMP/ADAMTS',
+    '2. Ferroptosis',
+    '3. Senescence/SASP',
+    '4. Cx43 Death Waves',
+    '5. Endplate Calcification',
+    '6. Complement',
+    '7. Lactate-Senescence',
+    '8. Gut-Disc Triangle'
+  ];
+
+  var CASCADE_SHORT = [
+    'MMP', 'Ferroptosis', 'Senescence', 'Cx43',
+    'Endplate', 'Complement', 'Lactate', 'Gut-Disc'
+  ];
+
+  // Colors for each cascade (warm, earthy palette consistent with site design)
+  var CASCADE_COLORS = [
+    '#c05850', // 1 MMP - rose
+    '#d4726a', // 2 Ferroptosis - lighter rose
+    '#a44a43', // 3 Senescence - deep rose (hub node, most prominent)
+    '#c49a3a', // 4 Cx43 - honey
+    '#d4a84b', // 5 Endplate - lighter honey
+    '#5da654', // 6 Complement - earth green
+    '#4a8f42', // 7 Lactate - darker green
+    '#487a5e'  // 8 Gut-disc - sage
+  ];
+
+  // Logistic growth parameters: growth rate for each cascade
+  // Higher = faster self-amplification
+  var GROWTH_RATES = [
+    0.12,  // 1 MMP/ADAMTS
+    0.10,  // 2 Ferroptosis
+    0.14,  // 3 Senescence (hub - slightly faster self-amplification)
+    0.08,  // 4 Cx43 death waves
+    0.07,  // 5 Endplate calcification (slow process)
+    0.06,  // 6 Complement
+    0.09,  // 7 Lactate-senescence
+    0.08   // 8 Gut-disc triangle
+  ];
+
+  // Natural decay rates (body's baseline repair capacity)
+  var DECAY_RATES = [
+    0.04, // 1
+    0.05, // 2
+    0.03, // 3 (senescent cells are hard to clear naturally)
+    0.03, // 4
+    0.02, // 5 (calcification is hard to reverse)
+    0.04, // 6
+    0.04, // 7
+    0.05  // 8
+  ];
+
+  // Coupling matrix: coupling[i][j] = how much cascade j feeds cascade i
+  // Based on the connectivity table from the research roadmap:
+  // Loop 1 (MMP) fed by: 3, 6, 7
+  // Loop 2 (Ferroptosis) fed by: 4, 5, 8
+  // Loop 3 (Senescence) fed by: 1, 2, 4, 5, 7
+  // Loop 4 (Cx43) fed by: nothing (no external feeders)
+  // Loop 5 (Endplate) fed by: nothing
+  // Loop 6 (Complement) fed by: nothing
+  // Loop 7 (Lactate) fed by: 3
+  // Loop 8 (Gut-disc) fed by: 3
+  var COUPLING = [
+    // fed by:   1     2     3     4     5     6     7     8
+    // Loop 3 (Senescence/SASP) has the strongest outgoing connections (hub node)
+    /* 1 MMP */ [0,    0,    0.10, 0,    0,    0.04, 0.05, 0   ],
+    /* 2 Fer */ [0,    0,    0,    0.04, 0.04, 0,    0,    0.05],
+    /* 3 Sen */ [0.05, 0.04, 0,    0.03, 0.03, 0,    0.04, 0   ],
+    /* 4 Cx4 */ [0,    0,    0,    0,    0,    0,    0,    0   ],
+    /* 5 End */ [0,    0,    0,    0,    0,    0,    0,    0   ],
+    /* 6 Com */ [0,    0,    0,    0,    0,    0,    0,    0   ],
+    /* 7 Lac */ [0,    0,    0.08, 0,    0,    0,    0,    0   ],
+    /* 8 Gut */ [0,    0,    0.09, 0,    0,    0,    0,    0   ]
+  ];
+
+  // Initial conditions: small perturbation representing the COL11A1 mutation effect
+  var INITIAL_STATE = [
+    0.15,  // 1 MMP (matrix fragments from baseline defective collagen)
+    0.08,  // 2 Ferroptosis
+    0.10,  // 3 Senescence
+    0.05,  // 4 Cx43
+    0.06,  // 5 Endplate
+    0.05,  // 6 Complement
+    0.07,  // 7 Lactate
+    0.06   // 8 Gut-disc
+  ];
+
+  // Simulation parameters
+  var T_MAX = 52;     // weeks
+  var DT = 0.05;      // integration step (weeks)
+  var STEPS_PER_WEEK = Math.round(1 / DT);
+
+
+  // =========================================================================
+  // DRUG DEFINITIONS
+  // =========================================================================
+
+  var DRUGS = [
+    {
+      id: 'nac', name: 'NAC',
+      desc: 'N-acetylcysteine, glutathione precursor',
+      targets: [[1, 0.30]], // [cascadeIndex (0-based), reduction fraction]
+      enabled: false, week: 0
+    },
+    {
+      id: 'selenium', name: 'Selenium',
+      desc: 'GPX4 cofactor, anti-ferroptosis',
+      targets: [[1, 0.20]],
+      enabled: false, week: 0
+    },
+    {
+      id: 'vitk2', name: 'Vitamin K2',
+      desc: 'Anti-calcification (MK-7)',
+      targets: [[4, 0.25]],
+      enabled: false, week: 0
+    },
+    {
+      id: 'omega3', name: 'Omega-3',
+      desc: 'Anti-MMP, resolvin precursor',
+      targets: [[0, 0.15], [7, 0.15]],
+      enabled: false, week: 0
+    },
+    {
+      id: 'quercetin', name: 'Quercetin',
+      desc: 'Senolytic, anti-SASP',
+      targets: [[2, 0.20]],
+      enabled: false, week: 0
+    },
+    {
+      id: 'metformin', name: 'Metformin',
+      desc: 'AMPK activator, anti-SASP, anti-MMP (Rx)',
+      targets: [[0, 0.25], [2, 0.25]],
+      enabled: false, week: 0
+    },
+    {
+      id: 'doxycycline', name: 'Low-dose Doxycycline',
+      desc: 'Sub-antimicrobial MMP inhibitor (Rx)',
+      targets: [[0, 0.40]],
+      enabled: false, week: 0
+    },
+    {
+      id: 'losartan', name: 'Losartan',
+      desc: 'TGF-beta modulator, anti-fibrotic (Rx)',
+      targets: [[0, 0.20], [5, 0.20]],
+      enabled: false, week: 0
+    },
+    {
+      id: 'dq', name: 'D+Q Senolytic',
+      desc: 'Dasatinib + Quercetin, intermittent (Rx)',
+      targets: [[2, 0.50]],
+      enabled: false, week: 0
+    },
+    {
+      id: 'fisetin', name: 'Fisetin',
+      desc: 'Natural senolytic (strawberries, apples)',
+      targets: [[2, 0.30]],
+      enabled: false, week: 0
+    }
+  ];
+
+  // Preset combinations
+  var PRESETS = [
+    {
+      name: 'No Treatment',
+      drugs: []
+    },
+    {
+      name: 'Supplement Stack',
+      drugs: ['nac', 'selenium', 'vitk2', 'omega3', 'quercetin']
+    },
+    {
+      name: 'Supplements + Rx Tier 1',
+      drugs: ['nac', 'selenium', 'vitk2', 'omega3', 'quercetin', 'metformin']
+    },
+    {
+      name: 'Full Protocol',
+      drugs: ['nac', 'selenium', 'vitk2', 'omega3', 'quercetin', 'metformin', 'doxycycline', 'losartan']
+    },
+    {
+      name: 'With Senolytics',
+      drugs: ['nac', 'selenium', 'vitk2', 'omega3', 'quercetin', 'metformin', 'doxycycline', 'losartan', 'dq']
+    }
+  ];
+
+
+  // =========================================================================
+  // ODE SOLVER (4th-order Runge-Kutta)
+  // =========================================================================
+
+  function addVec(a, b) {
+    var r = new Array(a.length);
+    for (var i = 0; i < a.length; i++) r[i] = a[i] + b[i];
+    return r;
+  }
+
+  function scaleVec(v, s) {
+    var r = new Array(v.length);
+    for (var i = 0; i < v.length; i++) r[i] = v[i] * s;
+    return r;
+  }
+
+  function clampVec(v) {
+    var r = new Array(v.length);
+    for (var i = 0; i < v.length; i++) r[i] = Math.max(0, Math.min(1, v[i]));
+    return r;
+  }
+
+  // Compute drug effect for cascade i at time t
+  function drugEffect(i, t, drugs) {
+    var totalReduction = 0;
+    for (var d = 0; d < drugs.length; d++) {
+      if (!drugs[d].enabled) continue;
+      if (t < drugs[d].week) continue;
+      for (var tt = 0; tt < drugs[d].targets.length; tt++) {
+        if (drugs[d].targets[tt][0] === i) {
+          // Diminishing returns: each additional drug on same cascade is less effective
+          totalReduction = 1 - (1 - totalReduction) * (1 - drugs[d].targets[tt][1]);
+        }
+      }
+    }
+    return totalReduction;
+  }
+
+  // Derivatives: dC_i/dt for each cascade
+  function derivatives(state, t, drugs) {
+    var dS = new Array(N);
+    for (var i = 0; i < N; i++) {
+      var ci = state[i];
+
+      // Logistic self-amplification: r * C * (1 - C)
+      var growth = GROWTH_RATES[i] * ci * (1 - ci);
+
+      // Cross-feeding from other cascades
+      var coupling = 0;
+      for (var j = 0; j < N; j++) {
+        coupling += COUPLING[i][j] * state[j];
+      }
+
+      // Natural decay
+      var decay = DECAY_RATES[i] * ci;
+
+      // Drug intervention
+      var drugEff = drugEffect(i, t, drugs) * ci * 0.5; // Proportional reduction rate scaled to drug percentage
+
+      dS[i] = growth + coupling - decay - drugEff;
+    }
+    return dS;
+  }
+
+  function rk4Step(state, t, dt, drugs) {
+    var k1 = derivatives(state, t, drugs);
+    var k2 = derivatives(addVec(state, scaleVec(k1, dt / 2)), t + dt / 2, drugs);
+    var k3 = derivatives(addVec(state, scaleVec(k2, dt / 2)), t + dt / 2, drugs);
+    var k4 = derivatives(addVec(state, scaleVec(k3, dt)), t + dt, drugs);
+
+    var sum = addVec(addVec(k1, scaleVec(k2, 2)), addVec(scaleVec(k3, 2), k4));
+    var result = addVec(state, scaleVec(sum, dt / 6));
+    return clampVec(result);
+  }
+
+
+  // =========================================================================
+  // FULL SIMULATION RUN (returns all time points)
+  // =========================================================================
+
+  function runFullSimulation(drugs) {
+    var totalSteps = Math.round(T_MAX / DT);
+    var history = new Array(totalSteps + 1);
+    var state = INITIAL_STATE.slice();
+    history[0] = { t: 0, state: state.slice() };
+
+    for (var step = 1; step <= totalSteps; step++) {
+      var t = step * DT;
+      state = rk4Step(state, t, DT, drugs);
+      history[step] = { t: t, state: state.slice() };
+    }
+    return history;
+  }
+
+
+  // =========================================================================
+  // CANVAS RENDERERS
+  // =========================================================================
+
+  var tsCanvas = document.getElementById('tsCanvas');
+  var tsCtx = tsCanvas.getContext('2d');
+  var netCanvas = document.getElementById('netCanvas');
+  var netCtx = netCanvas.getContext('2d');
+
+  // Handle high-DPI displays
+  function setupCanvas(canvas, ctx, w, h) {
+    var dpr = window.devicePixelRatio || 1;
+    canvas.width = w * dpr;
+    canvas.height = h * dpr;
+    canvas.style.width = w + 'px';
+    canvas.style.height = h + 'px';
+    ctx.scale(dpr, dpr);
+    return { w: w, h: h };
+  }
+
+  function getCanvasWidth(canvas) {
+    return canvas.parentElement.clientWidth || 800;
+  }
+
+  // Time series renderer
+  var TS_MARGIN = { top: 20, right: 20, bottom: 40, left: 50 };
+
+  function drawTimeSeries(history, upToStep) {
+    var cw = getCanvasWidth(tsCanvas);
+    var ch = Math.min(400, Math.round(cw * 0.5));
+    setupCanvas(tsCanvas, tsCtx, cw, ch);
+
+    var ctx = tsCtx;
+    var plotW = cw - TS_MARGIN.left - TS_MARGIN.right;
+    var plotH = ch - TS_MARGIN.top - TS_MARGIN.bottom;
+
+    // Background
+    ctx.fillStyle = '#fff';
+    ctx.fillRect(0, 0, cw, ch);
+
+    // Grid lines
+    ctx.strokeStyle = '#e5e1d8';
+    ctx.lineWidth = 0.5;
+    for (var y = 0; y <= 1; y += 0.2) {
+      var py = TS_MARGIN.top + plotH * (1 - y);
+      ctx.beginPath();
+      ctx.moveTo(TS_MARGIN.left, py);
+      ctx.lineTo(TS_MARGIN.left + plotW, py);
+      ctx.stroke();
+    }
+    for (var w = 0; w <= T_MAX; w += 4) {
+      var px = TS_MARGIN.left + (w / T_MAX) * plotW;
+      ctx.beginPath();
+      ctx.moveTo(px, TS_MARGIN.top);
+      ctx.lineTo(px, TS_MARGIN.top + plotH);
+      ctx.stroke();
+    }
+
+    // Axes
+    ctx.strokeStyle = '#a8a29a';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(TS_MARGIN.left, TS_MARGIN.top);
+    ctx.lineTo(TS_MARGIN.left, TS_MARGIN.top + plotH);
+    ctx.lineTo(TS_MARGIN.left + plotW, TS_MARGIN.top + plotH);
+    ctx.stroke();
+
+    // Labels
+    ctx.fillStyle = '#78716a';
+    ctx.font = '11px -apple-system, BlinkMacSystemFont, sans-serif';
+    ctx.textAlign = 'center';
+    for (var w = 0; w <= T_MAX; w += 8) {
+      var px = TS_MARGIN.left + (w / T_MAX) * plotW;
+      ctx.fillText(w.toString(), px, TS_MARGIN.top + plotH + 18);
+    }
+    ctx.fillText('Weeks', TS_MARGIN.left + plotW / 2, TS_MARGIN.top + plotH + 34);
+
+    ctx.textAlign = 'right';
+    for (var y = 0; y <= 1; y += 0.2) {
+      var py = TS_MARGIN.top + plotH * (1 - y);
+      ctx.fillText(y.toFixed(1), TS_MARGIN.left - 6, py + 4);
+    }
+
+    ctx.save();
+    ctx.translate(12, TS_MARGIN.top + plotH / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.textAlign = 'center';
+    ctx.fillText('Cascade Activity', 0, 0);
+    ctx.restore();
+
+    // Draw cascade lines
+    if (!history || history.length === 0) return;
+
+    var maxStep = upToStep !== undefined ? Math.min(upToStep, history.length - 1) : history.length - 1;
+
+    for (var c = 0; c < N; c++) {
+      ctx.strokeStyle = CASCADE_COLORS[c];
+      ctx.lineWidth = c === 2 ? 2.5 : 1.5; // Hub cascade (senescence) slightly thicker
+      ctx.beginPath();
+      for (var s = 0; s <= maxStep; s++) {
+        var x = TS_MARGIN.left + (history[s].t / T_MAX) * plotW;
+        var y = TS_MARGIN.top + plotH * (1 - history[s].state[c]);
+        if (s === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+    }
+  }
+
+  // Network graph renderer
+  function drawNetwork(state) {
+    var cw = getCanvasWidth(netCanvas);
+    var ch = cw; // Square
+    setupCanvas(netCanvas, netCtx, cw, ch);
+
+    var ctx = netCtx;
+    var cx = cw / 2;
+    var cy = ch / 2;
+    var radius = Math.min(cw, ch) * 0.35;
+
+    ctx.fillStyle = '#fff';
+    ctx.fillRect(0, 0, cw, ch);
+
+    // Node positions (circle layout, with cascade 3 at top since it's the hub)
+    var positions = [];
+    for (var i = 0; i < N; i++) {
+      // Start from top (cascade 3 = index 2 at top)
+      var angle = ((i - 2) / N) * Math.PI * 2 - Math.PI / 2;
+      positions.push({
+        x: cx + radius * Math.cos(angle),
+        y: cy + radius * Math.sin(angle)
+      });
+    }
+
+    // Draw edges (feeding relationships)
+    // Feed connections: Loop i feeds Loop j
+    var feeds = [
+      [0, [2, 7]],    // 1 feeds 3, 8
+      [1, [0, 2]],    // 2 feeds 1, 3
+      [2, [0, 6, 7]], // 3 feeds 1, 7, 8
+      [3, [1, 2]],    // 4 feeds 2, 3
+      [4, [1, 2]],    // 5 feeds 2, 3
+      [5, [0, 2]],    // 6 feeds 1, 3
+      [6, [2, 0]],    // 7 feeds 3, 1
+      [7, [0, 1, 2]]  // 8 feeds 1, 2, 3
+    ];
+
+    ctx.lineWidth = 1;
+    for (var f = 0; f < feeds.length; f++) {
+      var from = feeds[f][0];
+      var tos = feeds[f][1];
+      for (var t = 0; t < tos.length; t++) {
+        var to = tos[t];
+        var fx = positions[from].x;
+        var fy = positions[from].y;
+        var tx = positions[to].x;
+        var ty = positions[to].y;
+
+        // Shorten arrow to avoid overlapping node
+        var dx = tx - fx;
+        var dy = ty - fy;
+        var len = Math.sqrt(dx * dx + dy * dy);
+        var nodeR = 10 + state[to] * 20;
+        var endX = tx - (dx / len) * (nodeR + 6);
+        var endY = ty - (dy / len) * (nodeR + 6);
+        var startR = 10 + state[from] * 20;
+        var startX = fx + (dx / len) * (startR + 2);
+        var startY = fy + (dy / len) * (startR + 2);
+
+        // Edge opacity based on source activity
+        var alpha = 0.15 + state[from] * 0.6;
+        ctx.strokeStyle = 'rgba(120, 113, 106, ' + alpha + ')';
+        ctx.beginPath();
+        ctx.moveTo(startX, startY);
+        ctx.lineTo(endX, endY);
+        ctx.stroke();
+
+        // Arrowhead
+        var aLen = 7;
+        var aAngle = Math.atan2(endY - startY, endX - startX);
+        ctx.fillStyle = 'rgba(120, 113, 106, ' + alpha + ')';
+        ctx.beginPath();
+        ctx.moveTo(endX, endY);
+        ctx.lineTo(endX - aLen * Math.cos(aAngle - 0.35), endY - aLen * Math.sin(aAngle - 0.35));
+        ctx.lineTo(endX - aLen * Math.cos(aAngle + 0.35), endY - aLen * Math.sin(aAngle + 0.35));
+        ctx.closePath();
+        ctx.fill();
+      }
+    }
+
+    // Draw nodes
+    for (var i = 0; i < N; i++) {
+      var activity = state[i];
+      var nodeRadius = 10 + activity * 20;
+
+      // Color: green to red based on activity
+      var r = Math.round(90 + activity * 165);
+      var g = Math.round(166 - activity * 120);
+      var b = Math.round(84 - activity * 40);
+      var color = 'rgb(' + r + ',' + g + ',' + b + ')';
+
+      // Glow for high-activity nodes
+      if (activity > 0.5) {
+        ctx.shadowColor = color;
+        ctx.shadowBlur = activity * 12;
+      }
+
+      ctx.fillStyle = color;
+      ctx.beginPath();
+      ctx.arc(positions[i].x, positions[i].y, nodeRadius, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.shadowColor = 'transparent';
+      ctx.shadowBlur = 0;
+
+      // Border
+      ctx.strokeStyle = 'rgba(0,0,0,0.15)';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+
+      // Label
+      ctx.fillStyle = '#44403a';
+      ctx.font = (i === 2 ? 'bold ' : '') + '10px -apple-system, BlinkMacSystemFont, sans-serif';
+      ctx.textAlign = 'center';
+
+      // Position label outside node
+      var labelAngle = ((i - 2) / N) * Math.PI * 2 - Math.PI / 2;
+      var labelDist = nodeRadius + 14;
+      var lx = positions[i].x + labelDist * Math.cos(labelAngle) * 0.3;
+      var ly = positions[i].y + nodeRadius + 16;
+
+      // Smarter label positioning
+      if (labelAngle < -Math.PI * 0.3) ly = positions[i].y - nodeRadius - 8;
+      else if (labelAngle > Math.PI * 0.3 && labelAngle < Math.PI * 0.7) ly = positions[i].y + nodeRadius + 16;
+
+      ctx.fillText(CASCADE_SHORT[i], positions[i].x, ly);
+
+      // Activity value inside node
+      if (nodeRadius > 14) {
+        ctx.fillStyle = activity > 0.6 ? '#fff' : '#44403a';
+        ctx.font = '9px -apple-system, BlinkMacSystemFont, sans-serif';
+        ctx.fillText(activity.toFixed(2), positions[i].x, positions[i].y + 3);
+      }
+    }
+  }
+
+  // Sensitivity chart renderer
+  function drawSensitivity(results) {
+    var container = document.getElementById('sensChart');
+    container.innerHTML = '';
+
+    // Sort by reduction (highest first)
+    var sorted = results.slice().sort(function(a, b) { return b.reduction - a.reduction; });
+    var maxReduction = sorted[0].reduction;
+
+    for (var i = 0; i < sorted.length; i++) {
+      var item = sorted[i];
+      var pct = maxReduction > 0 ? (item.reduction / maxReduction) * 100 : 0;
+      var reductionPct = (item.reduction * 100).toFixed(1);
+
+      var cls = 'low';
+      if (item.idx === 2) cls = 'hub';
+      else if (item.reduction > maxReduction * 0.7) cls = 'high';
+      else if (item.reduction > maxReduction * 0.4) cls = 'mod';
+
+      var wrap = document.createElement('div');
+      wrap.className = 'sens-bar-wrap';
+      wrap.innerHTML =
+        '<div class="sens-label"><span>' + CASCADE_NAMES[item.idx] + '</span><span>-' + reductionPct + '%</span></div>' +
+        '<div class="sens-bar-track"><div class="sens-bar-fill ' + cls + '" style="width:' + pct + '%"></div></div>';
+      container.appendChild(wrap);
+    }
+
+    // Result text
+    var best = sorted[0];
+    document.getElementById('sensResult').innerHTML =
+      '<strong>' + CASCADE_NAMES[best.idx] + '</strong> is the most impactful single target. A 50% reduction in this cascade alone reduces total burden by <strong>' +
+      (best.reduction * 100).toFixed(1) + '%</strong> due to its high connectivity. This confirms the network analysis from the <a href="research-roadmap.html">Research Roadmap</a>.';
+  }
+
+
+  // =========================================================================
+  // UI BUILDERS
+  // =========================================================================
+
+  function buildLegend() {
+    var container = document.getElementById('tsLegend');
+    container.innerHTML = '';
+    for (var i = 0; i < N; i++) {
+      var item = document.createElement('span');
+      item.className = 'legend-item';
+      item.innerHTML = '<span class="legend-swatch" style="background:' + CASCADE_COLORS[i] + '"></span>' + CASCADE_NAMES[i];
+      container.appendChild(item);
+    }
+  }
+
+  function buildDrugGrid() {
+    var container = document.getElementById('drugGrid');
+    container.innerHTML = '';
+
+    for (var d = 0; d < DRUGS.length; d++) {
+      var drug = DRUGS[d];
+      var card = document.createElement('div');
+      card.className = 'drug-card' + (drug.enabled ? ' enabled' : '');
+      card.dataset.idx = d;
+
+      var targetsText = drug.targets.map(function(t) {
+        return 'Loop ' + (t[0] + 1) + ' -' + Math.round(t[1] * 100) + '%';
+      }).join(', ');
+
+      card.innerHTML =
+        '<div class="drug-header">' +
+          '<input type="checkbox" id="drug_' + drug.id + '" ' + (drug.enabled ? 'checked' : '') + '>' +
+          '<label for="drug_' + drug.id + '">' + drug.name + '</label>' +
+        '</div>' +
+        '<div class="drug-targets">' + drug.desc + ' &mdash; ' + targetsText + '</div>' +
+        '<div class="drug-timing">' +
+          '<span>Start:</span>' +
+          '<input type="range" min="0" max="48" value="' + drug.week + '" id="drugWeek_' + drug.id + '">' +
+          '<span class="week-label">Wk ' + drug.week + '</span>' +
+        '</div>';
+
+      container.appendChild(card);
+    }
+
+    // Event delegation
+    container.addEventListener('change', function(e) {
+      var target = e.target;
+      if (target.type === 'checkbox') {
+        var idx = parseInt(target.closest('.drug-card').dataset.idx);
+        DRUGS[idx].enabled = target.checked;
+        target.closest('.drug-card').classList.toggle('enabled', target.checked);
+        clearActivePreset();
+        restartSimulation();
+      } else if (target.type === 'range') {
+        var idx = parseInt(target.closest('.drug-card').dataset.idx);
+        DRUGS[idx].week = parseInt(target.value);
+        target.closest('.drug-timing').querySelector('.week-label').textContent = 'Wk ' + target.value;
+        restartSimulation();
+      }
+    });
+  }
+
+  function buildPresets() {
+    var container = document.getElementById('presetGrid');
+    container.innerHTML = '';
+
+    for (var p = 0; p < PRESETS.length; p++) {
+      var btn = document.createElement('button');
+      btn.className = 'preset-btn';
+      btn.textContent = PRESETS[p].name;
+      btn.dataset.idx = p;
+      container.appendChild(btn);
+    }
+
+    container.addEventListener('click', function(e) {
+      var btn = e.target.closest('.preset-btn');
+      if (!btn) return;
+      var idx = parseInt(btn.dataset.idx);
+      applyPreset(idx);
+    });
+  }
+
+  function applyPreset(idx) {
+    var preset = PRESETS[idx];
+
+    // Clear all drugs
+    for (var d = 0; d < DRUGS.length; d++) {
+      DRUGS[d].enabled = false;
+      DRUGS[d].week = 0;
+    }
+
+    // Enable preset drugs
+    for (var p = 0; p < preset.drugs.length; p++) {
+      for (var d = 0; d < DRUGS.length; d++) {
+        if (DRUGS[d].id === preset.drugs[p]) {
+          DRUGS[d].enabled = true;
+          break;
+        }
+      }
+    }
+
+    // Update UI
+    buildDrugGrid();
+
+    // Highlight active preset
+    var btns = document.querySelectorAll('.preset-btn');
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].classList.toggle('active', parseInt(btns[i].dataset.idx) === idx);
+    }
+
+    restartSimulation();
+  }
+
+  function clearActivePreset() {
+    var btns = document.querySelectorAll('.preset-btn');
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].classList.remove('active');
+    }
+  }
+
+
+  // =========================================================================
+  // SIMULATION CONTROLLER
+  // =========================================================================
+
+  var simHistory = null;
+  var simStep = 0;
+  var animFrame = null;
+  var isRunning = false;
+  var isPaused = false;
+  var baselineBurden = null;
+  var lastFrameTime = 0;
+
+  function computeTotalBurden(state) {
+    var sum = 0;
+    for (var i = 0; i < N; i++) sum += state[i];
+    return sum;
+  }
+
+  // Run simulation with one cascade clamped to 50% of its natural value
+  function runClampedSimulation(clampIdx) {
+    var noDrugs = DRUGS.map(function(d) {
+      return { enabled: false, targets: d.targets, week: 0 };
+    });
+    var totalSteps = Math.round(T_MAX / DT);
+    var state = INITIAL_STATE.slice();
+    state[clampIdx] *= 0.5;
+
+    for (var step = 1; step <= totalSteps; step++) {
+      var t = step * DT;
+      state = rk4Step(state, t, DT, noDrugs);
+      // After each step, clamp the target cascade to at most 50% of what it would naturally reach
+      state[clampIdx] *= 0.5;
+    }
+    return state;
+  }
+
+  function runSensitivityAnalysis() {
+    // Run baseline (no drugs, no clamping)
+    var baseHist = runFullSimulation(DRUGS.map(function(d) {
+      return { enabled: false, targets: d.targets, week: 0 };
+    }));
+    var baseBurden = computeTotalBurden(baseHist[baseHist.length - 1].state);
+
+    var results = [];
+    for (var c = 0; c < N; c++) {
+      // Clamp cascade c to 50% at every step and measure total system impact
+      var finalState = runClampedSimulation(c);
+      var newBurden = computeTotalBurden(finalState);
+      var reduction = (baseBurden - newBurden) / baseBurden;
+      results.push({ idx: c, reduction: reduction, burden: newBurden });
+    }
+
+    drawSensitivity(results);
+  }
+
+  function updateBurdenDisplay() {
+    if (!simHistory) return;
+    var finalState = simHistory[simHistory.length - 1].state;
+    var burden = computeTotalBurden(finalState);
+    var el = document.getElementById('burdenValue');
+    var redEl = document.getElementById('burdenReduction');
+
+    el.textContent = burden.toFixed(2) + ' / ' + N + '.00';
+    el.classList.toggle('low', burden < N * 0.5);
+
+    if (baselineBurden !== null && baselineBurden > 0) {
+      var reduction = ((baselineBurden - burden) / baselineBurden) * 100;
+      if (reduction > 0) {
+        redEl.textContent = '(-' + reduction.toFixed(1) + '% vs. no treatment)';
+      } else {
+        redEl.textContent = '';
+      }
+    }
+  }
+
+  function animate(timestamp) {
+    if (!isRunning || isPaused) return;
+
+    var speed = parseFloat(document.getElementById('speedSelect').value);
+    var stepsPerFrame;
+
+    if (speed >= 20) {
+      // Instant: jump to end
+      simStep = simHistory.length - 1;
+    } else {
+      // Throttle to ~60fps equivalent, advancing proportionally to speed
+      if (!lastFrameTime) lastFrameTime = timestamp;
+      var elapsed = timestamp - lastFrameTime;
+      lastFrameTime = timestamp;
+
+      // At 1x speed, advance roughly 1 week per second (20 steps per second at DT=0.05)
+      stepsPerFrame = Math.max(1, Math.round(STEPS_PER_WEEK * speed * (elapsed / 1000)));
+      simStep = Math.min(simStep + stepsPerFrame, simHistory.length - 1);
+    }
+
+    // Draw
+    drawTimeSeries(simHistory, simStep);
+    drawNetwork(simHistory[simStep].state);
+
+    var weekNum = (simStep * DT).toFixed(0);
+    document.getElementById('weekDisplay').textContent = 'Week ' + weekNum;
+
+    if (simStep >= simHistory.length - 1) {
+      isRunning = false;
+      updateBurdenDisplay();
+      document.getElementById('btnRun').textContent = 'Run';
+      return;
+    }
+
+    animFrame = requestAnimationFrame(animate);
+  }
+
+  function startSimulation() {
+    simHistory = runFullSimulation(DRUGS);
+    simStep = 0;
+    isRunning = true;
+    isPaused = false;
+    lastFrameTime = 0;
+    document.getElementById('btnRun').textContent = 'Running...';
+    document.getElementById('btnRun').classList.add('active');
+    animFrame = requestAnimationFrame(animate);
+  }
+
+  function pauseSimulation() {
+    isPaused = !isPaused;
+    document.getElementById('btnPause').textContent = isPaused ? 'Resume' : 'Pause';
+    if (!isPaused && isRunning) {
+      lastFrameTime = 0;
+      animFrame = requestAnimationFrame(animate);
+    }
+  }
+
+  function resetSimulation() {
+    isRunning = false;
+    isPaused = false;
+    if (animFrame) cancelAnimationFrame(animFrame);
+    simStep = 0;
+    simHistory = null;
+    document.getElementById('btnRun').textContent = 'Run';
+    document.getElementById('btnRun').classList.remove('active');
+    document.getElementById('btnPause').textContent = 'Pause';
+    document.getElementById('weekDisplay').textContent = 'Week 0';
+    document.getElementById('burdenValue').textContent = '--';
+    document.getElementById('burdenReduction').textContent = '';
+    drawTimeSeries([], 0);
+    drawNetwork(INITIAL_STATE);
+  }
+
+  function restartSimulation() {
+    if (animFrame) cancelAnimationFrame(animFrame);
+    isRunning = false;
+    isPaused = false;
+    simStep = 0;
+    lastFrameTime = 0;
+    document.getElementById('btnRun').textContent = 'Run';
+    document.getElementById('btnRun').classList.remove('active');
+    document.getElementById('btnPause').textContent = 'Pause';
+
+    // Auto-run if any drug changed
+    startSimulation();
+  }
+
+
+  // =========================================================================
+  // INITIALIZATION
+  // =========================================================================
+
+  function init() {
+    buildLegend();
+    buildDrugGrid();
+    buildPresets();
+
+    // Compute baseline burden (no treatment)
+    var baseHist = runFullSimulation(DRUGS.map(function(d) {
+      return { enabled: false, targets: d.targets, week: 0 };
+    }));
+    baselineBurden = computeTotalBurden(baseHist[baseHist.length - 1].state);
+
+    // Draw initial state
+    drawTimeSeries([], 0);
+    drawNetwork(INITIAL_STATE);
+
+    // Run sensitivity analysis
+    runSensitivityAnalysis();
+
+    // Button handlers
+    document.getElementById('btnRun').addEventListener('click', function() {
+      if (isRunning && !isPaused) return;
+      if (isPaused) {
+        pauseSimulation();
+        return;
+      }
+      startSimulation();
+    });
+    document.getElementById('btnPause').addEventListener('click', pauseSimulation);
+    document.getElementById('btnReset').addEventListener('click', resetSimulation);
+
+    // Handle resize
+    var resizeTimeout;
+    window.addEventListener('resize', function() {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(function() {
+        if (simHistory && simStep > 0) {
+          drawTimeSeries(simHistory, simStep);
+          drawNetwork(simHistory[simStep].state);
+        } else {
+          drawTimeSeries([], 0);
+          drawNetwork(INITIAL_STATE);
+        }
+      }, 150);
+    });
+  }
+
+  // Wait for DOM
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+})();
+</script>
+
+</body>
+</html>

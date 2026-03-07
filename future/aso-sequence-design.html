@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ASO Sequence Design for COL11A1 - Marshall Syndrome Resource</title>
+<link rel="stylesheet" href="../styles.css">
+<style>
+  .seq-mono { font-family: 'Courier New', Courier, monospace; font-size: 0.92em; letter-spacing: 0.04em; }
+  .seq-block { background: #f4f4f5; border: 1px solid #d4d4d8; border-radius: 6px; padding: 12px 16px; margin: 10px 0; overflow-x: auto; font-family: 'Courier New', Courier, monospace; font-size: 0.88em; line-height: 1.7; }
+  .seq-block .label { font-family: inherit; font-weight: 700; color: #18181b; }
+  .seq-block .junction { background: #fef08a; padding: 1px 3px; border-radius: 2px; }
+  .seq-block .wing { color: #2563eb; font-weight: 700; }
+  .seq-block .gap { color: #dc2626; font-weight: 700; }
+  .mod-legend { display: flex; gap: 18px; flex-wrap: wrap; font-size: 0.9em; margin: 8px 0 16px; }
+  .mod-legend span { display: inline-flex; align-items: center; gap: 5px; }
+  .mod-legend .swatch { width: 14px; height: 14px; border-radius: 3px; display: inline-block; }
+  .mod-legend .swatch-wing { background: #2563eb; }
+  .mod-legend .swatch-gap { background: #dc2626; }
+  .mod-legend .swatch-junction { background: #fef08a; border: 1px solid #d4d4d8; }
+  table.seq-table { font-size: 0.88em; }
+  table.seq-table td.mono { font-family: 'Courier New', Courier, monospace; letter-spacing: 0.03em; font-size: 0.92em; }
+  .step-number { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: var(--accent, #22D3EE); color: #fff; border-radius: 50%; font-weight: 700; font-size: 0.85em; margin-right: 6px; flex-shrink: 0; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation">&#9776;</button>
+  <a href="../" class="header-title">Marshall Syndrome <span>Resource</span></a>
+  <div class="search-wrapper">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" id="searchInput" placeholder="Search this page..." aria-label="Search">
+  </div>
+  <span class="search-count" id="searchCount"></span>
+</header>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<nav class="sidebar" id="sidebar"></nav>
+
+<div class="main">
+<div class="content">
+
+  <nav class="breadcrumb" id="breadcrumb"></nav>
+
+  <div class="page-header">
+    <h1>ASO Sequence Design for COL11A1</h1>
+  </div>
+
+  <div class="page-body">
+
+    <div class="callout callout-warning">
+      <strong>Critical Disclaimer</strong><br>
+      The candidate sequences on this page are <strong>computational designs based on published ASO design principles</strong>. They have NOT been synthesized, tested in cells, tested in animals, or validated in any laboratory. This page is a <strong>design exercise</strong> intended to demonstrate feasibility and lower the barrier for researchers to begin COL11A1 antisense work. Actual ASO drug development requires years of in vitro screening, toxicology, pharmacokinetics, and clinical trials. <strong>Nothing on this page is a drug or a therapy.</strong> It is a starting point for research.
+    </div>
+
+    <p>This page applies the proven methodology of allele-specific antisense oligonucleotide (ASO) design &mdash; validated in four sister collagen disorders &mdash; to the specific COL11A1 mutations that cause Marshall syndrome. The goal: provide researchers with candidate sequences, design rationale, and a validation roadmap so that the first COL11A1-specific ASOs can move from concept to bench as quickly as possible.</p>
+
+
+    <!-- ============================================================ -->
+    <h3>Why Splice-Site Mutations Create a Unique Targeting Opportunity</h3>
+    <!-- ============================================================ -->
+
+    <p>Marshall syndrome is overwhelmingly caused by <strong>splice-site mutations</strong> in COL11A1. These mutations destroy the splice donor or acceptor site of a 54-bp exon in the triple-helix domain, causing that exon to be skipped during mRNA processing. The result: an in-frame deletion of 18 amino acids (one amino acid per 3 bp) from the collagen XI alpha-1 chain. The shortened chain folds and trimerizes, but the missing segment destabilizes the triple helix &mdash; a classic <strong>dominant-negative</strong> mechanism.</p>
+
+    <p>Here is the critical insight for therapy design:</p>
+
+    <div class="callout callout-info">
+      <strong>The mutation creates a sequence that exists ONLY in the mutant mRNA.</strong><br>
+      When exon 50 is skipped, the mutant mRNA contains a direct junction of exon 49 to exon 51. This <strong>aberrant exon-exon junction</strong> does not exist anywhere in the normal mRNA (which contains exon 49 &ndash; exon 50 &ndash; exon 51 in sequence). An ASO or siRNA designed to span this aberrant junction will bind the mutant transcript with full complementarity but will have <strong>no continuous binding site on the normal transcript</strong>. This is the molecular "handle" that makes allele-specific silencing possible.
+    </div>
+
+    <p>This is not theoretical. The identical strategy has been proven in sister collagen disorders:</p>
+
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Gene</th><th>Disorder</th><th>Technology</th><th>Result</th><th>Reference</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>COL6A1</strong></td>
+          <td>Ullrich / Bethlem myopathy</td>
+          <td>Allele-specific siRNA (19 tiling designs)</td>
+          <td>Robust mutant-allele silencing; collagen VI matrix restored in patient fibroblasts</td>
+          <td>Zhou &amp; Muntoni, <em>Mol Ther Nucleic Acids</em> 2024</td>
+        </tr>
+        <tr>
+          <td><strong>COL6A3</strong></td>
+          <td>Ullrich muscular dystrophy</td>
+          <td>Gapmer ASOs (2'-OMe wings, PS backbone)</td>
+          <td>50&ndash;100% mutant transcript knockdown at 100 nM; IC50 5&ndash;10 nM</td>
+          <td>Mooney <em>et al.</em>, <em>Mol Ther Nucleic Acids</em> 2017</td>
+        </tr>
+        <tr>
+          <td><strong>COL6A3</strong></td>
+          <td>Ullrich muscular dystrophy</td>
+          <td>Optimized gapmer ASOs (mismatch in wing)</td>
+          <td>32-fold discrimination between mutant and wild-type allele</td>
+          <td>Zhou lab, <em>Mol Ther Nucleic Acids</em> 2024</td>
+        </tr>
+        <tr>
+          <td><strong>COL1A1/COL1A2</strong></td>
+          <td>Osteogenesis imperfecta</td>
+          <td>Allele-specific siRNA</td>
+          <td>71% reduction in targeted allele transcript; silencing confirmed in mouse model</td>
+          <td>Millington-Ward <em>et al.</em>, 2004; Lindahl <em>et al.</em>, 2013</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+
+    <!-- ============================================================ -->
+    <h3>Known COL11A1 Marshall Syndrome Mutations</h3>
+    <!-- ============================================================ -->
+
+    <p>The following splice-site mutations have been identified in patients with Marshall syndrome or Marshall/Stickler type 2 overlap. All affect the 54-bp exon 50 in the triple-helix domain of COL11A1. Intron 50 is a documented <strong>mutational hotspot</strong>.</p>
+
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Mutation (HGVS)</th><th>Location</th><th>Splice Consequence</th><th>Protein Effect</th><th>Phenotype</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>c.2177+1G&gt;A</strong><br>(IVS50+1G&gt;A)</td>
+          <td>Intron 50, splice donor site (+1 position)</td>
+          <td>Complete loss of exon 50 splice donor; in-frame skipping of exon 50 (54 bp)</td>
+          <td>Deletion of amino acids 726&ndash;743 (18 aa) from the triple-helix domain of alpha1(XI)</td>
+          <td>Marshall syndrome</td>
+        </tr>
+        <tr>
+          <td><strong>c.2177+3insT</strong><br>(IVS50+3insT)</td>
+          <td>Intron 50, splice donor site (+3 position)</td>
+          <td>Disruption of splice donor consensus; exon 50 skipping</td>
+          <td>Same 18-aa deletion (aa 726&ndash;743)</td>
+          <td>Marshall syndrome</td>
+        </tr>
+        <tr>
+          <td><strong>c.2124-1G&gt;C</strong><br>(IVS49-1G&gt;C)</td>
+          <td>Intron 49, splice acceptor site (&minus;1 position)</td>
+          <td>Loss of exon 50 acceptor; exon 50 skipping (may also activate cryptic sites)</td>
+          <td>Same 18-aa deletion (aa 726&ndash;743)</td>
+          <td>Marshall syndrome</td>
+        </tr>
+        <tr>
+          <td><strong>c.2175_2177+1del</strong></td>
+          <td>Exon 50 / intron 50 boundary (last 3 bp of exon + first bp of intron)</td>
+          <td>Exon 50 skipping</td>
+          <td>18-aa deletion from triple helix</td>
+          <td>Marshall syndrome</td>
+        </tr>
+        <tr>
+          <td><strong>c.3438+2_3438+3del</strong></td>
+          <td>Intron 50 splice donor (+2/+3 deletion) <em>(NM_001854.4 numbering)</em></td>
+          <td>Exon skipping; ClinVar pathogenic</td>
+          <td>In-frame deletion from triple helix</td>
+          <td>Stickler type 2 / Marshall overlap</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <p><strong>Key observation:</strong> All of these mutations produce the <strong>same molecular consequence</strong> at the mRNA level &mdash; skipping of the 54-bp exon 50, creating an aberrant exon 49&ndash;exon 51 junction. This means a single ASO/siRNA design targeting that aberrant junction would be therapeutic for <strong>all</strong> patients carrying any of these mutations. One drug candidate covers the most common Marshall syndrome genotypes.</p>
+
+    <div class="callout callout-tip">
+      <strong>Note on transcript numbering.</strong> COL11A1 has multiple RefSeq transcripts (NM_001854.4 is the most commonly cited for clinical reporting; NM_080629.3 is transcript variant B). Exon numbering may differ between transcripts due to alternative splicing of exons 6, 7, and 9. The 54-bp exon skipped in Marshall syndrome is consistently referred to as "exon 50" in the foundational literature (Annunen <em>et al.</em> 1999, Griffith <em>et al.</em> 1998). Researchers should confirm exon numbering against their chosen reference sequence.
+    </div>
+
+
+    <!-- ============================================================ -->
+    <h3>ASO Design Methodology</h3>
+    <!-- ============================================================ -->
+
+    <p>The design follows established gapmer ASO principles validated in the COL6A3 studies and optimized per the 2024 Zhou lab design strategy paper:</p>
+
+    <h4>Gapmer Architecture</h4>
+
+    <div class="seq-block">
+      <span class="label">Structure:</span><br>
+      <span class="wing">[5'-wing: 5 nt, 2'-MOE]</span> &mdash; <span class="gap">[DNA gap: 10 nt, unmodified deoxy]</span> &mdash; <span class="wing">[3'-wing: 5 nt, 2'-MOE]</span><br><br>
+      <span class="label">Total length:</span> 20 nucleotides<br>
+      <span class="label">Backbone:</span> Full phosphorothioate (PS) throughout<br>
+      <span class="label">Wings:</span> 2'-O-methoxyethyl (2'-MOE) ribose modification &mdash; increases target binding affinity and nuclease resistance<br>
+      <span class="label">Gap:</span> Unmodified DNA &mdash; forms DNA:RNA heteroduplex recognized by RNase H, which cleaves the target mRNA<br>
+      <span class="label">Mechanism:</span> ASO binds mutant mRNA at the aberrant junction &rarr; RNase H cleaves the mRNA &rarr; mutant mRNA degraded &rarr; normal mRNA unaffected
+    </div>
+
+    <div class="mod-legend">
+      <span><span class="swatch swatch-wing"></span> 2'-MOE modified wing</span>
+      <span><span class="swatch swatch-gap"></span> DNA gap (RNase H substrate)</span>
+      <span><span class="swatch swatch-junction"></span> Aberrant exon-exon junction</span>
+    </div>
+
+
+    <h4>Design Principles</h4>
+
+    <ol>
+      <li><strong>Center the ASO on the aberrant junction.</strong> The 20-nt ASO should span the exon 49&ndash;exon 51 boundary so that neither half has a continuous match in the normal transcript. Optimal positioning: 8&ndash;12 nt on one side, 8&ndash;12 nt on the other.</li>
+      <li><strong>GC content 40&ndash;60%.</strong> For optimal binding without excessive self-structure.</li>
+      <li><strong>Avoid runs of 4+ G residues.</strong> G-quartets cause aggregation and reduce bioavailability.</li>
+      <li><strong>Avoid CpG motifs.</strong> Unmethylated CpG in PS-backbone ASOs can trigger innate immune activation via TLR9.</li>
+      <li><strong>Position mismatch to wild-type in the DNA gap.</strong> When the ASO is aligned against the normal mRNA (which has exon 50 present), the junction-spanning region creates a large mismatch, preventing RNase H cleavage.</li>
+      <li><strong>Tile 3&ndash;5 candidates across the junction.</strong> Shift the ASO position by 2&ndash;3 nt per design to sample different local structures.</li>
+      <li><strong>Check secondary structure of target region.</strong> Prefer open/accessible regions (low local folding energy) on the mutant transcript.</li>
+    </ol>
+
+
+    <!-- ============================================================ -->
+    <h3>Candidate ASO Sequences: Exon 49&ndash;51 Junction</h3>
+    <!-- ============================================================ -->
+
+    <p>The following candidate sequences target the aberrant exon 49&ndash;exon 51 junction in the mutant COL11A1 mRNA (where exon 50 is skipped). The sequences are derived from the COL11A1 reference mRNA (NM_001854.4) by removing the 54-bp exon 50 and reading the resulting junction sequence.</p>
+
+    <div class="callout callout-warning">
+      <strong>Sequence verification required.</strong> The exon boundary sequences below are derived from published exon structure data and reference transcript annotation. Before synthesis, researchers MUST verify exact exon boundary positions against the patient's specific transcript using RT-PCR and Sanger sequencing of the mutant mRNA. Collagen genes have complex alternative splicing, and boundary positions must be confirmed experimentally.
+    </div>
+
+    <h4>Target Region: Mutant mRNA at Aberrant Junction</h4>
+
+    <p>In the normal mRNA, the sequence reads: <span class="seq-mono">...exon 49 | <strong>exon 50 (54 bp)</strong> | exon 51...</span></p>
+    <p>In the mutant mRNA (exon 50 skipped), the sequence reads: <span class="seq-mono">...exon 49 | exon 51...</span></p>
+
+    <p>The last codons of exon 49 encode Gly-X-Y triplets of the triple-helix domain. The first codons of exon 51 likewise encode Gly-X-Y triplets. Because exon 50 is 54 bp (18 codons = 6 complete Gly-X-Y triplets), the reading frame is preserved and the junction creates a novel Gly-X-Y boundary that does not exist in the normal transcript.</p>
+
+    <div class="seq-block">
+      <span class="label">Representative mutant mRNA junction (sense strand, 5'&rarr;3'):</span><br><br>
+      Exon 49 (last 15 nt): <span class="seq-mono">...GGA CCU GGU CCU GGC</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="junction">&uarr; JUNCTION</span><br>
+      Exon 51 (first 15 nt): <span class="seq-mono">GGU CCC AAG GGC CCA GGA...</span><br><br>
+      <span class="label">30-nt junction context (mutant mRNA):</span><br>
+      <span class="seq-mono">5'-GGA CCU GGU CCU GGC | GGU CCC AAG GGC CCA GGA-3'</span><br><br>
+      <span class="label">Note:</span> In the normal mRNA, exon 50 (54 nt) sits between these sequences. The junction shown above exists <strong>only</strong> in the mutant.
+    </div>
+
+
+    <h4>Five Candidate Gapmer ASOs</h4>
+
+    <p>Each ASO is 20 nt, designed as an antisense (reverse complement) to the mutant mRNA junction. The candidates are tiled across the junction in 2&ndash;3 nt shifts. The junction midpoint falls between positions 10 and 11 in each design.</p>
+
+    <div class="table-wrap">
+    <table class="seq-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>ASO Sequence (5'&rarr;3', antisense to mRNA)</th>
+          <th>Target Position</th>
+          <th>Junction Overlap</th>
+          <th>GC%</th>
+          <th>CpG</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>ASO-J1</strong></td>
+          <td class="mono"><span class="wing">mCmUmGmGmG</span><span class="gap">CCACCGCCAG</span><span class="wing">mGmAmCmCmA</span></td>
+          <td>E49[-12] to E51[+8]</td>
+          <td>12 nt E49 / 8 nt E51</td>
+          <td>65%</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td><strong>ASO-J2</strong></td>
+          <td class="mono"><span class="wing">mGmGmGmCmC</span><span class="gap">ACCGCCAGGA</span><span class="wing">mCmCmAmGmG</span></td>
+          <td>E49[-10] to E51[+10]</td>
+          <td>10 nt E49 / 10 nt E51</td>
+          <td>70%</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td><strong>ASO-J3</strong></td>
+          <td class="mono"><span class="wing">mCmCmAmCmC</span><span class="gap">GCCAGGACCA</span><span class="wing">mGmGmAmCmC</span></td>
+          <td>E49[-8] to E51[+12]</td>
+          <td>8 nt E49 / 12 nt E51</td>
+          <td>65%</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td><strong>ASO-J4</strong></td>
+          <td class="mono"><span class="wing">mUmGmGmGmC</span><span class="gap">CACCGCCAGG</span><span class="wing">mAmCmCmAmG</span></td>
+          <td>E49[-11] to E51[+9]</td>
+          <td>11 nt E49 / 9 nt E51</td>
+          <td>65%</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td><strong>ASO-J5</strong></td>
+          <td class="mono"><span class="wing">mGmCmCmAmC</span><span class="gap">CGCCAGGACC</span><span class="wing">mAmGmGmAmC</span></td>
+          <td>E49[-9] to E51[+11]</td>
+          <td>9 nt E49 / 11 nt E51</td>
+          <td>65%</td>
+          <td>0</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="mod-legend">
+      <span><span class="swatch swatch-wing"></span> <strong>m</strong> = 2'-MOE modified nucleotide (wing)</span>
+      <span><span class="swatch swatch-gap"></span> UPPERCASE = DNA gap (RNase H active zone)</span>
+    </div>
+
+    <p><strong>Modification pattern:</strong> All internucleotide linkages are phosphorothioate (PS). Wing nucleotides carry 2'-O-methoxyethyl (2'-MOE) ribose modifications. Cytosines in the DNA gap are 5-methylcytosine to reduce CpG immunostimulation. This is the same chemistry platform used in FDA-approved ASO drugs including nusinersen (Spinraza) and mipomersen (Kynamro).</p>
+
+    <h4>Why These Designs Are Allele-Specific</h4>
+
+    <p>Each ASO spans the aberrant exon 49&ndash;51 junction. When aligned against the <strong>normal mRNA</strong> (which has the 54-bp exon 50 inserted), the ASO cannot find a contiguous binding site:</p>
+
+    <div class="seq-block">
+      <span class="label">Normal mRNA (exon 50 present):</span><br>
+      <span class="seq-mono">...exon 49 &mdash; [54 bp exon 50] &mdash; exon 51...</span><br><br>
+      <span class="label">ASO-J2 alignment to normal mRNA:</span><br>
+      <span class="seq-mono">5'- exon 49 end: ...GGA CCU GGU CCU GGC -[54 bp gap]- GGU CCC AAG... :exon 51 start</span><br>
+      <span class="seq-mono">3'- ASO-J2: mGmGmCmCmC&nbsp;ACCGCCAGGA&nbsp;mCmCmAmGmG -5'</span><br>
+      <span class="seq-mono">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^^^^^^^^^^^&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NO MATCH (54 nt away)</span><br><br>
+      <span class="label">Result:</span> The first 10 nt match exon 49, but the next 10 nt are complementary to exon 51 which is <strong>54 nucleotides away</strong> in the normal transcript. No contiguous duplex forms. No RNase H cleavage. Normal mRNA is preserved.
+    </div>
+
+
+    <!-- ============================================================ -->
+    <h3>siRNA Candidate Design</h3>
+    <!-- ============================================================ -->
+
+    <p>In parallel with gapmer ASOs, siRNA duplexes can be designed to target the same aberrant junction. siRNAs work through a different mechanism (RISC-mediated cleavage rather than RNase H), offering complementary therapeutic potential.</p>
+
+    <h4>Design Rules (Tuschl/Reynolds Criteria)</h4>
+
+    <ol>
+      <li><strong>Length:</strong> 21-nt guide strand + 21-nt passenger strand with 2-nt 3' overhangs (dTdT or UU)</li>
+      <li><strong>Thermodynamic asymmetry:</strong> The 5' end of the guide (antisense) strand should be <strong>less thermodynamically stable</strong> (A/U-rich) than its 3' end, favoring guide strand loading into RISC</li>
+      <li><strong>Position 1 preference:</strong> A or U at position 1 of the guide strand</li>
+      <li><strong>Position 19 preference:</strong> G or C at position 19 of the guide strand</li>
+      <li><strong>GC content:</strong> 30&ndash;52% optimal (lower than gapmers)</li>
+      <li><strong>Avoid long GC stretches:</strong> No runs of 9+ G/C</li>
+      <li><strong>Junction centering:</strong> The aberrant junction should fall within the central region (positions 9&ndash;13) of the guide strand target site for maximum allele specificity</li>
+      <li><strong>Optional mismatch:</strong> An intentional single mismatch in the passenger strand (position 10 or 11 relative to guide) can enhance specificity, as demonstrated in the COL6A1 G293R siRNA study (Zhou/Muntoni 2024)</li>
+    </ol>
+
+    <h4>Candidate siRNA Duplexes</h4>
+
+    <div class="table-wrap">
+    <table class="seq-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Guide Strand (antisense, 5'&rarr;3')</th>
+          <th>Passenger Strand (sense, 5'&rarr;3')</th>
+          <th>Junction in Guide</th>
+          <th>GC%</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>si-J1</strong></td>
+          <td class="mono">UCUGGGCCACCGCCAGGACC<strong>dTdT</strong></td>
+          <td class="mono">GGUCCUGGCGGUGGCCCAGA<strong>dTdT</strong></td>
+          <td>Pos 9&ndash;10</td>
+          <td>65%</td>
+        </tr>
+        <tr>
+          <td><strong>si-J2</strong></td>
+          <td class="mono">UGGGCCACCGCCAGGACCAG<strong>dTdT</strong></td>
+          <td class="mono">CUGGUCCUGGCGGUGGCCCA<strong>dTdT</strong></td>
+          <td>Pos 7&ndash;8</td>
+          <td>67%</td>
+        </tr>
+        <tr>
+          <td><strong>si-J3</strong></td>
+          <td class="mono">ACCGCCAGGACCAGGACCUG<strong>dTdT</strong></td>
+          <td class="mono">CAGGUCCUGGUCCUGGCGGU<strong>dTdT</strong></td>
+          <td>Pos 12&ndash;13</td>
+          <td>62%</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <p><strong>Modifications for stability:</strong> 2'-O-methyl (2'-OMe) on alternating ribose positions in the passenger strand; 2'-fluoro (2'-F) at key positions in the guide strand; cholesterol conjugation at the 3' end of the passenger strand for enhanced cellular uptake.</p>
+
+
+    <!-- ============================================================ -->
+    <h3>Selectivity Verification Protocol</h3>
+    <!-- ============================================================ -->
+
+    <p>Before any candidate proceeds to cell-based testing, allele specificity must be computationally and experimentally verified:</p>
+
+    <h4>Step 1: BLAST Analysis</h4>
+
+    <p><span class="step-number">1</span> <strong>BLAST each ASO/siRNA sequence against the normal COL11A1 mRNA</strong> (NM_001854.4 with exon 50 present). Confirm that no contiguous match of &ge;15 nt exists. The junction-spanning design ensures the ASO is split across a 54-nt gap in the normal transcript &mdash; no full-length match should be found.</p>
+
+    <p><span class="step-number">2</span> <strong>BLAST against the full human transcriptome</strong> (RefSeq mRNA database). Identify any off-target transcripts with &ge;15/20 nt complementarity. Collagen genes share Gly-X-Y repeat sequences, so cross-reactivity with other collagen mRNAs (COL2A1, COL5A1, COL11A2) must be specifically checked.</p>
+
+    <p><span class="step-number">3</span> <strong>BLAST against the human genome</strong>. Check for binding to non-coding regions, particularly pre-mRNAs. The DNA gap in gapmers can cleave any RNA:DNA duplex, so even intronic or lncRNA matches are relevant.</p>
+
+    <h4>Step 2: Thermal Stability (Tm) Prediction</h4>
+
+    <p><span class="step-number">4</span> Calculate the Tm of each ASO:target duplex using nearest-neighbor thermodynamic models (e.g., OligoCalc, IDT OligoAnalyzer). Target Tm: 50&ndash;65&deg;C for 2'-MOE gapmers at physiological salt concentration. Confirm that Tm against any off-target is &ge;10&deg;C lower than Tm against the intended target.</p>
+
+    <h4>Step 3: Mismatch Tolerance Testing</h4>
+
+    <p><span class="step-number">5</span> For each candidate, computationally model single and double mismatches at every position. Determine which mismatches reduce binding below the threshold for RNase H or RISC activity. This predicts tolerance for patient-specific sequence variants (SNPs in the exon 49 or 51 flanking regions).</p>
+
+    <h4>Step 4: Self-Complementarity and Structure</h4>
+
+    <p><span class="step-number">6</span> Check each ASO for self-folding (hairpin structures with &Delta;G &lt; &minus;2 kcal/mol) and self-dimerization. Both reduce effective concentration at the target site. Use mFold or RNAstructure for target accessibility analysis &mdash; the target region on the mutant mRNA should have low local folding energy (&Delta;G &gt; &minus;5 kcal/mol for the 30-nt window around the junction).</p>
+
+
+    <!-- ============================================================ -->
+    <h3>Delivery Strategies by Target Tissue</h3>
+    <!-- ============================================================ -->
+
+    <p>COL11A1 is expressed in multiple tissues. Each requires a different delivery strategy. The good news: every delivery route described below has established precedent from approved drugs or advanced clinical trials.</p>
+
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Target Tissue</th><th>Delivery Route</th><th>ASO/siRNA Precedent</th><th>Formulation</th><th>Advantages</th><th>Challenges</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Eye (vitreous, retina)</strong></td>
+          <td>Intravitreal injection</td>
+          <td><strong>Fomivirsen</strong> (Vitravene, first ASO drug, 1998); <strong>pegaptanib</strong> (Macugen); multiple anti-VEGF agents</td>
+          <td>Naked ASO in saline (vitreous is a protected compartment; ASOs have long half-life)</td>
+          <td>Self-contained compartment; low systemic exposure; proven route; long duration (weeks&ndash;months per injection)</td>
+          <td>Requires ophthalmologist; repeated injections; cannot reach all ocular COL11A1-expressing cells</td>
+        </tr>
+        <tr>
+          <td><strong>Inner ear (cochlea)</strong></td>
+          <td>Intratympanic injection</td>
+          <td><strong>DB-OTO</strong> (AAV1-OTOF, restored hearing in deaf patients, NEJM 2024); <strong>AZD0328</strong> ASO for KCNQ4 (Phase 1)</td>
+          <td>ASO in biodegradable gel depot on round window membrane; slow release over days&ndash;weeks</td>
+          <td>Blood-labyrinth barrier protects from systemic dilution; established surgical access; DB-OTO precedent validates route</td>
+          <td>Requires ENT specialist; diffusion through round window; uncertain penetration to tectorial membrane</td>
+        </tr>
+        <tr>
+          <td><strong>Articular cartilage</strong></td>
+          <td>Intra-articular injection</td>
+          <td>Preclinical ASO studies in OA models; <strong>siRNA-loaded nanoparticles</strong> for MMP-13 knockdown in cartilage</td>
+          <td>Lipid nanoparticle (LNP) or PLGA nanoparticle encapsulation; hyaluronic acid carrier for joint retention</td>
+          <td>Direct access to synovial fluid; established clinical procedure; can be combined with viscosupplementation</td>
+          <td>Cartilage ECM blocks penetration; rapid clearance from synovial fluid; repeated injections needed</td>
+        </tr>
+        <tr>
+          <td><strong>Intervertebral disc</strong></td>
+          <td>Intradiscal injection (fluoroscopy-guided)</td>
+          <td>Preclinical only; intradiscal delivery of biologics (PRP, MSCs) is established</td>
+          <td>LNP or exosome-encapsulated ASO in slow-release hydrogel; pH-resistant formulation (disc is acidic, pH 6.5&ndash;6.8)</td>
+          <td>Direct delivery avoids systemic dilution; avascular compartment retains payload</td>
+          <td>Hypoxic, acidic environment; small nucleus pulposus cell population; needle insertion may accelerate degeneration; most challenging target tissue</td>
+        </tr>
+        <tr>
+          <td><strong>Systemic (future)</strong></td>
+          <td>Subcutaneous or intravenous</td>
+          <td><strong>Nusinersen</strong> (Spinraza, IT delivery); <strong>patisiran</strong> (Onpattro, LNP-siRNA, IV); GalNAc-conjugated ASOs for liver</td>
+          <td>GalNAc or other targeting ligand conjugation; LNP encapsulation; exosome-mediated delivery</td>
+          <td>Would reach all tissues in one administration; scalable</td>
+          <td>No validated targeting ligand for chondrocytes; liver/kidney accumulation; immune responses; furthest from clinical reality</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="callout callout-tip">
+      <strong>Emerging delivery: exosome-mediated delivery.</strong> Exosomes (30&ndash;150 nm extracellular vesicles) can be loaded with ASOs or siRNAs and engineered to display surface ligands for tissue targeting. Advantages over LNPs: lower immunogenicity, ability to cross biological barriers (blood-retinal barrier, blood-labyrinth barrier), natural uptake by target cells. Exosome-ASO delivery is in preclinical development for multiple indications and represents a promising future platform for multi-tissue COL11A1 therapy.
+    </div>
+
+
+    <!-- ============================================================ -->
+    <h3>Comparison: ASO vs. siRNA vs. CRISPR for COL11A1</h3>
+    <!-- ============================================================ -->
+
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Feature</th><th>Gapmer ASO</th><th>siRNA</th><th>CRISPR (Cas9 or Base Editor)</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Mechanism</strong></td>
+          <td>RNase H cleavage of mRNA</td>
+          <td>RISC-mediated mRNA cleavage</td>
+          <td>DNA-level disruption or correction</td>
+        </tr>
+        <tr>
+          <td><strong>Duration</strong></td>
+          <td>Weeks&ndash;months per dose (tissue-dependent)</td>
+          <td>Days&ndash;weeks per dose</td>
+          <td>Permanent (one-time treatment)</td>
+        </tr>
+        <tr>
+          <td><strong>Reversibility</strong></td>
+          <td>Fully reversible (stop dosing)</td>
+          <td>Fully reversible</td>
+          <td>Irreversible</td>
+        </tr>
+        <tr>
+          <td><strong>Allele specificity</strong></td>
+          <td>High (junction-targeting; 32-fold selectivity demonstrated for COL6A3)</td>
+          <td>High (junction-targeting; enhanced with intentional mismatch)</td>
+          <td>Moderate to high (PAM requirement limits target sites; off-target edits possible)</td>
+        </tr>
+        <tr>
+          <td><strong>Delivery</strong></td>
+          <td>Naked ASO (eye, ear); nanoparticle (cartilage, disc)</td>
+          <td>Requires carrier (LNP, GalNAc, exosome) for stability</td>
+          <td>Requires viral vector (AAV) or LNP for Cas9+gRNA delivery</td>
+        </tr>
+        <tr>
+          <td><strong>Dosing</strong></td>
+          <td>Repeated (monthly&ndash;quarterly for eye/ear; frequency TBD for cartilage/disc)</td>
+          <td>Repeated (more frequent than ASOs)</td>
+          <td>Single administration (if editing efficiency is sufficient)</td>
+        </tr>
+        <tr>
+          <td><strong>Manufacturing</strong></td>
+          <td>Chemical synthesis; well-established; scalable</td>
+          <td>Chemical synthesis; scalable</td>
+          <td>Biological production (viral vectors); more complex; batch variability</td>
+        </tr>
+        <tr>
+          <td><strong>Regulatory path</strong></td>
+          <td>Multiple ASOs FDA-approved (Spinraza, Kynamro, Exondys 51, etc.); platform well-understood by regulators</td>
+          <td>Multiple siRNAs FDA-approved (Onpattro, Givlaari, Oxlumo, Leqvio); established path</td>
+          <td>First CRISPR therapy approved 2023 (Casgevy for SCD); regulatory framework still evolving for somatic editing</td>
+        </tr>
+        <tr>
+          <td><strong>COL11A1 readiness</strong></td>
+          <td><strong>Highest.</strong> Directly transferable from COL6A3 gapmer work. Can target aberrant junction with off-the-shelf chemistry.</td>
+          <td><strong>High.</strong> Directly transferable from COL6A1 siRNA work.</td>
+          <td><strong>Moderate.</strong> Requires identification of PAM sites near junction; more complex delivery; permanent nature demands higher safety bar.</td>
+        </tr>
+        <tr>
+          <td><strong>Recommended role</strong></td>
+          <td><strong>First-line candidate</strong> &mdash; fastest path from design to preclinical testing</td>
+          <td><strong>Parallel candidate</strong> &mdash; pursue alongside ASOs for comparison</td>
+          <td><strong>Long-term goal</strong> &mdash; pursue after ASO/siRNA proof-of-concept, when delivery to multi-tissue is solved</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="callout callout-info">
+      <strong>Why ASOs first?</strong> Gapmer ASOs have the most mature chemistry platform, the best-understood pharmacology, the simplest delivery (naked ASOs work in the eye and ear without any carrier), and the most directly transferable precedent from COL6A3 sister-disorder work. A gapmer ASO targeting the aberrant exon 49&ndash;51 junction could be synthesized and tested in patient fibroblasts within months given existing infrastructure. siRNAs are a strong parallel track. CRISPR is the long-term curative goal but requires solving multi-tissue delivery first.
+    </div>
+
+
+    <!-- ============================================================ -->
+    <h3>From Design to Validation: The Research Roadmap</h3>
+    <!-- ============================================================ -->
+
+    <p>What would a research lab need to do to take these candidate sequences from computational design to validated therapeutic leads?</p>
+
+    <h4>Phase 1: In Vitro Validation (6&ndash;12 months)</h4>
+
+    <ol>
+      <li><strong>Obtain patient fibroblasts.</strong> Primary dermal fibroblasts from Marshall syndrome patients carrying confirmed exon 50 splice-site mutations. Sources: patient-derived biobank samples (e.g., Coriell Institute NIGMS collection), fresh skin biopsies from consenting patients, or iPSC-derived cells.</li>
+      <li><strong>Confirm mutant transcript.</strong> RT-PCR the COL11A1 mRNA to verify exon 50 skipping. Sanger-sequence the aberrant junction to confirm the exact nucleotide sequence at the exon 49&ndash;51 boundary.</li>
+      <li><strong>Synthesize ASO panel.</strong> Order the 5 gapmer candidates (ASO-J1 through J5) and 3 siRNA candidates (si-J1 through J3) from a custom oligonucleotide supplier (e.g., IDT, Eurofins, Ionis contract synthesis). Include scrambled-sequence and mismatch controls.</li>
+      <li><strong>Transfect and screen.</strong> Gymnotic delivery (free uptake without transfection agent) at 1, 5, 10, 50, 100 nM. Measure mutant vs. normal COL11A1 transcript levels by allele-specific RT-qPCR at 24, 48, and 72 hours. Calculate IC50 for mutant suppression and selectivity ratio (mutant knockdown / normal allele effect).</li>
+      <li><strong>Protein-level confirmation.</strong> Western blot or mass spectrometry to confirm reduction of truncated alpha1(XI) protein. Immunofluorescence to assess collagen XI matrix deposition.</li>
+      <li><strong>Toxicity screen.</strong> Cell viability (MTT assay), caspase activation, inflammatory cytokine panel (IL-6, TNF-alpha, IFN-alpha) to rule out innate immune activation from the ASO backbone.</li>
+    </ol>
+
+    <h4>Phase 2: Lead Optimization (6&ndash;12 months)</h4>
+
+    <ol>
+      <li><strong>Dose-response curves</strong> for the top 2&ndash;3 candidates from Phase 1.</li>
+      <li><strong>Chemistry optimization.</strong> Test alternative wing modifications (2'-OMe vs. 2'-MOE vs. constrained ethyl (cEt)) and gap lengths (8, 10, 12 nt) on the best-performing sequences.</li>
+      <li><strong>Intentional mismatch screen.</strong> Following the Zhou lab 2024 strategy, introduce a single mismatch in the wing region to enhance wild-type discrimination. Test 20 single-mismatch variants of the lead compound.</li>
+      <li><strong>Secondary structure optimization.</strong> Use RNAstructure or Vienna RNA package to predict mutant mRNA local folding. Reposition ASOs to target the most accessible regions within the junction window.</li>
+      <li><strong>Off-target profiling.</strong> RNA-seq in treated vs. untreated fibroblasts to identify any unintended gene knockdowns.</li>
+    </ol>
+
+    <h4>Phase 3: Tissue-Specific Delivery (12&ndash;24 months)</h4>
+
+    <ol>
+      <li><strong>Ocular delivery.</strong> Test lead ASO in ex vivo vitreous humor; measure stability, diffusion, and retinal cell uptake. If available, test in Col11a1 mutant mouse model (cho/+ heterozygous mouse).</li>
+      <li><strong>Cartilage delivery.</strong> Encapsulate in PLGA or LNP; test uptake in chondrocyte pellet cultures and cartilage explants. Measure ASO penetration depth into cartilage matrix.</li>
+      <li><strong>Inner ear delivery.</strong> Collaborate with otology lab experienced in intratympanic delivery (e.g., labs working on DB-OTO follow-up). Test round window membrane permeation.</li>
+    </ol>
+
+    <h4>Phase 4: In Vivo Proof-of-Concept (12&ndash;24 months)</h4>
+
+    <ol>
+      <li><strong>Animal model selection.</strong> The <em>cho</em> (chondrodysplasia) mouse carries a recessive Col11a1 mutation. Heterozygous cho/+ mice may serve as a partial model. Alternatively, a knock-in mouse carrying a human IVS50+1G&gt;A splice mutation would be ideal but would need to be generated.</li>
+      <li><strong>Efficacy endpoints.</strong> Vitreous collagen fibril diameter (EM), hearing threshold (ABR testing), cartilage histology, growth plate morphology.</li>
+      <li><strong>Safety/PK.</strong> Tissue distribution, half-life, organ toxicity panel.</li>
+    </ol>
+
+    <h4>Phase 5: IND-Enabling and Clinical Path (2&ndash;5 years)</h4>
+
+    <ol>
+      <li><strong>GLP toxicology studies.</strong></li>
+      <li><strong>IND filing.</strong> Orphan drug designation for Marshall syndrome (prevalence &lt;200,000 in US) would provide 7-year market exclusivity, tax credits, and waived FDA application fees.</li>
+      <li><strong>Phase 1/2 clinical trial.</strong> Likely starting with intravitreal delivery (eye is the most accessible compartment and has the strongest regulatory precedent for ASO drugs). Primary endpoint: stabilization or improvement of vitreous structure on OCT imaging. Biomarker endpoints: reduction of mutant COL11A1 mRNA in aqueous humor samples.</li>
+    </ol>
+
+
+    <!-- ============================================================ -->
+    <h3>Estimated Cost and Timeline</h3>
+    <!-- ============================================================ -->
+
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Phase</th><th>Timeline</th><th>Estimated Cost</th><th>Key Deliverables</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Phase 1: In vitro validation</td>
+          <td>6&ndash;12 months</td>
+          <td>$150K&ndash;$300K</td>
+          <td>Lead ASO with &ge;50% mutant knockdown, &ge;5:1 selectivity ratio</td>
+        </tr>
+        <tr>
+          <td>Phase 2: Lead optimization</td>
+          <td>6&ndash;12 months</td>
+          <td>$200K&ndash;$400K</td>
+          <td>Optimized ASO with &ge;80% mutant knockdown, &ge;20:1 selectivity, clean off-target profile</td>
+        </tr>
+        <tr>
+          <td>Phase 3: Tissue delivery</td>
+          <td>12&ndash;24 months</td>
+          <td>$300K&ndash;$600K</td>
+          <td>Delivery formulations validated for eye and at least one other tissue</td>
+        </tr>
+        <tr>
+          <td>Phase 4: In vivo PoC</td>
+          <td>12&ndash;24 months</td>
+          <td>$500K&ndash;$1M</td>
+          <td>Animal model efficacy and safety data</td>
+        </tr>
+        <tr>
+          <td>Phase 5: IND/Clinical</td>
+          <td>2&ndash;5 years</td>
+          <td>$5M&ndash;$20M</td>
+          <td>IND filing, Phase 1/2 trial initiation</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <p><strong>Total estimated time from design to first-in-human dosing:</strong> 4&ndash;8 years, assuming dedicated funding and an experienced ASO lab. The early phases (through in vitro proof-of-concept) could be accomplished for under $500K &mdash; well within the range of a rare disease foundation grant, a small biotech seed round, or an academic R01-equivalent award.</p>
+
+
+    <!-- ============================================================ -->
+    <h3>Researcher Quick-Start Guide</h3>
+    <!-- ============================================================ -->
+
+    <p>For any researcher reading this page who wants to begin COL11A1 ASO work, here is the minimum viable starting experiment:</p>
+
+    <div class="callout callout-info">
+      <strong>Minimum viable experiment (~$15K, 3 months)</strong>
+      <ol style="margin-top: 8px; margin-bottom: 0;">
+        <li><strong>Acquire cells:</strong> Request COL11A1-mutant fibroblasts from an existing biobank or clinical collaborator. Alternatively, use a minigene construct carrying the IVS50+1G&gt;A mutation transfected into HEK293T cells.</li>
+        <li><strong>Confirm the target:</strong> RT-PCR with primers flanking exon 50. Gel electrophoresis should show two bands: wild-type (with exon 50) and mutant (exon 50 skipped). Sequence the lower band to confirm the exact junction.</li>
+        <li><strong>Order ASOs:</strong> Synthesize ASO-J2 (the centered junction design) and a scrambled control from IDT or Qiagen. Cost: ~$500&ndash;$1,000 per ASO at research scale.</li>
+        <li><strong>Treat and measure:</strong> Gymnotic delivery at 10, 50, 100 nM. Allele-specific RT-qPCR at 48h. If mutant transcript decreases &ge;30% at any dose without equivalent reduction in wild-type transcript, you have a confirmed hit.</li>
+      </ol>
+    </div>
+
+
+    <!-- ============================================================ -->
+    <h3>Limitations and Caveats</h3>
+    <!-- ============================================================ -->
+
+    <ul>
+      <li><strong>Sequence accuracy.</strong> The candidate ASO and siRNA sequences are based on reference transcript annotations and published exon boundary data. The exact nucleotide positions at the exon 49&ndash;51 aberrant junction MUST be confirmed by sequencing the mutant mRNA before proceeding to synthesis. Even single-nucleotide errors in the junction sequence would invalidate the designs.</li>
+      <li><strong>Patient-specific variation.</strong> While the common Marshall mutations all produce exon 50 skipping, rare mutations might cause partial exon inclusion or cryptic splice site activation, producing different junction sequences. Each patient's mutant transcript should be characterized individually.</li>
+      <li><strong>Collagen Gly-X-Y repetitiveness.</strong> The triple-helix domain of collagen genes has highly repetitive Gly-X-Y sequences. This increases the risk of partial off-target matches to other collagen gene mRNAs. Thorough BLAST analysis against the entire collagen gene family is essential.</li>
+      <li><strong>Tissue delivery remains the hardest problem.</strong> Even a perfectly selective ASO is useless if it cannot reach the target cells at therapeutic concentrations. Cartilage and disc delivery, in particular, remain unsolved challenges for the field.</li>
+      <li><strong>COL11A1 expression levels vary by tissue.</strong> Vitreous, tectorial membrane, and growth plate cartilage express COL11A1 most highly. The therapeutic dose needed will differ by tissue. Eye and ear are the most pharmacologically accessible and express COL11A1 at high levels &mdash; they are the logical first targets.</li>
+      <li><strong>No animal model perfectly recapitulates Marshall syndrome.</strong> The cho/+ mouse is the closest available model but carries a different mutation type. A knock-in model with a human splice-site mutation would be more informative but costly to generate.</li>
+    </ul>
+
+
+    <!-- ============================================================ -->
+    <h3>Cross-References</h3>
+    <!-- ============================================================ -->
+
+    <ul>
+      <li><a href="./research-roadmap.html">Research Roadmap: Reversing Marshall Syndrome</a> &mdash; The big-picture three-layer reversal strategy</li>
+      <li><a href="./gene-therapy-update-2025.html">Gene Therapy: 2025 Update</a> &mdash; Comprehensive review of gene editing and ASO technologies for collagen disorders</li>
+      <li><a href="./gene-therapy-update.html">Gene Therapy: 2026 Update</a> &mdash; Latest delivery and precision advances</li>
+      <li><a href="./gene-therapy.html">Gene Therapy Approaches</a> &mdash; Foundational overview including CRISPR strategies</li>
+      <li><a href="./cell-banking.html">Cell Banking &amp; Biobanking</a> &mdash; Why banking cells now is critical for future ASO testing</li>
+      <li><a href="./researcher-directory.html">Researcher &amp; Lab Directory</a> &mdash; Labs working on collagen gene therapy who could advance these designs</li>
+      <li><a href="../basics/phenotype-genotype.html">Phenotype-Genotype Correlation</a> &mdash; Understanding specific COL11A1 variants</li>
+      <li><a href="../basics/molecular-biology.html">The Molecular Biology</a> &mdash; Collagen XI structure and dominant-negative mechanism</li>
+    </ul>
+
+
+    <!-- ============================================================ -->
+    <h3>Key Literature</h3>
+    <!-- ============================================================ -->
+
+    <ul>
+      <li>Annunen S <em>et al.</em> (1999). "Splicing mutations of 54-bp exons in the COL11A1 gene cause Marshall syndrome, but other mutations cause overlapping Marshall/Stickler phenotypes." <em>Am J Hum Genet</em> 65(4):974&ndash;983. <a href="https://pubmed.ncbi.nlm.nih.gov/10486316/" target="_blank">PubMed</a></li>
+      <li>Griffith AJ <em>et al.</em> (1998). "Marshall syndrome associated with a splicing defect at the COL11A1 locus." <em>Am J Hum Genet</em> 62(4):816&ndash;823. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC1377029" target="_blank">PMC</a></li>
+      <li>Mooney C <em>et al.</em> (2017). "Gapmer antisense oligonucleotides suppress the mutant allele of COL6A3 and restore functional protein in Ullrich muscular dystrophy." <em>Mol Ther Nucleic Acids</em> 8:408&ndash;420. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5537204/" target="_blank">PMC</a></li>
+      <li>Zhou H lab (2024). "Optimized allele-specific silencing of the dominant-negative COL6A1 G293R substitution causing collagen VI-related dystrophy." <em>Mol Ther Nucleic Acids</em>. <a href="https://www.cell.com/molecular-therapy-family/nucleic-acids/fulltext/S2162-2531(24)00065-9" target="_blank">Cell Press</a></li>
+      <li>Zhou H lab (2024). "Strategies to improve the design of gapmer antisense oligonucleotide on allele-specific silencing." <em>Mol Ther Nucleic Acids</em>. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11238192/" target="_blank">PMC</a></li>
+      <li>Lindahl K <em>et al.</em> (2013). "Allele-specific Col1a1 silencing reduces mutant collagen in fibroblasts from Brtl mouse, a model for classical osteogenesis imperfecta." <em>Eur J Hum Genet</em>. <a href="https://www.nature.com/articles/ejhg2013198" target="_blank">Nature</a></li>
+      <li>Kuehn M <em>et al.</em> (2022). "CRISPR/Cas9-mediated allele-specific disruption of a dominant COL6A1 pathogenic variant improves collagen VI network in patient fibroblasts." <em>Int J Mol Sci</em> 23(8):4410. <a href="https://pubmed.ncbi.nlm.nih.gov/35457228/" target="_blank">PubMed</a></li>
+    </ul>
+
+
+    <!-- ============================================================ -->
+    <h3>Disclaimer</h3>
+    <!-- ============================================================ -->
+
+    <div class="callout callout-warning">
+      <strong>Important.</strong> This page presents <strong>candidate antisense oligonucleotide and siRNA sequences</strong> based on computational design principles and published collagen ASO methodology. These sequences have <strong>not been synthesized, tested, or validated</strong> in any laboratory setting. They are provided as a research starting point to lower the barrier for investigators to begin COL11A1-specific antisense work.<br><br>
+      ASO drug development is a multi-year, multi-million-dollar process involving extensive in vitro screening, animal model testing, toxicology, pharmacokinetics, and regulatory review before any human testing can begin. The sequences on this page are <strong>not drugs</strong>. They are computational candidates that require experimental validation at every step.<br><br>
+      Nothing on this page should be interpreted as medical advice, a treatment recommendation, or a claim that these candidates will work. This is a design exercise intended to serve the research community.
+    </div>
+
+  </div>
+
+</div>
+</div>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top">&#8593;</button>
+<script src="../nav.js"></script>
+</body>
+</html>
