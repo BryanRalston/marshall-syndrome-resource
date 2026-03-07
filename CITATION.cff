@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this resource, please cite it as below."
+type: dataset
+title: "Marshall Syndrome Resource: A Comprehensive Guide for Families and Researchers"
+abstract: >-
+  A free, open resource for families affected by Marshall syndrome
+  (COL11A1 / Stickler type 2). Includes clinical tools (Doctor Letter,
+  Emergency Card, Pain Flare Protocol, School 504 Plan), a systematic
+  drug repurposing screen of 34 compounds mapped to 8 self-amplifying
+  destructive cascades, ASO sequence designs for allele-specific silencing,
+  an N-of-1 trial protocol, biomarker tracker, and cascade simulation.
+authors:
+  - family-names: "Ralston"
+    given-names: "Bryan"
+url: "https://bryanralston.github.io/marshall-syndrome-resource/"
+repository-code: "https://github.com/BryanRalston/marshall-syndrome-resource"
+license: CC-BY-4.0
+keywords:
+  - Marshall syndrome
+  - Stickler syndrome type 2
+  - COL11A1
+  - drug repurposing
+  - rare disease
+  - collagenopathy
+  - antisense oligonucleotide
+date-released: "2026-03-06"
