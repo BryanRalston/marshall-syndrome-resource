@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PEMF Therapy Protocol - Marshall Syndrome Resource</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<header class="site-header">
+  <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation">&#9776;</button>
+  <a href="../" class="header-title">Marshall Syndrome <span>Resource</span></a>
+  <div class="search-wrapper">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" id="searchInput" placeholder="Search this page..." aria-label="Search">
+  </div>
+  <span class="search-count" id="searchCount"></span>
+</header>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<nav class="sidebar" id="sidebar"></nav>
+<div class="main">
+<div class="content">
+  <nav class="breadcrumb" id="breadcrumb"></nav>
+  <div class="page-header">
+    <h1>PEMF Therapy: Replacing the Lost Signal</h1>
+  </div>
+  <div class="page-body">
+
+    <div class="callout callout-warning">
+      <strong>Medical Disclaimer</strong><br>
+      This information is compiled from peer-reviewed research and is intended for educational discussion with qualified medical professionals. These are <strong>NOT treatment recommendations</strong>. PEMF protocols must be designed and supervised by qualified practitioners familiar with the specific pathology being treated. Device selection, treatment parameters, and timing should be individualized based on your child&rsquo;s clinical situation.
+    </div>
+
+    <h3>Introduction</h3>
+    <p>Pulsed Electromagnetic Field (PEMF) therapy generates low-frequency electromagnetic fields that pass through tissue and activate the same ion channels &mdash; particularly <strong>TRPV4</strong> and <strong>TRPC1</strong> &mdash; that normally transduce piezoelectric signals from collagen. In healthy tissue, mechanical loading of collagen fibrils generates small electrical currents that guide cell behavior, matrix production, and tissue remodeling. In Marshall syndrome, where <strong>COL11A1 mutations</strong> abolish normal collagen piezoelectric heterogeneity, those signals are garbled or lost. PEMF offers the possibility of <strong>replacing a lost biological signal externally</strong> &mdash; bypassing the broken collagen transducer entirely and delivering the downstream electromagnetic stimulus directly.</p>
+    <p>This page focuses on PEMF as a <strong>practical therapeutic intervention</strong> &mdash; devices, protocols, parameters, and home use considerations. For the underlying biology of collagen piezoelectricity and why COL11A1 mutations disrupt it, see <a href="../spine/piezoelectricity.html">Collagen Piezoelectricity &amp; PEMF</a>.</p>
+
+    <div class="callout callout-info">
+      <strong>Why PEMF Is Uniquely Relevant to Marshall Syndrome</strong>
+      <ul>
+        <li><strong>Healthy collagen is piezoelectric</strong> &mdash; mechanical loading generates measurable electrical signals in the range of 0.2&ndash;0.7 pC/N. These signals tell chondrocytes and disc cells when and how to maintain the extracellular matrix</li>
+        <li><strong>Mutant collagen loses its piezoelectric differential</strong> &mdash; research on osteogenesis imperfecta (collagen I mutations, an analogous concept) shows that mutant collagen loses its piezoelectric differential: 55% in wild-type tissue drops to a non-significant 16% in mutant tissue. The transducer is broken</li>
+        <li><strong>PEMF activates the SAME downstream channels</strong> &mdash; TRPV4 and TRPC1 are the ion channels that normally respond to collagen-generated piezoelectric signals. PEMF activates these channels electromagnetically, bypassing the need for functional collagen piezoelectricity entirely</li>
+        <li><strong>External replacement of an internal signal</strong> &mdash; this is not a generic anti-inflammatory therapy. PEMF is uniquely positioned to substitute for a specific biological function that COL11A1 mutation eliminates</li>
+      </ul>
+      <p>For the full piezoelectric biology, including the Piezo1/iron transport link to ferroptosis and the TRPV4 safe window, see <a href="../spine/piezoelectricity.html">Collagen Piezoelectricity &amp; PEMF</a>.</p>
+    </div>
+
+    <h3>Molecular Pathway Coverage</h3>
+    <p>PEMF engages a remarkably broad set of disease-relevant molecular pathways. The following table summarizes the current evidence for each:</p>
+
+    <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Pathway</th><th>PEMF Effect</th><th>Evidence Level</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>NF-&kappa;B Inflammation</strong></td>
+          <td>Suppresses via Sirt1 deacetylation of p65 subunit + A2A/A3 adenosine receptor activation</td>
+          <td>Strong</td>
+        </tr>
+        <tr>
+          <td><strong>MMP3/MMP13</strong></td>
+          <td>Consistently suppressed across multiple study designs and cell types</td>
+          <td>Strong</td>
+        </tr>
+        <tr>
+          <td><strong>SOX9/Aggrecan/Col2</strong></td>
+          <td>&gt;2-fold upregulation at 15 Hz, 2 mT &mdash; the core chondrogenic program</td>
+          <td>Strong</td>
+        </tr>
+        <tr>
+          <td><strong>Wnt/&beta;-catenin</strong></td>
+          <td>Suppresses in cartilage via sFRP3 upregulation (catabolic Wnt drives degeneration)</td>
+          <td>Moderate&ndash;Strong</td>
+        </tr>
+        <tr>
+          <td><strong>Anti-ferroptosis</strong></td>
+          <td>Upregulates GPX1/3/4, SOD1/2; reduces ROS and lipid peroxidation</td>
+          <td>Moderate (indirect)</td>
+        </tr>
+        <tr>
+          <td><strong>Sirt1/Autophagy</strong></td>
+          <td>Activates Sirt1, increases LC3B-II (autophagy marker); confirmed by inhibitor reversal experiments</td>
+          <td>Strong</td>
+        </tr>
+        <tr>
+          <td><strong>Circadian Clock</strong></td>
+          <td>Upregulates Bmal1, Cry1, Per2; efficacy is circadian-dependent</td>
+          <td>Moderate&ndash;Strong</td>
+        </tr>
+        <tr>
+          <td><strong>Exosome Modulation</strong></td>
+          <td>Modulates mesenchymal stem cell exosome cargo in a frequency-dependent manner</td>
+          <td>Emerging</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <p>Several of these pathways overlap with <a href="./lipus.html">LIPUS</a> and <a href="./photobiomodulation.html">photobiomodulation</a>, but PEMF achieves them through electromagnetic rather than acoustic or photonic mechanisms. The Sirt1/autophagy and circadian clock pathways are particularly notable because they are more prominently engaged by PEMF than by either alternative modality.</p>
+
+    <h3>Evidence for Disc Degeneration</h3>
+    <p>Disc degeneration is the most clinically relevant target for PEMF in Marshall syndrome. The following studies provide the strongest evidence base:</p>
+
+    <h4>In Vitro (Cell Studies)</h4>
+    <ul>
+      <li><strong>Guarnaccia 2025:</strong> Human degenerated nucleus pulposus (NP) cells treated with 75 Hz, 2 mT PEMF. Results: reduced IL-6, MMP1, MMP3, and ADAMTS4 (the key matrix-degrading enzymes); upregulated aggrecan and collagen II (the key matrix components); ROS levels cut from 130% of baseline to approximately 50%. This study is particularly relevant because it used <em>already-degenerated human disc cells</em>, not healthy cells &mdash; demonstrating that PEMF can rescue ongoing pathology, not merely prevent it</li>
+      <li><strong>Shan 2022:</strong> Rat model of disc degeneration, 15 Hz burst frequency, 4 hours/day, 8 weeks. MRI showed stronger T2 signal (indicating preserved hydration and NP tissue integrity). Histology confirmed preserved NP structure. Molecular analysis revealed elevated Sirt1 and increased autophagy markers &mdash; cells were clearing damaged components more efficiently</li>
+      <li><strong>Miller 2019:</strong> Rat model using Orthofix PEMF parameters. Inflammation markers were dramatically reduced: IL-6 reduced 100-fold, IL-1&beta; reduced 6-fold, TNF-&alpha; reduced 4-fold. These are among the largest anti-inflammatory effect sizes reported for any physical modality in disc tissue</li>
+    </ul>
+
+    <h4>Clinical Trials (Human Studies)</h4>
+    <ul>
+      <li><strong>Systematic review of 9 RCTs</strong> (420 participants with low back pain): Significant pain reduction with PEMF compared to placebo/sham across studies. Effect sizes varied by protocol parameters, but the direction of benefit was consistent</li>
+      <li><strong>2025 multi-center RCT:</strong> PEMF achieved <strong>36% pain reduction</strong> versus 10% with standard care alone. Additionally, medication use decreased by 55% in the PEMF group &mdash; a meaningful real-world outcome for families managing chronic pain</li>
+    </ul>
+
+    <h3>Evidence for Osteoarthritis</h3>
+    <p>Marshall syndrome causes early-onset osteoarthritis (OA) due to the structural compromise of collagen XI in articular cartilage. PEMF evidence in OA is therefore directly relevant:</p>
+    <ul>
+      <li><strong>2024 systematic review:</strong> Across included studies, PEMF produced a <strong>60% decrease in VAS pain scores</strong> and a <strong>42% improvement in WOMAC functional scores</strong>. These are clinically significant effect sizes</li>
+      <li><strong>2025 double-blind RCT:</strong> Significant pain reduction compared to sham at 7 weeks, confirming that the benefits are not placebo-driven</li>
+      <li><strong>Mouse model (mechanistic):</strong> PEMF preserved joint structure through the Sirt1/NF-&kappa;B pathway &mdash; the same molecular axis identified in the disc degeneration studies, suggesting a shared protective mechanism across cartilaginous tissues</li>
+    </ul>
+    <p>For comprehensive coverage of OA management in Marshall syndrome, see <a href="./osteoarthritis.html">Osteoarthritis</a>.</p>
+
+    <h3>Chronotherapy: Timing Matters</h3>
+
+    <div class="callout callout-info">
+      <strong>PEMF efficacy is circadian-dependent.</strong> The molecular evidence consistently shows that PEMF&rsquo;s therapeutic effects vary based on time of day, mediated through the disc&rsquo;s own circadian clock genes. Getting the timing right may be as important as getting the parameters right.
+    </div>
+
+    <p>Key findings on PEMF timing:</p>
+    <ul>
+      <li><strong>Circadian-dependent efficacy:</strong> Disc degeneration studies in rats demonstrate that PEMF outcomes differ significantly depending on when treatment is administered during the 24-hour cycle</li>
+      <li><strong>Species inversion:</strong> In rats (which are nocturnal), daytime PEMF was superior. Because the circadian clock is inverted between nocturnal and diurnal species, this finding <strong>inverts for humans</strong> &mdash; suggesting that <strong>evening/nighttime PEMF</strong> may be the optimal treatment window</li>
+      <li><strong>Recommended timing:</strong> Evening and nighttime PEMF (approximately 8&ndash;10 PM through sleep) may optimize the circadian-dependent therapeutic effects. This aligns with the broader <a href="../emerging/chronotherapy-protocol.html">Chronotherapy Protocol</a> framework</li>
+      <li><strong>Clock gene upregulation:</strong> PEMF upregulates Bmal1, Cry1, and Per2 &mdash; core circadian clock genes. In degenerated discs where the internal clock is disrupted, PEMF may help <strong>re-synchronize</strong> the disc&rsquo;s circadian machinery</li>
+      <li><strong>Nocturnal vulnerability window:</strong> The period from roughly 2&ndash;5 AM represents the <a href="../emerging/circadian-disc-clock.html">peak vulnerability window</a> for disc tissue (complement activation peaks, cortisol is at its nadir, inflammatory cytokines surge). PEMF applied during or leading into this window provides anti-inflammatory coverage precisely when it is most needed</li>
+    </ul>
+    <p>For detailed circadian biology and the full chronotherapy framework, see <a href="../emerging/circadian-disc-clock.html">Circadian Disc Clock</a> and <a href="../emerging/chronotherapy-protocol.html">Chronotherapy Protocol</a>.</p>
+
+    <h3>Protocol Parameters</h3>
+    <p>Different therapeutic targets require different PEMF parameters. The following table summarizes the evidence-based parameter ranges for each major target:</p>
+
+    <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Target</th><th>Frequency</th><th>Intensity</th><th>Duration</th><th>Schedule</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>NP cell protection (Sirt1/autophagy)</strong></td>
+          <td>15 Hz</td>
+          <td>1&ndash;2 mT</td>
+          <td>4 hr/day</td>
+          <td>Daily</td>
+        </tr>
+        <tr>
+          <td><strong>Anti-inflammatory</strong></td>
+          <td>75 Hz</td>
+          <td>2 mT</td>
+          <td>4 hr/day</td>
+          <td>Daily, 5+ days</td>
+        </tr>
+        <tr>
+          <td><strong>Chondrogenesis</strong></td>
+          <td>15 Hz</td>
+          <td>2 mT</td>
+          <td>10 min</td>
+          <td>Single or weekly</td>
+        </tr>
+        <tr>
+          <td><strong>Pain management</strong></td>
+          <td>Various</td>
+          <td>1&ndash;1.5 mT</td>
+          <td>30 min&ndash;2 hr</td>
+          <td>Daily</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="callout callout-info">
+      <strong>Adenosine receptor saturation:</strong> The A2A and A3 adenosine receptors &mdash; a major PEMF anti-inflammatory mechanism &mdash; saturate at approximately <strong>1.5 mT after 30 minutes</strong> of exposure. Higher intensities and longer durations do not provide additional anti-inflammatory benefit through this specific pathway. This means the anti-inflammatory ceiling is reached relatively quickly, while other pathways (Sirt1, SOX9, circadian) may benefit from longer exposure times at moderate intensity.
+    </div>
+
+    <h3>Devices: The Intensity Gap</h3>
+
+    <div class="callout callout-warning">
+      <strong>Critical gap between research and consumer devices:</strong> The studies demonstrating disc-protective, anti-inflammatory, and chondrogenic effects of PEMF consistently use intensities of <strong>1&ndash;3 mT</strong> (1,000&ndash;3,000 microTesla). Most consumer PEMF mats and pads operate at <strong>0.045&ndash;0.3 mT</strong> (45&ndash;300 microTesla) &mdash; that is <strong>10 to 100 times BELOW</strong> the intensities used in the research. This is the single most important consideration when selecting a PEMF device for Marshall syndrome disc protection.
+    </div>
+
+    <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Device</th><th>Type</th><th>Intensity</th><th>Spine Cleared</th><th>Home Use</th><th>Price</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Orthofix SpinalStim</strong></td>
+          <td>Prescribed</td>
+          <td>~1.19 mT (research-relevant)</td>
+          <td>Yes (spinal fusion)</td>
+          <td>Yes</td>
+          <td>$3,000&ndash;5,000</td>
+        </tr>
+        <tr>
+          <td><strong>Orthofix CervicalStim</strong></td>
+          <td>Prescribed</td>
+          <td>Similar</td>
+          <td>Yes (cervical fusion)</td>
+          <td>Yes</td>
+          <td>Similar</td>
+        </tr>
+        <tr>
+          <td><strong>Orthocor Active</strong></td>
+          <td>FDA-cleared</td>
+          <td>Targeted PEMF</td>
+          <td>Pain</td>
+          <td>Yes</td>
+          <td>Prescription</td>
+        </tr>
+        <tr>
+          <td><strong>iMRS Prime</strong></td>
+          <td>Consumer</td>
+          <td>0.045&ndash;0.12 mT</td>
+          <td>No</td>
+          <td>Yes</td>
+          <td>$4,000&ndash;8,000</td>
+        </tr>
+        <tr>
+          <td><strong>BEMER</strong></td>
+          <td>Consumer</td>
+          <td>0.0035&ndash;0.1 mT</td>
+          <td>No</td>
+          <td>Yes</td>
+          <td>$4,000&ndash;6,000</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <p><strong>Bottom line:</strong> For disc-relevant intensities that match the research evidence, a prescribed <strong>Orthofix device</strong> is preferable. These are FDA-cleared for spinal fusion adjunct therapy, used at home, and operate at intensities consistent with the studies showing disc-protective molecular effects. Consumer PEMF mats may provide benefits for general pain management and sleep quality, but their intensities may be below the threshold required for the disc-protective molecular effects (Sirt1 activation, MMP suppression, SOX9 upregulation) demonstrated in the research.</p>
+
+    <h3>Safety and Contraindications</h3>
+    <p>PEMF has a strong safety profile across decades of clinical use. Adverse events in clinical trials are rare and typically mild.</p>
+
+    <h4>Absolute Contraindications</h4>
+    <ul>
+      <li><strong>Pacemakers or implanted electronic devices:</strong> Electromagnetic fields can interfere with device function. This is a hard contraindication regardless of PEMF intensity</li>
+      <li><strong>Active cancer/malignancy:</strong> Theoretical concern that electromagnetic stimulation could promote proliferation of malignant cells. Not established in PEMF-specific research, but the precautionary principle applies</li>
+      <li><strong>Pregnancy:</strong> Insufficient safety data for developing fetuses. Standard precaution for electromagnetic therapies</li>
+    </ul>
+
+    <h4>Reported Side Effects</h4>
+    <ul>
+      <li>Mild tingling sensation at the treatment site</li>
+      <li>Warmth in the treated area</li>
+      <li>Temporary fatigue (typically resolves within hours)</li>
+    </ul>
+    <p>Clinical trials consistently report <strong>no significant adverse events</strong> compared to placebo/sham groups. PEMF&rsquo;s safety profile is one of its strongest attributes as a home-use therapy.</p>
+
+    <h3>Growth Plate Consideration</h3>
+
+    <div class="callout callout-info">
+      <strong>The growth plate paradox:</strong> Manufacturers list open growth plates as a contraindication for PEMF devices. However, this is a <strong>precautionary</strong> listing, not one based on evidence of harm. The available animal data actually suggests the opposite of what the contraindication implies.
+    </div>
+
+    <ul>
+      <li><strong>Animal evidence:</strong> One study showed PEMF <strong>increased</strong> growth plate length by 25.6% and circulating IGF-1 by 13.6%. Rather than premature closure, PEMF appeared to <em>stimulate</em> growth plate activity</li>
+      <li><strong>The tension:</strong> This precautionary contraindication creates a direct conflict with the <strong>critical notochordal cell window</strong>. Notochordal cells &mdash; the master regulators of nucleus pulposus health &mdash; are present from childhood through the late teens and progressively disappear afterward. If PEMF&rsquo;s disc-protective effects depend on notochordal cell viability, the therapeutic window overlaps exactly with the period of open growth plates</li>
+      <li><strong>No evidence of premature closure:</strong> There is no published evidence that PEMF causes premature growth plate closure in any species. The contraindication reflects an absence of safety data in growing children, not the presence of harm data</li>
+      <li><strong>Practical implication:</strong> This requires a <strong>frank discussion with the treating physician</strong>. The risk-benefit calculation weighs a theoretical (and counter-evidenced) concern about growth plates against the documented molecular benefits during a time-limited therapeutic window. In a formal clinical context, this tension may warrant IRB oversight</li>
+    </ul>
+
+    <h3>Integration with Other Treatments</h3>
+    <p>PEMF integrates well into a multi-modal treatment approach. Its electromagnetic mechanism is distinct from acoustic, photonic, and chemical interventions, making it genuinely complementary rather than redundant:</p>
+    <ul>
+      <li><strong>With <a href="./lipus.html">LIPUS</a>:</strong> Complementary mechanisms &mdash; electromagnetic versus acoustic. PEMF activates adenosine receptors and Sirt1; LIPUS activates integrin/FAK mechanotransduction and directly suppresses ferroptosis via Nrf2/GPX4. These can be combined in the same treatment program targeting different pathway clusters</li>
+      <li><strong>With <a href="../emerging/chronotherapy-protocol.html">chronotherapy</a>:</strong> Evening/nighttime PEMF aligns with the circadian vulnerability window. PEMF provides anti-inflammatory and clock-resynchronizing effects during the 2&ndash;5 AM period when complement activation and inflammatory cytokines peak</li>
+      <li><strong>With exercise:</strong> PEMF on rest days provides NRF2/Sirt1 activation without requiring mechanical load on the spine. This is particularly valuable during flare days or recovery periods when physical activity must be reduced. See <a href="./aquatic-therapy.html">Aquatic Therapy</a> for the lowest-impact exercise option</li>
+      <li><strong>With <a href="./photobiomodulation.html">photobiomodulation (PBM)</a>:</strong> PBM and PEMF activate NRF2 through different upstream mechanisms (mitochondrial CCO versus electromagnetic ion channel activation). The converging pathways are additive, not redundant. See <a href="../emerging/nrf2-convergence.html">NRF2 Convergence</a></li>
+      <li><strong>With sulforaphane:</strong> Sulforaphane activates NRF2 through the chemical KEAP1 pathway. PEMF activates NRF2 through electromagnetic signaling. Different entry points to the same master protective transcription factor &mdash; synergistic rather than duplicative. See <a href="../emerging/nrf2-convergence.html">NRF2 Convergence</a></li>
+    </ul>
+
+    <h3>PEMF vs LIPUS: Choosing Between Physical Modalities</h3>
+    <p>Both PEMF and <a href="./lipus.html">LIPUS</a> are non-invasive physical therapies with strong evidence for disc and cartilage protection. The following comparison can help guide decisions about which to prioritize &mdash; or how to combine them:</p>
+
+    <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Feature</th><th>PEMF</th><th>LIPUS</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Mechanism</strong></td>
+          <td>Electromagnetic fields activate ion channels and adenosine receptors</td>
+          <td>Acoustic pressure waves activate integrin/FAK mechanotransduction</td>
+        </tr>
+        <tr>
+          <td><strong>Penetration to disc</strong></td>
+          <td>Good &mdash; electromagnetic fields penetrate tissue with minimal attenuation</td>
+          <td>Challenging &mdash; acoustic impedance mismatch at tissue interfaces limits deep delivery</td>
+        </tr>
+        <tr>
+          <td><strong>Home use</strong></td>
+          <td>Excellent &mdash; mat or pad format, can be used during sleep</td>
+          <td>Moderate &mdash; requires coupling gel, precise positioning, active treatment session</td>
+        </tr>
+        <tr>
+          <td><strong>FDA spine clearance</strong></td>
+          <td>Yes (spinal fusion adjunct)</td>
+          <td>No (bone fracture only, vertebrae excluded)</td>
+        </tr>
+        <tr>
+          <td><strong>Anti-ferroptosis</strong></td>
+          <td>Indirect &mdash; upregulates GPX1/3/4 and SOD enzymes</td>
+          <td>Direct &mdash; activates Nrf2/GPX4 axis (confirmed 2023)</td>
+        </tr>
+        <tr>
+          <td><strong>Circadian modulation</strong></td>
+          <td>Yes &mdash; upregulates Bmal1, Cry1, Per2</td>
+          <td>Unknown &mdash; not yet studied</td>
+        </tr>
+        <tr>
+          <td><strong>Best for</strong></td>
+          <td>Daily/nightly home use, pain management, anti-inflammatory coverage, circadian resynchronization</td>
+          <td>Targeted disc treatment, anti-ferroptotic protection, research settings</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <p>These modalities are not competing alternatives &mdash; they are complementary tools that address different aspects of the disease cascade through fundamentally different physical mechanisms. A combined approach (e.g., nightly PEMF for broad anti-inflammatory and circadian coverage, targeted LIPUS sessions for direct disc treatment) may capture the broadest range of therapeutic benefit.</p>
+
+  </div>
+</div>
+  <div class="prev-next">
+    <a href="./lipus.html" class="prev-next-link">&larr; LIPUS</a>
+    <a href="./hearing-rehabilitation.html" class="prev-next-link">Hearing Rehabilitation &rarr;</a>
+  </div>
+</div>
+<button class="back-to-top" id="backToTop" aria-label="Back to top">&#8593;</button>
+<script src="../nav.js"></script>
+</body>
+</html>

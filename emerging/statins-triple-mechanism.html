@@ -44,7 +44,7 @@
 
     <p>Statins are among the most widely prescribed medications in the world, developed to lower LDL cholesterol through HMG-CoA reductase inhibition. But their mechanism of action extends far beyond lipid metabolism. Through a single upstream enzymatic target, statins simultaneously perturb three distinct molecular pathways that each play a direct role in Marshall syndrome pathogenesis: <strong>YAP/TAZ mechanosensing</strong>, <strong>NF-&#954;B inflammatory signaling</strong>, and <strong>Wnt/&#946;-catenin developmental signaling</strong>. This convergence is not coincidental &mdash; it follows from the biochemistry of isoprenoid metabolism.</p>
 
-    <p>This page examines that hypothesis in detail, including the mechanistic chain from HMG-CoA reductase inhibition to each pathway, what limited disc-specific evidence exists, the pediatric safety profile, the risks that require monitoring, and how one might structure a conversation with a physician about rational evaluation.</p>
+    <p>This page examines that hypothesis in detail, including the mechanistic chain from HMG-CoA reductase inhibition to each pathway, new evidence from screening studies and 2025 reviews, disc-specific evidence across multiple statin types, chondrocyte-protective effects, the pediatric safety profile, a <strong>critical ferroptosis safety finding</strong> that fundamentally changes statin selection, and how one might structure a physician conversation about rational evaluation.</p>
 
     <h3>Why Statins Deserve Attention</h3>
 
@@ -77,6 +77,9 @@ HMG-CoA
 Mevalonate  (blocked by statins)
   |
   v
+Isopentenyl pyrophosphate (IPP) ----&gt; Selenocysteine-tRNA isopentenylation
+  |                                      (GPX4 synthesis -- see FERROPTOSIS below)
+  v
 Farnesyl pyrophosphate (FPP)
   |
   +--&gt; Squalene --&gt; Cholesterol  (LDL-lowering: the intended effect)
@@ -98,17 +101,31 @@ YAP stays cytoplasmic              NF-kB nuclear             Wnt/beta-catenin
                                    (MECHANISM 2)             (MECHANISM 3)
     </pre>
 
-    <h3>Mechanism 1: YAP Suppression via Rho/ROCK Inhibition</h3>
+    <h3>Mechanism 1: YAP Suppression via Rho/ROCK Inhibition (Strong Evidence)</h3>
 
     <p>YAP (Yes-Associated Protein) is a mechanosensitive transcriptional co-activator that functions as a master switch between constructive and destructive cellular programs in disc and cartilage cells. See <a href="./yap-taz-mechanosensing.html">YAP/TAZ Mechanosensing</a> for the full mechanistic account. The critical point here is that YAP nuclear activity depends on an intact Rho/ROCK signaling axis.</p>
 
-    <p>The chain from Rho prenylation to YAP nuclear entry is direct:</p>
+    <h4>Direct Evidence: Statins as YAP Inhibitors</h4>
+
+    <p>The statin-YAP connection is no longer a theoretical inference from Rho/ROCK biochemistry. Multiple studies now provide direct evidence:</p>
+
+    <ul>
+      <li><strong>Screening study identification:</strong> Statins were identified as YAP inhibitors in a systematic drug screening study (Shatipour et al., PMC7110981). This was not a hypothesis-driven finding &mdash; statins emerged from an unbiased screen, strengthening the evidence.</li>
+      <li><strong>YAP nuclear-to-cytoplasmic re-localization:</strong> Lipophilic statins cause striking YAP re-localization from the nucleus to the cytoplasm in endothelial cells. This is the functional readout of YAP inactivation &mdash; when YAP moves from nucleus to cytoplasm, its transcriptional programs are switched off.</li>
+      <li><strong>YAP multisite phosphorylation:</strong> Lipophilic statins induce YAP phosphorylation at multiple sites in endothelial cells. Phosphorylated YAP is tagged for cytoplasmic retention and proteasomal degradation, preventing nuclear entry.</li>
+      <li><strong>Atorvastatin inhibits YAP/TAZ activity:</strong> A 2025 publication in <em>Scientific Reports</em> confirms that atorvastatin directly inhibits YAP/TAZ transcriptional activity.</li>
+    </ul>
+
+    <h4>The Mechanistic Chain</h4>
+
+    <p>The complete mechanism from statin administration to YAP suppression is now well-mapped:</p>
 
     <ol>
-      <li><strong>Rho GTPase (RhoA)</strong> is activated at the cell membrane following geranylgeranylation and membrane anchoring. Mechanical stimuli, matrix stiffness signals, and integrin engagement all converge on RhoA activation.</li>
-      <li><strong>RhoA activates ROCK</strong> (Rho-associated coiled-coil kinase 1/2), a serine/threonine kinase that phosphorylates downstream substrates including LIM kinase (LIMK) and myosin light chain (MLC).</li>
-      <li><strong>ROCK-mediated cytoskeletal tension</strong> creates the mechanical force within the cell that drives YAP nuclear translocation. High cytoskeletal tension &rarr; YAP enters the nucleus &rarr; activates transcriptional programs.</li>
-      <li><strong>Without Rho prenylation</strong> (statin-mediated GGPP depletion), RhoA cannot anchor to the membrane and cannot be activated. Without RhoA, ROCK activity falls. Without ROCK, cytoskeletal tension is reduced. YAP remains phosphorylated (inactive) in the cytoplasm.</li>
+      <li><strong>Statin blocks GGPP synthesis</strong> via HMG-CoA reductase inhibition</li>
+      <li><strong>GGPP depletion prevents RhoA prenylation</strong> &mdash; RhoA cannot anchor to the cell membrane</li>
+      <li><strong>Unprenylated RhoA cannot activate ROCK</strong> (Rho-associated coiled-coil kinase)</li>
+      <li><strong>Without ROCK, actin polymerization is impaired</strong> &mdash; cytoskeletal tension cannot develop</li>
+      <li><strong>Without actin-mediated tension, YAP cannot translocate to the nucleus</strong> &mdash; YAP remains phosphorylated and cytoplasmic</li>
     </ol>
 
     <p>YAP nuclear inactivation suppresses all four YAP-driven destructive programs documented in Marshall syndrome:</p>
@@ -144,12 +161,14 @@ YAP stays cytoplasmic              NF-kB nuclear             Wnt/beta-catenin
     </div>
 
     <div class="callout callout-info">
-      <strong>Evidence note:</strong> Direct statin &rarr; Rho &rarr; YAP suppression in disc cells has been demonstrated in animal model studies (primarily rat and rabbit) using simvastatin and lovastatin. The connection is mechanistically well-characterized in non-disc contexts (cancer cell biology, cardiac fibroblasts). Disc-specific YAP suppression data in human cells is limited to in vitro studies. No human clinical data exists for this specific pathway in disc degeneration.
+      <strong>Evidence strength:</strong> Direct statin &rarr; YAP suppression is now confirmed via screening studies, phosphorylation assays, and nuclear localization imaging. Disc-cell-specific evidence includes animal model studies (rat, rabbit) using simvastatin and lovastatin. The 2025 atorvastatin/YAP/TAZ study adds clinical-grade confirmation. Human disc cell data remains limited to in vitro studies.
     </div>
 
-    <h3>Mechanism 2: NF-&#954;B Reduction via Rho/Integrin/FAK Axis</h3>
+    <h3>Mechanism 2: NF-&#954;B Suppression (Strong Evidence)</h3>
 
     <p>NF-&#954;B (Nuclear Factor kappa-light-chain-enhancer of activated B cells) is the central inflammatory hub in Marshall syndrome &mdash; the transcription factor that integrates structural damage signals, inflammatory cytokines, and mechanical stress into a single pro-inflammatory output. See <a href="./nfkb-inflammatory-hub.html">The NF-&#954;B Inflammatory Hub</a> for the complete account.</p>
+
+    <h4>The Rho/Integrin/FAK Axis</h4>
 
     <p>The Rho GTPase pathway intersects with NF-&#954;B through a separate arm from the YAP/ROCK connection:</p>
 
@@ -162,6 +181,21 @@ YAP stays cytoplasmic              NF-kB nuclear             Wnt/beta-catenin
 
     <p>Statin-mediated Rho inhibition therefore reduces NF-&#954;B activity through the mechanical stress-sensing arm &mdash; a distinct mechanism from the direct cytokine-driven (IL-1&#946;, TNF-&#945; &rarr; TNFR/IL1R &rarr; TRAF6 &rarr; IKK) arm. This is important because anti-inflammatory drugs targeting the cytokine arm (NSAIDs, biologics) do not address the mechanotransduction arm, which is constitutively active in a structurally defective matrix regardless of systemic inflammatory tone.</p>
 
+    <h4>Direct Evidence in Chondrocytes and Disc Cells</h4>
+
+    <p>Multiple studies now confirm statin-mediated NF-&#954;B suppression in joint and disc cell types:</p>
+
+    <ul>
+      <li><strong>Pitavastatin and rosuvastatin</strong> suppress IL-1&#946; production in human primary chondrocytes &mdash; directly relevant to cartilage inflammation in connective tissue disorders.</li>
+      <li><strong>Atorvastatin</strong> inhibited TNF-&#945;, MMP-13, and reactive oxygen species (ROS) in cartilage explant studies.</li>
+      <li><strong>Simvastatin</strong> suppresses both NF-&#954;B and MAPK signaling cascades in nucleus pulposus (NP) cells &mdash; the core cell type of the intervertebral disc.</li>
+    </ul>
+
+    <div class="callout callout-warning">
+      <strong>CAVEAT: NF-&#954;B Rebound with Prolonged Exposure</strong><br>
+      Evidence suggests that prolonged continuous statin exposure can lead to NF-&#954;B rebound through compensatory pathway activation. The initial suppression effect may partially reverse over time as cells upregulate alternative inflammatory pathways. This has important implications for dosing strategy: <strong>pulsed or intermittent dosing</strong> may be more effective than continuous daily administration for maintaining NF-&#954;B suppression. This is a consideration for any clinical protocol design.
+    </div>
+
     <p>Downstream consequences of reduced NF-&#954;B activity in disc cells:</p>
 
     <ul>
@@ -172,16 +206,26 @@ YAP stays cytoplasmic              NF-kB nuclear             Wnt/beta-catenin
       <li>Reduced VEGF expression, potentially limiting pathological vascularization of the disc</li>
     </ul>
 
-    <h3>Mechanism 3: Wnt/&#946;-Catenin Modulation</h3>
+    <h3>Mechanism 3: Wnt/&#946;-Catenin Suppression (Moderate-Strong Evidence)</h3>
 
     <p>The Wnt signaling pathway drives developmental decisions in the intervertebral disc and spine, including the COL11A1 &rarr; Wnt &rarr; calcification axis that contributes to end-plate calcification and disc starvation in Marshall syndrome. See <a href="../emerging/developmental-signaling.html">Developmental Signaling Pathways</a> for the full context.</p>
 
-    <p>The statin-Wnt connection is biochemically distinct from the Rho-mediated mechanisms above. Several studies &mdash; primarily with simvastatin &mdash; have identified direct effects on canonical Wnt signaling that appear independent of the mevalonate/isoprenoid pathway:</p>
+    <h4>Updated Mechanism: SATB Family Targeting</h4>
+
+    <p>New evidence reveals a more specific mechanism for statin-Wnt interaction beyond LRP6 modulation. Statins directly target the SATB (Special AT-rich Binding) protein family, which serves as a master regulator of Wnt pathway tone:</p>
 
     <ul>
-      <li><strong>LRP6 phosphorylation modulation:</strong> Simvastatin has been shown to reduce Wnt-dependent phosphorylation of LRP6 (the Wnt co-receptor), reducing the efficiency of Wnt ligand signal transduction. This may occur through effects on membrane lipid composition (cholesterol depletion alters lipid raft organization required for LRP6 clustering) or through direct kinase interactions.</li>
-      <li><strong>GSK-3&#946; activity:</strong> Some statin effects on Wnt may be mediated through modulation of GSK-3&#946;, the kinase that phosphorylates &#946;-catenin for proteasomal degradation. Maintaining GSK-3&#946; activity keeps &#946;-catenin levels controlled, reducing nuclear Wnt target gene transcription.</li>
-      <li><strong>Axin2 and Dkk1 expression:</strong> Some studies report statin-mediated upregulation of Wnt antagonists, though this evidence is less mechanistically characterized and may be cell-type specific.</li>
+      <li><strong>SATB1 downregulation:</strong> Statins decrease expression of SATB1, a chromatin organizer that promotes Wnt signaling. SATB1 is a Wnt pathway activator; its suppression reduces Wnt transcriptional output.</li>
+      <li><strong>SATB2 upregulation:</strong> Statins increase expression of SATB2, a Wnt pathway antagonist. SATB2 opposes SATB1 function and actively suppresses Wnt target gene expression.</li>
+      <li><strong>&#946;-catenin protein reduction:</strong> Downstream of these chromatin-level effects, statins produce measurable decreases in &#946;-catenin protein levels &mdash; the central effector of canonical Wnt signaling.</li>
+      <li><strong>Survivin suppression:</strong> The Wnt target gene Survivin is downregulated by statin treatment, confirming functional Wnt pathway suppression at the transcriptional output level.</li>
+    </ul>
+
+    <p>The previously identified mechanisms also contribute:</p>
+
+    <ul>
+      <li><strong>LRP6 phosphorylation modulation:</strong> Simvastatin reduces Wnt-dependent phosphorylation of LRP6 (the Wnt co-receptor), reducing the efficiency of Wnt ligand signal transduction. This may occur through effects on membrane lipid composition (cholesterol depletion alters lipid raft organization required for LRP6 clustering) or through direct kinase interactions.</li>
+      <li><strong>GSK-3&#946; activity:</strong> Some statin effects on Wnt may be mediated through modulation of GSK-3&#946;, the kinase that phosphorylates &#946;-catenin for proteasomal degradation. Maintaining GSK-3&#946; activity keeps &#946;-catenin levels controlled.</li>
     </ul>
 
     <p>Relevant consequences for Marshall syndrome:</p>
@@ -195,6 +239,215 @@ YAP stays cytoplasmic              NF-kB nuclear             Wnt/beta-catenin
     <div class="callout callout-info">
       <strong>Important nuance:</strong> Wnt signaling is context-dependent. In bone, Wnt promotes osteoblast activity and bone formation. Excessive Wnt suppression in bone could theoretically impair bone density maintenance, which is already a concern in Marshall syndrome patients. The statin effects on Wnt appear to be predominantly in soft tissue contexts (disc, cartilage), but this tissue-specificity has not been rigorously characterized. See the bone concerns section below.
     </div>
+
+    <h3>Chondrocyte-Protective Effects</h3>
+
+    <p>Beyond the three major signaling pathways, statins exert direct protective effects on chondrocytes &mdash; the cell type that maintains cartilage and shares functional overlap with disc nucleus pulposus cells. This evidence is directly relevant to Marshall syndrome, where COL11A1 deficiency impairs chondrocyte function.</p>
+
+    <h4>MMP Suppression</h4>
+
+    <p>Matrix metalloproteinases (MMPs) are the enzymes that physically degrade cartilage and disc matrix. Statin-mediated MMP suppression operates through GGPP blockade:</p>
+
+    <ul>
+      <li><strong>Simvastatin and mevastatin</strong> inhibit MMP-1 and MMP-13 in chondrocytes via GGPP depletion. This is directly relevant because MMP-13 is the primary collagen II-degrading enzyme in cartilage.</li>
+      <li>The mechanism is confirmed to be GGPP-dependent: adding exogenous GGPP reverses the MMP suppression, demonstrating that it operates through the prenylation pathway rather than an off-target drug effect.</li>
+    </ul>
+
+    <h4>Anabolic (Matrix-Building) Effects</h4>
+
+    <p>Statins do not merely reduce destruction; they may actively promote cartilage matrix synthesis:</p>
+
+    <ul>
+      <li><strong>Mevastatin</strong> increases BMP-2, aggrecan, and collagen II mRNA expression in chondrocytes. These are the three key structural components of healthy cartilage and disc matrix.</li>
+      <li><strong>SOX9 upregulation</strong> is particularly important. SOX9 is the master transcription factor for chondrocyte identity and matrix production:
+        <ul>
+          <li><strong>Fluvastatin</strong> upregulates BMP2, SOX9, ACAN (aggrecan), and COL2A1 (collagen II) &mdash; the full chondrocyte anabolic gene panel.</li>
+          <li><strong>Pitavastatin</strong> transiently enhances SOX9 expression, with peak effect at 24 hours.</li>
+          <li><strong>Rosuvastatin</strong> shows a more sustained but moderate SOX9 increase compared to pitavastatin's transient peak.</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h4>Anti-Senescence Effects</h4>
+
+    <p>Chondrocyte senescence is a key driver of cartilage deterioration in connective tissue disorders. Senescent cells stop maintaining the matrix and instead produce destructive enzymes and inflammatory factors (the senescence-associated secretory phenotype, or SASP).</p>
+
+    <ul>
+      <li>Statins inhibit IL-1&#946;-induced chondrocyte senescence, potentially preserving the functional chondrocyte population longer.</li>
+      <li>This anti-senescence effect aligns with the YAP suppression mechanism (YAP drives senescence programming) but may also operate through independent pathways.</li>
+    </ul>
+
+    <h3>Disc Degeneration Evidence (Updated with 2025 Review)</h3>
+
+    <p>A 2025 comprehensive review has substantially expanded the disc-specific evidence base. While no clinical trials exist, the preclinical evidence is now more extensive than previously recognized:</p>
+
+    <h4>Statin-Specific Disc Findings</h4>
+
+    <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Statin</th>
+          <th>Findings in Disc Cells</th>
+          <th>Key Mechanisms</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Simvastatin</strong></td>
+          <td>Inhibited NP cell apoptosis; downregulated MMP-3 and ADAMTS-4; enhanced BMP-2 and collagen II expression</td>
+          <td>Suppressed NF-&#954;B and MAPK signaling cascades in NP cells</td>
+        </tr>
+        <tr>
+          <td><strong>Atorvastatin</strong></td>
+          <td>Reduced oxidative stress; preserved extracellular matrix; inhibited NLRP3 inflammasome activation</td>
+          <td>Activates Nrf2 in NP cells (see <a href="../emerging/nrf2-convergence.html">Nrf2 Convergence</a>); antioxidant defense enhancement</td>
+        </tr>
+        <tr>
+          <td><strong>Lovastatin</strong></td>
+          <td>Upregulated SOX9 and BMP-2 in disc cell models</td>
+          <td>Anabolic/matrix-building; chondrocyte phenotype preservation</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <p>Additionally, earlier preclinical data remains relevant:</p>
+
+    <ul>
+      <li><strong>RhoA/ROCK in disc cells:</strong> Studies using the ROCK inhibitor Y-27632 (a pharmacological proxy for the Rho-inhibitory effect of statins) show reduced disc cell senescence, reduced MMP production, and improved cell viability in degenerate disc cell cultures.</li>
+      <li><strong>Simvastatin in rat disc models:</strong> Intradiscal simvastatin injection in rat disc degeneration models (needle puncture model) showed reduced disc height loss, reduced MMP expression, and reduced inflammatory marker expression at the injection site.</li>
+      <li><strong>Systemic statin effects on disc:</strong> Some retrospective epidemiological studies have found that statin users have lower rates of disc degeneration on imaging compared to matched non-users. These studies are confounded by multiple factors and cannot establish causation.</li>
+    </ul>
+
+    <div class="callout callout-info">
+      <strong>Nrf2 connection:</strong> The atorvastatin/Nrf2 finding is significant because Nrf2 activation is a convergence point across multiple protective strategies in Marshall syndrome. See <a href="../emerging/nrf2-convergence.html">Nrf2 Convergence</a> for how this connects to sulforaphane, NAC, and other interventions. However, the atorvastatin/Nrf2 benefit comes with a critical safety trade-off described in the ferroptosis section below.
+    </div>
+
+    <!-- FERROPTOSIS SAFETY FINDING -->
+
+    <h3>CRITICAL SAFETY FINDING: Statin-Induced Ferroptosis</h3>
+
+    <div class="callout callout-warning">
+      <strong>FERROPTOSIS LANDMINE &mdash; This Changes Everything About Statin Selection</strong><br>
+      Lipophilic statins deplete GPX4 (glutathione peroxidase 4) &mdash; the master regulator of ferroptosis defense. In Marshall syndrome, where COL11A1 deficiency already hyperactivates ferroptosis in disc cells, using a lipophilic statin could <strong>accelerate the very pathology being treated</strong>. This finding fundamentally constrains which statins can be safely considered. See <a href="../nutrition/ferroptosis.html">Ferroptosis in Marshall Syndrome</a> for the full ferroptosis pathway.
+    </div>
+
+    <h4>The Mechanism: IPP &rarr; Selenoprotein Failure &rarr; GPX4 Depletion</h4>
+
+    <p>The ferroptosis risk arises from the same mevalonate pathway that produces the beneficial effects, but through a different branch point:</p>
+
+    <ol>
+      <li><strong>Statins reduce isopentenyl pyrophosphate (IPP)</strong> as part of overall mevalonate pathway suppression.</li>
+      <li><strong>IPP is required for isopentenylation of selenocysteine-tRNA</strong> &mdash; a post-transcriptional modification essential for incorporating selenocysteine into proteins during translation.</li>
+      <li><strong>Impaired selenocysteine-tRNA function &rarr; impaired selenoprotein synthesis</strong> across the board. GPX4 is a selenoprotein &mdash; it contains selenocysteine at its active site.</li>
+      <li><strong>GPX4 depletion removes the cell's primary defense against lipid peroxidation</strong> &mdash; uncontrolled lipid peroxide accumulation triggers ferroptotic cell death.</li>
+    </ol>
+
+    <h4>Which Statins Induce Ferroptosis?</h4>
+
+    <p>The ferroptosis risk is <strong>not equal across all statins</strong>. Lipophilicity is the critical determinant:</p>
+
+    <ul>
+      <li><strong>LIPOPHILIC statins (ferroptosis risk: YES):</strong> Simvastatin, atorvastatin, lovastatin, fluvastatin, pitavastatin &mdash; ALL deplete GPX4 in cell studies.</li>
+      <li><strong>HYDROPHILIC statins (ferroptosis risk: NONE detected):</strong> Pravastatin and rosuvastatin did NOT induce ferroptosis in the same experimental conditions.</li>
+      <li><strong>Simvastatin and atorvastatin</strong> have been specifically shown to <em>induce</em> ferroptosis in cell culture studies &mdash; not merely permit it, but actively drive it.</li>
+    </ul>
+
+    <h4>Why This Matters Critically for Marshall Syndrome</h4>
+
+    <p>The ferroptosis finding is not merely an abstract safety concern. It is a direct collision with Marshall syndrome pathophysiology:</p>
+
+    <ul>
+      <li>COL11A1-deficient discs already exhibit <strong>hyperactivated ferroptosis</strong> through the YAP &rarr; ACSL4 pathway and compromised GPX4 defenses.</li>
+      <li>The entire nutritional strategy (selenium, NAC, omega-3, taurine) is built around <strong>supporting GPX4 and suppressing lipid peroxidation</strong>. See <a href="../nutrition/ferroptosis.html">Ferroptosis in Marshall Syndrome</a>.</li>
+      <li>Using simvastatin to suppress YAP (reducing ACSL4-driven ferroptosis) while simultaneously depleting GPX4 (removing ferroptosis defense) creates a <strong>contradictory intervention</strong> &mdash; pushing both the accelerator and the brake simultaneously.</li>
+    </ul>
+
+    <h4>The Atorvastatin Paradox</h4>
+
+    <p>Atorvastatin presents a particularly confounding risk-benefit profile:</p>
+
+    <ul>
+      <li><strong>Protective:</strong> Activates Nrf2 in NP cells, reduces oxidative stress, preserves ECM, inhibits NLRP3 inflammasome</li>
+      <li><strong>Harmful:</strong> Depletes GPX4 via selenoprotein synthesis impairment, actively induces ferroptosis in cell studies</li>
+      <li>These are <strong>opposing effects operating simultaneously</strong>. Nrf2 activation upregulates antioxidant defense genes, but GPX4 depletion removes the specific enzyme needed to use those defenses against lipid peroxidation. The net effect is unpredictable and likely dose- and tissue-dependent.</li>
+    </ul>
+
+    <h4>Ferroptosis-Safe Statin Ranking</h4>
+
+    <p>Given the ferroptosis constraint, statin selection must be re-evaluated entirely through the lens of GPX4 safety:</p>
+
+    <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Statin</th>
+          <th>Ferroptosis Risk</th>
+          <th>YAP Inhibition</th>
+          <th>Disc Data</th>
+          <th>Recommendation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1</strong></td>
+          <td><strong>Rosuvastatin 5 mg</strong></td>
+          <td style="color:green;"><strong>NONE</strong></td>
+          <td>Good</td>
+          <td>Limited</td>
+          <td><strong>Best choice</strong> &mdash; ferroptosis-safe, hydrophilic, sustained SOX9 effect, good pediatric safety</td>
+        </tr>
+        <tr>
+          <td><strong>2</strong></td>
+          <td><strong>Pravastatin 10 mg</strong></td>
+          <td style="color:green;"><strong>NONE</strong></td>
+          <td>Weaker</td>
+          <td>Minimal</td>
+          <td><strong>Safe alternative</strong> &mdash; ferroptosis-safe, longest pediatric safety record, but weaker pathway effects</td>
+        </tr>
+        <tr>
+          <td><strong>3</strong></td>
+          <td>Atorvastatin 5 mg</td>
+          <td style="color:orange;"><strong>YES</strong> (Nrf2 may partially offset)</td>
+          <td>Strong</td>
+          <td>Good</td>
+          <td><strong>Risky paradox</strong> &mdash; strong pathway data but GPX4 depletion creates contradictory effects</td>
+        </tr>
+        <tr>
+          <td><strong>4</strong></td>
+          <td>Simvastatin 10 mg</td>
+          <td style="color:red;"><strong>HIGH</strong></td>
+          <td>Strong</td>
+          <td>Most data</td>
+          <td><strong>Avoid</strong> &mdash; despite most preclinical data, ferroptosis risk is unacceptable in COL11A1-deficient context</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="callout callout-info">
+      <strong>Key insight:</strong> The statin with the most preclinical disc data (simvastatin) is the one that should most clearly be avoided in Marshall syndrome due to ferroptosis risk. The statin with the best safety profile for this specific context (rosuvastatin) has the least disc-specific data. This is a common pattern in drug repurposing &mdash; the most-studied option is not always the best option for a specific disease context.
+    </div>
+
+    <!-- TENDON CONCERNS -->
+
+    <h3>Tendon Safety Concerns</h3>
+
+    <div class="callout callout-warning">
+      <strong>Statin-Induced Tendinopathy &mdash; Relevant for Connective Tissue Disorders</strong><br>
+      Statins can cause tendon damage through a mechanism that is <strong>opposite</strong> to their chondrocyte-protective effects. This is particularly relevant in a connective tissue disorder where tendons may already be structurally compromised.
+    </div>
+
+    <ul>
+      <li><strong>Simvastatin increases MMP-1 and MMP-13 in tendon fibroblasts</strong> &mdash; the exact opposite of its effect in chondrocytes. The same drug suppresses matrix-degrading enzymes in cartilage but upregulates them in tendon. This tissue-specific divergence is critical.</li>
+      <li><strong>Epidemiological risk:</strong> Hazard ratio of 1.461 for tendinopathy in simvastatin users &mdash; a 46% increased risk.</li>
+      <li><strong>Temporal pattern:</strong> 59% of statin-induced tendon cases occur within the first year of treatment, suggesting an early vulnerability window.</li>
+      <li><strong>Marshall syndrome relevance:</strong> In a connective tissue disorder caused by collagen XI deficiency, tendons may already have compromised structural integrity. Adding a drug that increases tendon MMP expression requires careful risk-benefit analysis and clinical monitoring of tendon symptoms.</li>
+    </ul>
+
+    <p>This concern applies primarily to lipophilic statins (simvastatin being the most documented). The tendon risk profile of hydrophilic statins (rosuvastatin, pravastatin) is less well-characterized but is expected to be lower due to reduced tissue penetration into non-hepatic tissues.</p>
 
     <h3>Comparison Table: Statin vs. Other Repurposing Candidates</h3>
 
@@ -216,10 +469,10 @@ YAP stays cytoplasmic              NF-kB nuclear             Wnt/beta-catenin
           <td><strong>Statins</strong></td>
           <td>Yes (Rho/ROCK)</td>
           <td>Yes (Rho/FAK axis)</td>
-          <td>Yes (simvastatin, LRP6)</td>
+          <td>Yes (SATB1/2, LRP6)</td>
           <td>Yes (in vitro, animal)</td>
-          <td>Animal models; no human disc trials</td>
-          <td>Approved from age 8+ (pravastatin, atorvastatin, rosuvastatin)</td>
+          <td>Animal models; 2025 review; no human disc trials</td>
+          <td>Approved from age 8+ (pravastatin, rosuvastatin)</td>
         </tr>
         <tr>
           <td><strong>Metformin</strong></td>
@@ -252,7 +505,7 @@ YAP stays cytoplasmic              NF-kB nuclear             Wnt/beta-catenin
     </table>
     </div>
 
-    <p>Among these candidates, statins are notable for simultaneously addressing all three major pathways and having the most established pediatric safety data. Metformin is a reasonable second candidate with complementary mechanisms. See <a href="../emerging/drug-repurposing.html">Drug Repurposing Overview</a> for the broader landscape.</p>
+    <p>Among these candidates, statins are notable for simultaneously addressing all three major pathways and having the most established pediatric safety data. Metformin is a reasonable second candidate with complementary mechanisms. See <a href="../future/drug-repurposing-screen.html">Drug Repurposing Screen</a> for the broader landscape.</p>
 
     <h3>Pediatric Safety Data</h3>
 
@@ -281,22 +534,87 @@ YAP stays cytoplasmic              NF-kB nuclear             Wnt/beta-catenin
           <td>8+ years (homozygous FH), 10+ years (heterozygous FH)</td>
           <td>Most potent of the three; hydrophilic; good tolerability; less myopathy risk than lipophilic statins</td>
         </tr>
+        <tr>
+          <td><strong>Simvastatin</strong></td>
+          <td>10+ years</td>
+          <td>FDA-approved for familial hypercholesterolemia in children; lipophilic (higher tissue penetration, higher myopathy risk)</td>
+        </tr>
       </tbody>
     </table>
     </div>
 
-    <p>Key findings from long-term pediatric statin safety studies:</p>
+    <h4>Long-Term Pediatric Safety Evidence</h4>
 
     <ul>
-      <li><strong>Growth and height:</strong> Multiple randomized controlled trials (including the PLANET studies and STELLAR pediatric cohort) show no adverse effect on height or skeletal growth. Growth velocity is not significantly different from placebo-treated controls.</li>
-      <li><strong>Puberty and sexual maturation:</strong> Tanner staging data from pediatric FH trials shows no delay in puberty onset, progression, or sexual maturation markers. Sex hormone levels (testosterone, estradiol, LH, FSH) remain within normal ranges.</li>
-      <li><strong>Cognitive development:</strong> No adverse effects on cognitive function, school performance, or neurological development in pediatric cohort studies. CNS concerns are primarily with lipophilic statins (simvastatin, lovastatin); hydrophilic statins (pravastatin, rosuvastatin) have much lower CNS penetration.</li>
-      <li><strong>Muscle (myopathy):</strong> Myopathy risk is real but low at standard doses. Monitoring CK levels at baseline and with dose changes is standard practice. Myopathy risk is dose-dependent and substantially lower than in adults.</li>
-      <li><strong>Liver:</strong> Transaminase elevation is rare at standard doses. AST/ALT monitoring is recommended but clinical hepatotoxicity in children is exceedingly rare in trial data.</li>
+      <li><strong>48-week RCT (173 children):</strong> Well-tolerated with no adverse effects on growth or pubertal development across the treatment period.</li>
+      <li><strong>20-year follow-up study (NEJM):</strong> Excellent long-term safety profile confirmed in longitudinal data &mdash; this is among the longest pediatric drug safety datasets available for any medication class.</li>
+      <li><strong>Rhabdomyolysis risk:</strong> 0.08&ndash;0.09% in pediatric populations &mdash; lower than the adult rate, likely due to lower dosing and fewer comorbidities/drug interactions.</li>
+    </ul>
+
+    <p>Key findings from additional pediatric safety data:</p>
+
+    <ul>
+      <li><strong>Growth and height:</strong> Multiple randomized controlled trials show no adverse effect on height or skeletal growth. Growth velocity is not significantly different from placebo-treated controls.</li>
+      <li><strong>Puberty and sexual maturation:</strong> Tanner staging data from pediatric FH trials shows no delay in puberty onset, progression, or sexual maturation markers. Sex hormone levels remain within normal ranges.</li>
+      <li><strong>Cognitive development:</strong> No adverse effects on cognitive function, school performance, or neurological development. CNS concerns are primarily with lipophilic statins; hydrophilic statins (pravastatin, rosuvastatin) have much lower CNS penetration.</li>
+      <li><strong>Muscle (myopathy):</strong> Myopathy risk is real but low at standard doses. CK monitoring at baseline and with dose changes is standard practice. Risk is dose-dependent and substantially lower than in adults.</li>
+      <li><strong>Liver:</strong> Transaminase elevation is rare at standard doses. AST/ALT monitoring is recommended but clinical hepatotoxicity in children is exceedingly rare.</li>
     </ul>
 
     <div class="callout callout-info">
       <strong>Important framing:</strong> These safety data come from children treated for familial hypercholesterolemia, not disc disease. The dosing, duration, and monitoring protocols are established for cholesterol lowering. Any off-label use for a novel indication would require its own monitoring framework and informed consent, tailored by a physician who understands both the existing safety data and the specific circumstances of the individual patient.
+    </div>
+
+    <h3>Drug Interactions with Current Supplements</h3>
+
+    <p>If a statin were to be considered alongside the existing <a href="../nutrition/ferroptosis.html">nutritional strategy</a>, understanding pharmacokinetic and pharmacodynamic interactions is essential. Several current supplements become <em>more</em> important if a statin is introduced:</p>
+
+    <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Supplement</th>
+          <th>Interaction with Statins</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Selenium</strong></td>
+          <td>Statins impair selenoprotein synthesis (including GPX4) by reducing IPP-mediated selenocysteine-tRNA isopentenylation. Selenium substrate becomes <em>more</em> important when the synthetic machinery is compromised.</td>
+          <td><strong>Continue; increase if needed.</strong> Monitor selenium status more closely if statin is started.</td>
+        </tr>
+        <tr>
+          <td><strong>Vitamin K2 (MK-7)</strong></td>
+          <td>Statins reduce endogenous MK-4 conversion by approximately 45% via GGPP pathway disruption. K2 supplementation becomes critical for maintaining vitamin K-dependent protein activation.</td>
+          <td><strong>Continue; becomes MORE important.</strong> K2 supplementation partially compensates for statin-induced MK-4 reduction.</td>
+        </tr>
+        <tr>
+          <td><strong>CoQ10 (Ubiquinone)</strong></td>
+          <td>Statins deplete CoQ10 via mevalonate pathway inhibition (CoQ10 synthesis branches from the same pathway). Depletion contributes to myopathy risk and mitochondrial dysfunction.</td>
+          <td><strong>ADD 100&ndash;200 mg/day if statin is started.</strong> This is standard of care in many statin protocols and is especially important for a connective tissue disorder where mitochondrial function matters.</td>
+        </tr>
+        <tr>
+          <td><strong>NAC (N-Acetylcysteine)</strong></td>
+          <td>No significant pharmacokinetic interaction. Synergistic glutathione support &mdash; NAC provides cysteine substrate for glutathione synthesis, which is upstream of GPX4 function.</td>
+          <td><strong>Continue.</strong> Becomes more valuable as glutathione defense support if GPX4 expression is even mildly affected.</td>
+        </tr>
+        <tr>
+          <td><strong>Omega-3 (EPA/DHA)</strong></td>
+          <td>No pharmacokinetic interaction. Synergistic anti-inflammatory effect via parallel pathways (omega-3 works through resolvins/protectins, statins through Rho/NF-&#954;B).</td>
+          <td><strong>Continue.</strong> Complementary mechanisms without interference.</td>
+        </tr>
+        <tr>
+          <td><strong>Taurine</strong></td>
+          <td>No documented interaction with any statin.</td>
+          <td><strong>Continue.</strong></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="callout callout-info">
+      <strong>Key takeaway:</strong> Starting a statin does not require stopping any current supplements. In fact, CoQ10 should be <em>added</em>, and selenium and vitamin K2 become <em>more</em> important. The existing supplement stack is complementary to statin therapy, not conflicting.
     </div>
 
     <h3>Bone: The Double-Edged Consideration</h3>
@@ -319,16 +637,85 @@ YAP stays cytoplasmic              NF-kB nuclear             Wnt/beta-catenin
 
     <p><strong>Practical monitoring recommendation:</strong> If statins were ever evaluated in a structured clinical context for disc disease in Marshall syndrome, bone density monitoring (DXA) at baseline and annually, combined with craniofacial imaging as clinically indicated, would be an essential component of any monitoring protocol. The expected bone effects are likely net-neutral to mildly positive, but this should not be assumed without measurement.</p>
 
-    <h3>Disc-Specific Evidence: Limited but Present</h3>
+    <h3>N-of-1 Trial Design Considerations</h3>
 
-    <p>While no clinical trials exist, a body of preclinical evidence supports the mechanistic hypothesis:</p>
+    <p>N-of-1 statin trials have established precedent in medical literature (including publications in NEJM and BMJ), making this a methodologically defensible approach rather than speculative experimentation. See <a href="../future/n-of-1-marshall-protocol.html">N-of-1 Marshall Protocol</a> for the broader trial design framework.</p>
+
+    <h4>Statin-Specific Trial Parameters</h4>
 
     <ul>
-      <li><strong>MMP expression in chondrocytes:</strong> Multiple in vitro studies show that simvastatin and lovastatin reduce MMP-1, MMP-3, and MMP-13 expression in human chondrocytes and synoviocytes. The mechanism appears to be primarily Rho/ROCK-mediated, with secondary NF-&#954;B contribution.</li>
-      <li><strong>RhoA/ROCK in disc cells:</strong> Studies using the ROCK inhibitor Y-27632 (a pharmacological proxy for the Rho-inhibitory effect of statins) show reduced disc cell senescence, reduced MMP production, and improved cell viability in degenerate disc cell cultures.</li>
-      <li><strong>Simvastatin in rat disc models:</strong> Intradiscal simvastatin injection in rat disc degeneration models (needle puncture model) showed reduced disc height loss, reduced MMP expression, and reduced inflammatory marker expression at the injection site. This is direct disc-protective evidence, though the injection route limits direct clinical translation.</li>
-      <li><strong>Systemic statin effects on disc:</strong> Some retrospective epidemiological studies have found that statin users have lower rates of disc degeneration on imaging compared to matched non-users. These studies are confounded by multiple factors (indication bias, lifestyle differences) and cannot establish causation.</li>
+      <li><strong>Treatment periods:</strong> Minimum 3-month treatment blocks. Cartilage and disc turnover is slow; shorter periods will not produce measurable biomarker changes. Expect 6&ndash;12 months for imaging-level changes.</li>
+      <li><strong>First-choice agent:</strong> Rosuvastatin 5 mg daily, based on the ferroptosis-safe ranking above.</li>
+      <li><strong>Mandatory co-supplementation:</strong> CoQ10 100&ndash;200 mg/day must be started simultaneously with any statin. Continue all existing supplements (selenium, K2, NAC, omega-3, taurine).</li>
     </ul>
+
+    <h4>Monitoring Protocol</h4>
+
+    <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Outcome</th><th>Measurement</th><th>Frequency</th><th>Rationale</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Matrix destruction</td>
+          <td>Serum MMP-3</td>
+          <td>Baseline, 3 months, 6 months</td>
+          <td>Direct marker of enzymatic disc/cartilage destruction; sensitive to NF-&#954;B/Rho changes</td>
+        </tr>
+        <tr>
+          <td>Systemic inflammation</td>
+          <td>hs-CRP</td>
+          <td>Baseline, 3 months, 6 months</td>
+          <td>NF-&#954;B-mediated inflammatory tone; statin effect typically visible at 3 months</td>
+        </tr>
+        <tr>
+          <td>Ferroptosis status</td>
+          <td>GPX4 activity; lipid peroxidation markers (MDA, 4-HNE)</td>
+          <td>Baseline, 6 weeks, 3 months</td>
+          <td><strong>Critical safety monitor</strong> &mdash; early detection of ferroptosis activation even with hydrophilic statin</td>
+        </tr>
+        <tr>
+          <td>Safety: muscle</td>
+          <td>CPK (creatine phosphokinase)</td>
+          <td>Baseline, 6 weeks, then as clinically indicated</td>
+          <td>Myopathy surveillance; standard statin monitoring</td>
+        </tr>
+        <tr>
+          <td>Safety: liver</td>
+          <td>AST, ALT</td>
+          <td>Baseline, 3 months</td>
+          <td>Hepatotoxicity surveillance; standard statin monitoring</td>
+        </tr>
+        <tr>
+          <td>Growth</td>
+          <td>Growth velocity, height percentile</td>
+          <td>Every 3 months</td>
+          <td>Pediatric-specific monitoring; no growth effects expected but must be tracked</td>
+        </tr>
+        <tr>
+          <td>Cartilage turnover</td>
+          <td>COMP (cartilage oligomeric matrix protein)</td>
+          <td>Baseline, 6 months</td>
+          <td>Serum marker of cartilage matrix degradation</td>
+        </tr>
+        <tr>
+          <td>Pain and function</td>
+          <td>Validated pain score (NRS), functional questionnaire</td>
+          <td>Monthly</td>
+          <td>Patient-reported outcome; most sensitive to subjective change</td>
+        </tr>
+        <tr>
+          <td>Bone density</td>
+          <td>DXA scan</td>
+          <td>Baseline, 12 months</td>
+          <td>Monitor for unexpected bone density change given Wnt modulation</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <p>The addition of ferroptosis markers (GPX4, lipid peroxidation) to the monitoring protocol is new and essential. Even with a hydrophilic statin, some degree of mevalonate pathway suppression occurs, and individual variation in selenoprotein synthesis efficiency means that ferroptosis sensitivity cannot be assumed to be zero.</p>
 
     <h3>The Research Gap</h3>
 
@@ -338,9 +725,10 @@ YAP stays cytoplasmic              NF-kB nuclear             Wnt/beta-catenin
 
     <ul>
       <li>Human disc cell culture studies using statins at physiologically achievable concentrations (not the suprapharmacological doses sometimes used in in vitro studies)</li>
+      <li>Comparative studies of hydrophilic vs. lipophilic statins in disc cell models, specifically measuring both pathway effects and ferroptosis markers simultaneously</li>
       <li>Biomarker correlation studies: do statin users with connective tissue disorders show lower serum MMP-3, lower CRP, or different COMP trajectories over time?</li>
       <li>Imaging studies: disc height, end-plate calcification, and nucleus pulposus signal on MRI in statin-using versus non-statin-using Marshall syndrome patients</li>
-      <li>A prospective N-of-1 trial in a willing, medically supervised patient with baseline and periodic measurement of relevant biomarkers and imaging parameters</li>
+      <li>A prospective N-of-1 trial in a willing, medically supervised patient with baseline and periodic measurement of relevant biomarkers and imaging parameters. See <a href="../future/n-of-1-marshall-protocol.html">N-of-1 Marshall Protocol</a>.</li>
     </ul>
 
     <p>The gap between mechanistic plausibility and clinical evidence is wide. This page does not bridge that gap &mdash; it maps it.</p>
@@ -354,88 +742,46 @@ YAP stays cytoplasmic              NF-kB nuclear             Wnt/beta-catenin
       <li>The mechanistic case for potential benefit is specific and pathway-grounded, not generic</li>
       <li>The pediatric safety profile is established through FH trials &mdash; this is not an experimental drug</li>
       <li>The hypothesis is falsifiable with measurable outcomes within a defined timeframe</li>
+      <li>The ferroptosis finding <em>constrains</em> statin choice to hydrophilic options &mdash; show the physician the ferroptosis-safe ranking table</li>
       <li>The question is whether the convergence of mechanism, safety data, and individual circumstances justifies a structured, monitored evaluation</li>
     </ul>
 
-    <p><strong>Measurable outcomes that could be tracked:</strong></p>
-
-    <div class="table-wrap">
-    <table>
-      <thead>
-        <tr><th>Outcome</th><th>Measurement</th><th>Frequency</th><th>Rationale</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Systemic inflammation</td>
-          <td>hs-CRP, ESR</td>
-          <td>Baseline, 3 months, 6 months</td>
-          <td>NF-&#954;B-mediated inflammatory tone; statin effect typically visible at 3 months</td>
-        </tr>
-        <tr>
-          <td>Matrix destruction activity</td>
-          <td>Serum MMP-3</td>
-          <td>Baseline, 3 months, 6 months</td>
-          <td>Direct marker of enzymatic disc/cartilage destruction; sensitive to NF-&#954;B/Rho changes</td>
-        </tr>
-        <tr>
-          <td>Cartilage turnover</td>
-          <td>COMP (cartilage oligomeric matrix protein)</td>
-          <td>Baseline, 6 months</td>
-          <td>Serum marker of cartilage matrix degradation; correlates with disc degeneration severity</td>
-        </tr>
-        <tr>
-          <td>Pain and function</td>
-          <td>Validated pain score (e.g., NRS), functional questionnaire</td>
-          <td>Monthly</td>
-          <td>Patient-reported outcome; most sensitive to subjective change</td>
-        </tr>
-        <tr>
-          <td>Safety: muscle</td>
-          <td>CK (creatine kinase)</td>
-          <td>Baseline, 6 weeks, then as clinically indicated</td>
-          <td>Myopathy surveillance; standard statin monitoring</td>
-        </tr>
-        <tr>
-          <td>Safety: liver</td>
-          <td>AST, ALT</td>
-          <td>Baseline, 3 months</td>
-          <td>Hepatotoxicity surveillance; standard statin monitoring</td>
-        </tr>
-        <tr>
-          <td>Bone density</td>
-          <td>DXA scan</td>
-          <td>Baseline, 12 months</td>
-          <td>Monitor for unexpected bone density change given Wnt modulation</td>
-        </tr>
-      </tbody>
-    </table>
-    </div>
-
-    <p>See <a href="../emerging/n-of-1-trials.html">N-of-1 Trials: A Framework for Individual Experimentation</a> for the broader methodological context of individualized therapeutic evaluation in rare diseases.</p>
+    <p><strong>Key points for the physician conversation:</strong></p>
+    <ul>
+      <li>Rosuvastatin 5 mg is the recommended first choice based on ferroptosis safety, not simvastatin (despite simvastatin having more preclinical data)</li>
+      <li>CoQ10 co-supplementation (100&ndash;200 mg/day) is mandatory, not optional</li>
+      <li>Ferroptosis markers (GPX4, lipid peroxidation) should be added to standard statin monitoring panels</li>
+      <li>3-month minimum treatment periods before efficacy assessment (slow cartilage turnover)</li>
+      <li>Consider pulsed/intermittent dosing to prevent NF-&#954;B rebound from prolonged exposure</li>
+    </ul>
 
     <h3>Which Statin, If Any?</h3>
 
-    <p>Not all statins are equivalent for the mechanisms described here. The disc-relevant effects depend on both the Rho/ROCK inhibition (shared across statins) and the Wnt effects (most studied with simvastatin). However, simvastatin is the most lipophilic statin in common use, meaning it penetrates tissues more readily but also carries higher myopathy risk than hydrophilic alternatives.</p>
+    <p>Not all statins are equivalent for the mechanisms described here, and the ferroptosis finding fundamentally changes the calculus. The previous analysis focused on disc-penetration and preclinical data volume; the updated analysis must prioritize ferroptosis safety.</p>
 
     <p>If a physician were designing a monitored evaluation:</p>
 
     <ul>
-      <li><strong>Simvastatin:</strong> Most disc-specific preclinical data; most studied for Wnt effects; higher lipophilicity may improve disc tissue penetration; higher myopathy risk than hydrophilic alternatives</li>
-      <li><strong>Pravastatin:</strong> Hydrophilic; lowest myopathy and CNS risk; longest pediatric safety record; less Wnt data; Rho/ROCK inhibition preserved but tissue penetration may be lower</li>
-      <li><strong>Rosuvastatin:</strong> Hydrophilic; potent; excellent pediatric safety data in FH trials; intermediate profile; less disc-specific preclinical data than simvastatin</li>
+      <li><strong>Rosuvastatin (RECOMMENDED):</strong> Hydrophilic; ferroptosis-safe; potent; good YAP inhibition; sustained SOX9 upregulation; excellent pediatric safety data; FDA-approved from age 8+. Less disc-specific preclinical data than simvastatin, but the safety profile is dramatically superior in a ferroptosis-vulnerable patient.</li>
+      <li><strong>Pravastatin (ACCEPTABLE ALTERNATIVE):</strong> Hydrophilic; ferroptosis-safe; longest pediatric safety record; lowest myopathy and CNS risk. Weaker YAP inhibition than rosuvastatin; less Wnt data. Appropriate if the most conservative approach is preferred.</li>
+      <li><strong>Atorvastatin (USE WITH EXTREME CAUTION):</strong> Strong YAP inhibition and Nrf2 activation; good disc data. But GPX4 depletion creates a fundamental contradiction in a ferroptosis-vulnerable patient. Only consider if ferroptosis markers can be monitored closely and selenium status is robustly maintained. The Nrf2 benefit may not offset the GPX4 harm.</li>
+      <li><strong>Simvastatin (AVOID):</strong> Most disc-specific preclinical data and strongest Wnt effects, but high ferroptosis risk, tendon MMP upregulation, and highest myopathy risk among common statins. The ferroptosis risk alone disqualifies it in Marshall syndrome. See <a href="../future/drug-repurposing-screen.html">Drug Repurposing Screen</a> for alternative candidates.</li>
     </ul>
 
-    <p>The choice would appropriately depend on the individual patient's cardiovascular profile, comorbidities, concurrent medications (statin drug interactions are numerous), and the physician's clinical judgment. This page does not make a recommendation on statin choice &mdash; that is a clinical decision requiring individual evaluation.</p>
-
-    <h3>Summary: The Convergence Hypothesis</h3>
+    <h3>Summary: The Convergence Hypothesis (Updated)</h3>
 
     <p>The case for investigating statins in Marshall syndrome disc disease rests on three pillars:</p>
 
     <ol>
-      <li><strong>Mechanistic specificity:</strong> A single upstream enzymatic inhibition (HMG-CoA reductase) depletes isoprenoids required for Rho GTPase activation, propagating into simultaneous modulation of YAP (via ROCK), NF-&#954;B (via FAK), and Wnt (via LRP6 and membrane effects). Each of these pathways is independently implicated in Marshall syndrome pathogenesis through documented mechanisms.</li>
-      <li><strong>Safety precedent:</strong> Statins have extensive pediatric safety data through familial hypercholesterolemia trials, including long-term growth, developmental, and hormonal monitoring. The risk profile is well-characterized, the adverse effects are known and monitorable, and the drug class is among the most studied in modern medicine.</li>
-      <li><strong>Measurability:</strong> The hypothesis is falsifiable. Biomarkers exist (MMP-3, COMP, CRP), imaging protocols exist (disc MRI), and patient-reported outcomes are standardized. A structured N-of-1 trial with defined endpoints is scientifically coherent.</li>
+      <li><strong>Mechanistic specificity:</strong> A single upstream enzymatic inhibition (HMG-CoA reductase) depletes isoprenoids required for Rho GTPase activation, propagating into simultaneous modulation of YAP (via ROCK &mdash; now confirmed by screening studies and direct YAP phosphorylation data), NF-&#954;B (via FAK &mdash; confirmed in chondrocytes and NP cells), and Wnt (via SATB1/2, LRP6, and &#946;-catenin &mdash; moderate-strong evidence). Each of these pathways is independently implicated in Marshall syndrome pathogenesis through documented mechanisms.</li>
+      <li><strong>Safety precedent:</strong> Statins have extensive pediatric safety data through familial hypercholesterolemia trials (including a 20-year NEJM follow-up), including long-term growth, developmental, and hormonal monitoring. The risk profile is well-characterized, the adverse effects are known and monitorable, and the drug class is among the most studied in modern medicine.</li>
+      <li><strong>Measurability:</strong> The hypothesis is falsifiable. Biomarkers exist (MMP-3, COMP, CRP, GPX4, lipid peroxidation markers), imaging protocols exist (disc MRI), and patient-reported outcomes are standardized. A structured N-of-1 trial with defined endpoints is scientifically coherent and has NEJM/BMJ precedent.</li>
     </ol>
+
+    <div class="callout callout-info">
+      <strong>Bottom Line</strong><br>
+      The triple-mechanism hypothesis is well-supported by evidence that has strengthened substantially through 2025 research. But the ferroptosis landmine means statin <strong>choice</strong> is critical and non-negotiable. <strong>Rosuvastatin 5 mg + CoQ10</strong> represents the best risk-benefit profile for a ferroptosis-vulnerable Marshall syndrome patient. Simvastatin has the most preclinical data but the highest ferroptosis risk &mdash; it should be avoided. This is a physician conversation, not a self-treatment decision. See <a href="../future/n-of-1-marshall-protocol.html">N-of-1 Marshall Protocol</a> for structured trial design.
+    </div>
 
     <p>The case against proceeding without clinical evidence is equally clear: mechanism is not efficacy, in vitro and animal data frequently do not translate to human outcomes, and the individual risk-benefit calculation is highly patient-specific. The purpose of this page is to provide the mechanistic foundation for an informed conversation &mdash; not to provide a rationale for unsupervised self-experimentation.</p>
 
