@@ -220,7 +220,8 @@
         { file: 'resources/newly-diagnosed.html', title: 'Newly Diagnosed: First 30 Days', k: 'newly diagnosed first 30 days start here guide roadmap specialists tests school accommodations emotional support onboarding triage checklist' },
         { file: 'resources/insurance-navigation.html', title: 'Insurance Navigation & Financial Advocacy', k: 'insurance prior authorization denial appeal hearing aid coverage GINA SSI SSDI financial assistance NORD copay charity care peer-to-peer review patient advocate rare disease coverage medical necessity' },
         { file: 'resources/genetic-counseling.html', title: 'Genetic Counseling & Family Planning', k: 'genetic counseling family planning autosomal dominant inheritance de novo mutation parental mosaicism gonadal germline sibling screening recurrence risk phenotypic variability COL11A1 carrier testing prenatal CVS amniocentesis PGT-M IVF preimplantation donor gametes reproductive options' },
-        { file: 'resources/n-of-1-trials.html', title: 'N-of-1 Trials & Building Evidence', k: 'N-of-1 trial single patient crossover washout evidence rare disease case report publication outcome measure biomarker doxycycline LDN sulforaphane CARE guidelines statistical analysis' }
+        { file: 'resources/n-of-1-trials.html', title: 'N-of-1 Trials & Building Evidence', k: 'N-of-1 trial single patient crossover washout evidence rare disease case report publication outcome measure biomarker doxycycline LDN sulforaphane CARE guidelines statistical analysis' },
+        { file: 'resources/physician-summary.html', title: 'Physician Clinical Discussion Guide', k: 'physician summary clinical guide doctor specialist discussion drug repurposing metformin doxycycline SDD semaglutide GLP-1 avacopan N-of-1 trial biomarker monitoring cascade COL11A1 treatment proposal quad therapy print handout' }
       ]
     },
     {
