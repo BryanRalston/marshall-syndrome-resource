@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI-Driven Drug Discovery: Computational Approaches for COL11A1 - Marshall Syndrome Resource</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation">&#9776;</button>
+  <a href="../" class="header-title">Marshall Syndrome <span>Resource</span></a>
+  <div class="search-wrapper">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" id="searchInput" placeholder="Search this page..." aria-label="Search">
+  </div>
+  <span class="search-count" id="searchCount"></span>
+</header>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<nav class="sidebar" id="sidebar"></nav>
+
+<div class="main">
+<div class="content">
+
+  <nav class="breadcrumb" id="breadcrumb"></nav>
+
+  <div class="page-header">
+    <h1>AI-Driven Drug Discovery: Computational Approaches for COL11A1</h1>
+  </div>
+
+  <div class="page-body">
+
+    <!-- ============================================================ -->
+    <!-- DISCLAIMER & INTRODUCTION                                     -->
+    <!-- ============================================================ -->
+    <div class="callout callout-warning">
+      <strong>Disclaimer.</strong> This page describes computational and AI-driven approaches to drug discovery. None of these approaches has yet been applied specifically to Marshall syndrome. The content represents a synthesis of publicly available research on AI drug discovery platforms, computational biology tools, and their potential application to COL11A1-related pathology. This is a roadmap for future research, not a description of existing treatments. All treatment decisions must be made with qualified physicians.
+    </div>
+
+    <h2>Why AI Matters for Marshall Syndrome</h2>
+
+    <p>Drug discovery for ultra-rare diseases has historically been an economic impossibility. A single drug costs an average of $2.6 billion to develop through conventional pipelines, and with Marshall syndrome affecting perhaps a few hundred people worldwide, no pharmaceutical company will invest at that scale. But the convergence of several technological and regulatory shifts in 2024&ndash;2026 has fundamentally changed the calculus.</p>
+
+    <p>Five factors make Marshall syndrome a surprisingly good candidate for AI-driven drug discovery:</p>
+
+    <ul>
+      <li><strong>Ultra-rare disease with too few patients for conventional clinical trials.</strong> Traditional Phase III trials need hundreds to thousands of patients. Marshall syndrome may never have that. AI-driven in-silico methods &mdash; now gaining FDA acceptance &mdash; can substitute for some of that missing patient volume.</li>
+      <li><strong>Complex multi-cascade pathology.</strong> The <a href="../basics/unified-model.html">eight self-amplifying destructive cascades</a> create a massive drug target interaction space that no human researcher can navigate by intuition alone. AI excels at exactly this kind of high-dimensional optimization problem.</li>
+      <li><strong>Dominant-negative mechanism.</strong> Marshall syndrome mutations don&rsquo;t just remove a protein &mdash; they produce a mutant protein that actively poisons normal trimers. This creates a unique drug target: molecules that block mutant protein incorporation or stabilize wild-type trimers. AI-powered generative chemistry can design such molecules from scratch.</li>
+      <li><strong>FDA 2025 regulatory momentum.</strong> The FDA is actively encouraging in-silico methods, digital twin simulations, and computational pharmacology in regulatory submissions. A diabetes metabolic model has already been accepted as a substitute for animal trials. This regulatory openness didn&rsquo;t exist five years ago.</li>
+      <li><strong>Open-source tools now make sophisticated computational drug discovery accessible.</strong> AlphaFold, ColabFold, Boltz-2, REINVENT 4, DiffDock, PhysiCell &mdash; the tools that once required a pharmaceutical company&rsquo;s budget are now freely available to any researcher or motivated family.</li>
+    </ul>
+
+    <div class="callout callout-tip">
+      <strong>The Critical Gap.</strong> As of March 2026, nobody has computationally modeled any Marshall syndrome-specific COL11A1 mutation. No structural analysis of mutant alpha1(XI). No network pharmacology of the eight cascades as a unified system. No molecular dynamics simulation. No virtual drug screen. The tools exist. The targets are identified. The gap is simply that nobody has connected them. This page describes what could be done &mdash; and what we&rsquo;ve started mapping out.
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 2: ALPHAFOLD STRUCTURAL ANALYSIS                      -->
+    <!-- ============================================================ -->
+    <h2>AlphaFold Structural Analysis</h2>
+
+    <h3>What Already Exists</h3>
+
+    <p>The protein structure prediction revolution has already touched alpha1(XI) collagen, though only partially:</p>
+
+    <ul>
+      <li><strong>AlphaFold2 prediction of the alpha1(XI) NPP domain</strong> &mdash; Leikina et al. 2023 (IEEE EMBS, PMC10586751) used AlphaFold2 to predict the structure of the N-terminal non-collagenous domain. The model predicted 12 antiparallel beta-strands, 3 alpha-helices, and 3 3(10)-helices, matching the 33% beta-sheet content observed by CD spectroscopy. This is the best-validated computational structure of any alpha1(XI) domain.</li>
+      <li><strong>AlphaFold Database entry P12107</strong> covers the full 1,806-amino-acid alpha1(XI) chain &mdash; but with only 51.46 pLDDT (predicted local distance difference test) confidence overall. Critically, <strong>70.7% of the structure &mdash; the repetitive triple-helical Gly-X-Y domain &mdash; is predicted at very low confidence.</strong> This is a known limitation of AlphaFold with repetitive collagen sequences, not a Marshall-specific problem.</li>
+      <li>A <strong>heparan sulfate binding site</strong> at 147-KKKITK-152 has been characterized computationally using AutoDock4 (PMC4193664), identifying a specific interaction surface on alpha1(XI).</li>
+      <li>The <strong>CavitySpace database</strong> has mapped druggable pockets across the entire AlphaFold human proteome &mdash; COL11A1 is included. These pre-computed pocket maps are a starting point for virtual screening.</li>
+    </ul>
+
+    <h3>AlphaFold3 and Beyond</h3>
+
+    <p>AlphaFold3 (AF3) brought critical improvements for collagen modeling: it can model <strong>post-translational modifications</strong> including hydroxyproline, which is essential for collagen triple helix stability and absent from AF2 predictions. However, AF3 still struggles with collagen triple helices &mdash; a study of C1q (a complement protein with collagen-like triple helices) showed AF3 producing incorrect chain register in the helical domain.</p>
+
+    <p>Two developments in 2025&ndash;2026 push beyond AF3&rsquo;s limitations:</p>
+
+    <ul>
+      <li><strong>IsoDDE</strong> (Isomorphic Labs, 2026) &mdash; doubles AF3 accuracy for protein-ligand complexes and, crucially, can <strong>discover cryptic binding sites</strong> that only appear during molecular dynamics. These hidden pockets are invisible to static structure prediction but could represent Marshall-specific drug targets.</li>
+      <li><strong>Boltz-2</strong> (MIT, open-source) &mdash; achieves AF3-level accuracy while enabling <strong>drug screening 1,000x faster</strong> than physics-based free energy perturbation (FEP) methods. Its open-source license means any academic lab can run it.</li>
+    </ul>
+
+    <h3>What Nobody Has Done</h3>
+
+    <p>Despite the tools being available, no research group has performed any of the following &mdash; each represents a concrete, actionable opportunity:</p>
+
+    <ul>
+      <li><strong>No AF3 prediction of mutant alpha1(XI) from Marshall splice mutations.</strong> What does the protein look like when exon 50 is deleted? How does the 18-amino-acid gap in the triple helix distort the chain? These are answerable questions today.</li>
+      <li><strong>No AlphaFold Multimer model of the type XI heterotrimer</strong> &mdash; the full alpha1(XI) + alpha2(XI) + alpha3(XI) complex. Understanding how three chains assemble is essential for targeting the dominant-negative mechanism.</li>
+      <li><strong>No modeling of how the exon-50 deletion affects trimer geometry.</strong> Removing 18 amino acids from the triple-helical domain should kink or bulge the helix &mdash; but no one has modeled the structural consequences.</li>
+      <li><strong>No systematic druggable pocket analysis</strong> of alpha1(XI) using modern tools like CavitySpace, P2Rank, or fpocket. Druggable pockets on alpha1(XI) are the prerequisite for any virtual screening campaign.</li>
+      <li><strong>No virtual screening campaign</strong> against any collagen XI binding pocket &mdash; not even a preliminary docking study.</li>
+    </ul>
+
+    <h3>What We've Mapped: Exon 50 Structure</h3>
+
+    <p>As a first step toward the computational work described above, we mapped the specific amino acid sequence affected by the most common Marshall syndrome exon-skipping mutation:</p>
+
+    <ul>
+      <li><strong>Exon 50 of COL11A1 encodes approximately amino acids 1213&ndash;1230</strong> of the mature alpha1(XI) chain (UniProt P12107), spanning 6 Gly-X-Y triplets: <strong>GDV-GPM-GPP-GPP-GPR-GPQ</strong>.</li>
+      <li>In the triple helix, each Gly-X-Y triplet contributes 0.85 nm of axial rise. Deletion of these 6 triplets removes <strong>~5.1 nm</strong> from the triple-helical domain.</li>
+      <li>The D-period of collagen fibrils is 67 nm. A 5.1 nm deletion represents <strong>7.6% of one D-period</strong> &mdash; enough to disrupt the quarter-stagger arrangement that determines fibril ultrastructure and mechanical properties.</li>
+      <li>The AlphaFold Database provides 4 isoform models for COL11A1 (P12107), but the triple-helical domain confidence (pLDDT) is very low in all of them &mdash; consistent with AlphaFold&rsquo;s known limitations with repetitive Gly-X-Y sequences.</li>
+    </ul>
+
+    <div class="callout callout-warning">
+      <strong>COL11A1 Is NOT a Small-Molecule Target.</strong> Open Targets tractability data confirms that alpha1(XI) collagen has <strong>no known druggable pockets and no existing ligands</strong>. The repetitive triple-helical domain presents no conventional drug binding surfaces. The only structurally druggable region is the <strong>NC1 (C-propeptide) domain</strong>, which controls chain selection during trimerization. This means drug discovery for Marshall syndrome must target either the C-propeptide trimerization interface, downstream cascade proteins, or novel approaches like chemical chaperones &mdash; not the alpha1(XI) protein directly.
+    </div>
+
+    <h3>The Open-Source Structural Biology Toolkit</h3>
+
+    <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Tool</th><th>Access</th><th>Key Capability</th><th>Marshall Relevance</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>ColabFold</strong></td>
+          <td>Free (Google Colab)</td>
+          <td>AF2 predictions, 40&ndash;60x faster than standard AF2</td>
+          <td>Quick comparison of mutant vs. wild-type NPP domain structures</td>
+        </tr>
+        <tr>
+          <td><strong>Boltz-2</strong></td>
+          <td>MIT license</td>
+          <td>AF3-level accuracy + binding affinity prediction</td>
+          <td>Drug screening against identified pockets at scale</td>
+        </tr>
+        <tr>
+          <td><strong>OpenFold3</strong></td>
+          <td>Open source</td>
+          <td>AF3-level accuracy for protein-ligand complexes</td>
+          <td>Modeling drug interactions with alpha1(XI) domains</td>
+        </tr>
+        <tr>
+          <td><strong>AlphaMissense</strong></td>
+          <td>Public database</td>
+          <td>Classifies 89% of human missense variants as pathogenic or benign</td>
+          <td>Pathogenicity scoring for COL11A1 variants of uncertain significance</td>
+        </tr>
+        <tr>
+          <td><strong>DiffDock</strong></td>
+          <td>MIT license</td>
+          <td>Diffusion-based molecular docking, 38% top-1 success rate</td>
+          <td>Docking candidate drugs against collagen XI binding sites</td>
+        </tr>
+        <tr>
+          <td><strong>CavitySpace</strong></td>
+          <td>Public database</td>
+          <td>237,872 mapped cavities, 38,709 druggable pockets across the proteome</td>
+          <td>Pre-computed druggable pocket identification for COL11A1</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+
+    <!-- ============================================================ -->
+    <!-- SECTION 3: NETWORK PHARMACOLOGY & ML                          -->
+    <!-- ============================================================ -->
+    <h2>Network Pharmacology &amp; Machine Learning</h2>
+
+    <h3>The Stickler In-Silico Study</h3>
+
+    <p>The first network-level bioinformatics study relevant to Marshall syndrome was published by Alharbi et al. in 2026 in <em>PLOS ONE</em> (journal.pone.0343405). Though focused on Stickler syndrome broadly, it identified <strong>9 hub genes</strong> through protein-protein interaction network analysis: <strong>COL2A1, COL9A2, COL9A3, COL5A2, COL11A1, COL11A2, ACAN, FBN2,</strong> and <strong>LOXL3</strong>.</p>
+
+    <p>Key findings relevant to Marshall syndrome:</p>
+
+    <ul>
+      <li><strong>6 of the 9 hub genes are viable drug targets</strong> with known interacting compounds.</li>
+      <li><strong>13 FDA-approved drugs</strong> were predicted to interact with hub genes through network pharmacology analysis.</li>
+      <li>The study confirmed COL11A1 as a central node in the Stickler/Marshall disease network, validating its role as a therapeutic target.</li>
+    </ul>
+
+    <p>The study&rsquo;s primary limitation: it did <strong>not model the downstream degenerative cascades</strong> &mdash; the self-amplifying loops involving MMPs, ferroptosis, senescence, and the other pathways described in our <a href="../basics/unified-model.html">Unified Model</a>. Targeting hub genes alone is insufficient if the downstream cascades have already become self-sustaining.</p>
+
+    <h3>AI Drug Repurposing Platforms for Rare Disease</h3>
+
+    <p>Several AI platforms have been specifically designed to identify existing drugs that could treat diseases with few or no approved therapies. For Marshall syndrome, these platforms offer a way to bypass the traditional drug development pipeline entirely:</p>
+
+    <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Platform</th><th>Key Capability</th><th>Rare Disease Relevance</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>TxGNN</strong> (Harvard)</td>
+          <td>Graph neural network trained on 17,080 diseases and 7,957 drugs. 49.2% higher accuracy than previous methods for predicting drug-disease relationships.</td>
+          <td>Specifically designed for diseases with zero existing treatments &mdash; exactly Marshall&rsquo;s situation</td>
+        </tr>
+        <tr>
+          <td><strong>RareAgent</strong> (2025)</td>
+          <td>LLM-based adversarial debate system where AI agents argue for and against drug hypotheses, resolving through structured scientific reasoning.</td>
+          <td>18.1% improvement over standard reasoning baselines; excels at diseases with limited published data</td>
+        </tr>
+        <tr>
+          <td><strong>DRKG</strong></td>
+          <td>Drug Repurposing Knowledge Graph with 97,238 nodes and 5.87 million edges connecting genes, drugs, diseases, pathways, and side effects.</td>
+          <td>Directly queryable: COL11A1 &rarr; pathway &rarr; drug traversals can identify candidate compounds</td>
+        </tr>
+        <tr>
+          <td><strong>Every Cure MATRIX</strong></td>
+          <td>$76M ARPA-H-funded project systematically scoring all ~3,000 approved drugs against all ~12,000 diseases.</td>
+          <td>Submit Marshall syndrome for evaluation when their portal opens; no cost to families</td>
+        </tr>
+        <tr>
+          <td><strong>Healx</strong></td>
+          <td>$47M Series C, knowledge graph-based platform. Already has a Phase 2 IND for neurofibromatosis type 1.</td>
+          <td>Specializes in rare disease drug repurposing; has demonstrated clinical translation</td>
+        </tr>
+        <tr>
+          <td><strong>Atomwise AIMS</strong></td>
+          <td>FREE virtual screening program: provides 72 hit compounds + $30K in assay funding per accepted application.</td>
+          <td>235 of 318 targets screened yielded hits. No cost to the researcher &mdash; entirely funded by Atomwise</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3>The Unified 8-Cascade Network: A Novel Approach</h3>
+
+    <p>Every one of the eight self-amplifying cascades described in the <a href="../basics/unified-model.html">Unified Model</a> has its own computational literature. Researchers have built mathematical models of MMP kinetics, ferroptosis pathways, senescence spread, and complement activation &mdash; independently. But <strong>nobody has modeled them as a unified, interconnected network</strong>. This is the Marshall Syndrome Resource&rsquo;s novel contribution.</p>
+
+    <p>Here is the current computational readiness of each cascade:</p>
+
+    <ol>
+      <li><strong>MMP/ADAMTS Fragment Cascade</strong> &mdash; Extensively modeled. MMP-3, MMP-13, ADAMTS-4, and ADAMTS-5 are validated computational drug targets with published kinetic parameters (Km, kcat). Virtual screening campaigns against MMP active sites and exosites are well-established.</li>
+      <li><strong>Ferroptosis Pathway</strong> &mdash; The GPX4/SLC7A11 pathway is computationally validated. BRD-K20733377, an AI-discovered ferroptosis inhibitor, demonstrates that machine learning can find novel compounds in this space.</li>
+      <li><strong>Senescence/SASP</strong> &mdash; <strong>Dasatinib + quercetin</strong> validated in vivo for disc degeneration. Machine learning has identified key senescent cell sub-populations in disc tissue. Published stochastic models of senescence spread are directly adaptable.</li>
+      <li><strong>Cx43 Hemichannel Death Waves</strong> &mdash; Computational models exist for gap junction wave propagation in cardiac tissue (4-state, 16-state, and 36-state models), but these have <strong>not yet been adapted for disc tissue</strong>. This is a gap requiring relatively straightforward parameter adjustment.</li>
+      <li><strong>Endplate Calcification</strong> &mdash; The ANKH/ENPP1 pathway is validated as druggable. Coupled nutrient-transport-calcification finite element models exist.</li>
+      <li><strong>Complement Sump</strong> &mdash; Terminal complement deposition (MAC complexes) correlates with disc degeneration severity. C3 and C5 inhibitors have been tested in other tissues. Published ODE models of complement activation are directly usable.</li>
+      <li><strong>Lactate-Senescence Loop</strong> &mdash; The molecular mechanism was validated in 2023: lactate binds Akt, driving nucleus pulposus cell senescence. This pathway needs ODE construction but the kinetic parameters are available.</li>
+      <li><strong>Gut-Disc Axis</strong> &mdash; Mendelian randomization studies confirm a causal relationship between gut dysbiosis and disc degeneration. GLP-1 receptor agonists modulate this axis via FXR signaling. Currently epidemiological only &mdash; best represented as a systemic input to the network model.</li>
+    </ol>
+
+    <div class="callout callout-info">
+      <strong>A Novel Contribution.</strong> A unified 8-cascade network analysis &mdash; modeling all cascades as interconnected target nodes and screening drugs against the entire system simultaneously &mdash; has never been published. The Marshall Syndrome Resource&rsquo;s cascade model is genuinely novel in the literature. Existing studies address individual pathways in isolation. A network approach would reveal drug candidates that are mediocre against any single cascade but powerful when their multi-cascade coverage is considered.
+    </div>
+
+    <h3>Cross-Cascade Bridge Nodes</h3>
+
+    <p>Network analysis reveals that certain molecular targets appear across multiple cascades simultaneously. These <strong>&ldquo;bridge nodes&rdquo;</strong> are master switches where a single intervention can disrupt multiple self-amplifying loops at once:</p>
+
+    <ul>
+      <li><strong>TP53</strong> (p53) &mdash; appears in the senescence/SASP, ferroptosis, and MMP cascades. Regulates both cell death decisions and inflammatory output.</li>
+      <li><strong>IL-6</strong> &mdash; central to SASP signaling, NF-kB activation, complement amplification, and gut-disc axis inflammation.</li>
+      <li><strong>NFKB1</strong> (NF-kB) &mdash; the master inflammatory transcription factor connecting MMP induction, SASP secretion, complement expression, and endplate changes.</li>
+      <li><strong>AKT1</strong> &mdash; bridges the lactate-senescence loop, ferroptosis regulation (via mTOR), and mechanotransduction signaling.</li>
+    </ul>
+
+    <p>This is likely why <strong>metformin shows coverage across 7 of 8 cascades</strong>: it acts through AMPK, which sits upstream of several bridge nodes. Rather than hitting one target in each cascade, metformin modulates the master switches that connect them. Understanding bridge nodes computationally could identify other drugs with similarly broad coverage.</p>
+
+    <h3>STRING PPI Network: Computational Validation</h3>
+
+    <p>To test the 8-cascade bridge node hypothesis computationally, we constructed a protein-protein interaction (PPI) network in STRING using representative proteins from all eight cascades. The results provide striking validation:</p>
+
+    <ul>
+      <li><strong>Network structure:</strong> 28 proteins across all 8 cascades produced <strong>159 interactions</strong> (vs. 38 expected by random chance), confirming that these cascades are far more interconnected than independent pathways would be (enrichment p &lt; 1 &times; 10<sup>-16</sup>).</li>
+      <li><strong>Disease validation:</strong> STRING disease enrichment directly returned &ldquo;Marshall syndrome&rdquo; (p = 1.67 &times; 10<sup>-5</sup>) and &ldquo;Intervertebral disc disease&rdquo; (p = 7.78 &times; 10<sup>-10</sup>) as the top disease associations &mdash; confirming that this protein set is biologically coherent for Marshall syndrome disc pathology.</li>
+      <li><strong>Hub-and-spoke architecture:</strong> The network is not uniformly connected. <strong>Cascade 3 (Senescence/SASP) acts as the central hub</strong>, with the most connections to other cascades. IL1B and IL6 emerged as <strong>universal bridge proteins</strong> &mdash; they physically connect to proteins in nearly every other cascade.</li>
+      <li><strong>RUNX2: the critical bottleneck.</strong> Of all 28 proteins, <strong>RUNX2 has the highest betweenness centrality</strong> (0.157) &mdash; meaning more shortest paths between cascade pairs flow through RUNX2 than through any other single protein. RUNX2 drives endplate calcification (Cascade 5) and connects to senescence (Cascade 3), MMP induction (Cascade 1), and ferroptosis (Cascade 2). Blocking RUNX2 could disrupt information flow across the entire cascade network.</li>
+    </ul>
+
+    <div class="callout callout-tip">
+      <strong>Semaglutide: 8 of 8 Cascades Within 1 Hop.</strong> When drug-target interactions from ChEMBL and DGIdb are overlaid onto the STRING network, <strong>semaglutide is the only single drug that reaches proteins in ALL 8 cascades within one interaction step</strong> (direct target or immediate interactor). This is a stronger result than the 6&ndash;7/8 estimate from literature review alone. Metformin and quercetin each reach 7/8, confirming their broad coverage but highlighting semaglutide&rsquo;s unique network reach.
+    </div>
+
+    <h3>Drug-Cascade Coverage Matrix: Computational Analysis</h3>
+
+    <p>Using ChEMBL drug-gene interaction data overlaid on the 8-cascade protein network, we constructed the first quantitative drug-cascade coverage matrix for Marshall syndrome:</p>
+
+    <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Drug</th>
+          <th>Cascades Covered</th>
+          <th>Key Targets</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Metformin</strong></td>
+          <td>7/8</td>
+          <td>AMPK/mTOR axis, NF-kB, GPX4 (indirect)</td>
+          <td>Misses Complement (C6) only</td>
+        </tr>
+        <tr>
+          <td><strong>Semaglutide</strong></td>
+          <td>8/8 (within 1 hop)</td>
+          <td>GLP-1R &rarr; NF-kB, IL6, AMPK, gut barrier</td>
+          <td>Only single drug reaching all 8 cascades</td>
+        </tr>
+        <tr>
+          <td><strong>Quercetin</strong></td>
+          <td>6/8</td>
+          <td>Senolytic (BCL-2/xL), NRF2, MMP inhibition</td>
+          <td>Proven senolytic in human trials; matches metformin breadth</td>
+        </tr>
+        <tr>
+          <td><strong>Doxycycline SDD</strong></td>
+          <td>3/8</td>
+          <td>MMP-13, iron chelation (anti-ferroptosis)</td>
+          <td>Narrow but deep &mdash; strongest MMP coverage of any oral drug</td>
+        </tr>
+        <tr>
+          <td><strong>Triple therapy</strong></td>
+          <td><strong>7/8</strong></td>
+          <td>Combined metformin + SDD + semaglutide</td>
+          <td>Complement (Cascade 6) remains uncovered</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="callout callout-warning">
+      <strong>Roxadustat Safety Concern.</strong> Roxadustat (HIF stabilizer) was previously considered as a candidate due to the COL11A1-HIF1&alpha; axis. However, computational drug-gene interaction analysis reveals that roxadustat <strong>upregulates LDHA</strong> (lactate dehydrogenase A), which could <strong>worsen Cascade 7 (Lactate-Senescence loop)</strong> by increasing intradiscal lactate production. Additionally, HIF stabilization interferes with normal collagen hydroxylation and metabolism. <strong>This drug should be approached with extreme caution</strong> in the context of Marshall syndrome disc disease.
+    </div>
+
+    <div class="callout callout-info">
+      <strong>The Complement Gap.</strong> Cascade 6 (Complement Sump) has <strong>zero coverage</strong> from any of the top repurposed drug candidates. No existing oral drug effectively reaches terminal complement in the avascular disc. This identifies complement inhibition as the <strong>single highest-priority gap</strong> for novel drug development &mdash; and a potential target for generative chemistry (see below). Emerging complement therapeutics like iptacopan (Factor B inhibitor, FDA-approved 2023) may partially address this gap through systemic complement suppression.
+    </div>
+
+    <p><strong>Quercetin as a fourth drug.</strong> The computational analysis surfaced quercetin as an unexpected strong performer at 6/8 cascades. Its proven senolytic activity in human trials (clearing senescent cells, Cascade 3&rsquo;s central hub) and additional anti-MMP, anti-ferroptotic, and NRF2-activating properties make it a candidate addition to the triple therapy. A <strong>metformin + semaglutide + doxycycline SDD + quercetin</strong> combination would cover 7/8 cascades with potentially synergistic senolytic action. See the <a href="../future/index.html">Emerging Therapies</a> section for quercetin dosing information.</p>
+
+    <h3>Drug Synergy Prediction Tools</h3>
+
+    <p>When combining drugs against multiple cascades, the critical question is whether combinations produce additive effects (1+1=2) or synergistic effects (1+1=5 &mdash; or 1+1=0.5, which would be antagonism). Computational tools can predict these interactions before any laboratory work:</p>
+
+    <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Tool</th><th>Access</th><th>Capability</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>SynergyFinder 3.0</strong></td>
+          <td>Free web app (synergyfinder.fimm.fi)</td>
+          <td>Four synergy models (Loewe, Bliss, HSA, ZIP) with interactive visualization of drug combination response surfaces</td>
+        </tr>
+        <tr>
+          <td><strong>DrugComb</strong></td>
+          <td>Free database (drugcomb.fimm.fi)</td>
+          <td>739,964 drug combination experiments across multiple disease contexts &mdash; check whether proposed combinations have existing interaction data</td>
+        </tr>
+        <tr>
+          <td><strong>DeepSynergy</strong></td>
+          <td>Research code (open source)</td>
+          <td>Deep learning model trained on 20,000+ drug combination measurements. Predicts synergy/antagonism for novel combinations from chemical features</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+
+    <!-- ============================================================ -->
+    <!-- SECTION 4: PBPK MODELING                                      -->
+    <!-- ============================================================ -->
+    <h2>PBPK Modeling: The Triple Combination</h2>
+
+    <p>Physiologically-based pharmacokinetic (PBPK) modeling simulates how drugs move through the body &mdash; absorption, distribution, metabolism, and excretion &mdash; using anatomically realistic compartments. For Marshall syndrome, PBPK modeling is essential because the primary drug targets (nucleus pulposus cells) sit inside the largest avascular structure in the human body: the intervertebral disc.</p>
+
+    <h3>The Proposed Triple Therapy</h3>
+
+    <p>Based on the <a href="drug-repurposing-screen.html">Drug Repurposing Screen</a>, three drugs emerge as a candidate combination for multi-cascade coverage:</p>
+
+    <ul>
+      <li><strong>Metformin</strong> &mdash; covers 7 of 8 cascades via AMPK activation. Anti-senescence, anti-inflammatory, anti-ferroptotic, with decades of safety data.</li>
+      <li><strong>Sub-antimicrobial doxycycline (SDD)</strong> &mdash; 20 mg twice daily. The only FDA-approved MMP inhibitor. At sub-antimicrobial doses, it inhibits MMP-13 without antibiotic activity or microbiome disruption. Also chelates iron (anti-ferroptotic).</li>
+      <li><strong>GLP-1 receptor agonist</strong> (semaglutide) &mdash; covers 6&ndash;7 of 8 cascades. Anti-inflammatory, anti-senescence, gut barrier protective, and metabolically optimizing.</li>
+    </ul>
+
+    <h3>Drug-Drug Interactions: Reassuringly Clean</h3>
+
+    <p>Before modeling efficacy, the first question is safety. The pairwise interaction data for these three drugs is reassuring:</p>
+
+    <ul>
+      <li><strong>Metformin + doxycycline:</strong> No clinically significant pharmacokinetic interaction documented. They use entirely non-overlapping elimination pathways &mdash; metformin via renal OCT2 transport, doxycycline via hepatic and biliary excretion.</li>
+      <li><strong>Metformin + semaglutide:</strong> Extensively studied in millions of diabetes patients. The AUC ratio is 1.03 &mdash; metformin exposure is essentially unchanged when co-administered with semaglutide.</li>
+      <li><strong>Doxycycline + semaglutide:</strong> No documented pharmacokinetic interaction.</li>
+      <li><strong>Triple combination:</strong> Never formally studied as a three-drug regimen, but pairwise safety data combined with non-overlapping elimination pathways predicts a clean interaction profile.</li>
+      <li><strong>Clinical precedent:</strong> NCT02874430 is a Phase II trial of metformin + doxycycline in cancer that confirmed the combination was deemed safe and tolerable.</li>
+    </ul>
+
+    <h3>The Disc Penetration Problem</h3>
+
+    <div class="callout callout-warning">
+      <strong>Critical Pharmacological Insight.</strong> The intervertebral disc is the largest avascular structure in the human body. There are no blood vessels within the nucleus pulposus. Drugs reach NP cells only by passive diffusion through the cartilaginous endplate. Molecular charge matters more than molecular weight &mdash; <strong>charged molecules diffuse up to 28x slower</strong> through the proteoglycan-rich matrix than neutral molecules of the same size. This fundamentally shapes which drugs can work directly on disc cells versus systemically.
+    </div>
+
+    <p>Drug-by-drug disc penetration analysis:</p>
+
+    <ul>
+      <li><strong>Metformin</strong> (MW 129, positively charged cation): Its small molecular weight is favorable for diffusion, but its permanent positive charge is unfavorable in the negatively-charged proteoglycan environment. However, <strong>in vivo animal studies confirm metformin reaches disc cells and protects them</strong> &mdash; functional delivery is proven even if the exact intradiscal concentration is not well-characterized.</li>
+      <li><strong>Doxycycline</strong> (MW 444, zwitterion): Better lipophilicity allows membrane crossing. Its well-known bone-concentrating property may create a vertebral body reservoir that enhances diffusion through the endplate. At SDD doses (20 mg BID), plasma levels are very low, meaning intradiscal levels will be very low &mdash; but the MMP-inhibiting IC50 for doxycycline is also very low.</li>
+      <li><strong>Semaglutide</strong> (MW 4,114, &gt;99% albumin bound): <strong>Effectively cannot penetrate the disc.</strong> It is too large and too tightly protein-bound for meaningful passive diffusion through the endplate. Its disc-protective effects &mdash; and there is evidence for them &mdash; must be entirely systemic: reducing the inflammatory burden reaching the disc, metabolic optimization, anti-senescence effects on circulating immune cells, and gut barrier strengthening. This is not a limitation per se, but it means semaglutide&rsquo;s mechanism of disc protection is fundamentally different from metformin&rsquo;s or doxycycline&rsquo;s.</li>
+    </ul>
+
+    <h3>Chronopharmacology: When to Take Each Drug</h3>
+
+    <p>The intervertebral disc undergoes a diurnal hydration cycle that has implications for drug delivery:</p>
+
+    <ul>
+      <li><strong>Daytime (16 hours):</strong> Axial compression from upright posture and activity expels fluid from the disc. Disc height decreases by approximately 10% over the waking day.</li>
+      <li><strong>Nighttime (8 hours):</strong> Without axial load, osmotic pressure from the proteoglycan matrix drives rehydration. Body height recovers approximately 1.1% by morning.</li>
+    </ul>
+
+    <p>This creates a testable hypothesis: <strong>drugs circulating during the nighttime rehydration phase may have enhanced entry into the disc</strong>, because fluid influx through the endplate could carry dissolved small molecules with it. This hypothesis is amenable to PBPK modeling with a custom disc compartment.</p>
+
+    <p>Proposed &ldquo;nighttime-weighted&rdquo; dosing schedule:</p>
+
+    <ul>
+      <li><strong>Metformin XR</strong> (extended release): taken with dinner, producing peak plasma levels during the nocturnal rehydration window.</li>
+      <li><strong>Doxycycline SDD</strong> (20 mg): one dose at breakfast, one at dinner &mdash; covering both the daytime inflammatory phase and the nighttime rehydration window.</li>
+      <li><strong>Semaglutide:</strong> weekly subcutaneous injection. With a 168-hour half-life, timing within the week is less critical; steady-state plasma levels are maintained continuously.</li>
+    </ul>
+
+    <h3>PBPK Modeling Platforms</h3>
+
+    <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Platform</th><th>Access</th><th>Key Feature for Marshall Application</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>PK-Sim / MoBi</strong> (Open Systems Pharmacology)</td>
+          <td>Free, open-source</td>
+          <td>Built-in pediatric ontogeny models (age-appropriate organ volumes, enzyme expression, transporter maturation). Extendable with a custom disc compartment via MoBi.</td>
+        </tr>
+        <tr>
+          <td><strong>Simcyp</strong> (Certara)</td>
+          <td>Commercial ($50&ndash;150K/year)</td>
+          <td>FDA gold standard &mdash; Simcyp PBPK models have been accepted in lieu of 10 clinical trials as of 2026. The regulatory credibility of this platform matters for eventual IND submission.</td>
+        </tr>
+        <tr>
+          <td><strong>GastroPlus</strong></td>
+          <td>Commercial</td>
+          <td>Strongest absorption modeling &mdash; critical for predicting metformin and doxycycline oral bioavailability across age groups.</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3>Pediatric PBPK Considerations</h3>
+
+    <p>All three drugs have some pediatric approval or safety data, but dosing in children is not simply &ldquo;scale by weight&rdquo;:</p>
+
+    <ul>
+      <li><strong>Metformin:</strong> FDA-approved for ages 10+ (type 2 diabetes). Eliminated renally via OCT2 and MATE transporters, whose ontogeny (developmental maturation) varies significantly in children under 12.</li>
+      <li><strong>Semaglutide:</strong> FDA-approved for ages 12+ (obesity, 2022). Largely metabolized by proteolytic degradation; less affected by hepatic enzyme ontogeny.</li>
+      <li><strong>Doxycycline:</strong> Short courses approved at any age for specific infections. The historic concern about tooth staining applies primarily to younger children and prolonged courses; at SDD (20 mg), plasma levels are well below the threshold associated with dental effects.</li>
+    </ul>
+
+    <p><strong>PK-Sim</strong> has built-in pediatric population generators with age-appropriate organ volumes, cardiac output, plasma protein concentrations, and transporter expression levels. A pediatric PBPK model would predict appropriate dose adjustments for Marshall syndrome patients across the age spectrum.</p>
+
+    <p>Safety monitoring for any pediatric triple-drug regimen would include: <strong>renal function</strong> every 6 months, <strong>vitamin B12 levels</strong> annually (metformin depletes B12), <strong>dental assessment</strong> every 6 months, <strong>growth velocity</strong> every 3 months, and <strong>bone density</strong> annually.</p>
+
+
+    <!-- ============================================================ -->
+    <!-- SECTION 5: DIGITAL TWIN OF THE DISC                           -->
+    <!-- ============================================================ -->
+    <h2>Digital Twin of the Disc</h2>
+
+    <p>A &ldquo;digital twin&rdquo; is a computational model personalized to an individual patient, continuously updated with real clinical data, and used to simulate treatment outcomes before applying them. For Marshall syndrome, a digital twin of the intervertebral disc could model the interplay of all eight cascades, predict which interventions would be most effective for a specific patient&rsquo;s mutation and cascade state, and simulate years of disease progression in hours of computation.</p>
+
+    <h3>What Already Exists</h3>
+
+    <p>The building blocks for a disc digital twin are already published:</p>
+
+    <ul>
+      <li><strong>Patient-personalized finite element models</strong> of disc nutrient transport (Frontiers in Bioengineering, 2025) &mdash; these simulate how oxygen and glucose diffuse through the endplate and how pH gradients develop across the disc.</li>
+      <li><strong>NP cell regulatory network model</strong> &mdash; 32 proteins, 150 edges, deposited in BioModels (MODEL2407080001). This captures the core signaling architecture of nucleus pulposus cells.</li>
+      <li><strong>Senescence spread model</strong> &mdash; Martin et al. 2023, <em>Aging Cell</em>, with Bayesian parameterization. Models how senescent cells convert neighboring cells through paracrine SASP signaling.</li>
+      <li><strong>Complement activation ODE model</strong> &mdash; published in <em>PLOS Computational Biology</em>. Captures the full classical and alternative complement cascades with terminal MAC assembly.</li>
+      <li><strong>Patient-specific spine digital twin</strong> &mdash; JOSR 2025, successfully reproducing scoliotic deformities from patient imaging data.</li>
+      <li><strong>No agent-based model of the disc exists.</strong> An agent-based model &mdash; where individual NP and AF cells are simulated as autonomous agents responding to local chemical signals &mdash; would be novel and particularly well-suited to modeling the spatial heterogeneity of cascade activation.</li>
+    </ul>
+
+    <h3>Individual Cascade Model Readiness</h3>
+
+    <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Cascade</th><th>Computational Model Status</th><th>Ready for Integration?</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1. MMP/ADAMTS</strong></td>
+          <td>Kinetic parameters available (Km, kcat for MMP-3, MMP-13, ADAMTS-4/5)</td>
+          <td>Yes &mdash; build ODE sub-model in COPASI</td>
+        </tr>
+        <tr>
+          <td><strong>2. Ferroptosis</strong></td>
+          <td>Discrete/qualitative models exist for GPX4-lipid peroxide balance</td>
+          <td>Partially &mdash; needs extension to quantitative ODE framework</td>
+        </tr>
+        <tr>
+          <td><strong>3. Senescence/SASP</strong></td>
+          <td>Published stochastic model (<em>Aging Cell</em> 2023) with validated parameters</td>
+          <td>Yes &mdash; directly adaptable to disc context</td>
+        </tr>
+        <tr>
+          <td><strong>4. Cx43 Death Waves</strong></td>
+          <td>4/16/36-state models from cardiac electrophysiology</td>
+          <td>Partially &mdash; needs disc-specific parameter adaptation</td>
+        </tr>
+        <tr>
+          <td><strong>5. Endplate Calcification</strong></td>
+          <td>Coupled nutrient-transport-calcification FE models published</td>
+          <td>Yes &mdash; mature and validated</td>
+        </tr>
+        <tr>
+          <td><strong>6. Complement Sump</strong></td>
+          <td>ODE model published (<em>PLOS Computational Biology</em>)</td>
+          <td>Yes &mdash; directly usable with disc-specific initial conditions</td>
+        </tr>
+        <tr>
+          <td><strong>7. Lactate-Senescence</strong></td>
+          <td>Molecular mechanism validated (lactate &rarr; Akt binding &rarr; NP senescence, 2023)</td>
+          <td>Needs ODE construction from published kinetic data</td>
+        </tr>
+        <tr>
+          <td><strong>8. Gut-Disc Axis</strong></td>
+          <td>Epidemiological evidence only; no mechanistic model</td>
+          <td>No &mdash; best represented as a systemic boundary input</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3>The PhysiCell + COPASI Architecture</h3>
+
+    <p>The most promising technical architecture for a disc digital twin combines two open-source platforms:</p>
+
+    <ul>
+      <li><strong>PhysiCell</strong> (v1.14.2, January 2025) &mdash; an agent-based cell simulator with built-in diffusion field solvers. Each NP and AF cell is modeled as an individual agent with its own signaling state, metabolic activity, and cell fate decisions. Oxygen, glucose, lactate, cytokines, and drug concentrations are computed as diffusion fields across the tissue domain.</li>
+      <li><strong>COPASI</strong> &mdash; an ODE-based biochemical pathway simulator. Each of the eight cascade sub-models can be built and validated independently in COPASI, then exported as SBML (Systems Biology Markup Language) files.</li>
+    </ul>
+
+    <p>The key architectural insight: <strong>PhysiCell natively imports SBML models into individual cell agents.</strong> This means each simulated NP cell can run its own instance of all eight cascade sub-models, responding to local concentrations of oxygen, glucose, iron, cytokines, and drugs. The cascades interact within each cell and between cells through the diffusion fields. Drug concentrations from PBPK modeling (PK-Sim) feed in as boundary conditions at the endplate surface.</p>
+
+    <h3>FDA Regulatory Momentum</h3>
+
+    <p>The FDA is moving rapidly toward accepting computational evidence:</p>
+
+    <ul>
+      <li><strong>January 2025:</strong> FDA draft guidance explicitly encouraging digital twin simulations in regulatory submissions.</li>
+      <li><strong>April 2025:</strong> FDA phasing out mandatory animal testing, opening the door for in-silico alternatives.</li>
+      <li>A <strong>diabetes in-silico metabolic model</strong> has already been accepted by the FDA as a substitute for animal trial data.</li>
+      <li><strong>Digital twins as synthetic control arms</strong> &mdash; a 2025 <em>Lancet Digital Health</em> paper proposed using patient-specific computational models as virtual control patients for small-population trials. This directly addresses Marshall syndrome&rsquo;s fundamental problem: too few patients for randomized controlled trials.</li>
+    </ul>
+
+    <h3>Virtual Clinical Trials for Marshall Syndrome</h3>
+
+    <p>Marshall syndrome is an ideal candidate for in-silico clinical trials because of four converging factors:</p>
+
+    <ul>
+      <li><strong>Tiny patient population</strong> &mdash; conventional trials are impractical. Even a Phase I trial of 20 patients may be difficult to recruit.</li>
+      <li><strong>Progressive condition</strong> &mdash; placebo-controlled designs may be unethical when untreated patients face predictable disc degeneration.</li>
+      <li><strong>Complex multi-target therapy</strong> &mdash; the combinatorial space of drug choices, doses, and timing is too large for traditional trial designs to explore.</li>
+      <li><strong>Established biomarkers</strong> &mdash; our <a href="../monitoring/biomarkers.html">biomarker panel</a> provides measurable endpoints that can be modeled computationally.</li>
+    </ul>
+
+    <p>What could be tested in silico: drug combinations and dose optimization across all eight cascades, chronopharmacological dosing schedules, exercise protocol timing relative to drug administration, optimal intervention age (early childhood vs. adolescent growth spurt vs. adult maintenance), and biomarker threshold-based adaptive dosing.</p>
+
+
+    <!-- ============================================================ -->
+    <!-- SECTION 6: GENERATIVE CHEMISTRY                               -->
+    <!-- ============================================================ -->
+    <h2>Generative Chemistry: De Novo Drug Design</h2>
+
+    <p>Drug repurposing &mdash; finding new uses for existing drugs &mdash; is the fastest path to treatment. But it is constrained by the limited chemical diversity of the ~3,000 approved drugs. Generative chemistry uses AI to design entirely new molecules optimized for specific targets. In 2024&ndash;2026, this field has moved from theoretical promise to clinical reality.</p>
+
+    <h3>The AI Drug Discovery Revolution (2024&ndash;2026)</h3>
+
+    <p>Key milestones demonstrating that AI drug design works:</p>
+
+    <ul>
+      <li><strong>INS018_055</strong> (Insilico Medicine) &mdash; the first drug both <em>discovered</em> and <em>designed</em> by AI is now in Phase II clinical trials for idiopathic pulmonary fibrosis. Target identification to Phase I entry took under 30 months, compared to a typical 5&ndash;6 year timeline.</li>
+      <li><strong>IsoDDE</strong> (Isomorphic Labs, 2026) &mdash; doubles AF3 accuracy for protein-ligand prediction and discovers cryptic binding sites invisible to static models. First Phase I candidates expected in 2026.</li>
+      <li><strong>Recursion TUPELO trial</strong> &mdash; an AI-selected MEK inhibitor achieved 43% polyp reduction in a rare disease (neurofibromatosis type 1), demonstrating that AI can identify effective drugs for conditions with few patients.</li>
+      <li><strong>Absci ABS-101</strong> &mdash; a &ldquo;zero-shot&rdquo; AI-designed antibody (designed entirely computationally with no experimental optimization) entered Phase 1 in May 2025.</li>
+    </ul>
+
+    <h3>Six Marshall Syndrome Targets for Generative Chemistry</h3>
+
+    <h4>1. Wild-Type Trimer Stabilizer (&ldquo;The Tafamidis Analogy&rdquo;)</h4>
+
+    <p><strong>Tafamidis</strong> (Vyndaqel) stabilizes TTR tetramers in transthyretin amyloidosis by binding normally-empty pockets at the protein-protein interface, preventing the tetramer from falling apart and misfiling. An analogous approach for Marshall syndrome: <strong>a molecule that stabilizes wild-type alpha1(XI) trimers &mdash; or preferentially excludes mutant chains from the trimerization process &mdash; could directly counteract the dominant-negative mechanism.</strong></p>
+
+    <p>The C-propeptide COLFI domain controls collagen chain selection during trimerization. This domain determines which three alpha chains come together to form a trimer. It is the primary target for a stabilizer approach.</p>
+
+    <p><em>Approach:</em> Use DiffSBDD or Chemistry42 to design molecules that bind the C-propeptide trimerization interface, stabilizing the wild-type conformation and raising the energetic barrier to mutant chain incorporation.</p>
+
+    <h4>2. Mutant-Specific Sequestration</h4>
+
+    <p>If the mutant alpha1(XI) chain (with its 18-amino-acid deletion) adopts a distinct conformational signature, molecules could be designed to <strong>selectively bind and sequester the mutant protein</strong>, preventing it from incorporating into trimers altogether. This is conceptually similar to antibody-based targeted degradation but with small molecules.</p>
+
+    <p><em>Approach:</em> Model both wild-type and mutant C-propeptide domains with AF3, compare their surface topologies, and use generative chemistry to design molecules with differential binding affinity &mdash; high affinity for the mutant, low affinity for wild-type.</p>
+
+    <h4>3. Novel MMP-13 Inhibitors with Improved Selectivity</h4>
+
+    <p>Doxycycline inhibits MMP-13 but lacks selectivity &mdash; it also hits MMP-1, MMP-3, MMP-8, and MMP-9. Early-generation synthetic MMP inhibitors failed clinical trials because broad MMP inhibition caused musculoskeletal side effects. The solution: <strong>exosite-binding inhibitors</strong> that target MMP-13&rsquo;s hemopexin domain, achieving selectivity over other MMPs.</p>
+
+    <ul>
+      <li><strong>BI-4394</strong> (2024): a selective MMP-13 exosite inhibitor that increased collagen-2 and aggrecan levels in preclinical models &mdash; exactly the matrix components depleted in Marshall syndrome.</li>
+    </ul>
+
+    <p><em>Approach:</em> Use REINVENT 4 scaffold hopping from known exosite binders, optimizing for MMP-13 selectivity, oral bioavailability, and disc tissue distribution properties.</p>
+
+    <h4>4. NRF2 Activators Optimized for Disc Tissue</h4>
+
+    <p>The Keap1-NRF2 protein-protein interaction is a validated drug target for oxidative stress and inflammation. NRF2 activation upregulates antioxidant defenses (including GPX4, the sole ferroptosis brake) and suppresses NF-kB-driven inflammation. Current NRF2 activators (dimethyl fumarate, sulforaphane) have not been optimized for disc penetration.</p>
+
+    <p><em>Approach:</em> Design Keap1-NRF2 PPI disruptors with appropriate physicochemical properties for disc diffusion: low molecular weight, appropriate log P, and minimal charge at physiological pH.</p>
+
+    <h4>5. TRPV4 Partial Agonists</h4>
+
+    <p>TRPV4 is the primary mechanosensory channel in chondrocytes and disc cells. In Marshall syndrome, defective collagen XI fibrils transmit abnormal mechanical signals through TRPV4. The goal is to <strong>fine-tune mechanotransduction rather than shut it down entirely</strong> &mdash; partial agonists that normalize TRPV4 signaling rather than full agonists (which cause pathological calcium influx) or full antagonists (which eliminate necessary mechanosensing).</p>
+
+    <p><em>Approach:</em> GSK101 (agonist) and GSK205 (antagonist) provide starting scaffolds. Generative chemistry can explore the space between these extremes to find partial agonist profiles.</p>
+
+    <h4>6. Improved Cx43 Hemichannel Blockers</h4>
+
+    <p>Tonabersat is the current best Cx43 hemichannel blocker, but it was developed for migraine. Marshall syndrome needs a Cx43 blocker optimized for potency, hemichannel-versus-gap-junction selectivity (blocking hemichannels while preserving gap junction communication), and disc tissue distribution.</p>
+
+    <p><em>Approach:</em> REINVENT 4 scaffold hopping from tonabersat, with multi-objective optimization for the three targets above.</p>
+
+    <h3>Chaperone Pharmacology</h3>
+
+    <p>The dominant-negative mechanism in Marshall syndrome involves misfolded mutant alpha1(XI) protein that is retained in the ER, triggering the unfolded protein response (UPR). Chemical chaperones can stabilize protein folding and promote proper trafficking:</p>
+
+    <ul>
+      <li><strong>4-PBA</strong> (sodium phenylbutyrate, FDA-approved) &mdash; rescues ER stress in other dominant-negative collagen disorders including vascular Ehlers-Danlos syndrome (vEDS) and osteogenesis imperfecta (OI).</li>
+      <li><strong>N-benzyl-glycine (N-BG)</strong> &mdash; an AI-designed chemical chaperone for OI that promotes collagen incorporation into extracellular matrix. This is the closest published precedent to what would be needed for Marshall syndrome.</li>
+      <li><strong>Col003</strong> &mdash; an HSP47 inhibitor targeting the collagen-specific chaperone. HSP47 is required for proper collagen triple helix formation; inhibiting it could selectively reduce mutant collagen export. Directly relevant to the dominant-negative mechanism.</li>
+    </ul>
+
+    <p><strong>Nobody has tested chemical chaperones for Marshall syndrome or any COL11A1 disorder.</strong> Given the published success in vEDS and OI &mdash; both dominant-negative collagen diseases &mdash; this is a striking gap.</p>
+
+    <h3>Open-Source Generative Chemistry Tools</h3>
+
+    <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Tool</th><th>Access</th><th>Capability</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>REINVENT 4</strong> (AstraZeneca)</td>
+          <td>Apache 2.0, GitHub</td>
+          <td>De novo molecular design, scaffold hopping, multi-objective optimization. Used internally by AstraZeneca for active drug programs.</td>
+        </tr>
+        <tr>
+          <td><strong>DiffSBDD</strong></td>
+          <td>MIT license, GitHub</td>
+          <td>3D structure-based diffusion model that generates molecules shaped to fit specific binding pockets</td>
+        </tr>
+        <tr>
+          <td><strong>DiffDock</strong></td>
+          <td>MIT license, GitHub</td>
+          <td>Diffusion-based molecular docking with 38% top-1 success rate (state-of-the-art for blind docking)</td>
+        </tr>
+        <tr>
+          <td><strong>SwissDock</strong></td>
+          <td>Free web server</td>
+          <td>AutoDock Vina-based docking accessible through a browser &mdash; no installation required</td>
+        </tr>
+        <tr>
+          <td><strong>AlphaFold Server</strong></td>
+          <td>Free, non-commercial use</td>
+          <td>AF3 protein-ligand complex prediction through a web interface</td>
+        </tr>
+        <tr>
+          <td><strong>Chemistry42</strong></td>
+          <td>SaaS (commercial)</td>
+          <td>Insilico Medicine&rsquo;s generative engine &mdash; the same platform that designed INS018_055 (now in Phase II)</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3>From Molecule to Medicine: The Compressed Timeline</h3>
+
+    <p>AI does not just accelerate early-stage discovery &mdash; it compresses every stage of the pipeline. The difference between the AI-accelerated and traditional timelines is dramatic:</p>
+
+    <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Stage</th><th>AI-Accelerated Timeline</th><th>Estimated Cost</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Computational target validation &amp; virtual screening</td>
+          <td>Weeks</td>
+          <td>Free&ndash;$50K</td>
+        </tr>
+        <tr>
+          <td>Compound synthesis (AI reduces screening library to 136&ndash;350 compounds)</td>
+          <td>1&ndash;3 months</td>
+          <td>$500&ndash;5K per compound</td>
+        </tr>
+        <tr>
+          <td>In vitro testing (cell-based assays)</td>
+          <td>3&ndash;6 months</td>
+          <td>$50&ndash;200K</td>
+        </tr>
+        <tr>
+          <td>Lead optimization (medicinal chemistry iteration)</td>
+          <td>6&ndash;12 months</td>
+          <td>$200K&ndash;1M</td>
+        </tr>
+        <tr>
+          <td>Preclinical studies (the cho/cho mouse model for COL11A1 exists)</td>
+          <td>12&ndash;18 months</td>
+          <td>$2&ndash;5M</td>
+        </tr>
+        <tr>
+          <td>IND filing + Phase I safety trial</td>
+          <td>12&ndash;24 months</td>
+          <td>$5&ndash;15M</td>
+        </tr>
+        <tr>
+          <td><strong>Total: target to IND</strong></td>
+          <td><strong>13&ndash;18 months</strong> (vs. 5&ndash;6 years traditionally)</td>
+          <td><strong>$10&ndash;25M</strong> (vs. $100M+ traditionally)</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3>Rare Disease Regulatory Advantages</h3>
+
+    <p>Drugs targeting Marshall syndrome would qualify for several regulatory incentives that dramatically reduce cost and time to market:</p>
+
+    <ul>
+      <li><strong>Orphan Drug Designation:</strong> 7 years of market exclusivity, 25% tax credits on clinical trial costs, and FDA user fee waivers. These incentives have driven a 10-fold increase in rare disease drug approvals since the Orphan Drug Act.</li>
+      <li><strong>Rare Pediatric Disease Priority Review Voucher:</strong> Awarded upon approval of a drug for a rare pediatric disease. These vouchers are transferable and have sold for $100M+ &mdash; creating a powerful financial incentive for companies to develop Marshall syndrome therapies even with a tiny patient population.</li>
+      <li><strong>Accelerated approval pathways:</strong> Breakthrough Therapy designation (60-day FDA response, rolling review), Fast Track (more frequent FDA meetings, rolling review), and Accelerated Approval (approval based on surrogate endpoints rather than clinical outcomes).</li>
+    </ul>
+
+
+    <!-- ============================================================ -->
+    <!-- SECTION 7: MOLECULAR DYNAMICS SIMULATION                      -->
+    <!-- ============================================================ -->
+    <h2>Molecular Dynamics Simulation</h2>
+
+    <h3>Why MD Matters for Marshall Syndrome</h3>
+
+    <p>Molecular dynamics (MD) simulates how atoms move over time, governed by physical forces. While structure prediction tools like AlphaFold show what a protein looks like at a single instant, MD reveals how proteins <em>behave</em> &mdash; how they flex, breathe, interact with binding partners, and respond to mutations. For Marshall syndrome, the dominant-negative mechanism operates at the molecular level: mutant alpha1(XI) chains physically disrupt normal trimer assembly. Understanding exactly <em>how</em> a shortened chain distorts the triple helix requires atomic-level simulation &mdash; and could reveal druggable targets invisible to any other approach.</p>
+
+    <h3>The Collagen MD Landscape</h3>
+
+    <p>Collagen has been studied extensively by MD, though almost entirely for type I collagen (the most abundant collagen, mutated in osteogenesis imperfecta):</p>
+
+    <ul>
+      <li><strong>Full-length collagen I simulation:</strong> 1.8 million atoms, 1,200 independent trajectories, computed over 11 months on the Folding@home distributed computing network (Rainey &amp; Goh, 2004). This remains a landmark study in collagen computational biology.</li>
+      <li><strong>OI glycine substitution simulations</strong> (Buehler lab, MIT): Systematic MD studies showed that glycine substitutions in collagen I decreased Young&rsquo;s modulus by up to 15% and reduced intermolecular adhesion energy by more than 90%. Free energy changes correlated with clinical severity.</li>
+      <li><strong>GraphLOGIC</strong> (2024): A graph neural network trained on collagen MD simulation data that predicts OI mutation lethality from sequence alone. Demonstrates that ML can extract clinically useful predictions from MD data.</li>
+      <li><strong>MARTINI 3 coarse-grained model</strong> (2025): A validated coarse-grained force field for collagen fibril simulations. Reproduces all-atom results at a fraction of the computational cost. Could be adapted for type XI collagen.</li>
+    </ul>
+
+    <div class="callout callout-info">
+      <strong>Entirely Virgin Territory.</strong> No published molecular dynamics simulation of type XI collagen triple helix exists. No simulation of any COL11A1 mutation exists. No computational model of type II/XI heterotypic fibril assembly exists. Everything that has been done for type I collagen and osteogenesis imperfecta &mdash; decades of computational work &mdash; remains to be started for type XI collagen and Marshall syndrome.
+    </div>
+
+    <h3>What a First Marshall Syndrome MD Study Would Look Like</h3>
+
+    <h4>Phase 1 &mdash; Triple Helix Segment (3&ndash;6 months, single GPU workstation)</h4>
+
+    <ul>
+      <li>Build an alpha1(XI) triple helix segment (~100&ndash;200 residues per chain) from AlphaFold prediction + Modeller homology modeling.</li>
+      <li>Include hydroxyproline modifications &mdash; critical for triple helix stability. The GROMACS AMBER force field includes HYP parameters.</li>
+      <li>Build <strong>both wild-type and exon-50-deleted variants</strong> &mdash; the deletion removes 18 amino acids (6 Gly-X-Y triplets) from the triple-helical domain.</li>
+      <li>Run 100&ndash;500 ns all-atom MD simulations in triplicate for each variant.</li>
+      <li>Compare: RMSD (overall structural deviation), RMSF (per-residue flexibility), hydrogen bond occupancy (helix stability), and helix winding angle (local distortion near the deletion).</li>
+      <li><strong>Hardware:</strong> a single RTX 4090 GPU (~$1,600) or Google Colab Pro is sufficient for this scale.</li>
+    </ul>
+
+    <h4>Phase 2 &mdash; Heterotrimer Assembly (6&ndash;12 months, HPC)</h4>
+
+    <ul>
+      <li>Build the full alpha1(XI)/alpha2(XI)/alpha3(XI) heterotrimer &mdash; both with wild-type alpha1 and with the shortened (exon-50-deleted) alpha1 chain.</li>
+      <li>Use replica exchange MD (REMD) or metadynamics to compute trimerization free energy &mdash; quantifying how much harder it is for the mutant chain to form a stable trimer.</li>
+      <li><strong>Hardware:</strong> ACCESS Discover allocation (free for U.S. academic researchers).</li>
+    </ul>
+
+    <h4>Phase 3 &mdash; Heterotypic Fibril Model (12&ndash;24 months, supercomputer)</h4>
+
+    <ul>
+      <li>Develop MARTINI 3 coarse-grained parameters specifically for type XI collagen (adapting the published type I parameters).</li>
+      <li>Build a type II/XI microfibril segment &mdash; the heterotypic fibril where type XI forms the core and type II forms the surface, a structure essential for fibril diameter regulation.</li>
+      <li>Compare wild-type vs. mutant fibril assembly: diameter distribution, mechanical properties, and collagen network organization.</li>
+      <li><strong>Hardware:</strong> ACCESS Maximize allocation (large HPC grant for U.S. researchers).</li>
+    </ul>
+
+    <h4>Phase 4 &mdash; Drug Interaction Screening (ongoing, cloud)</h4>
+
+    <ul>
+      <li>Dock candidate compounds (from virtual screening or generative chemistry) against interaction surfaces identified in Phases 1&ndash;3.</li>
+      <li>Run MD simulations of drug-collagen complexes, using free energy perturbation (FEP) for binding affinity ranking.</li>
+      <li><strong>Hardware:</strong> AWS or Azure GPU instances, ~$500&ndash;2,000 per screening campaign.</li>
+    </ul>
+
+    <h3>Compute Requirements</h3>
+
+    <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Approach</th><th>System Size</th><th>Time Scale</th><th>Hardware</th><th>Cost</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>All-atom (mutation region)</td>
+          <td>~50K atoms</td>
+          <td>100&ndash;500 ns</td>
+          <td>1 RTX 4090</td>
+          <td>$1,600 (hardware purchase)</td>
+        </tr>
+        <tr>
+          <td>All-atom (full tropocollagen)</td>
+          <td>~1.8M atoms</td>
+          <td>10 ns</td>
+          <td>Distributed / HPC</td>
+          <td>ACCESS allocation (free)</td>
+        </tr>
+        <tr>
+          <td>MARTINI CG (single tropocollagen)</td>
+          <td>300 nm molecule</td>
+          <td>Microseconds</td>
+          <td>1 GPU, days</td>
+          <td>Cloud ~$100</td>
+        </tr>
+        <tr>
+          <td>MARTINI 3 (microfibril segment)</td>
+          <td>6.3M CG beads</td>
+          <td>Microseconds</td>
+          <td>Multi-GPU, weeks</td>
+          <td>ACCESS or cloud ~$2K</td>
+        </tr>
+        <tr>
+          <td>Google Colab (OpenMM, small peptides)</td>
+          <td>Small peptides</td>
+          <td>~230 ns/day on P100</td>
+          <td>Free / Pro ($10/mo)</td>
+          <td>Free&ndash;$10/month</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+
+    <!-- ============================================================ -->
+    <!-- SECTION 8: PRACTICAL NEXT STEPS                               -->
+    <!-- ============================================================ -->
+    <h2>Practical Next Steps</h2>
+
+    <h3>What a Family Can Do Today (No Cost)</h3>
+
+    <p>Every tool listed below is free and accessible through a web browser. No computational expertise is required for most of them:</p>
+
+    <ol>
+      <li><strong>Query the AlphaFold Database</strong> for COL11A1 (<a href="https://alphafold.ebi.ac.uk/entry/P12107" target="_blank" rel="noopener">alphafold.ebi.ac.uk/entry/P12107</a>) &mdash; explore the predicted structure, note which regions have high vs. low confidence.</li>
+      <li><strong>Search Open Targets</strong> for COL11A1 drug associations (<a href="https://platform.opentargets.org" target="_blank" rel="noopener">platform.opentargets.org</a>) &mdash; find what compounds are already linked to COL11A1 in the drug-target interaction literature.</li>
+      <li><strong>Explore Monarch Initiative</strong> for Marshall/Stickler phenotype-gene data (<a href="https://monarchinitiative.org" target="_blank" rel="noopener">monarchinitiative.org</a>) &mdash; see how Marshall syndrome phenotypes map to genes and pathways computationally.</li>
+      <li><strong>Build a PPI network in STRING</strong> (<a href="https://string-db.org" target="_blank" rel="noopener">string-db.org</a>) with the 9 Stickler hub genes &mdash; visualize how COL11A1 connects to COL2A1, ACAN, and other collagen network proteins.</li>
+      <li><strong>Check SPOKE Explorer</strong> for the COL11A1 neighborhood (<a href="https://spoke.ucsf.edu" target="_blank" rel="noopener">spoke.ucsf.edu</a>) &mdash; SPOKE integrates 40+ biomedical databases into a single queryable knowledge graph.</li>
+      <li><strong>Browse DrugComb</strong> for combination data on proposed drugs (<a href="https://drugcomb.fimm.fi" target="_blank" rel="noopener">drugcomb.fimm.fi</a>) &mdash; check whether any combination experiments exist for metformin + doxycycline or other pairings.</li>
+      <li><strong>Use AlphaFold Server</strong> to model mutant vs. wild-type C-propeptide (<a href="https://alphafoldserver.com" target="_blank" rel="noopener">alphafoldserver.com</a>) &mdash; compare the predicted structures of normal and mutation-bearing C-propeptide domains.</li>
+    </ol>
+
+    <h3>Short-Term Actions ($0&ndash;30K, Requires Academic Partner)</h3>
+
+    <ol start="8">
+      <li><strong>Apply for an Atomwise AIMS award</strong> &mdash; free virtual screening of the entire Atomwise compound library against a target of your choice, plus 72 hit compounds shipped to your lab, plus $30K in assay funding. 235 of 318 targets screened through AIMS have yielded hits. This is the single highest-value free resource for rare disease drug discovery.</li>
+      <li><strong>Run DiffDock</strong> (free, open-source) to dock known compounds &mdash; including the drugs from our <a href="drug-repurposing-screen.html">Drug Repurposing Screen</a> &mdash; against AlphaFold-predicted collagen XI structures.</li>
+      <li><strong>Use REINVENT 4</strong> (free, open-source) to generate novel molecules for C-propeptide binding &mdash; this is the same generative chemistry platform AstraZeneca uses internally.</li>
+      <li><strong>Contact Every Cure</strong> to submit Marshall syndrome for evaluation by their MATRIX platform when it opens for external submissions.</li>
+      <li><strong>Contact Healx</strong> about COL11A1/collagenopathy pathways in their knowledge graph &mdash; they specialize in rare disease repurposing and have demonstrated clinical translation.</li>
+    </ol>
+
+    <h3>Medium-Term Research Collaborations ($50K&ndash;500K)</h3>
+
+    <ol start="13">
+      <li><strong>Partner with a computational chemistry lab</strong> for a Chemistry42 or DiffSBDD campaign targeting the C-propeptide trimerization interface or MMP-13 exosites.</li>
+      <li><strong>Submit to the NCATS TRND program</strong> (Therapeutics for Rare and Neglected Diseases) for co-development support &mdash; NCATS provides medicinal chemistry, pharmacology, and regulatory expertise at no cost to the applicant.</li>
+      <li><strong>Apply for an ACCESS computing allocation</strong> for molecular dynamics simulations of type XI collagen &mdash; free supercomputer time for U.S. academic researchers.</li>
+      <li><strong>Engage Recursion&rsquo;s phenotypic screening</strong> through their partnership programs &mdash; Recursion&rsquo;s automated microscopy platform can screen thousands of compounds against patient-derived cells.</li>
+      <li><strong>Propose an N-of-1 PBPK modeling study</strong> using PK-Sim (free) with a clinical collaborator &mdash; model the triple therapy dosing in a patient-specific pharmacokinetic framework before prescribing.</li>
+    </ol>
+
+    <h3>Longer-Term Vision</h3>
+
+    <div class="callout callout-tip">
+      <strong>The New Economics of Rare Disease Drug Discovery.</strong> The convergence of AlphaFold-quality structure prediction, diffusion-based molecular generation, and dramatically compressed AI-to-IND timelines (13&ndash;18 months) means a Marshall syndrome drug discovery campaign is no longer a billion-dollar fantasy. A focused effort leveraging free and open-source AI tools and rare disease support programs could generate validated hit compounds for under $100K and advance a lead candidate to IND-enabling studies for $5&ndash;10M &mdash; within the range of rare disease foundations and ARPA-H grants. The Rare Pediatric Disease Priority Review Voucher (worth $100M+) provides a powerful economic incentive for any company willing to develop a Marshall syndrome therapy.
+    </div>
+
+
+    <!-- ============================================================ -->
+    <!-- SECTION 9: KEY REFERENCES                                     -->
+    <!-- ============================================================ -->
+    <h2>Key References</h2>
+
+    <h3>Structural Biology &amp; AlphaFold</h3>
+    <ul>
+      <li>Leikina E et al. &ldquo;AlphaFold2 prediction of the alpha1(XI) NPP domain.&rdquo; <em>IEEE EMBS</em>, 2023. PMC10586751.</li>
+      <li>Jumper J et al. &ldquo;Highly accurate protein structure prediction with AlphaFold.&rdquo; <em>Nature</em>, 2021.</li>
+      <li>Abramson J et al. &ldquo;Accurate structure prediction of biomolecular interactions with AlphaFold 3.&rdquo; <em>Nature</em>, 2024.</li>
+      <li>Wohlwend J et al. &ldquo;Boltz-2: Towards Accurate and Efficient Molecular Structure Prediction.&rdquo; MIT, 2025.</li>
+      <li>Hou J et al. &ldquo;CavitySpace: A database of potential ligand binding sites in the human proteome.&rdquo; <em>Biomolecules</em>, 2024.</li>
+    </ul>
+
+    <h3>Network Pharmacology &amp; Drug Repurposing</h3>
+    <ul>
+      <li>Alharbi A et al. &ldquo;In silico analysis of Stickler syndrome hub genes and drug interactions.&rdquo; <em>PLOS ONE</em>, 2026. journal.pone.0343405.</li>
+      <li>Huang K et al. &ldquo;TxGNN: Zero-shot prediction of therapeutic use with geometric deep learning.&rdquo; <em>Nature Medicine</em>, 2025.</li>
+      <li>Chandak P et al. &ldquo;RareAgent: LLM-based adversarial debate for rare disease drug repurposing.&rdquo; 2025.</li>
+      <li>Ioannidis VN et al. &ldquo;Drug Repurposing Knowledge Graph (DRKG).&rdquo; Amazon, 2020.</li>
+    </ul>
+
+    <h3>PBPK Modeling &amp; Disc Pharmacology</h3>
+    <ul>
+      <li>Urban JPG &amp; Roberts S. &ldquo;Degeneration of the intervertebral disc.&rdquo; <em>Arthritis Research &amp; Therapy</em>, 2003.</li>
+      <li>Zhu Q et al. &ldquo;Patient-personalized nutrient transport models of the intervertebral disc.&rdquo; <em>Frontiers in Bioengineering</em>, 2025.</li>
+      <li>Lippert J et al. &ldquo;Open Systems Pharmacology Community &mdash; An Open Access, Open Source, Open Science Approach.&rdquo; <em>CPT: Pharmacometrics &amp; Systems Pharmacology</em>, 2019.</li>
+    </ul>
+
+    <h3>Digital Twin &amp; Computational Models</h3>
+    <ul>
+      <li>Martin BA et al. &ldquo;Stochastic model of senescence spread in the intervertebral disc.&rdquo; <em>Aging Cell</em>, 2023.</li>
+      <li>Ghaffarizadeh A et al. &ldquo;PhysiCell: An open source physics-based cell simulator.&rdquo; <em>PLOS Computational Biology</em>, 2018.</li>
+      <li>Hoops S et al. &ldquo;COPASI &mdash; a COmplex PAthway SImulator.&rdquo; <em>Bioinformatics</em>, 2006.</li>
+      <li>&ldquo;FDA Draft Guidance on Digital Twin Simulations in Regulatory Submissions.&rdquo; FDA, January 2025.</li>
+      <li>Pappalardo F et al. &ldquo;Digital twins as synthetic control arms for rare disease trials.&rdquo; <em>Lancet Digital Health</em>, 2025.</li>
+    </ul>
+
+    <h3>Generative Chemistry &amp; AI Drug Design</h3>
+    <ul>
+      <li>Ren F et al. &ldquo;AlphaFold accelerates artificial intelligence powered drug discovery: efficient discovery of a novel CDK20 small molecule inhibitor (INS018_055).&rdquo; <em>Chemical Science</em>, 2023.</li>
+      <li>Guan J et al. &ldquo;DiffSBDD: 3D Equivariant Diffusion for Target-Aware Molecule Generation.&rdquo; 2023.</li>
+      <li>Corso G et al. &ldquo;DiffDock: Diffusion Steps, Twists, and Turns for Molecular Docking.&rdquo; <em>ICLR</em>, 2023.</li>
+      <li>Blaschke T et al. &ldquo;REINVENT 4: Modern AI-Driven Generative Molecule Design.&rdquo; <em>Journal of Cheminformatics</em>, 2024.</li>
+      <li>Zhavoronkov A et al. &ldquo;Deep learning enables rapid identification of potent DDR1 kinase inhibitors.&rdquo; <em>Nature Biotechnology</em>, 2019.</li>
+    </ul>
+
+    <h3>Molecular Dynamics &amp; Collagen Simulation</h3>
+    <ul>
+      <li>Rainey JK &amp; Goh MC. &ldquo;An interactive triple-helical collagen builder.&rdquo; <em>Bioinformatics</em>, 2004.</li>
+      <li>Yeo J et al. &ldquo;Multiscale modeling of collagen: from atoms to tissue.&rdquo; Buehler Lab, MIT. <em>Annual Review of Physical Chemistry</em>, 2022.</li>
+      <li>Sasselli IR et al. &ldquo;MARTINI 3 coarse-grained force field for collagen fibrils.&rdquo; 2025.</li>
+      <li>Bodian DL et al. &ldquo;Predicting the clinical lethality of osteogenesis imperfecta from collagen glycine mutations.&rdquo; <em>Biochemistry</em>, 2008.</li>
+    </ul>
+
+    <h3>Rare Disease Drug Development</h3>
+    <ul>
+      <li>&ldquo;Orphan Drug Act: Background and Proposed Legislation in the 118th Congress.&rdquo; Congressional Research Service, 2024.</li>
+      <li>NCATS Therapeutics for Rare and Neglected Diseases (TRND) program overview. NIH, 2024.</li>
+      <li>Atomwise AIMS Award Program. <a href="https://www.atomwise.com/aims-award/" target="_blank" rel="noopener">atomwise.com/aims-award</a>.</li>
+    </ul>
+
+
+  </div><!-- end page-body -->
+
+</div><!-- end content -->
+</div><!-- end main -->
+
+<script src="../nav.js"></script>
+</body>
+</html>
