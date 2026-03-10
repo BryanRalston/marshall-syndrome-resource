@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acoustic &amp; Biomechanical Frequency Optimization - Marshall Syndrome Resource</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<header class="site-header">
+  <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation">&#9776;</button>
+  <a href="../" class="header-title">Marshall Syndrome <span>Resource</span></a>
+  <div class="search-wrapper">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" id="searchInput" placeholder="Search this page..." aria-label="Search">
+  </div>
+  <span class="search-count" id="searchCount"></span>
+</header>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<nav class="sidebar" id="sidebar"></nav>
+<div class="main">
+<div class="content">
+  <nav class="breadcrumb" id="breadcrumb"></nav>
+  <div class="page-header">
+    <h1>Acoustic &amp; Biomechanical Frequency Optimization</h1>
+  </div>
+  <div class="page-body">
+
+    <div class="callout callout-warning">
+      <strong>TREATMENT RESEARCH &mdash; Important Disclaimer</strong><br>
+      This page synthesizes peer-reviewed biophysics, mechanobiology, and acoustic engineering research as it applies to COL11A1 connective tissue disease. These are <strong>NOT treatment recommendations</strong>. All mechanical and acoustic interventions described here must be evaluated and supervised by qualified medical professionals who understand the specific fragility of collagen XI-deficient tissues. The parameter windows discussed are derived from laboratory and early clinical research&mdash;they have not been validated in Marshall syndrome specifically.
+    </div>
+
+    <p>Marshall syndrome disrupts <strong>collagen XI</strong>, the molecular scaffold that gives cartilage and intervertebral discs their piezoelectric properties&mdash;the ability to generate electrical signals in response to mechanical load. When this scaffold is malformed, the mechanical signaling that normally maintains disc health becomes unreliable. Cells cannot distinguish beneficial loading from destructive overload.</p>
+
+    <p>This creates a precise therapeutic question: <em>Can we deliver mechanical stimulation that activates the protective TRPV4-SOX9-anabolic pathway while avoiding the destructive Piezo1-iron-ferroptosis pathway?</em> The answer lies in understanding the biophysics of two mechanosensitive ion channels&mdash;and engineering acoustic signals that exploit the kinetic differences between them.</p>
+
+    <h2>The Two Channels: TRPV4 and Piezo1</h2>
+
+    <p>Every chondrocyte and nucleus pulposus cell in the body contains two classes of mechanosensitive ion channels that respond to different aspects of mechanical loading. Understanding their distinct activation profiles is the key to safe mechanical therapy in COL11A1 disease.</p>
+
+    <h3>TRPV4 &mdash; The Protective Channel</h3>
+    <p>TRPV4 (Transient Receptor Potential Vanilloid 4) is the primary protective mechanosensor in cartilage and disc cells. When activated within its physiological range, TRPV4 triggers a cascade that maintains tissue health:</p>
+    <ul>
+      <li><strong>SOX9 upregulation</strong> &mdash; the master transcription factor for cartilage identity [7]</li>
+      <li><strong>Collagen II and aggrecan synthesis</strong> &mdash; the structural proteins of healthy cartilage matrix [1]</li>
+      <li><strong>NF-kB suppression</strong> &mdash; reducing inflammatory signaling [8]</li>
+      <li><strong>Anti-ferroptotic signaling</strong> &mdash; via Nrf2/GPX4 activation (see <a href="../emerging/nrf2-convergence.html">NRF2 Convergence</a>)</li>
+    </ul>
+    <p>TRPV4 is expressed on primary cilia&mdash;antenna-like structures protruding from the cell surface. It responds preferentially to <strong>osmotic changes and low-magnitude deformation</strong> at the cell-matrix interface. In substrate deflection experiments, TRPV4 exhibits sensitivity to deflections as small as 10&ndash;50 nm [3]. Its calcium response after mechanical activation can be sustained for seconds to minutes, producing the steady signaling needed for anabolic gene expression [12, 13].</p>
+
+    <div class="callout callout-info">
+      <strong>LIPUS-TRPV4 Connection (2024)</strong><br>
+      A landmark 2024 study demonstrated that LIPUS exerts its cartilage-protective effects specifically through primary cilia-mediated TRPV4 channels. LIPUS altered primary cilia expression, activated TRPV4, induced calcium inward flow, and facilitated NF-kB nuclear translocation to regulate matrix gene transcription. Inhibiting TRPV4 abolished LIPUS benefits; knocking down primary cilia similarly inhibited TRPV4 function [8]. This confirms LIPUS works through the exact protective pathway Marshall syndrome needs.
+    </div>
+
+    <h3>Piezo1 &mdash; The Danger Channel</h3>
+    <p>Piezo1 is a mechanosensitive ion channel that responds to membrane tension and high-magnitude mechanical forces. Under <strong>physiological loading</strong>, Piezo1 contributes to normal mechanotransduction. But under <strong>supraphysiologic deformation</strong>&mdash;the kind that occurs when weakened collagen XI cannot properly distribute load&mdash;Piezo1 becomes a direct mediator of cell death:</p>
+    <ul>
+      <li><strong>Iron influx</strong> &mdash; Piezo1 directly transports iron into the cell, independent of the transferrin receptor (TFRC), the normal iron gatekeeper [4]</li>
+      <li><strong>Ferroptosis activation</strong> &mdash; Iron overload generates mitochondrial reactive oxygen species (ROS), lipid peroxidation, and ferroptotic cell death [4, 5]</li>
+      <li><strong>Inflammatory gene expression</strong> &mdash; Piezo1 activation at supraphysiologic levels induces a transient inflammatory transcriptome overlapping with IL-1-responsive genes associated with cartilage degradation [2]</li>
+      <li><strong>Calcium-mediated catabolism</strong> &mdash; Excessive Ca2+ influx via Piezo1 activates MMP-13, ADAMTS-4/5, and drives matrix breakdown [5]</li>
+    </ul>
+
+    <div class="callout callout-danger">
+      <strong>The Piezo1-Iron-Ferroptosis Axis (Loop 2)</strong><br>
+      A 2024 study in <em>Bone Research</em> definitively established that Piezo1 channels mediate mechanical stress-induced iron influx into nucleus pulposus cells, directly driving ferroptosis. This iron transport is <strong>independent of the transferrin receptor</strong>&mdash;Piezo1 is itself an iron conduit. Conditional knockout of Piezo1 (Col2a1-CreERT Piezo1<sup>flox/flox</sup>) attenuated mechanical injury-induced intervertebral disc degeneration. GsMTx4, a Piezo1 inhibitor, abolished iron influx and significantly alleviated ferroptotic cell death [4]. This directly connects to the <a href="../cascades/ferroptosis.html">ferroptosis cascade</a> that drives disc degeneration in Marshall syndrome.
+    </div>
+
+    <h2>The Kinetic Trick: Why Waveform Matters</h2>
+
+    <p>Here is the critical insight that transforms this research from theoretical interest into practical therapy design: <strong>Piezo1 and TRPV4 have radically different inactivation kinetics</strong>. This difference can be exploited to selectively activate one channel while the other remains quiescent.</p>
+
+    <h3>Piezo1 Inactivation: Milliseconds</h3>
+    <p>Piezo1 channels activate within approximately 1 millisecond of mechanical stimulation, then <strong>rapidly inactivate</strong> with a time constant of approximately 7&ndash;17 ms at physiological membrane potentials [9, 10]. This means:</p>
+    <ul>
+      <li>After a brief mechanical pulse, Piezo1 opens, allows ion flux, then slams shut within ~16 ms</li>
+      <li>While inactivated, Piezo1 <strong>cannot reopen</strong> regardless of continued stimulation</li>
+      <li>Recovery from inactivation requires the stimulus to be removed for a period</li>
+      <li>At negative membrane potentials (the normal resting state of cells), inactivation is fastest [10]</li>
+    </ul>
+
+    <h3>TRPV4 Response: Seconds to Minutes</h3>
+    <p>TRPV4 operates on a fundamentally different timescale:</p>
+    <ul>
+      <li>Initial activation can occur within 4 ms when triggered through integrin-mediated pathways [12]</li>
+      <li>But the calcium response <strong>sustains for seconds to minutes</strong>, producing oscillatory patterns critical for anabolic signaling [13]</li>
+      <li>TRPV4-dependent calcium signaling activates CaMKII and decreases sclerostin protein within 5 minutes of fluid shear stress [14]</li>
+      <li>TRPV4 does not exhibit the rapid ms-scale inactivation that Piezo1 does&mdash;it maintains a sustained, slower signaling mode</li>
+    </ul>
+
+    <h3>The Waveform Design Principle</h3>
+
+    <div class="callout callout-info">
+      <strong>Key Concept: Exploiting Inactivation Kinetics</strong><br>
+      A brief mechanical pulse (duration > 1 ms but < 50 ms) followed by a long off-interval (hundreds of ms to seconds) would:
+      <ol>
+        <li>Activate Piezo1 briefly, then force it into its rapid inactivation state</li>
+        <li>Allow TRPV4 to begin its slower, sustained calcium response during the off-interval</li>
+        <li>Before Piezo1 can recover from inactivation, the next pulse arrives, keeping it locked in the inactivated state</li>
+        <li>Meanwhile, TRPV4 builds cumulative, oscillatory calcium signaling that drives SOX9 and anabolic gene expression</li>
+      </ol>
+      This is the biophysical basis for why <strong>low-frequency pulsed stimulation</strong> (0.1&ndash;1 Hz) at <strong>low amplitude</strong> is protective, while continuous high-frequency stimulation is destructive.
+    </div>
+
+    <p>A 2023 study using micropellet mechanical stimulation demonstrated this principle experimentally: a square pressure signal of 3.5 kPa amplitude at 1 Hz induced a rapid and transient increase in chondrocyte markers including SOX9, aggrecan, and collagen type II. A mere 1% change in cyclical deformation produced a 2&ndash;3-fold change in chondrogenic gene expression [15]. The waveform shape matters&mdash;square, sinusoidal, and constant waveforms at identical amplitude and frequency produced different biological responses.</p>
+
+    <h2>Safe vs. Dangerous Loading: The Reference Chart</h2>
+
+    <p>Based on the consolidated mechanobiology literature, the following chart defines the parameter boundaries between protective and destructive mechanical loading for cartilage and disc cells:</p>
+
+    <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Parameter</th>
+          <th style="background:#1a3a2a;color:#4ade80">Safe / Anabolic Zone</th>
+          <th style="background:#3a2a1a;color:#fbbf24">Caution Zone</th>
+          <th style="background:#3a1a1a;color:#f87171">Danger / Catabolic Zone</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Compressive Strain</strong></td>
+          <td>3&ndash;10%</td>
+          <td>10&ndash;15%</td>
+          <td>&gt;15% (Piezo1 dominates at ~50%) [1, 3]</td>
+        </tr>
+        <tr>
+          <td><strong>Loading Frequency</strong></td>
+          <td>0.17&ndash;0.5 Hz</td>
+          <td>0.5&ndash;1.0 Hz</td>
+          <td>&gt;1.0 Hz continuous [1]</td>
+        </tr>
+        <tr>
+          <td><strong>Duration per Session</strong></td>
+          <td>2&ndash;12 hours (cyclic)</td>
+          <td>12&ndash;24 hours</td>
+          <td>&gt;24 hours continuous [1]</td>
+        </tr>
+        <tr>
+          <td><strong>Hydrostatic Pressure</strong></td>
+          <td>0.2&ndash;1.0 MPa</td>
+          <td>1.0&ndash;2.5 MPa</td>
+          <td>&gt;2.5 MPa (catabolic shift) [21]</td>
+        </tr>
+        <tr>
+          <td><strong>LIPUS Intensity</strong></td>
+          <td>15&ndash;60 mW/cm<sup>2</sup> SATA</td>
+          <td>60&ndash;100 mW/cm<sup>2</sup></td>
+          <td>&gt;100 mW/cm<sup>2</sup> [6, 16]</td>
+        </tr>
+        <tr>
+          <td><strong>LIPUS Frequency</strong></td>
+          <td>1.5&ndash;3.0 MHz (pulsed)</td>
+          <td>0.75&ndash;1.5 MHz</td>
+          <td>Continuous-wave at any frequency [6]</td>
+        </tr>
+        <tr>
+          <td><strong>WBV Frequency</strong></td>
+          <td colspan="2" style="background:#3a1a1a;color:#f87171;text-align:center">CONTRAINDICATED for disc pathology</td>
+          <td>4.5&ndash;13 Hz resonant = max spine damage [19, 20]</td>
+        </tr>
+        <tr>
+          <td><strong>Primary Channel Activated</strong></td>
+          <td>TRPV4 dominant</td>
+          <td>Both active</td>
+          <td>Piezo1 dominant [1, 2, 3]</td>
+        </tr>
+        <tr>
+          <td><strong>Downstream Effect</strong></td>
+          <td>SOX9, Col-II, aggrecan up</td>
+          <td>Mixed signaling</td>
+          <td>MMP-13, ADAMTS, ferroptosis [4, 5]</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="callout callout-warning">
+      <strong>Marshall Syndrome Adjustment</strong><br>
+      In COL11A1 disease, the collagen matrix that normally distributes mechanical load is structurally compromised. This means the <strong>safe zone boundaries shift leftward</strong>&mdash;lower strain, lower frequency, shorter duration. The "caution zone" for healthy individuals may already be the "danger zone" for Marshall syndrome connective tissue. All protocols should target the <strong>lower end of the safe zone</strong> and be titrated upward only under monitoring.
+    </div>
+
+    <h2>LIPUS Parameter Optimization</h2>
+
+    <p>Low-Intensity Pulsed Ultrasound remains the most pathway-aligned acoustic intervention for Marshall syndrome (see <a href="lipus.html">LIPUS detailed page</a>). This section focuses on the precise parameter optimization research that informs protocol design.</p>
+
+    <h3>Standard Parameters (FDA-Cleared)</h3>
+    <p>The most extensively studied LIPUS protocol, embodied in the Exogen device system, uses [6, 16]:</p>
+    <ul>
+      <li><strong>Carrier frequency:</strong> 1.5 MHz</li>
+      <li><strong>Burst waveform:</strong> 200 microseconds on, 800 microseconds off (1 kHz repetition rate)</li>
+      <li><strong>Duty cycle:</strong> 20%</li>
+      <li><strong>Intensity:</strong> 30 mW/cm<sup>2</sup> SATA (spatial-average temporal-average)</li>
+      <li><strong>Treatment duration:</strong> 20 minutes per day</li>
+    </ul>
+    <p>This protocol was originally optimized for bone healing (fracture non-union) and has the strongest safety data, with FDA approval since 1994 [16].</p>
+
+    <h3>Cartilage-Optimized Parameters (Research)</h3>
+    <p>Recent research suggests cartilage cells may respond optimally to different parameters than bone:</p>
+
+    <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Parameter</th><th>Bone Protocol (Exogen)</th><th>Cartilage Research Emerging</th><th>Rationale</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Frequency</strong></td>
+          <td>1.5 MHz</td>
+          <td>3.0&ndash;4.8 MHz</td>
+          <td>Chondrocyte resonant frequency is 3.5&ndash;4.8 MHz in vivo; resonant stimulation achieves equivalent deformation at ~12x lower intensity [17]</td>
+        </tr>
+        <tr>
+          <td><strong>Intensity</strong></td>
+          <td>30 mW/cm<sup>2</sup></td>
+          <td>30&ndash;60 mW/cm<sup>2</sup></td>
+          <td>30 mW/cm<sup>2</sup> effective for NP cells; SOX9 activated at 30&ndash;90 mW/cm<sup>2</sup> [7, 8]</td>
+        </tr>
+        <tr>
+          <td><strong>Duty cycle</strong></td>
+          <td>20%</td>
+          <td>20&ndash;50%</td>
+          <td>50% duty cycle at 2 MHz pulsed shows cartilage synthesis benefits [15]</td>
+        </tr>
+        <tr>
+          <td><strong>Duration</strong></td>
+          <td>20 min/day</td>
+          <td>20 min/day or every other day</td>
+          <td>Every-other-day treatment shows equivalent or superior chondrocyte proliferation [15]</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="callout callout-info">
+      <strong>Resonant Frequency Insight</strong><br>
+      A theoretical modeling study using Biot's poroelastic theory found that applying ultrasound at 14 kPa pressure amplitude at the chondrocyte resonant frequency (~5 MHz in isolated cells, ~3.5&ndash;4.8 MHz in vivo) produced cellular deformation equivalent to 170 kPa at 1 MHz&mdash;a roughly <strong>12-fold reduction in required intensity</strong>. The surrounding matrix environment shifts the resonant frequency: native cartilage ECM brings it to ~3.5&ndash;4.1 MHz, fibrin hydrogel to ~3.7 MHz, and blood clot embedding to ~4.8 MHz [17]. This has significant implications for safety: resonant-frequency LIPUS could achieve therapeutic deformation at intensities far below any damage threshold.
+    </div>
+
+    <h3>LIPUS Mechanism Through TRPV4</h3>
+    <p>The mechanistic pathway from LIPUS to cartilage protection runs directly through the protective channel:</p>
+    <ol>
+      <li>LIPUS pressure waves cause micro-deformation of primary cilia on chondrocyte/NP cell surface</li>
+      <li>Primary cilia deflection opens TRPV4 channels localized on the ciliary membrane [8]</li>
+      <li>Calcium influx through TRPV4 activates CaMKII and downstream kinases</li>
+      <li>FAK/PI3K/Akt cascade is engaged via integrin-mediated mechanotransduction</li>
+      <li>SOX9 transcription factor is upregulated, driving collagen II and aggrecan expression [7]</li>
+      <li>NF-kB inflammatory signaling is suppressed through P65 nuclear translocation inhibition [8]</li>
+      <li>Nrf2/GPX4 anti-ferroptotic pathway is activated (see <a href="lipus.html">LIPUS page</a>)</li>
+    </ol>
+    <p>Critically, the <strong>low intensity and pulsed nature</strong> of LIPUS means it activates TRPV4 through gentle osmotic and deflection-based stimulation&mdash;not through the membrane-stretching forces that would engage Piezo1. This is why LIPUS is safe while whole-body vibration is not.</p>
+
+    <h2>Focused Ultrasound: Precision Acoustic Delivery</h2>
+
+    <p>While standard LIPUS uses unfocused transducers with broad beam patterns, <strong>focused ultrasound</strong> technology can concentrate acoustic energy into submillimeter volumes&mdash;potentially enabling precision targeting of individual disc segments.</p>
+
+    <h3>Low-Intensity Focused Ultrasound (LIFU)</h3>
+    <p>LIFU maintains the same low intensities as LIPUS but focuses the beam geometrically, enabling:</p>
+    <ul>
+      <li>Targeting specific disc levels without affecting adjacent structures</li>
+      <li>Higher local energy density at the target with lower total body exposure</li>
+      <li>Image-guided delivery using ultrasound or MRI for targeting confirmation</li>
+    </ul>
+    <p>The Focused Ultrasound Foundation lists disc degeneration as an active area of investigation, with preclinical studies exploring both thermal and non-thermal mechanisms for disc repair [18]. For Marshall syndrome, only the <strong>non-thermal, low-intensity mode</strong> is relevant&mdash;any thermal protocol risks additional tissue damage in collagen-deficient structures.</p>
+
+    <p><strong>Evidence level:</strong> Early preclinical. Not yet available for clinical disc treatment but represents a plausible future refinement of LIPUS therapy.</p>
+
+    <h2>Stochastic Resonance: The Noise Advantage</h2>
+
+    <p>Stochastic resonance is a counterintuitive phenomenon in which <strong>adding noise to a subthreshold signal improves the system's response</strong>. In biological mechanosensitive systems, this means that small amounts of random vibration superimposed on a structured loading signal can enhance cellular sensitivity&mdash;potentially allowing even lower-amplitude therapeutic stimulation to reach TRPV4 activation thresholds.</p>
+
+    <h3>Evidence in Chondrocytes</h3>
+    <p>A series of studies by Weber and colleagues directly tested stochastic resonance in cartilage tissue engineering [22, 23]:</p>
+    <ul>
+      <li>Chondrocyte-seeded agarose gels were subjected to dynamic compressive loading with or without superimposed vibrations of varying amplitudes and frequency bandwidths</li>
+      <li>Superimposed vibrations <strong>increased matrix synthesis by 20&ndash;60%</strong> compared to structured loading alone [22]</li>
+      <li>The mechanism appears to involve faster recovery of mechanosensitivity after stimulation&mdash;cells regained their ability to respond to mechanical signals more quickly between loading cycles [22]</li>
+      <li>A follow-up study confirmed that stochastic resonance combined with dynamic compression <strong>improved growth of adult chondrocytes</strong> in agarose gel constructs, even when suboptimal stimulation conditions were used [23]</li>
+    </ul>
+
+    <h3>Why This Matters for Marshall Syndrome</h3>
+    <p>In COL11A1 disease, the corrupted collagen matrix reduces the fidelity of mechanical signal transmission from ECM to cell surface. Cells may be receiving mechanical signals that are <strong>below the TRPV4 activation threshold</strong> that would normally be reached with intact collagen XI. Stochastic resonance could potentially restore TRPV4 activation by boosting subthreshold signals above the channel's gating threshold&mdash;without increasing the peak amplitude into the Piezo1 danger zone.</p>
+
+    <p>This is conceptually similar to how noise-enhanced vibrating insoles improve proprioception and balance in elderly patients with reduced mechanoreceptor sensitivity [24]&mdash;the noise does not increase the signal itself but improves the system's ability to detect it.</p>
+
+    <p><strong>Evidence level:</strong> Moderate (demonstrated in chondrocyte cultures; not yet tested in disc cells or in vivo for disc applications).</p>
+
+    <h2>Whole-Body Vibration: Why It Is Contraindicated</h2>
+
+    <div class="callout callout-danger">
+      <strong>CONTRAINDICATED in Marshall Syndrome</strong><br>
+      Whole-body vibration (WBV) platforms are marketed for fitness and bone density. They are <strong>dangerous for disc pathology</strong> and absolutely contraindicated in COL11A1 connective tissue disease. The evidence below explains why.
+    </div>
+
+    <p>Multiple studies have established that WBV causes intervertebral disc degeneration through mechanisms that directly overlap with the Marshall syndrome disease cascade:</p>
+
+    <h3>Mechanism of Harm</h3>
+    <ul>
+      <li><strong>Resonant amplification:</strong> The human lumbar spine has resonant frequencies at 4.5&ndash;5.5 Hz and 9.4&ndash;13.1 Hz. At these frequencies, vibration amplitude is <em>amplified</em> through the spine, dramatically increasing compressive stress on discs [19]</li>
+      <li><strong>Catabolic cascade activation:</strong> WBV at 45 Hz for 30 min/day over 10 weeks upregulated MMP-13, ADAMTS-4/5, and hypertrophic markers (Collagen X) while providing no anabolic benefit [20]</li>
+      <li><strong>Annulus fibrosus disruption:</strong> Histological examination after WBV showed disordered annulus fibrosus fibers, decreased nucleus pulposus cellularity, and reduced disc height index [20]</li>
+      <li><strong>Irreversibility:</strong> WBV-induced disc degeneration was <strong>not reversed</strong> after cessation of vibration exposure [19]</li>
+      <li><strong>Cumulative damage:</strong> Short-term WBV showed no effect on ADAMTS4/5 expression, but long-term exposure progressively induced catabolism&mdash;suggesting the damage threshold is lower than acute experiments would predict [19]</li>
+    </ul>
+
+    <h3>Why WBV Activates the Wrong Channel</h3>
+    <p>WBV delivers <strong>continuous, high-frequency membrane stretching</strong>&mdash;exactly the stimulus profile that preferentially activates Piezo1 over TRPV4. The vibration frequencies used in commercial platforms (15&ndash;60 Hz) produce rapid, repetitive membrane deformation that:</p>
+    <ol>
+      <li>Exceeds the Piezo1 recovery-from-inactivation time, forcing continuous Piezo1 activation-inactivation cycling</li>
+      <li>Generates cumulative calcium and iron influx through repeated Piezo1 opening events</li>
+      <li>Does not allow the slow, sustained TRPV4 calcium oscillation patterns needed for anabolic signaling</li>
+      <li>In collagen XI-deficient tissue, the lack of proper load distribution means local strains at the cell level may far exceed the applied macroscopic strain</li>
+    </ol>
+
+    <p>This is the biophysical explanation for why vibration platforms accelerate disc degeneration: they are, in effect, a Piezo1-activation device. In Marshall syndrome, where the Piezo1-iron-ferroptosis axis is already sensitized by defective matrix, the risk is compounded.</p>
+
+    <h2>Aquatic Therapy: Near-Optimal Biomechanics</h2>
+
+    <p>Swimming and aquatic exercise represent the nearest approximation to an ideal loading environment for Marshall syndrome discs. Water simultaneously provides three therapeutic effects: <strong>gravitational unloading</strong>, <strong>gentle mechanical stimulation</strong>, and <strong>hydrostatic pressure</strong>.</p>
+
+    <h3>Biomechanical Advantages</h3>
+    <ul>
+      <li><strong>Weight reduction:</strong> Chest-deep immersion reduces effective body weight to approximately 10&ndash;20% of land weight, minimizing compressive forces on vertebrae and discs [25, 26]</li>
+      <li><strong>Horizontal load distribution:</strong> The supine/prone swimming position distributes mechanical load equally across the spine, avoiding the focal loading of upright posture that concentrates stress on compromised disc segments [25]</li>
+      <li><strong>Intradiscal pressure reduction:</strong> Reclining positions reduce intradiscal pressure by 50&ndash;80% compared to upright standing [26]. Aquatic buoyancy further augments this unloading effect</li>
+      <li><strong>Hydrostatic pressure as therapy:</strong> Water exerts gentle, uniform hydrostatic pressure on the body. Studies show that physiological hydrostatic pressure (0.2&ndash;1.0 MPa) activates <strong>anabolic signaling</strong> in both chondrocytes and nucleus pulposus cells, upregulating collagen II and aggrecan expression [21]</li>
+      <li><strong>Nutrient delivery:</strong> The rhythmic muscle contractions of swimming improve systemic circulation, enhancing nutrient diffusion to the avascular disc interior [25]</li>
+    </ul>
+
+    <h3>Stroke Selection</h3>
+    <p>Not all swimming strokes are equally safe for the spine [25]:</p>
+    <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Stroke</th><th>Safety Profile</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Freestyle (Front Crawl)</strong></td>
+          <td style="color:#4ade80">Recommended</td>
+          <td>Symmetrical, long-axis stroke with low lumbar strain. Odds ratio 0.04&ndash;0.74 for back pain risk [25]</td>
+        </tr>
+        <tr>
+          <td><strong>Backstroke</strong></td>
+          <td style="color:#4ade80">Recommended</td>
+          <td>Symmetrical, long-axis. Supine position provides natural spinal extension without load</td>
+        </tr>
+        <tr>
+          <td><strong>Breaststroke</strong></td>
+          <td style="color:#fbbf24">Caution</td>
+          <td>Moderately increases lumbar extension. Mixed evidence. Use modified form with reduced hyperextension</td>
+        </tr>
+        <tr>
+          <td><strong>Butterfly</strong></td>
+          <td style="color:#f87171">Avoid</td>
+          <td>Highest spinal risk. Repetitive lumbar hyperextension. Odds ratio 0.97&ndash;2.7 for back pain [25]</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3>Aquatic Therapy Protocol</h3>
+    <p>Based on the biomechanical evidence and the safe loading parameters defined above:</p>
+    <ul>
+      <li><strong>Frequency:</strong> 2&ndash;3 sessions per week (allows recovery between sessions)</li>
+      <li><strong>Duration:</strong> 30&ndash;45 minutes per session</li>
+      <li><strong>Intensity:</strong> 50&ndash;70% maximum heart rate (aerobic, not anaerobic)</li>
+      <li><strong>Water temperature:</strong> 28&ndash;32 C (warm enough to reduce muscle guarding, not hot enough to increase inflammation)</li>
+      <li><strong>Depth:</strong> Chest-deep minimum for adequate gravitational unloading</li>
+      <li><strong>Primary strokes:</strong> Freestyle and backstroke; avoid butterfly</li>
+      <li><strong>Supplemental exercises:</strong> Water walking, gentle aqua jogging (at chest depth), flutter kicks with board</li>
+    </ul>
+
+    <div class="callout callout-info">
+      <strong>Why Water Is Uniquely Suited to Marshall Syndrome</strong><br>
+      Water simultaneously provides: (1) gravitational unloading that keeps compressive strain well below the Piezo1 activation threshold; (2) hydrostatic pressure in the exact range (0.2&ndash;1.0 MPa) that promotes anabolic signaling through TRPV4; (3) gentle, rhythmic mechanical stimulation from swimming movements at frequencies (0.3&ndash;0.8 Hz for typical stroke cadence) that fall squarely in the TRPV4-dominant safe zone; and (4) improved circulation for disc nutrient delivery. No land-based exercise provides all four simultaneously.
+    </div>
+
+    <h2>Impedance Monitoring: The Feedback Problem</h2>
+
+    <p>A critical gap in current acoustic optimization is the lack of <strong>real-time feedback</strong> on disc hydration and matrix status during therapy. Without knowing how the disc is responding moment-to-moment, parameter optimization must rely on population-averaged data rather than individualized titration.</p>
+
+    <h3>Bioelectrical Impedance Spectroscopy (BIS)</h3>
+    <p>BIS measures tissue impedance at multiple frequencies (typically 3 kHz to 1000 kHz) to distinguish between intracellular and extracellular fluid volumes [27]. The principle is that:</p>
+    <ul>
+      <li>At low frequencies, current flows only through extracellular water</li>
+      <li>At high frequencies, current penetrates cell membranes and flows through total body water</li>
+      <li>The ratio of low-to-high frequency impedance reflects hydration status and tissue composition</li>
+    </ul>
+    <p>Disc degeneration is fundamentally a <strong>dehydration disease</strong>&mdash;the nucleus pulposus loses its water-binding proteoglycans, reducing hydration from ~85% in healthy discs to &lt;70% in degenerated discs. Changes in disc impedance would, in theory, reflect changes in hydration, proteoglycan content, and matrix integrity.</p>
+
+    <h3>Current State of Technology</h3>
+    <p>Wearable electrical impedance tomography (EIT) has advanced rapidly, with 2024&ndash;2025 publications demonstrating wearable armband-form EIT for noninvasive bone monitoring and triboelectric impedance tomography systems for dynamic biological tissue imaging [28]. However, <strong>direct impedance measurement of intervertebral discs</strong> through the overlying tissue layers (skin, muscle, bone) remains technically challenging and is not yet available in clinical or consumer devices.</p>
+
+    <p><strong>Evidence level:</strong> Theoretical/emerging. The physics are sound, the wearable hardware is advancing, but disc-specific impedance monitoring is not yet practical. This remains an important future direction for personalized acoustic therapy optimization.</p>
+
+    <h2>Integration: The Multi-Modal Protocol</h2>
+
+    <p>No single modality perfectly addresses all aspects of mechanical optimization for Marshall syndrome discs. The evidence supports a multi-layered approach that combines the strengths of different interventions:</p>
+
+    <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Layer</th><th>Modality</th><th>Mechanism</th><th>Evidence Level</th><th>Availability</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1. Foundation</strong></td>
+          <td>Aquatic therapy</td>
+          <td>TRPV4 activation via hydrostatic pressure + gentle mechanical loading in safe zone</td>
+          <td>Strong</td>
+          <td>Available now (pool access)</td>
+        </tr>
+        <tr>
+          <td><strong>2. Targeted Acoustic</strong></td>
+          <td>LIPUS (standard protocol)</td>
+          <td>Primary cilia-mediated TRPV4 activation, SOX9 upregulation, anti-ferroptotic</td>
+          <td>Strong</td>
+          <td>Available (Exogen, MELMAK)</td>
+        </tr>
+        <tr>
+          <td><strong>3. Optimized Acoustic</strong></td>
+          <td>LIPUS (cartilage-optimized)</td>
+          <td>Resonant frequency targeting for reduced intensity requirement</td>
+          <td>Moderate</td>
+          <td>Research only (no consumer device at 3.5&ndash;4.8 MHz)</td>
+        </tr>
+        <tr>
+          <td><strong>4. Signal Enhancement</strong></td>
+          <td>Stochastic resonance overlay</td>
+          <td>Noise-enhanced TRPV4 sensitivity, prevents desensitization</td>
+          <td>Moderate</td>
+          <td>Research only</td>
+        </tr>
+        <tr>
+          <td><strong>5. Precision Delivery</strong></td>
+          <td>Focused ultrasound (LIFU)</td>
+          <td>Submillimeter acoustic targeting of specific disc segments</td>
+          <td>Early</td>
+          <td>Research only</td>
+        </tr>
+        <tr>
+          <td><strong>6. Feedback</strong></td>
+          <td>Impedance monitoring</td>
+          <td>Real-time hydration tracking for protocol titration</td>
+          <td>Theoretical</td>
+          <td>Not yet available for disc</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h2>Practical Guide: What the Family Can Do Now</h2>
+
+    <div class="callout callout-info">
+      <strong>Actionable Interventions (Available Today)</strong><br>
+      The following are interventions that can be discussed with your child's medical team and potentially implemented now, based on current evidence and available technology.
+    </div>
+
+    <h3>1. Aquatic Therapy Program</h3>
+    <p>This is the highest-priority, lowest-risk intervention. It requires only pool access and a basic understanding of the protocol:</p>
+    <ul>
+      <li><strong>Schedule:</strong> 2&ndash;3 times per week, with at least one rest day between sessions</li>
+      <li><strong>Duration:</strong> Start at 20 minutes, gradually increase to 30&ndash;45 minutes over 4&ndash;6 weeks</li>
+      <li><strong>Strokes:</strong> Freestyle and backstroke. Avoid butterfly. Modified breaststroke acceptable if no pain</li>
+      <li><strong>Warm-up:</strong> 5 minutes of water walking at chest depth before swimming</li>
+      <li><strong>Heart rate target:</strong> 50&ndash;70% of age-predicted maximum (220 minus age)</li>
+      <li><strong>Temperature:</strong> Warm pool preferred (28&ndash;32 C / 82&ndash;90 F); avoid cold water which increases muscle guarding</li>
+      <li><strong>Post-session:</strong> 5 minutes of gentle floating/stretching in water before exiting</li>
+      <li><strong>Red flags to stop:</strong> Increased pain during or after swimming, numbness/tingling in extremities, visible fatigue or form breakdown</li>
+    </ul>
+
+    <h3>2. LIPUS Devices</h3>
+    <p>Two FDA-cleared LIPUS devices are available for home use, though they are currently indicated for bone healing rather than disc treatment. Discussion with your medical team about off-label application is essential.</p>
+
+    <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Device</th><th>Specifications</th><th>FDA Status</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Exogen (Bioventus)</strong></td>
+          <td>1.5 MHz, 30 mW/cm<sup>2</sup>, 20% duty cycle, 20 min/day</td>
+          <td>FDA-approved (1994 fresh fractures; 2000 non-unions)</td>
+          <td>Most extensively studied LIPUS device with 32+ supporting clinical studies. Simple user interface designed for home use. Minimum 191 treatments per unit [16]</td>
+        </tr>
+        <tr>
+          <td><strong>MELMAK</strong></td>
+          <td>1.5 MHz, 30 mW/cm<sup>2</sup>, 20% duty cycle, 20 min/day</td>
+          <td>FDA-cleared</td>
+          <td>Similar specifications to Exogen. 2 supporting clinical studies [16]</td>
+        </tr>
+        <tr>
+          <td><strong>AccelStim (Orthofix)</strong></td>
+          <td>1.5 MHz low-intensity pulsed ultrasound</td>
+          <td>FDA-approved (May 2022)</td>
+          <td>Newer entry to market [16]</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="callout callout-warning">
+      <strong>Important: Off-Label Use Considerations</strong><br>
+      These devices are FDA-cleared for <strong>bone fracture healing</strong>, not for intervertebral disc treatment. Using them on the spine for disc protection would be off-label. The scientific rationale is strong&mdash;LIPUS activates the same TRPV4-SOX9-anti-ferroptotic pathways in disc cells as in bone cells&mdash;but clinical trials specifically for disc degeneration are still limited. This decision must be made in consultation with physicians who understand both the device and the disease.
+      <br><br>
+      <strong>Placement consideration:</strong> Standard LIPUS transducers are designed for peripheral bone sites (tibia, radius). Reaching lumbar discs requires penetration through posterior spinal muscles and bony elements. A physician experienced in therapeutic ultrasound can advise on transducer positioning, coupling gel use, and realistic energy delivery to deep structures.
+    </div>
+
+    <h3>3. What to Avoid</h3>
+    <ul>
+      <li><strong>Whole-body vibration platforms</strong> &mdash; Contraindicated. Activates Piezo1, accelerates disc degeneration through MMP/ADAMTS upregulation and may be irreversible [19, 20]</li>
+      <li><strong>High-impact loading</strong> &mdash; Running, jumping, trampolines. Generates compressive strains well above the Piezo1 activation threshold in collagen XI-deficient tissue</li>
+      <li><strong>Prolonged static sitting</strong> &mdash; Intradiscal pressure is higher in seated position than standing. Regular movement breaks (every 30&ndash;45 minutes) are essential</li>
+      <li><strong>Heavy lifting</strong> &mdash; Compressive forces during heavy lifting can exceed 1000 N on lumbar discs, far above the safe loading zone</li>
+      <li><strong>Conventional "therapeutic" ultrasound at high intensity</strong> &mdash; Standard physical therapy ultrasound devices operate at 1&ndash;3 W/cm<sup>2</sup>, which is 30&ndash;100x the intensity of LIPUS. These generate tissue heating and may cause damage to collagen-deficient tissue</li>
+    </ul>
+
+    <h3>4. Future Monitoring Approaches</h3>
+    <p>Families should ask their medical team about:</p>
+    <ul>
+      <li><strong>Serial MRI monitoring:</strong> T2-weighted MRI signal reflects disc hydration. Baseline plus annual follow-up can track whether the protocol is maintaining or improving disc water content</li>
+      <li><strong>Pfirrmann grading:</strong> Standardized MRI-based disc degeneration scoring. Track grade stability or improvement over time</li>
+      <li><strong>Biomarker panels:</strong> Serum MMP-3, MMP-13, and COMP (cartilage oligomeric matrix protein) as surrogate markers for cartilage/disc turnover</li>
+    </ul>
+
+    <h2>Connection to the 8 Cascades</h2>
+
+    <p>Acoustic and biomechanical optimization intersects with multiple disease cascades in Marshall syndrome:</p>
+
+    <ul>
+      <li><strong>Loop 1 (MMP/ADAMTS):</strong> Whole-body vibration directly upregulates MMP-13 and ADAMTS-4/5 [20]. LIPUS suppresses both. The loading frequency determines which direction this cascade moves</li>
+      <li><strong>Loop 2 (Ferroptosis):</strong> The Piezo1-iron-ferroptosis axis is the central danger in mechanical loading. LIPUS activates the anti-ferroptotic Nrf2/GPX4 pathway through TRPV4. WBV and overloading activate Piezo1-mediated iron influx [4]</li>
+      <li><strong>Loop 3 (Senescence/SASP):</strong> Mechanical overload increases senescent cell burden. LIPUS-recruited macrophages may selectively clear senescent cells (emerging evidence)</li>
+      <li><strong>Loop 5 (Endplate Calcification):</strong> Proper loading maintains endplate permeability for nutrient diffusion. Aquatic therapy's hydrostatic pressure promotes nutrient delivery without excessive compressive stress</li>
+      <li><strong>Loop 7 (Lactate-Senescence):</strong> Aerobic aquatic exercise operates below the anaerobic threshold, minimizing lactate production while maximizing circulatory benefits for disc nutrition</li>
+    </ul>
+
+    <h2>Research Frontiers</h2>
+
+    <p>Several active research areas could refine acoustic optimization for Marshall syndrome in the near future:</p>
+
+    <ul>
+      <li><strong>Patient-specific resonant frequency mapping:</strong> Using MRI-derived tissue properties to calculate individual chondrocyte/NP cell resonant frequencies, enabling personalized LIPUS frequency selection [17]</li>
+      <li><strong>Waveform-specific channel selectivity:</strong> Systematic comparison of square, sinusoidal, and sawtooth waveforms for TRPV4 vs. Piezo1 selectivity. Early evidence shows waveform shape affects gene expression independently of amplitude and frequency [15]</li>
+      <li><strong>LIPUS combined with stochastic resonance:</strong> Adding noise to LIPUS signals could enhance TRPV4 sensitivity while reducing required intensity&mdash;particularly valuable for the compromised mechanotransduction in COL11A1 tissue [22, 23]</li>
+      <li><strong>Wearable impedance feedback:</strong> Real-time disc hydration monitoring during loading to enable closed-loop protocol adjustment [28]</li>
+      <li><strong>LIPUS at 3.5&ndash;4.8 MHz for disc cells:</strong> No consumer LIPUS device currently operates at the chondrocyte resonant frequency. A device designed for this range could theoretically achieve therapeutic effect at significantly reduced intensity, further widening the safety margin [17]</li>
+      <li><strong>Piezo1 pharmacological modulation:</strong> GsMTx4 (a peptide toxin from tarantula venom) inhibits Piezo1 and abolishes iron influx in experimental models [4]. Whether pharmacological Piezo1 inhibition could be combined with mechanical loading to expand the safe loading window is an open question</li>
+    </ul>
+
+    <h2>Summary: The Precision Loading Thesis</h2>
+
+    <p>Marshall syndrome's fundamental mechanical problem is that defective collagen XI cannot properly transduce load into protective cellular signaling. The solution is not to eliminate mechanical loading&mdash;which would accelerate deconditioning and further weaken the system&mdash;but to <strong>engineer the precise loading parameters</strong> that activate the protective TRPV4-SOX9-anabolic pathway while keeping stimulation below the Piezo1-iron-ferroptosis threshold.</p>
+
+    <p>The tools for this precision exist today in varying degrees of clinical readiness:</p>
+    <ul>
+      <li><strong>Aquatic therapy</strong> naturally provides the ideal loading environment and is available immediately</li>
+      <li><strong>LIPUS</strong> delivers targeted acoustic energy through the exact pathway (primary cilia to TRPV4) that protects disc cells, with FDA-cleared home devices available now</li>
+      <li><strong>Waveform optimization, stochastic resonance, focused ultrasound, and impedance feedback</strong> represent the next generation of refinements that could further individualize and improve acoustic therapy</li>
+    </ul>
+
+    <p>The critical message: <strong>not all mechanical stimulation is equal</strong>. Frequency, amplitude, waveform, and duration determine whether a mechanical signal heals or destroys. In COL11A1 disease, the margin between therapeutic and destructive loading is narrower than in healthy tissue, making precision more important&mdash;and the science of acoustic optimization more relevant&mdash;than for any other population.</p>
+
+    <div class="callout callout-info">
+      <strong>References</strong><br>
+      <ol>
+        <li>Bleuel J, et al. (2015). The role of mechanically-activated ion channels Piezo1, Piezo2, and TRPV4 in chondrocyte mechanotransduction. <em>Front Cell Dev Biol</em>. (Summarizing anabolic thresholds: 3&ndash;10% strain, 0.17&ndash;0.5 Hz, 2&ndash;12h.)</li>
+        <li>Nims R, Kassab K, Palmer S, et al. (2024). The chondrocyte "mechanome": Activation of the mechanosensitive ion channels TRPV4 and PIEZO1 drives unique transcriptional signatures. <em>FASEB J</em>. 38(14):e23794.</li>
+        <li>Lee W, Leddy HA, Chen Y, et al. (2017). Direct measurement of TRPV4 and PIEZO1 activity reveals multiple mechanotransduction pathways in chondrocytes. <em>eLife</em>. 6:e21074.</li>
+        <li>Sun Y, et al. (2024). Piezo1 channel exaggerates ferroptosis of nucleus pulposus cells by mediating mechanical stress-induced iron influx. <em>Bone Research</em>. 12:20.</li>
+        <li>Sun K, et al. (2022). Mechanical overloading induces GPX4-regulated chondrocyte ferroptosis in osteoarthritis via Piezo1 channel facilitated calcium influx. <em>J Adv Res</em>. 41:54&ndash;67.</li>
+        <li>Harrison A, Alt V (2021). Low-intensity pulsed ultrasound (LIPUS) for stimulation of bone fractures healing: A narrative review. <em>Injury</em>. 52(Suppl 2):S91&ndash;S96.</li>
+        <li>Wu Y, et al. (2020). LIPUS promotes synthesis and secretion of extracellular matrix and reduces cell apoptosis in human osteoarthritis through upregulation of SOX9 expression. <em>PLoS One</em>. 15(4):e0231744.</li>
+        <li>Zhang J, et al. (2024). LIPUS regulates the progression of knee osteoarthritis in mice through primary cilia-mediated TRPV4 channels. <em>Apoptosis</em>. 29:946&ndash;960.</li>
+        <li>Bae C, Sachs F, Bhattacharyya M (2013). Inactivation of mechanically activated Piezo1 ion channels is determined by the C-terminal extracellular domain and the inner pore helix. <em>Cell Reports</em>. 22(5):1228&ndash;1237.</li>
+        <li>Zheng W, Nikolaev YA, Bhattacharyya M, et al. (2023). Mechanisms of PIEZO channel inactivation. <em>Int J Mol Sci</em>. 24(18):14113.</li>
+        <li>Lewis AH, Grandl J (2020). Inactivation kinetics and mechanical gating of Piezo1 ion channels depend on subdomains within the cap. <em>Cell Reports</em>. 30(3):870&ndash;880.</li>
+        <li>Matthews BD, et al. (2011). Ultra-rapid activation of TRPV4 ion channels by mechanical forces applied to cell surface beta-1 integrins. <em>Integr Biol</em>. 2(9):435&ndash;442.</li>
+        <li>Corrigan MA, et al. (2024). The multifaceted functions of TRPV4 and calcium oscillations in tissue repair. <em>Int J Mol Sci</em>. 25(2):1012.</li>
+        <li>Lyons JS, et al. (2017). TRPV4 calcium influx controls sclerostin protein loss independent of purinergic calcium oscillations. <em>Bone</em>. 136:115369.</li>
+        <li>Apriem C, et al. (2023). Complex deformation of cartilage micropellets following mechanical stimulation promotes chondrocyte gene expression. <em>Stem Cell Res Ther</em>. 14:234.</li>
+        <li>Hannemann PFW, et al. (2022). Pitfalls preventing bone union with EXOGEN low-intensity pulsed ultrasound. <em>Eur J Trauma Emerg Surg</em>. 48:3489&ndash;3497.</li>
+        <li>Uddin SMZ, Bhatt A (2017). Theoretically proposed optimal frequency for ultrasound induced cartilage restoration. <em>Theor Biol Med Model</em>. 14:21.</li>
+        <li>Focused Ultrasound Foundation. Disc degeneration research overview. https://www.fusfoundation.org/diseases-and-conditions/disc-degeneration/</li>
+        <li>Zhang C, Guo LX (2022). Effect of whole-body vibration at different frequencies on the lumbar spine: A finite element study. <em>Proc Inst Mech Eng H</em>. 236(12):1735&ndash;1745.</li>
+        <li>Shu Y, et al. (2023). Long-term whole-body vibration induces degeneration of intervertebral disc and facet joint in a bipedal mouse model. <em>Front Bioeng Biotechnol</em>. 11:1069568.</li>
+        <li>Omlor GW, et al. (2017). Optimization of extracellular matrix synthesis and accumulation by human articular chondrocytes with repetitive hydrostatic pressure. <em>Tissue Eng Part C</em>. 24(3):175&ndash;183. (And supporting studies on hydrostatic pressure 0.2&ndash;1.0 MPa.)</li>
+        <li>Weber JF, Perez R, Bhatt A (2015). Stochastic resonance is a method to improve the biosynthetic response of chondrocytes to mechanical stimulation. <em>J Orthop Res</em>. 34(4):695&ndash;706.</li>
+        <li>Weber JF, Perez R (2019). Stochastic resonance with dynamic compression improves the growth of adult chondrocytes in agarose gel constructs. <em>Ann Biomed Eng</em>. 47:243&ndash;256.</li>
+        <li>Collins AT, Blackburn JT, et al. (2019). Improved sensorimotor performance via stochastic resonance. <em>J Neuroeng Rehabil</em>. 16:57.</li>
+        <li>Pinto D, et al. (2025). Dual impact of swimming on intervertebral disc health: Biomechanical, clinical, and translational perspectives. <em>Cureus</em>. 17(6):e392587.</li>
+        <li>Wilke HJ, et al. (1999). New in vivo measurements of pressures in the intervertebral disc in daily life. <em>Spine</em>. 24(8):755&ndash;762.</li>
+        <li>ImpediMed. Bioimpedance spectroscopy (BIS) technology overview. https://www.impedimed.com/resources/bis-technology/</li>
+        <li>Cheng Y, et al. (2025). Wearable electrical-impedance-tomography armband for noninvasive and continuous bone monitoring. <em>Nat Commun</em>.</li>
+        <li>Heo DK, et al. (2021). LIPUS inhibits inflammation and catabolism through the NF-kB pathway in human degenerative nucleus pulposus cells. <em>J Orthop Surg Res</em>. 16:601.</li>
+        <li>Zhou X, et al. (2025). Primary cilia integrity governs TRPV4-mediated NF-kB/COL2 signaling in osteoarthritis pathogenesis. <em>Biomaterials</em>.</li>
+        <li>Vincenti T, et al. (2025). Ultrasound stimulation increases cartilage synthesis and reverts dedifferentiation on human chondrocytes. <em>Sci Rep</em>. 15:15589.</li>
+      </ol>
+    </div>
+
+  </div>
+</div>
+</div>
+<script src="../nav.js"></script>
+</body>
+</html>
