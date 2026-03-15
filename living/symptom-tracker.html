@@ -420,6 +420,59 @@
   .print-summary th { background: #f0f0f0; }
 }
 .print-summary { display: none; }
+
+/* Tutorial toggle */
+.tutorial-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: 2px solid var(--sage-300);
+  border-radius: 8px;
+  background: var(--sage-50, #f0f7f4);
+  color: var(--sage-700);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 16px;
+}
+.tutorial-toggle:hover {
+  background: var(--sage-100, #e0efe6);
+  border-color: var(--sage-400);
+}
+.tutorial-content {
+  display: none;
+  background: white;
+  border: 1px solid var(--warm-200);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+  line-height: 1.7;
+}
+.tutorial-content.visible { display: block; }
+.tutorial-content h4 {
+  margin: 0 0 12px 0;
+  font-size: 1rem;
+  color: var(--sage-700);
+}
+.tutorial-content ol {
+  padding-left: 20px;
+  margin: 0 0 12px 0;
+}
+.tutorial-content li {
+  margin-bottom: 8px;
+  font-size: 0.92rem;
+  color: var(--warm-700);
+}
+.tutorial-content .tutorial-tip {
+  margin-top: 12px;
+  padding: 10px 14px;
+  background: var(--blue-50, #eff6ff);
+  border-radius: 6px;
+  font-size: 0.88rem;
+  color: var(--blue-700);
+}
 </style>
 </head>
 <body>
@@ -460,6 +513,21 @@
     <div class="callout callout-info">
       <strong>Your private symptom diary.</strong> All data is stored locally in your browser &mdash; nothing is sent anywhere. <strong style="color:var(--red-600);">Important:</strong> Clearing your browser data will erase your entries. Use the <strong>Download Backup</strong> button regularly to save a copy. You can always restore from a backup using <strong>Import Data</strong>.
       <div id="lastBackupInfo" style="margin-top:8px;font-size:0.85rem;color:var(--warm-500);"></div>
+    </div>
+
+    <button class="tutorial-toggle" onclick="var c=this.nextElementSibling;c.classList.toggle('visible');this.textContent=c.classList.contains('visible')?'Hide Quick Guide':'Show Quick Guide'">Show Quick Guide</button>
+    <div class="tutorial-content">
+      <h4>How to Use This Tool (30-second guide)</h4>
+      <ol>
+        <li><strong>Quick add:</strong> Tap a button above (&#9889; Neck Zaps, &#128293; Red Hot Ears, etc.) to pre-fill the category, then adjust severity and add notes.</li>
+        <li><strong>Full entry:</strong> Open "Add Symptom Entry", pick a date, category, severity (1&ndash;10 slider), and any notes about triggers or what helped.</li>
+        <li><strong>Watch your patterns:</strong> The dashboard at the top shows your most frequent symptom, average severity trend, and peak time of day.</li>
+        <li><strong>Share with your doctor:</strong> Tap "Print for Doctor" to get a clean printout, or "Download Backup" to save your data file.</li>
+        <li><strong>Back up regularly:</strong> Your data lives in this browser only. Tap "Download Backup" after every few entries. Keep the file safe.</li>
+      </ol>
+      <div class="tutorial-tip">
+        <strong>Tip:</strong> The Doctor Letter page auto-includes your symptom data &mdash; the more you track here, the better your letter.
+      </div>
     </div>
 
     <!-- Dashboard -->

@@ -69,6 +69,34 @@
   min-width: 220px;
   margin-left: 8px;
 }
+
+/* Patient info editable inputs (on-screen) */
+.patient-info .pi-input {
+  display: inline-block;
+  border: none;
+  border-bottom: 1px solid #999;
+  background: transparent;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 0.95rem;
+  color: #1a1a1a;
+  padding: 2px 4px;
+  min-width: 220px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.patient-info .pi-input:focus {
+  border-bottom-color: var(--sage-600);
+  background: #f5f5f0;
+}
+.patient-info .pi-input::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+/* Print value spans (hidden on screen, shown in print) */
+.patient-info .pi-print-value {
+  display: none;
+}
+
 .letter-footer {
   margin-top: 28px;
   padding-top: 14px;
@@ -130,12 +158,171 @@
   fill: currentColor;
 }
 
+/* ===== Dynamic Section Styles ===== */
+.dl-dynamic-section {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 16px 20px;
+  background: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+}
+.dl-dynamic-section h3 {
+  margin-top: 0;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 4px;
+  margin-bottom: 12px;
+}
+.dl-symptom-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 6px 0;
+  border-bottom: 1px dotted #ddd;
+  font-size: 0.93rem;
+}
+.dl-symptom-item:last-child { border-bottom: none; }
+.dl-symptom-name { font-weight: 600; color: #1a1a1a; }
+.dl-symptom-stats { color: #555; font-size: 0.88rem; }
+.dl-trend-line {
+  margin-top: 12px;
+  padding: 10px 14px;
+  background: #f0f0f0;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: #333;
+}
+.dl-trend-up { color: #a44a43; }
+.dl-trend-down { color: #4a8f42; }
+.dl-trend-same { color: #78716a; }
+
+/* Lab results table */
+.dl-lab-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+  font-size: 0.9rem;
+}
+.dl-lab-table th {
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 2px solid #999;
+  font-size: 0.85rem;
+  color: #333;
+  font-weight: 700;
+}
+.dl-lab-table td {
+  padding: 6px 10px;
+  border-bottom: 1px solid #e0e0e0;
+  vertical-align: top;
+}
+.dl-lab-table tr:last-child td { border-bottom: none; }
+.dl-lab-status {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.dl-status-normal { background: #e0f0db; color: #3d7837; }
+.dl-status-elevated { background: #fce4df; color: #a44a43; }
+.dl-status-low { background: #f9edcf; color: #9a7b28; }
+.dl-status-info { background: #f0f0f0; color: #555; }
+
+/* Interventions list */
+.dl-interventions-list {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0;
+}
+.dl-interventions-list li {
+  padding: 4px 0;
+  font-size: 0.9rem;
+  border-bottom: 1px dotted #ddd;
+}
+.dl-interventions-list li:last-child { border-bottom: none; }
+.dl-intervention-name { font-weight: 600; color: #1a1a1a; }
+.dl-intervention-date { color: #555; font-size: 0.85rem; margin-left: 8px; }
+
+/* Cross-links panel */
+.dl-crosslinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 20px 0;
+}
+.dl-crosslink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  background: white;
+  border: 1px solid var(--warm-200);
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--warm-700);
+  font-size: 0.9rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  flex: 1 1 240px;
+  min-width: 240px;
+}
+.dl-crosslink:hover {
+  border-color: var(--sage-400);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.dl-crosslink-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+.dl-crosslink-text strong {
+  display: block;
+  color: var(--sage-700);
+  font-size: 0.95rem;
+  margin-bottom: 2px;
+}
+.dl-crosslink-text span {
+  color: var(--warm-500);
+  font-size: 0.82rem;
+}
+
+/* No-data callout (inside printable area) */
+.dl-no-data {
+  padding: 14px 18px;
+  background: #f8f6f1;
+  border: 1px dashed #d4cfc4;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: #57534c;
+  margin: 16px 0;
+}
+.dl-no-data a {
+  color: var(--sage-600);
+  font-weight: 600;
+}
+
+/* Navigator tip callout */
+.dl-navigator-tip {
+  padding: 14px 18px;
+  background: #f0f5f1;
+  border: 1px solid #bdd4c3;
+  border-left: 3px solid var(--sage-400);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: #3a634d;
+  margin: 16px 0;
+}
+.dl-navigator-tip a {
+  color: var(--sage-700);
+  font-weight: 600;
+}
+
 /* ===== Print Styles ===== */
 @media print {
   .site-header, .sidebar, .sidebar-overlay, .breadcrumb,
   .back-to-top, .no-print, .prev-next, .hamburger,
   .search-wrapper, .search-count, .doctor-letter-instructions,
-  .btn-print, .page-header { display: none !important; }
+  .btn-print, .page-header, .dl-crosslinks, .dl-no-data { display: none !important; }
   .main { margin: 0; padding: 0; }
   .content { max-width: 100%; padding: 20px; }
   body { background: #fff; color: #000; font-size: 11pt; line-height: 1.5; }
@@ -155,6 +342,136 @@
   .letter-references { font-size: 9pt; }
   a { color: #000; text-decoration: none; }
   a[href]::after { content: none; }
+
+  /* Hide inputs, show print values */
+  .patient-info .pi-input { display: none !important; }
+  .patient-info .pi-print-value {
+    display: inline !important;
+    border-bottom: 1px solid #666;
+    min-width: 220px;
+    padding: 0 4px;
+  }
+  .patient-info .pi-print-value:empty {
+    display: inline-block !important;
+    min-width: 220px;
+    border-bottom: 1px solid #666;
+  }
+  .patient-info .pi-print-value:empty::after {
+    content: '\00a0';
+  }
+
+  /* Dynamic sections print clean */
+  .dl-dynamic-section {
+    background: #fff;
+    border: 1px solid #999;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .dl-trend-line { background: #f5f5f5; }
+  .dl-lab-table th { border-bottom: 2px solid #333; }
+  .dl-lab-table td { border-bottom: 1px solid #ccc; }
+  .dl-navigator-tip {
+    background: #fff;
+    border: 1px solid #999;
+    break-inside: avoid;
+  }
+  .dl-gen-status, .dl-letter-toggle, .btn-generate { display: none !important; }
+  .dl-personalized-letter.active .doctor-letter-printable {
+    border: none;
+    border-width: 0;
+  }
+}
+
+.btn-generate {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin: 16px 0 16px 12px;
+}
+.btn-generate:hover { background: #1d4ed8; }
+.btn-generate:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+}
+.btn-generate svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+/* Generation status */
+.dl-gen-status {
+  padding: 12px 18px;
+  margin: 12px 0;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+.dl-gen-status.loading {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #1e40af;
+}
+.dl-gen-status.error {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #991b1b;
+}
+.dl-gen-status.success {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #166534;
+}
+
+/* Personalized letter container */
+.dl-personalized-letter {
+  display: none;
+}
+.dl-personalized-letter.active {
+  display: block;
+}
+.dl-personalized-letter .doctor-letter-printable {
+  border-color: #2563eb;
+  border-width: 2px;
+}
+
+/* Toggle buttons for switching between static and personalized */
+.dl-letter-toggle {
+  display: none;
+  gap: 8px;
+  margin: 16px 0;
+}
+.dl-letter-toggle.active {
+  display: flex;
+}
+.dl-toggle-btn {
+  padding: 8px 20px;
+  border: 1px solid var(--warm-200);
+  border-radius: 6px;
+  background: white;
+  font-size: 0.9rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: var(--warm-600);
+}
+.dl-toggle-btn.active {
+  background: var(--sage-600);
+  color: white;
+  border-color: var(--sage-600);
+}
+.dl-toggle-btn:hover:not(.active) {
+  border-color: var(--sage-400);
 }
 </style>
 </head>
@@ -201,38 +518,88 @@
       </ul>
 
       <h3>How to Customize It</h3>
-      <p>The letter includes blank fields for your child&rsquo;s specific information. Before printing, you can either:</p>
-      <ul>
-        <li>Print it and fill in the blanks by hand, or</li>
-        <li>Save the page as a PDF (Ctrl+P &rarr; &ldquo;Save as PDF&rdquo;), then use a PDF editor to type in the fields</li>
-      </ul>
-      <p>Fill in your child&rsquo;s name, date of birth, specific COL11A1 variant (from the genetic testing report), and the name of the diagnosing geneticist. If you do not yet have genetic confirmation, you can write &ldquo;clinical diagnosis&rdquo; or &ldquo;pending&rdquo; in the variant field.</p>
+      <p>Fill in your child&rsquo;s information in the fields below &mdash; it saves automatically and will be here next time you visit. When you print, the fields display as clean text in the letter.</p>
+      <p>If you do not yet have genetic confirmation, you can type &ldquo;clinical diagnosis&rdquo; or &ldquo;pending&rdquo; in the variant field.</p>
 
       <div class="callout callout-tip">
         <strong>Tip:</strong> Print several copies and keep them in your child&rsquo;s medical binder, your car, and your emergency bag. Have a digital copy on your phone as well.
+      </div>
+
+      <!-- Cross-links to tools -->
+      <div class="dl-crosslinks" id="crossLinks">
+        <a href="./symptom-tracker.html" class="dl-crosslink">
+          <span class="dl-crosslink-icon">&#128202;</span>
+          <div class="dl-crosslink-text">
+            <strong>Symptom Tracker</strong>
+            <span>Track symptoms first &mdash; this letter personalizes itself</span>
+          </div>
+        </a>
+        <a href="../future/biomarker-tracker.html" class="dl-crosslink">
+          <span class="dl-crosslink-icon">&#129656;</span>
+          <div class="dl-crosslink-text">
+            <strong>Biomarker Tracker</strong>
+            <span>Track labs &mdash; your values appear here automatically</span>
+          </div>
+        </a>
+        <a href="./symptom-navigator.html" class="dl-crosslink">
+          <span class="dl-crosslink-icon">&#127993;</span>
+          <div class="dl-crosslink-text">
+            <strong>Symptom Navigator</strong>
+            <span>Full assessment with urgency alerts &amp; specialist gaps</span>
+          </div>
+        </a>
       </div>
 
       <button class="btn-print" onclick="window.print()">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
         Print This Letter
       </button>
+      <button class="btn-generate" id="btnGenerate" onclick="generatePersonalizedLetter()">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+        Generate Personalized Letter
+      </button>
 
     </div>
 
 
+    <!-- Status area for generation -->
+    <div class="dl-gen-status" id="genStatus" style="display:none;"></div>
+
+    <!-- Toggle between static and personalized -->
+    <div class="dl-letter-toggle" id="letterToggle">
+      <button class="dl-toggle-btn" onclick="showLetter('personalized')" id="togglePersonalized">Personalized Letter</button>
+      <button class="dl-toggle-btn active" onclick="showLetter('static')" id="toggleStatic">Standard Letter</button>
+    </div>
+
+    <!-- Personalized letter (generated by Cortex) -->
+    <div class="dl-personalized-letter" id="personalizedLetter">
+      <div class="doctor-letter-printable" id="personalizedContent"></div>
+    </div>
+
     <!-- ============================================================ -->
     <!-- SECTION 2: The Printable Letter                              -->
     <!-- ============================================================ -->
-    <div class="doctor-letter-printable">
+    <div class="doctor-letter-printable" id="staticLetter">
 
       <h2>Medical Summary: Marshall Syndrome (OMIM #154780)</h2>
 
-      <!-- Patient Information -->
+      <!-- Patient Information (editable inputs) -->
       <div class="patient-info">
-        <p><strong>Patient Name:</strong> <span class="blank-line"></span></p>
-        <p><strong>Date of Birth:</strong> <span class="blank-line"></span></p>
-        <p><strong>COL11A1 Variant:</strong> <span class="blank-line"></span></p>
-        <p><strong>Diagnosing Geneticist:</strong> <span class="blank-line"></span></p>
+        <p><strong>Patient Name:</strong> <input type="text" class="pi-input" id="piName" placeholder="Enter patient name" autocomplete="off"><span class="pi-print-value" id="piNamePrint"></span></p>
+        <p><strong>Date of Birth:</strong> <input type="text" class="pi-input" id="piDOB" placeholder="Enter date of birth" autocomplete="off"><span class="pi-print-value" id="piDOBPrint"></span></p>
+        <p><strong>COL11A1 Variant:</strong> <input type="text" class="pi-input" id="piVariant" placeholder="e.g. c.4344+1G>A or &ldquo;pending&rdquo;" autocomplete="off"><span class="pi-print-value" id="piVariantPrint"></span></p>
+        <p><strong>Diagnosing Geneticist:</strong> <input type="text" class="pi-input" id="piGeneticist" placeholder="Enter geneticist name" autocomplete="off"><span class="pi-print-value" id="piGeneticistPrint"></span></p>
+      </div>
+
+      <!-- Dynamic: Your Child's Symptom Profile (auto-populated from localStorage) -->
+      <div id="dynamicSymptomProfile"></div>
+
+      <!-- Dynamic: Latest Lab Results (auto-populated from localStorage) -->
+      <div id="dynamicLabResults"></div>
+
+      <!-- Dynamic: Symptom Navigator Tip -->
+      <div class="dl-navigator-tip" id="navigatorTip">
+        <strong>Symptom Navigator Summary:</strong> For a comprehensive symptom assessment with urgency alerts, specialist gap analysis, and red-flag screening, run the <a href="./symptom-navigator.html">Symptom Navigator</a> and print its results alongside this letter.
       </div>
 
       <!-- What is Marshall Syndrome? -->
@@ -297,5 +664,526 @@
 
 <button class="back-to-top" id="backToTop" aria-label="Back to top">&#8593;</button>
 <script src="../nav.js"></script>
+<script>
+(function() {
+  'use strict';
+
+  // =========================================================================
+  // CONSTANTS
+  // =========================================================================
+  var PROFILE_KEY = 'marshall_doctor_letter_profile';
+  var SYMPTOM_KEY = 'marshall_symptom_tracker';
+  var BT_BIOMARKERS = 'bt_biomarkers';
+  var BT_SYMPTOMS = 'bt_symptoms';
+  var BT_INTERVENTIONS = 'bt_interventions';
+
+  // Biomarker reference ranges: { label, unit, low, high }
+  // low/high define the normal range. null = no boundary.
+  var BIOMARKER_REFS = {
+    hsCRP:        { label: 'hs-CRP',        unit: 'mg/L',   low: null, high: 1.0 },
+    IL6:          { label: 'IL-6',           unit: 'pg/mL',  low: null, high: 7.0 },
+    MMP3:         { label: 'MMP-3',          unit: 'ng/mL',  low: null, high: 28.0 },
+    Selenium:     { label: 'Selenium',       unit: 'ng/mL',  low: 70,   high: 150 },
+    VitD:         { label: 'Vitamin D',      unit: 'ng/mL',  low: 40,   high: 60 },
+    Zonulin:      { label: 'Zonulin',        unit: 'ng/mL',  low: null, high: 28.0 },
+    Calprotectin: { label: 'Calprotectin',   unit: 'mcg/g',  low: null, high: 50.0 },
+    ESR:          { label: 'ESR',            unit: 'mm/hr',  low: null, high: null },
+    Ferritin:     { label: 'Ferritin',       unit: 'ng/mL',  low: null, high: null },
+    SerumIron:    { label: 'Serum Iron',     unit: 'mcg/dL', low: null, high: null },
+    TIBC:         { label: 'TIBC',           unit: 'mcg/dL', low: null, high: null },
+    GPX:          { label: 'GPX',            unit: 'U/L',    low: null, high: null },
+    CTXII:        { label: 'CTX-II',         unit: 'ng/mL',  low: null, high: null },
+    ucMGP:        { label: 'ucMGP',          unit: 'pmol/L', low: null, high: null },
+    Pain:         { label: 'Pain Score',     unit: '/10',    low: null, high: null },
+    PedsQL:       { label: 'PedsQL',         unit: 'score',  low: null, high: null }
+  };
+
+  // =========================================================================
+  // HELPERS
+  // =========================================================================
+  function safeJSON(key) {
+    try {
+      var raw = localStorage.getItem(key);
+      return raw ? JSON.parse(raw) : null;
+    } catch (e) { return null; }
+  }
+
+  function escHtml(str) {
+    var div = document.createElement('div');
+    div.textContent = str || '';
+    return div.innerHTML;
+  }
+
+  function dateStr(d) {
+    return d.getFullYear() + '-' +
+      String(d.getMonth() + 1).padStart(2, '0') + '-' +
+      String(d.getDate()).padStart(2, '0');
+  }
+
+  function daysAgo(n) {
+    var d = new Date();
+    d.setDate(d.getDate() - n);
+    return dateStr(d);
+  }
+
+  function formatDateShort(s) {
+    if (!s) return '';
+    var parts = s.split('-');
+    if (parts.length < 3) return s;
+    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    return months[parseInt(parts[1], 10) - 1] + ' ' + parseInt(parts[2], 10) + ', ' + parts[0];
+  }
+
+  // =========================================================================
+  // A. PATIENT INFO — Editable & Saved
+  // =========================================================================
+  function initPatientInfo() {
+    var profile = safeJSON(PROFILE_KEY) || {};
+    var fields = [
+      { input: 'piName',      print: 'piNamePrint',      key: 'name' },
+      { input: 'piDOB',       print: 'piDOBPrint',       key: 'dob' },
+      { input: 'piVariant',   print: 'piVariantPrint',   key: 'variant' },
+      { input: 'piGeneticist',print: 'piGeneticistPrint',key: 'geneticist' }
+    ];
+
+    fields.forEach(function(f) {
+      var inputEl = document.getElementById(f.input);
+      var printEl = document.getElementById(f.print);
+      if (!inputEl || !printEl) return;
+
+      // Populate from saved profile
+      if (profile[f.key]) {
+        inputEl.value = profile[f.key];
+        printEl.textContent = profile[f.key];
+      }
+
+      // Auto-save on change
+      inputEl.addEventListener('input', function() {
+        var current = safeJSON(PROFILE_KEY) || {};
+        current[f.key] = inputEl.value;
+        localStorage.setItem(PROFILE_KEY, JSON.stringify(current));
+        printEl.textContent = inputEl.value;
+      });
+    });
+  }
+
+  // =========================================================================
+  // B. DYNAMIC SYMPTOM PROFILE
+  // =========================================================================
+  function buildSymptomProfile() {
+    var container = document.getElementById('dynamicSymptomProfile');
+    if (!container) return;
+
+    var entries = safeJSON(SYMPTOM_KEY);
+    if (!entries || !Array.isArray(entries) || entries.length === 0) {
+      container.innerHTML =
+        '<div class="dl-no-data">' +
+          'No symptom data found. Use the <a href="./symptom-tracker.html">Symptom Tracker</a> ' +
+          'to build your symptom timeline, then return here for a personalized letter.' +
+        '</div>';
+      return;
+    }
+
+    // Filter to last 90 days
+    var cutoff90 = daysAgo(90);
+    var recent = entries.filter(function(e) { return e.date >= cutoff90; });
+
+    if (recent.length === 0) {
+      container.innerHTML =
+        '<div class="dl-no-data">' +
+          'No symptom entries in the last 90 days. Recent data from the ' +
+          '<a href="./symptom-tracker.html">Symptom Tracker</a> will appear here automatically.' +
+        '</div>';
+      return;
+    }
+
+    // --- Active Symptoms: frequency + avg severity ---
+    var catStats = {};
+    recent.forEach(function(e) {
+      if (!catStats[e.category]) {
+        catStats[e.category] = { count: 0, totalSev: 0 };
+      }
+      catStats[e.category].count++;
+      catStats[e.category].totalSev += (e.severity || 0);
+    });
+
+    var sorted = Object.keys(catStats).sort(function(a, b) {
+      return catStats[b].count - catStats[a].count;
+    });
+
+    var html = '<div class="dl-dynamic-section">';
+    html += '<h3>Your Child\'s Symptom Profile <span style="font-weight:400;font-size:0.85rem;color:#777;">(Last 90 Days)</span></h3>';
+
+    sorted.forEach(function(cat) {
+      var s = catStats[cat];
+      var avg = s.count > 0 ? (s.totalSev / s.count).toFixed(1) : '0';
+      html += '<div class="dl-symptom-item">';
+      html += '<span class="dl-symptom-name">' + escHtml(cat) + '</span>';
+      html += '<span class="dl-symptom-stats">' + s.count + ' episode' + (s.count !== 1 ? 's' : '') + ', avg severity ' + avg + '/10</span>';
+      html += '</div>';
+    });
+
+    // --- Severity Trend: last 30d vs previous 30d ---
+    var cutoff30 = daysAgo(30);
+    var cutoff60 = daysAgo(60);
+    var last30 = recent.filter(function(e) { return e.date >= cutoff30; });
+    var prev30 = entries.filter(function(e) { return e.date >= cutoff60 && e.date < cutoff30; });
+
+    if (last30.length > 0) {
+      var avgLast = last30.reduce(function(s, e) { return s + (e.severity || 0); }, 0) / last30.length;
+      var trendHtml = 'Average severity over last 30 days: <strong>' + avgLast.toFixed(1) + '/10</strong>';
+
+      if (prev30.length > 0) {
+        var avgPrev = prev30.reduce(function(s, e) { return s + (e.severity || 0); }, 0) / prev30.length;
+        var diff = avgLast - avgPrev;
+        if (Math.abs(diff) < 0.3) {
+          trendHtml += ' <span class="dl-trend-same">(stable vs previous 30 days)</span>';
+        } else if (diff > 0) {
+          trendHtml += ' <span class="dl-trend-up">(up from ' + avgPrev.toFixed(1) + ' previous 30 days)</span>';
+        } else {
+          trendHtml += ' <span class="dl-trend-down">(down from ' + avgPrev.toFixed(1) + ' previous 30 days)</span>';
+        }
+      }
+
+      html += '<div class="dl-trend-line">' + trendHtml + '</div>';
+    }
+
+    // --- Peak symptom time of day ---
+    var timeCounts = {};
+    recent.forEach(function(e) {
+      if (e.time) {
+        timeCounts[e.time] = (timeCounts[e.time] || 0) + 1;
+      }
+    });
+    var times = Object.keys(timeCounts);
+    if (times.length > 0) {
+      var peakTime = times.sort(function(a, b) { return timeCounts[b] - timeCounts[a]; })[0];
+      html += '<p style="margin-top:10px;font-size:0.9rem;color:#555;">Peak symptom time: <strong>' + escHtml(peakTime) + '</strong> (' + timeCounts[peakTime] + ' of ' + recent.length + ' episodes)</p>';
+    }
+
+    html += '</div>';
+    container.innerHTML = html;
+  }
+
+  // =========================================================================
+  // C. DYNAMIC LAB RESULTS
+  // =========================================================================
+  function buildLabResults() {
+    var container = document.getElementById('dynamicLabResults');
+    if (!container) return;
+
+    var biomarkers = safeJSON(BT_BIOMARKERS);
+    var interventions = safeJSON(BT_INTERVENTIONS);
+    var hasBiomarkers = biomarkers && Array.isArray(biomarkers) && biomarkers.length > 0;
+    var hasInterventions = interventions && Array.isArray(interventions) && interventions.length > 0;
+
+    if (!hasBiomarkers && !hasInterventions) {
+      container.innerHTML =
+        '<div class="dl-no-data">' +
+          'No biomarker data found. Use the <a href="../future/biomarker-tracker.html">Biomarker Tracker</a> ' +
+          'to log lab results, then your latest values will appear here automatically.' +
+        '</div>';
+      return;
+    }
+
+    var html = '<div class="dl-dynamic-section">';
+    html += '<h3>Latest Lab Results</h3>';
+
+    // --- Latest Biomarker Values ---
+    if (hasBiomarkers) {
+      // Sort by date descending to find most recent per marker
+      var sorted = biomarkers.slice().sort(function(a, b) {
+        return (b.date || '').localeCompare(a.date || '');
+      });
+
+      // Collect latest value per biomarker key
+      var latestValues = {};
+      var markerKeys = Object.keys(BIOMARKER_REFS);
+
+      sorted.forEach(function(entry) {
+        markerKeys.forEach(function(key) {
+          if (!latestValues[key] && entry[key] !== undefined && entry[key] !== null && entry[key] !== '') {
+            latestValues[key] = { value: entry[key], date: entry.date };
+          }
+        });
+      });
+
+      var foundKeys = Object.keys(latestValues);
+      if (foundKeys.length > 0) {
+        html += '<table class="dl-lab-table">';
+        html += '<thead><tr><th>Biomarker</th><th>Value</th><th>Date</th><th>Status</th></tr></thead>';
+        html += '<tbody>';
+
+        foundKeys.forEach(function(key) {
+          var ref = BIOMARKER_REFS[key];
+          var val = latestValues[key].value;
+          var date = latestValues[key].date;
+          var numVal = parseFloat(val);
+          var status = '';
+          var statusClass = 'dl-status-info';
+
+          if (!isNaN(numVal) && ref.high !== null && ref.low !== null) {
+            // Has both bounds
+            if (numVal > ref.high) {
+              status = 'Elevated';
+              statusClass = 'dl-status-elevated';
+            } else if (numVal < ref.low) {
+              status = 'Low';
+              statusClass = 'dl-status-low';
+            } else {
+              status = 'Normal';
+              statusClass = 'dl-status-normal';
+            }
+          } else if (!isNaN(numVal) && ref.high !== null) {
+            // Upper bound only
+            if (numVal > ref.high) {
+              status = 'Elevated';
+              statusClass = 'dl-status-elevated';
+            } else {
+              status = 'Normal';
+              statusClass = 'dl-status-normal';
+            }
+          } else {
+            status = 'Recorded';
+            statusClass = 'dl-status-info';
+          }
+
+          html += '<tr>';
+          html += '<td>' + escHtml(ref.label) + '</td>';
+          html += '<td>' + escHtml(String(val)) + ' ' + escHtml(ref.unit) + '</td>';
+          html += '<td>' + escHtml(formatDateShort(date)) + '</td>';
+          html += '<td><span class="dl-lab-status ' + statusClass + '">' + escHtml(status) + '</span></td>';
+          html += '</tr>';
+        });
+
+        html += '</tbody></table>';
+      }
+    }
+
+    // --- Active Interventions ---
+    if (hasInterventions) {
+      var active = interventions.filter(function(i) {
+        return i.action === 'started' || i.action === 'adjusted';
+      });
+
+      // Remove duplicates: keep the latest entry per intervention name
+      var byName = {};
+      active.forEach(function(i) {
+        var key = (i.name || '').toLowerCase().trim();
+        if (!byName[key] || (i.date || '') > (byName[key].date || '')) {
+          byName[key] = i;
+        }
+      });
+
+      // Filter out any that were subsequently stopped
+      var stopped = {};
+      interventions.forEach(function(i) {
+        if (i.action === 'stopped') {
+          var key = (i.name || '').toLowerCase().trim();
+          if (!stopped[key] || (i.date || '') > (stopped[key].date || '')) {
+            stopped[key] = i;
+          }
+        }
+      });
+
+      var activeList = Object.keys(byName).filter(function(key) {
+        if (!stopped[key]) return true;
+        return (byName[key].date || '') > (stopped[key].date || '');
+      }).map(function(key) { return byName[key]; });
+
+      if (activeList.length > 0) {
+        html += '<h4 style="margin-top:16px;margin-bottom:8px;font-size:0.95rem;">Active Interventions</h4>';
+        html += '<ul class="dl-interventions-list">';
+        activeList.forEach(function(i) {
+          html += '<li>';
+          html += '<span class="dl-intervention-name">' + escHtml(i.name) + '</span>';
+          if (i.date) {
+            html += '<span class="dl-intervention-date">since ' + escHtml(formatDateShort(i.date)) + '</span>';
+          }
+          if (i.notes) {
+            html += ' <span style="color:#777;font-size:0.85rem;">(' + escHtml(i.notes) + ')</span>';
+          }
+          html += '</li>';
+        });
+        html += '</ul>';
+      }
+    }
+
+    html += '</div>';
+    container.innerHTML = html;
+  }
+
+  // =========================================================================
+  // INIT
+  // =========================================================================
+  initPatientInfo();
+  buildSymptomProfile();
+  buildLabResults();
+
+})();
+</script>
+<script>
+// =========================================================================
+// D. PERSONALIZED LETTER GENERATION (via Cortex API)
+// =========================================================================
+var CORTEX_API = 'http://localhost:3142';
+
+function safeJSON(key) {
+  try {
+    var raw = localStorage.getItem(key);
+    return raw ? JSON.parse(raw) : null;
+  } catch (e) { return null; }
+}
+
+function gatherLetterData() {
+  // Patient info
+  var profile = safeJSON('marshall_doctor_letter_profile') || {};
+
+  // Symptoms from symptom tracker
+  var symptoms = safeJSON('marshall_symptom_tracker') || [];
+
+  // Biomarker data
+  var biomarkers = safeJSON('bt_biomarkers') || [];
+  var interventions = safeJSON('bt_interventions') || [];
+
+  // Navigator results (if stored)
+  var navigatorResults = safeJSON('marshall_navigator_results') || null;
+
+  return {
+    patientInfo: {
+      name: profile.name || '',
+      dob: profile.dob || '',
+      variant: profile.variant || '',
+      geneticist: profile.geneticist || ''
+    },
+    symptoms: symptoms,
+    biomarkers: biomarkers,
+    interventions: interventions,
+    navigatorResults: navigatorResults
+  };
+}
+
+function generatePersonalizedLetter() {
+  var data = gatherLetterData();
+
+  // Check if there's any data at all
+  var hasData = data.symptoms.length > 0 || data.biomarkers.length > 0 || data.navigatorResults;
+  if (!hasData) {
+    showGenStatus('error', 'No tracking data found. Use the Symptom Tracker or Biomarker Tracker first, then come back to generate a personalized letter.');
+    return;
+  }
+
+  var btn = document.getElementById('btnGenerate');
+  btn.disabled = true;
+  btn.textContent = 'Generating...';
+  showGenStatus('loading', 'Cortex is analyzing your data and writing a personalized letter...');
+
+  // Clear previous
+  var contentEl = document.getElementById('personalizedContent');
+  contentEl.innerHTML = '';
+
+  fetch(CORTEX_API + '/api/marshall/generate-letter', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  }).then(function(response) {
+    if (!response.ok) {
+      throw new Error('Cortex server returned ' + response.status);
+    }
+
+    var reader = response.body.getReader();
+    var decoder = new TextDecoder();
+    var buffer = '';
+    var fullText = '';
+
+    function processStream() {
+      return reader.read().then(function(result) {
+        if (result.done) {
+          // Stream complete
+          finishGeneration(fullText);
+          return;
+        }
+
+        buffer += decoder.decode(result.value, { stream: true });
+        var lines = buffer.split('\n');
+        buffer = lines.pop(); // keep incomplete line
+
+        lines.forEach(function(line) {
+          if (!line.startsWith('data: ')) return;
+          var jsonStr = line.slice(6).trim();
+          if (!jsonStr || jsonStr === ':ok' || jsonStr === ':ping') return;
+
+          try {
+            var event = JSON.parse(jsonStr);
+            if (event.type === 'delta' && event.text) {
+              fullText += event.text;
+              contentEl.innerHTML = fullText;
+            } else if (event.type === 'done') {
+              fullText = event.fullText || fullText;
+              finishGeneration(fullText);
+              return;
+            } else if (event.type === 'error') {
+              showGenStatus('error', 'Error: ' + (event.message || 'Unknown error'));
+              resetButton();
+              return;
+            }
+          } catch(e) {}
+        });
+
+        return processStream();
+      });
+    }
+
+    return processStream();
+  }).catch(function(err) {
+    showGenStatus('error', 'Could not connect to Cortex. Make sure the server is running at localhost:3142. (' + err.message + ')');
+    resetButton();
+  });
+}
+
+function finishGeneration(text) {
+  var contentEl = document.getElementById('personalizedContent');
+  contentEl.innerHTML = text;
+
+  showGenStatus('success', 'Personalized letter generated. You can now print it or switch between the personalized and standard versions.');
+
+  // Show toggle and switch to personalized view
+  document.getElementById('letterToggle').classList.add('active');
+  showLetter('personalized');
+  resetButton();
+}
+
+function showLetter(which) {
+  var personalizedDiv = document.getElementById('personalizedLetter');
+  var staticDiv = document.getElementById('staticLetter');
+  var toggleP = document.getElementById('togglePersonalized');
+  var toggleS = document.getElementById('toggleStatic');
+
+  if (which === 'personalized') {
+    personalizedDiv.classList.add('active');
+    staticDiv.style.display = 'none';
+    toggleP.classList.add('active');
+    toggleS.classList.remove('active');
+  } else {
+    personalizedDiv.classList.remove('active');
+    staticDiv.style.display = '';
+    toggleP.classList.remove('active');
+    toggleS.classList.add('active');
+  }
+}
+
+function showGenStatus(type, msg) {
+  var el = document.getElementById('genStatus');
+  el.style.display = 'block';
+  el.className = 'dl-gen-status ' + type;
+  el.textContent = msg;
+}
+
+function resetButton() {
+  var btn = document.getElementById('btnGenerate');
+  btn.disabled = false;
+  btn.innerHTML = '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> Generate Personalized Letter';
+}
+</script>
 </body>
 </html>

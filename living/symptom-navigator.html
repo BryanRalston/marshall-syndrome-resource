@@ -420,6 +420,59 @@
   .action-buttons { flex-direction: column; }
   .btn-action { width: 100%; text-align: center; }
 }
+
+/* Tutorial toggle */
+.tutorial-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: 2px solid var(--sage-300);
+  border-radius: 8px;
+  background: var(--sage-50, #f0f7f4);
+  color: var(--sage-700);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 16px;
+}
+.tutorial-toggle:hover {
+  background: var(--sage-100, #e0efe6);
+  border-color: var(--sage-400);
+}
+.tutorial-content {
+  display: none;
+  background: white;
+  border: 1px solid var(--warm-200);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+  line-height: 1.7;
+}
+.tutorial-content.visible { display: block; }
+.tutorial-content h4 {
+  margin: 0 0 12px 0;
+  font-size: 1rem;
+  color: var(--sage-700);
+}
+.tutorial-content ol {
+  padding-left: 20px;
+  margin: 0 0 12px 0;
+}
+.tutorial-content li {
+  margin-bottom: 8px;
+  font-size: 0.92rem;
+  color: var(--warm-700);
+}
+.tutorial-content .tutorial-tip {
+  margin-top: 12px;
+  padding: 10px 14px;
+  background: var(--blue-50, #eff6ff);
+  border-radius: 6px;
+  font-size: 0.88rem;
+  color: var(--blue-700);
+}
 </style>
 </head>
 <body>
@@ -451,6 +504,21 @@
     <div class="callout callout-info">
       <strong>What is this tool?</strong><br>
       This guided assessment helps you identify what your child is experiencing, flags urgency levels, and directs you to the specific pages on this site that address your concerns. Check the symptoms you are observing, then click <strong>Get My Results</strong> for personalized recommendations. All processing happens in your browser &mdash; nothing is stored or sent anywhere.
+    </div>
+
+    <button class="tutorial-toggle" onclick="var c=this.nextElementSibling;c.classList.toggle('visible');this.textContent=c.classList.contains('visible')?'Hide Quick Guide':'Show Quick Guide'">Show Quick Guide</button>
+    <div class="tutorial-content">
+      <h4>How to Use This Tool (30-second guide)</h4>
+      <ol>
+        <li><strong>Fill in your child's profile:</strong> Age, sex, diagnosis, and current specialists. This helps personalize the results.</li>
+        <li><strong>Check symptoms:</strong> Open each category (Spine, Neuro, Eyes, etc.) and check everything your child experiences &mdash; current or historical. A severity selector appears for each.</li>
+        <li><strong>Click "Get My Results":</strong> The tool generates urgency alerts (what needs attention now), recommended reading pages, specialist gap analysis, and suggested tests.</li>
+        <li><strong>Save or print results:</strong> Use the Copy, Download, or Print buttons at the bottom of your results to share with your doctor.</li>
+        <li><strong>Come back anytime:</strong> Nothing is saved &mdash; you can re-run this whenever symptoms change. It takes about 5 minutes.</li>
+      </ol>
+      <div class="tutorial-tip">
+        <strong>Tip:</strong> This tool doesn't store data. For ongoing tracking, pair it with the <a href="symptom-tracker.html">Symptom Tracker</a> and <a href="../future/biomarker-tracker.html">Biomarker Tracker</a>.
+      </div>
     </div>
 
     <!-- ===== SECTION 1: PATIENT PROFILE ===== -->
