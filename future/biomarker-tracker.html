@@ -601,6 +601,59 @@
 @media (max-width: 480px) {
   .scan-upload-area { flex-direction: column; align-items: stretch; }
 }
+
+/* Tutorial toggle */
+.tutorial-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: 2px solid var(--sage-300);
+  border-radius: 8px;
+  background: var(--sage-50, #f0f7f4);
+  color: var(--sage-700);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 16px;
+}
+.tutorial-toggle:hover {
+  background: var(--sage-100, #e0efe6);
+  border-color: var(--sage-400);
+}
+.tutorial-content {
+  display: none;
+  background: white;
+  border: 1px solid var(--warm-200);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+  line-height: 1.7;
+}
+.tutorial-content.visible { display: block; }
+.tutorial-content h4 {
+  margin: 0 0 12px 0;
+  font-size: 1rem;
+  color: var(--sage-700);
+}
+.tutorial-content ol {
+  padding-left: 20px;
+  margin: 0 0 12px 0;
+}
+.tutorial-content li {
+  margin-bottom: 8px;
+  font-size: 0.92rem;
+  color: var(--warm-700);
+}
+.tutorial-content .tutorial-tip {
+  margin-top: 12px;
+  padding: 10px 14px;
+  background: var(--blue-50, #eff6ff);
+  border-radius: 6px;
+  font-size: 0.88rem;
+  color: var(--blue-700);
+}
 </style>
 </head>
 <body>
@@ -631,6 +684,22 @@
 
     <div class="tracker-privacy">
       <strong>Privacy Notice:</strong> All data entered here is stored exclusively in your browser's local storage. Nothing is sent to any server. No cookies, no analytics, no network requests. Your medical data never leaves your device. Use the Export function to create backups.
+    </div>
+
+    <button class="tutorial-toggle" onclick="var c=this.nextElementSibling;c.classList.toggle('visible');this.textContent=c.classList.contains('visible')?'Hide Quick Guide':'Show Quick Guide'">Show Quick Guide</button>
+    <div class="tutorial-content">
+      <h4>How to Use This Tool (1-minute guide)</h4>
+      <ol>
+        <li><strong>Start with the Biomarker tab:</strong> After your child's blood work comes back, enter the date and fill in whichever values you have. You don't need all 16 &mdash; even hsCRP and vitamin D alone are valuable.</li>
+        <li><strong>Track daily symptoms:</strong> Switch to the Symptoms tab to log daily pain scores, stiffness, activity level, sleep quality, and fatigue. Quick daily entries build powerful trends.</li>
+        <li><strong>Log interventions:</strong> When starting or stopping a medication, supplement, or therapy, record it in the Interventions tab. This creates a timeline so you can see what's actually helping.</li>
+        <li><strong>Read your trends:</strong> The Analysis tab shows charts, detects meaningful changes, and flags safety alerts. Look for patterns &mdash; does pain drop 2 weeks after starting something?</li>
+        <li><strong>Export for your doctor:</strong> Use Settings &rarr; Export to download your data as CSV or JSON. Your doctor gets a clear before/after picture.</li>
+        <li><strong>Back up your data:</strong> This tool stores everything in your browser. Export regularly. If you clear browser data, it's gone.</li>
+      </ol>
+      <div class="tutorial-tip">
+        <strong>Tip:</strong> Your biomarker and symptom data automatically appear in the <a href="../living/doctor-letter.html">Doctor Letter</a> &mdash; track here, and your letter writes itself.
+      </div>
     </div>
 
     <!-- Protocol Phase Timeline -->

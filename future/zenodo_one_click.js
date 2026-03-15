@@ -2,8 +2,13 @@ const puppeteer = require('puppeteer');
 const path = require('path');
 const fs = require('fs');
 
+// Fix PATH so child processes can find taskkill.exe etc.
+const sys32 = 'C:\\Windows\\System32';
+if (!process.env.PATH.includes(sys32)) process.env.PATH = sys32 + ';' + process.env.PATH;
+
 const PDF_PATH = path.join(__dirname, 'preprint-drug-repurposing.pdf');
 const SS_DIR = path.join(__dirname, 'automation_screenshots');
+if (!fs.existsSync(SS_DIR)) fs.mkdirSync(SS_DIR, { recursive: true });
 
 async function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 
@@ -24,7 +29,7 @@ async function main() {
   const page = await browser.newPage();
 
   // Go straight to Zenodo login
-  await page.goto('https://zenodo.org/login/', { waitUntil: 'networkidle2', timeout: 30000 });
+  await page.goto('https://zenodo.org/login/', { waitUntil: 'networkidle2', timeout: 90000 });
   console.log('Zenodo login page loaded.');
   console.log('>>> CLICK "Sign in with GitHub", then authorize if asked. <<<');
   console.log('    Waiting for you to log in...\n');
@@ -52,7 +57,7 @@ async function main() {
 
   // Navigate to new upload
   console.log('Going to upload page...');
-  await page.goto('https://zenodo.org/uploads/new', { waitUntil: 'networkidle2', timeout: 30000 });
+  await page.goto('https://zenodo.org/uploads/new', { waitUntil: 'networkidle2', timeout: 90000 });
   await sleep(3000);
   console.log('URL:', page.url());
   await page.screenshot({ path: path.join(SS_DIR, 'z_upload_page.png'), fullPage: true });
@@ -136,7 +141,7 @@ async function main() {
   // Try resource type
   for (const f of updatedFields) {
     const key = (f.id + f.name + f.ph + f.aria).toLowerCase();
-    const sel = f.id ? '#' + CSS.escape(f.id) : (f.name ? `[name="${f.name}"]` : null);
+    const sel = f.id ? `[id="${f.id}"]` : (f.name ? `[name="${f.name}"]` : null);
     if (!sel) continue;
 
     try {
@@ -160,7 +165,7 @@ async function main() {
   for (const f of updatedFields) {
     const key = (f.id + f.name + f.ph + f.aria).toLowerCase();
     if (key.includes('title') && !key.includes('alt') && !key.includes('journal') && !key.includes('additional') && f.tag !== 'SELECT') {
-      const sel = f.id ? '#' + CSS.escape(f.id) : `[name="${f.name}"]`;
+      const sel = f.id ? `[id="${f.id}"]` : `[name="${f.name}"]`;
       try {
         await page.click(sel);
         await page.evaluate(s => { const e = document.querySelector(s); if (e) e.value = ''; }, sel);
@@ -185,7 +190,7 @@ async function main() {
   // Creators - family name, given name
   for (const f of updatedFields) {
     const key = (f.id + f.name + f.ph + f.aria).toLowerCase();
-    const sel = f.id ? '#' + CSS.escape(f.id) : (f.name ? `[name="${f.name}"]` : null);
+    const sel = f.id ? `[id="${f.id}"]` : (f.name ? `[name="${f.name}"]` : null);
     if (!sel) continue;
     try {
       if (key.match(/family|last.?name|surname/)) {
@@ -221,7 +226,7 @@ async function main() {
   for (const f of updatedFields) {
     const key = (f.id + f.name + f.ph + f.aria).toLowerCase();
     if (key.includes('license')) {
-      const sel = f.id ? '#' + CSS.escape(f.id) : `[name="${f.name}"]`;
+      const sel = f.id ? `[id="${f.id}"]` : `[name="${f.name}"]`;
       try {
         await page.click(sel);
         await page.type(sel, 'Creative Commons Attribution 4.0');
