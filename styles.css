@@ -73,6 +73,8 @@ body {
   width: 100%; padding: 10px 16px 10px 40px;
   border: 1px solid var(--warm-200); border-radius: 24px;
   font-size: 0.95rem; background: var(--warm-50);
+  color: var(--warm-700);
+  -webkit-text-fill-color: var(--warm-700);
   transition: border-color 0.4s, box-shadow 0.4s;
   outline: none;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -326,9 +328,13 @@ body.print-doctor .doc-section.collapsed .section-body { display: block !importa
   .callout { font-size: 0.9rem; }
   .back-to-top { bottom: 20px; right: 20px; width: 40px; height: 40px; font-size: 1rem; }
   /* Prevent iOS auto-zoom on search focus */
-  .search-wrapper input { font-size: 16px; min-width: 0; }
+  .search-wrapper input { font-size: 16px; min-width: 0; color: var(--warm-700); -webkit-text-fill-color: var(--warm-700); }
   /* Ensure search wrapper doesn't collapse */
-  .search-wrapper { flex: 1 1 120px; min-width: 120px; }
+  .search-wrapper { flex: 1 1 140px; min-width: 140px; }
+  /* Hide search count on mobile — dropdown shows results instead */
+  .search-count { display: none; }
+  /* Shrink title to give search more room */
+  .header-title { font-size: 0.95rem; margin-right: 10px; }
   /* Mobile search dropdown: fixed, ABOVE the overlay */
   .search-dropdown {
     position: fixed !important;
