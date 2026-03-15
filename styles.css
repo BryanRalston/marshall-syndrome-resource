@@ -326,8 +326,10 @@ body.print-doctor .doc-section.collapsed .section-body { display: block !importa
   .callout { font-size: 0.9rem; }
   .back-to-top { bottom: 20px; right: 20px; width: 40px; height: 40px; font-size: 1rem; }
   /* Prevent iOS auto-zoom on search focus */
-  .search-wrapper input { font-size: 16px; }
-  /* Mobile search dropdown: fixed overlay instead of absolute positioning */
+  .search-wrapper input { font-size: 16px; min-width: 0; }
+  /* Ensure search wrapper doesn't collapse */
+  .search-wrapper { flex: 1 1 120px; min-width: 120px; }
+  /* Mobile search dropdown: fixed, ABOVE the overlay */
   .search-dropdown {
     position: fixed !important;
     top: var(--header-h) !important;
@@ -337,6 +339,11 @@ body.print-doctor .doc-section.collapsed .section-body { display: block !importa
     border-radius: 0 !important;
     border-left: none !important;
     border-right: none !important;
+    z-index: 1200 !important;
+  }
+  .search-dropdown a {
+    -webkit-tap-highlight-color: rgba(90,144,112,0.2);
+    touch-action: manipulation;
   }
   .search-dropdown-overlay {
     display: none;
@@ -347,6 +354,8 @@ body.print-doctor .doc-section.collapsed .section-body { display: block !importa
     z-index: 1000;
   }
   .search-dropdown-overlay.active { display: block; }
+  /* Keep header above overlay so dropdown is accessible */
+  .site-header { z-index: 1100; }
 }
 @media (max-width: 600px) {
   .site-header { padding: 0 12px; }

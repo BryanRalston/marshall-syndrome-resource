@@ -423,7 +423,12 @@
   var searchWrapper = document.querySelector('.search-wrapper');
   if (searchWrapper) {
     searchWrapper.style.position = 'relative';
-    searchWrapper.appendChild(searchDropdown);
+    // On mobile, append dropdown to body so it escapes header stacking context
+    if (isMobile()) {
+      document.body.appendChild(searchDropdown);
+    } else {
+      searchWrapper.appendChild(searchDropdown);
+    }
   }
 
   // Close search on overlay tap (mobile)
