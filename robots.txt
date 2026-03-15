@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://bryanralston.github.io/marshall-syndrome-resource/sitemap.xml
