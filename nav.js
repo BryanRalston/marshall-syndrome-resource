@@ -60,6 +60,7 @@
         { file: 'treatment/pain-model.html', title: 'Seven-Mechanism Pain Model', k: 'pain model seven mechanism nociceptive inflammatory neuropathic central nociplastic biomechanical psychosocial' },
         { file: 'treatment/early-pain.html', title: 'Urgency: Early Pain Management', k: 'early pain intervention urgency window chronic pain prevention central sensitization pediatric' },
         { file: 'treatment/pain-management.html', title: 'Pain Management', k: 'pain management medication NSAID acetaminophen gabapentin amitriptyline duloxetine opioid alternatives' },
+        { file: 'treatment/multi-mechanism-pain.html', title: 'Multi-Mechanism Pain: 5 Independent Drivers', k: 'multi-mechanism pain 5 drivers mechanical enzymatic MMP3 MMP13 inflammatory mast cell neuropathic small fiber allodynia neuromuscular weakness treatment matching diagnostic workup puberty window' },
         { file: 'treatment/daily-guide.html', title: 'Practical Daily Guide', k: 'daily routine morning evening schedule practical tips lifestyle management' },
         { file: 'treatment/anesthesia.html', title: 'Anesthesia Safety', k: 'anesthesia intubation airway difficult micrognathia Pierre Robin sedation surgery precautions OrphanAnesthesia' },
         { file: 'treatment/exercise-pathways.html', title: 'Exercise: 10 Molecular Pathways', k: 'exercise molecular pathways NRF2 AMPK autophagy irisin myokines anti-inflammatory senescence' },
@@ -215,6 +216,7 @@
       folder: 'resources', title: 'Resources', pages: [
         { file: 'resources/index.html', title: 'Resources', k: 'resources links organizations information support' },
         { file: 'resources/questions.html', title: 'Questions for Doctors', k: 'questions doctors appointments preparation what to ask specialist visit' },
+        { file: 'resources/clinical-summary.html', title: 'Clinical Summary for Specialists', k: 'clinical summary specialist handout physician reference COL11A1 print-friendly connective tissue collagen XI orthopedics cardiology ophthalmology audiology pain genetics baseline tests medications' },
         { file: 'resources/latest-research.html', title: 'Latest Research', k: 'latest research papers publications PubMed studies new findings 2025 2026' },
         { file: 'resources/support.html', title: 'Support Resources', k: 'support groups families communities online forums Facebook foundation Stickler Involved People' },
         { file: 'resources/references.html', title: 'References', k: 'references bibliography citations sources papers journals authors' },
