@@ -62,6 +62,7 @@
         { file: 'treatment/pain-management.html', title: 'Pain Management', k: 'pain management medication NSAID acetaminophen gabapentin amitriptyline duloxetine opioid alternatives' },
         { file: 'treatment/multi-mechanism-pain.html', title: 'Multi-Mechanism Pain: 5 Independent Drivers', k: 'multi-mechanism pain 5 drivers mechanical enzymatic MMP3 MMP13 inflammatory mast cell neuropathic small fiber allodynia neuromuscular weakness treatment matching diagnostic workup puberty window' },
         { file: 'treatment/daily-guide.html', title: 'Practical Daily Guide', k: 'daily routine morning evening schedule practical tips lifestyle management' },
+        { file: 'treatment/daily-schedule.html', title: 'Daily Schedule for Parents', k: 'daily schedule parent fridge printable circadian BMAL1 morning exercise supplements sleep timing iron vulnerability overnight window practical' },
         { file: 'treatment/anesthesia.html', title: 'Anesthesia Safety', k: 'anesthesia intubation airway difficult micrognathia Pierre Robin sedation surgery precautions OrphanAnesthesia' },
         { file: 'treatment/exercise-pathways.html', title: 'Exercise: 10 Molecular Pathways', k: 'exercise molecular pathways NRF2 AMPK autophagy irisin myokines anti-inflammatory senescence' },
         { file: 'treatment/supplements-advanced.html', title: 'Advanced Supplement Targets', k: 'supplements NAC curcumin resveratrol omega-3 vitamin D magnesium collagen support' },

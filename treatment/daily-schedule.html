@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A parent-friendly daily schedule for Marshall syndrome. Practical timing guide for supplements, exercise, meals, and sleep based on circadian biology.">
+<meta name="keywords" content="daily schedule, Marshall syndrome, circadian, parent guide, morning exercise, supplements, sleep, BMAL1, fridge schedule, printable">
+<meta property="og:title" content="Daily Schedule for Parents - Marshall Syndrome Resource">
+<meta property="og:description" content="A parent-friendly daily schedule for Marshall syndrome. Practical timing guide for supplements, exercise, meals, and sleep based on circadian biology.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bryanralston.github.io/marshall-syndrome-resource/treatment/daily-schedule.html">
+<meta property="og:site_name" content="Marshall Syndrome Resource">
+<title>Daily Schedule for Parents - Marshall Syndrome Resource</title>
+<link rel="stylesheet" href="../styles.css">
+<style>
+  @media print {
+    .site-header,
+    .sidebar,
+    .sidebar-overlay,
+    .hamburger,
+    .search-wrapper,
+    .search-count,
+    .breadcrumb,
+    .prev-next,
+    .back-to-top,
+    .no-print,
+    #sidebar,
+    #hamburgerBtn,
+    #sidebarOverlay,
+    #searchInput,
+    #searchCount,
+    #backToTop {
+      display: none !important;
+    }
+    .main {
+      margin-left: 0 !important;
+      padding: 0 !important;
+    }
+    .content {
+      max-width: 100% !important;
+      padding: 0 !important;
+    }
+    .page-header {
+      border-bottom: 2px solid #333;
+      padding-bottom: 8px;
+      margin-bottom: 16px;
+    }
+    .page-header h1 {
+      color: #000 !important;
+      font-size: 1.6rem;
+    }
+    .page-header p {
+      color: #333 !important;
+    }
+    body {
+      background: #fff !important;
+      color: #000 !important;
+      font-size: 11pt;
+      line-height: 1.4;
+    }
+    h2, h3, h4 {
+      color: #000 !important;
+      page-break-after: avoid;
+    }
+    h2 {
+      font-size: 1.2rem;
+      border-bottom: 1px solid #999;
+      padding-bottom: 4px;
+    }
+    h3 {
+      font-size: 1.05rem;
+    }
+    table {
+      font-size: 10pt;
+    }
+    .table-wrap {
+      border: 1px solid #999;
+    }
+    th {
+      background: #e8e8e8 !important;
+      color: #000 !important;
+    }
+    td, th {
+      border-color: #999 !important;
+    }
+    .callout, .disclaimer {
+      border: 1px solid #999 !important;
+      background: #f5f5f5 !important;
+      color: #000 !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .evidence-badge {
+      border: 1px solid #999 !important;
+      color: #333 !important;
+      background: #f5f5f5 !important;
+    }
+    a {
+      color: #000 !important;
+      text-decoration: none !important;
+    }
+    .time-block {
+      page-break-inside: avoid;
+    }
+    .time-block-header {
+      background: #e8e8e8 !important;
+      color: #000 !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+  }
+
+  /* Schedule-specific styles */
+  .time-block {
+    border: 1px solid var(--warm-200);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+  .time-block-header {
+    padding: 10px 18px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .time-block-header .time-icon {
+    font-size: 1.3rem;
+  }
+  .time-block-body {
+    padding: 14px 18px;
+    background: var(--warm-50);
+  }
+  .time-block-body ul {
+    margin: 0;
+    padding-left: 18px;
+  }
+  .time-block-body li {
+    margin-bottom: 6px;
+  }
+  .block-morning .time-block-header { background: var(--honey-50); color: var(--warm-800); border-bottom: 1px solid var(--honey-100); }
+  .block-school .time-block-header { background: #e4eef8; color: #2a5578; border-bottom: 1px solid #c3d7ea; }
+  .block-afternoon .time-block-header { background: var(--sage-50); color: var(--sage-700); border-bottom: 1px solid var(--sage-100); }
+  .block-sleep .time-block-header { background: #e8e0f0; color: #4a3766; border-bottom: 1px solid #d4c8e2; }
+
+  .why-reason {
+    font-style: italic;
+    color: var(--warm-500);
+    font-size: 0.9rem;
+  }
+
+  .print-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 18px;
+    background: var(--sage-600);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    transition: background 0.2s;
+  }
+  .print-btn:hover {
+    background: var(--sage-700);
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation">&#9776;</button>
+  <a href="../" class="header-title">Marshall Syndrome <span>Resource</span></a>
+  <div class="search-wrapper">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" id="searchInput" placeholder="Search this page..." aria-label="Search">
+  </div>
+  <span class="search-count" id="searchCount"></span>
+</header>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<nav class="sidebar" id="sidebar"></nav>
+
+<div class="main">
+<div class="content">
+
+  <nav class="breadcrumb" id="breadcrumb"></nav>
+
+  <div class="page-header">
+    <h1>Daily Schedule for Parents</h1>
+  </div>
+
+  <div class="page-body">
+
+    <div class="callout callout-warning">
+      <strong>Not Medical Advice</strong><br>
+      This schedule is compiled from published research and is meant to help you have an informed conversation with your child&rsquo;s medical team. It is <strong>not a prescription</strong>. Every child with Marshall syndrome is different. Please discuss any changes to diet, supplements, or exercise with your child&rsquo;s physician before starting.
+    </div>
+
+    <p>This is the &ldquo;put it on the fridge&rdquo; version of the science. If your child has Marshall syndrome and you want a clear, practical daily routine that works <em>with</em> your child&rsquo;s biology instead of against it, this page is for you.</p>
+
+    <p>The timing isn&rsquo;t arbitrary &mdash; it&rsquo;s based on how the body&rsquo;s internal clock controls the protective systems that matter most in Marshall syndrome. We&rsquo;ve simplified the molecular details into plain language, but if your doctor wants the full picture, point them to the <a href="../resources/clinical-summary.html">Clinical Summary for Specialists</a> or the <a href="../emerging/circadian-disc-clock.html">Circadian Disc Clock</a> research page.</p>
+
+    <div class="no-print" style="margin: 16px 0;">
+      <button class="print-btn" onclick="window.print()">&#128424; Print This Schedule</button>
+      <span style="margin-left: 12px; font-size: 0.85rem; color: var(--warm-500);">Prints cleanly for your fridge, binder, or school nurse&rsquo;s office.</span>
+    </div>
+
+    <div class="evidence-legend">
+      <div class="evidence-legend-title">Evidence confidence guide</div>
+      <div class="evidence-legend-items">
+        <span class="evidence-legend-item"><span class="evidence-badge evidence-established">Established</span> Published, peer-reviewed science</span>
+        <span class="evidence-legend-item"><span class="evidence-badge evidence-supported">Supported</span> Published evidence, applied to Marshall context</span>
+        <span class="evidence-legend-item"><span class="evidence-badge evidence-hypothesis">Discuss with Doctor</span> Reasonable but needs physician guidance</span>
+      </div>
+    </div>
+
+    <!-- ==================== MORNING ==================== -->
+    <h2>Morning: Wake to School</h2>
+    <p>Morning is the most important part of the day for your child&rsquo;s discs, joints, and cartilage. What happens in the first 60&ndash;90 minutes sets the tone for the body&rsquo;s protective systems for the next 24 hours.</p>
+
+    <div class="time-block block-morning">
+      <div class="time-block-header">
+        <span class="time-icon">&#9728;&#65039;</span>
+        <span>Light Breakfast First</span>
+        <span class="evidence-badge evidence-established">Established</span>
+      </div>
+      <div class="time-block-body">
+        <ul>
+          <li><strong>Eat something small before supplements.</strong> Oatmeal with nut butter, toast with avocado, a banana &mdash; anything with some fat and carbohydrate.</li>
+          <li><strong>Why this matters:</strong> <span class="why-reason">When the stomach is empty, the body starts breaking down its iron stores (a process called ferritinophagy). In Marshall syndrome, free iron can damage the vulnerable discs and cartilage. A small meal with fat stops this process.</span></li>
+          <li>Include a source of vitamin C with breakfast (fruit, berries) &mdash; it&rsquo;s a required building block for collagen.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="time-block block-morning">
+      <div class="time-block-header">
+        <span class="time-icon">&#128138;</span>
+        <span>Morning Supplements (with Breakfast)</span>
+        <span class="evidence-badge evidence-supported">Supported</span>
+      </div>
+      <div class="time-block-body">
+        <div class="table-wrap">
+        <table>
+          <thead><tr><th>Supplement</th><th>Why Morning?</th><th>Practical Tips</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Sulforaphane</strong> (broccoli sprout extract)</td>
+              <td>Activates the body&rsquo;s main antioxidant defense system (NRF2). Taking it 45&ndash;50 minutes before exercise doubles the protective effect.</td>
+              <td>Chewable sprout extract or capsule. Must be taken with food, never on an empty stomach.</td>
+            </tr>
+            <tr>
+              <td><strong>Vitamin D</strong> (D3)</td>
+              <td>Supports collagen building, bone health, and immune regulation. Fat-soluble, so it absorbs better with a meal.</td>
+              <td>Dose based on blood levels (target 40&ndash;60 ng/mL). Get levels checked first.</td>
+            </tr>
+            <tr>
+              <td><strong>Omega-3</strong> (fish oil or algal DHA)</td>
+              <td>Reduces the enzymes (MMPs) that break down cartilage. Works best when combined with morning exercise.</td>
+              <td>Liquid or chewable for younger kids. Look for EPA+DHA combined.</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+        <p style="margin-top: 10px;">For a full deep dive, see <a href="./supplements-advanced.html">Advanced Supplement Targets</a> and the <a href="./morning-protocol.html">90-Minute Morning Protocol</a>.</p>
+      </div>
+    </div>
+
+    <div class="time-block block-morning">
+      <div class="time-block-header">
+        <span class="time-icon">&#128161;</span>
+        <span>Device Therapies (If Using)</span>
+        <span class="evidence-badge evidence-hypothesis">Discuss with Doctor</span>
+      </div>
+      <div class="time-block-body">
+        <ul>
+          <li>If your child uses <strong>photobiomodulation (red/near-infrared light)</strong> or <strong>PEMF</strong>: do the session <strong>after breakfast, before exercise</strong> &mdash; about 20&ndash;30 minutes.</li>
+          <li><strong>Why this order:</strong> <span class="why-reason">Light therapy primes the mitochondria (the cell&rsquo;s energy generators), making the exercise session that follows more effective. PEMF replaces the piezoelectric signals that Marshall syndrome discs can&rsquo;t generate on their own.</span></li>
+          <li>See the <a href="./photobiomodulation.html">Photobiomodulation</a> and <a href="./pemf.html">PEMF Therapy</a> pages for protocols and device guidance.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="time-block block-morning">
+      <div class="time-block-header">
+        <span class="time-icon">&#127946;</span>
+        <span>Morning Exercise &mdash; The Most Important Timing</span>
+        <span class="evidence-badge evidence-supported">Supported</span>
+      </div>
+      <div class="time-block-body">
+        <ul>
+          <li><strong>Swimming or cycling are ideal</strong> &mdash; they&rsquo;re low-impact, meaning the joints and discs get the benefits of movement without the pounding.</li>
+          <li>Even <strong>20&ndash;25 minutes</strong> makes a meaningful difference.</li>
+          <li>If pool access isn&rsquo;t available in the morning, a stationary bike, gentle yoga, or a walk counts. Movement is the key, not intensity.</li>
+          <li><strong>Why morning matters most:</strong> <span class="why-reason">Morning exercise resets a gene called BMAL1 &mdash; the master switch of the body&rsquo;s internal clock. BMAL1 controls the overnight cascade that repairs and protects discs during sleep. Exercise at other times helps, but morning exercise specifically resets this clock to provide the strongest protection during the vulnerable overnight hours.</span></li>
+        </ul>
+        <div class="callout callout-info">
+          <strong>A note on morning disc pressure:</strong> After lying flat all night, the discs are fully hydrated and slightly more pressurized. This means <strong>no heavy lifting or high-impact jumping in the first 1&ndash;2 hours</strong> after waking. Swimming is ideal during this window because buoyancy unloads the spine. If doing land-based exercise, stick to gentle, controlled movements (cycling, walking, stretching) rather than anything with jarring impact.
+        </div>
+        <p>For the full science: <a href="./exercise.html">Exercise as Molecular Medicine</a> | <a href="./aquatic-therapy.html">Aquatic Therapy</a> | <a href="./exercise-pathways.html">10 Molecular Pathways</a></p>
+      </div>
+    </div>
+
+    <!-- ==================== SCHOOL DAY ==================== -->
+    <h2>School Day</h2>
+    <p>Once your child is at school, the main priorities are posture support, regular movement, and avoiding prolonged static positions.</p>
+
+    <div class="time-block block-school">
+      <div class="time-block-header">
+        <span class="time-icon">&#127979;</span>
+        <span>Classroom &amp; Movement</span>
+        <span class="evidence-badge evidence-established">Established</span>
+      </div>
+      <div class="time-block-body">
+        <ul>
+          <li><strong>Proper seating matters more than most interventions.</strong> A chair that supports the lower back, feet flat on the floor, and screen at eye level can prevent hours of low-grade disc stress every day.</li>
+          <li><strong>Movement breaks every 45 minutes.</strong> Even standing up and stretching for 60 seconds resets the disc loading cycle. Discs don&rsquo;t have their own blood supply &mdash; they rely on a &ldquo;pump&rdquo; effect from movement to get nutrients in and waste out.</li>
+          <li>If available, a <strong>standing desk</strong> or alternating sit/stand option is excellent.</li>
+          <li>If your child uses a <strong>posture wearable</strong> (like Upright Go), school hours are when it matters most.</li>
+          <li><strong>PE class considerations:</strong> request accommodations for impact activities. Swimming is the best PE option if available. See the <a href="../living/sports-clearance.html">Sports Clearance Guide</a>.</li>
+        </ul>
+        <p>The <a href="../living/school-504.html">School 504 Plan</a> page has specific language for requesting these accommodations.</p>
+      </div>
+    </div>
+
+    <!-- ==================== AFTERNOON/EVENING ==================== -->
+    <h2>Afternoon &amp; Evening</h2>
+    <p>The afternoon and evening are about two things: winding down without undoing the morning&rsquo;s work, and preparing the body for the overnight repair window.</p>
+
+    <div class="time-block block-afternoon">
+      <div class="time-block-header">
+        <span class="time-icon">&#127749;</span>
+        <span>After School</span>
+        <span class="evidence-badge evidence-supported">Supported</span>
+      </div>
+      <div class="time-block-body">
+        <ul>
+          <li><strong>Light activity is fine</strong> &mdash; a walk, gentle play, or a short swim. Heavy or intense exercise is less beneficial than morning sessions for the circadian clock reset, though still helpful overall.</li>
+          <li>This is a natural time for <strong>physical therapy exercises</strong> if your child has a home program.</li>
+          <li>Homework with good posture: feet flat, screen at eye level, regular breaks.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="time-block block-afternoon">
+      <div class="time-block-header">
+        <span class="time-icon">&#127860;</span>
+        <span>Dinner &amp; Evening Nutrition</span>
+        <span class="evidence-badge evidence-supported">Supported</span>
+      </div>
+      <div class="time-block-body">
+        <ul>
+          <li><strong>Avoid iron-rich foods after 4 PM.</strong> Red meat, iron-fortified cereals, and spinach are fine earlier in the day, but evening iron intake can fuel the overnight vulnerability window when the body&rsquo;s iron-handling defenses are at their lowest.</li>
+          <li>Good dinner options: chicken, fish, pasta, rice, vegetables, legumes &mdash; focus on foods that are nourishing without loading up on iron right before the overnight period.</li>
+          <li><strong>Anti-inflammatory foods at dinner</strong> are still valuable: colorful vegetables, berries for dessert, olive oil for cooking.</li>
+        </ul>
+        <p><strong>Why this matters:</strong> <span class="why-reason">Between midnight and 4 AM, the protein that controls iron (ferritin) is at its lowest, while the systems that handle free iron (GPX4, glutathione) also dip. Avoiding iron-rich foods in the evening means less free iron is available during this vulnerable window.</span></p>
+      </div>
+    </div>
+
+    <div class="time-block block-afternoon">
+      <div class="time-block-header">
+        <span class="time-icon">&#127769;</span>
+        <span>Evening Supplements (with Dinner or at Bedtime)</span>
+        <span class="evidence-badge evidence-hypothesis">Discuss with Doctor</span>
+      </div>
+      <div class="time-block-body">
+        <div class="table-wrap">
+        <table>
+          <thead><tr><th>Supplement</th><th>When</th><th>Why Evening?</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Selenium</strong> (1/2 Brazil nut or supplement)</td>
+              <td>With dinner</td>
+              <td>The body uses selenium to make GPX4 &mdash; the enzyme that prevents iron-driven cell damage (ferroptosis). Evening dosing ensures GPX4 levels are strong going into the overnight period.</td>
+            </tr>
+            <tr>
+              <td><strong>Magnesium</strong> (glycinate or citrate)</td>
+              <td>30 min before bed</td>
+              <td>Supports muscle relaxation, sleep quality, and hundreds of enzyme processes. Many children are low in magnesium.</td>
+            </tr>
+            <tr>
+              <td><strong>Melatonin</strong> (sustained-release/timed-release)</td>
+              <td>30 min before bed</td>
+              <td>More than a sleep aid &mdash; melatonin is a powerful antioxidant that specifically protects discs during the overnight vulnerability window. Timed-release formulations provide coverage through the 2&ndash;4 AM danger zone.</td>
+            </tr>
+            <tr>
+              <td><strong>NAC</strong> (N-acetylcysteine)</td>
+              <td>Bedtime</td>
+              <td>Boosts glutathione &mdash; the body&rsquo;s master antioxidant &mdash; during the hours when it&rsquo;s needed most. Glutathione is the fuel that GPX4 runs on.</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+        <div class="callout callout-tip">
+          <strong>Start one at a time.</strong> If your doctor approves these supplements, introduce them one by one, about a week apart. That way, if your child has any reaction, you&rsquo;ll know which one caused it. And always start with the lowest reasonable dose.
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SLEEP ==================== -->
+    <h2>Sleep: The 10-Hour Repair Window</h2>
+    <p>Sleep isn&rsquo;t just rest &mdash; it&rsquo;s when the body does its most important repair work. For a child with Marshall syndrome, the overnight hours are both the most productive repair window <em>and</em> the most vulnerable period for disc and cartilage damage. Getting sleep right is one of the highest-impact things you can do.</p>
+
+    <div class="time-block block-sleep">
+      <div class="time-block-header">
+        <span class="time-icon">&#128164;</span>
+        <span>Sleep Setup</span>
+        <span class="evidence-badge evidence-established">Established</span>
+      </div>
+      <div class="time-block-body">
+        <ul>
+          <li><strong>Target 10+ hours for growing kids.</strong> Growth hormone &mdash; critical for cartilage and disc repair &mdash; is released primarily during deep sleep.</li>
+          <li><strong>Sleep position matters:</strong> Side-lying with a pillow between the knees for proper spinal alignment. A supportive pillow for the cervical spine (neck) is especially important in Marshall syndrome, where the cervical vertebrae may be affected.</li>
+          <li><strong>Consistent bedtime is part of the therapy.</strong> The circadian clock that controls overnight protection needs regularity to work. Going to bed at the same time every night (including weekends) isn&rsquo;t just a good habit &mdash; it&rsquo;s a medical intervention.</li>
+          <li><strong>Blue light curfew:</strong> Screens off 30&ndash;60 minutes before bed. Blue light delays melatonin production, which delays the entire overnight protective cascade.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="time-block block-sleep">
+      <div class="time-block-header">
+        <span class="time-icon">&#128680;</span>
+        <span>Sleep-Disordered Breathing: A Critical Issue</span>
+        <span class="evidence-badge evidence-established">Established</span>
+      </div>
+      <div class="time-block-body">
+        <ul>
+          <li>Children with Marshall syndrome are at elevated risk for obstructive sleep apnea (OSA) because of midface hypoplasia &mdash; the smaller midface can narrow the airway.</li>
+          <li><strong>If your child snores, breathes through their mouth at night, has restless sleep, or wakes frequently</strong> &mdash; request a pediatric sleep study (polysomnography). This is not optional.</li>
+          <li><strong>Why this is urgent:</strong> <span class="why-reason">OSA causes repeated drops in blood oxygen (hypoxia) throughout the night. This adds hypoxia damage on top of the ferroptosis damage that&rsquo;s already happening during the overnight vulnerability window. It&rsquo;s a double hit to tissues that are already compromised. Treating OSA may be one of the single highest-impact interventions available.</span></li>
+          <li>Treatment options depend on severity: positioning, CPAP, adenotonsillectomy, or orthodontic appliances. Your ENT and sleep medicine team will guide this.</li>
+        </ul>
+        <p>Full details: <a href="../monitoring/sleep-apnea.html">Sleep-Disordered Breathing &amp; OSA</a> | <a href="../basics/midface-hypoplasia.html">Midface Hypoplasia &amp; Airway</a></p>
+      </div>
+    </div>
+
+    <div class="time-block block-sleep">
+      <div class="time-block-header">
+        <span class="time-icon">&#128337;</span>
+        <span>What Happens While They Sleep</span>
+        <span class="evidence-badge evidence-supported">Supported</span>
+      </div>
+      <div class="time-block-body">
+        <p>Understanding what&rsquo;s happening overnight helps explain why the daily schedule matters so much:</p>
+        <ul>
+          <li><strong>Disc rehydration:</strong> When the spine is unloaded during sleep, the discs absorb water like a sponge. This is how discs get their nutrients (they don&rsquo;t have blood vessels). Good sleep position and adequate sleep duration are directly tied to disc health.</li>
+          <li><strong>Growth hormone release:</strong> Deep sleep triggers the biggest surge of growth hormone, which drives cartilage repair and bone growth.</li>
+          <li><strong>The vulnerability window (midnight&ndash;4 AM):</strong> Several protective systems reach their lowest point at the same time &mdash; cortisol (anti-inflammatory), GPX4 (anti-ferroptosis), glutathione (master antioxidant), and BMAL1 (the clock gene). Meanwhile, the complement system (immune attack) and iron release peak. This is when damage is most likely to happen.</li>
+          <li><strong>The morning supplements and evening supplements are timed around this window</strong> &mdash; loading protection before the dip, and providing raw materials (selenium, NAC, melatonin) to get through it.</li>
+        </ul>
+        <p>Deep dive: <a href="../emerging/nocturnal-destruction.html">The Nocturnal Destruction Window</a> | <a href="../monitoring/sleep-architecture.html">Sleep Architecture: Nocturnal Defense</a></p>
+      </div>
+    </div>
+
+    <!-- ==================== WHY THIS MATTERS ==================== -->
+    <h2>Why This Matters: The Short Version</h2>
+
+    <div class="callout callout-info">
+      <strong>The key insight, simplified:</strong><br><br>
+      Your child&rsquo;s body runs on a clock. In Marshall syndrome, the discs and cartilage are already vulnerable because of the collagen defect (COL11A1). Between <strong>midnight and 4 AM</strong>, several of the body&rsquo;s protective systems reach their lowest point <em>at the same time</em>:<br><br>
+      <ul style="margin: 8px 0 8px 18px;">
+        <li>The anti-inflammatory hormone (cortisol) is at its nightly low</li>
+        <li>The iron-control enzyme (GPX4) dips</li>
+        <li>The master antioxidant (glutathione) is depleted</li>
+        <li>The immune attack system (complement) actually <em>increases</em></li>
+      </ul>
+      <strong>Morning exercise and timed supplements help set the clocks so that these protective systems provide maximum coverage during the vulnerable hours.</strong> This isn&rsquo;t alternative medicine &mdash; it&rsquo;s published circadian biology applied to timing.<br><br>
+      Your doctor can read the full molecular details in the <a href="../emerging/circadian-disc-clock.html">Circadian Disc Clock</a> research page and the <a href="../resources/clinical-summary.html">Clinical Summary for Specialists</a>.
+    </div>
+
+    <!-- ==================== QUICK REFERENCE ==================== -->
+    <h2>Quick Reference: The Day at a Glance</h2>
+
+    <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>When</th><th>What</th><th>Why</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Wake</strong></td><td>Light breakfast with fat</td><td>Prevents iron release from stores</td></tr>
+        <tr><td><strong>Breakfast</strong></td><td>Sulforaphane, vitamin D (with fat), omega-3</td><td>Activates antioxidant defense, supports collagen, reduces cartilage enzymes</td></tr>
+        <tr><td><strong>After breakfast</strong></td><td>PBM/PEMF if using (20&ndash;30 min)</td><td>Primes mitochondria for exercise</td></tr>
+        <tr><td><strong>Morning</strong></td><td>Exercise 20&ndash;25 min (swim/bike)</td><td>Resets the circadian clock for overnight protection</td></tr>
+        <tr><td><strong>School</strong></td><td>Good posture + movement breaks every 45 min</td><td>Disc nutrient pump needs movement</td></tr>
+        <tr><td><strong>After 4 PM</strong></td><td>Avoid iron-rich foods</td><td>Less iron available during overnight vulnerability</td></tr>
+        <tr><td><strong>Dinner</strong></td><td>Selenium (1/2 Brazil nut or supplement)</td><td>Builds GPX4 for overnight protection</td></tr>
+        <tr><td><strong>30 min before bed</strong></td><td>Magnesium + sustained-release melatonin</td><td>Sleep quality + overnight antioxidant coverage</td></tr>
+        <tr><td><strong>Bedtime</strong></td><td>NAC</td><td>Glutathione boost for the vulnerability window</td></tr>
+        <tr><td><strong>Sleep</strong></td><td>10+ hours, side-lying, same time every night</td><td>Disc repair, growth hormone, circadian regularity</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <!-- ==================== ADAPTING ==================== -->
+    <h2>Adapting This Schedule</h2>
+    <ul>
+      <li><strong>You don&rsquo;t have to do everything on day one.</strong> Pick the two or three things that feel most doable and build from there. Morning exercise and consistent bedtime are probably the highest-impact starting points.</li>
+      <li><strong>Weekends count.</strong> The circadian clock doesn&rsquo;t know it&rsquo;s Saturday. Keeping a consistent wake time and exercise routine (even if lighter) on weekends helps maintain the clock reset.</li>
+      <li><strong>Bad days happen.</strong> A missed morning or a late bedtime isn&rsquo;t a failure. The protective effects accumulate over weeks and months, not hours. What matters is the overall pattern.</li>
+      <li><strong>Age matters.</strong> A 6-year-old&rsquo;s version of this schedule will look very different from a 14-year-old&rsquo;s. Adapt the activities, but keep the timing principles.</li>
+      <li><strong>Track what works.</strong> A simple pain journal (morning and evening, 0&ndash;10 scale) plus tracking morning stiffness duration can help you and your doctor see what&rsquo;s making a difference. See the <a href="./daily-guide.html">Practical Daily Guide</a> for journaling templates.</li>
+    </ul>
+
+    <!-- ==================== RELATED PAGES ==================== -->
+    <h3>Related Pages</h3>
+    <ul>
+      <li><a href="./morning-protocol.html">The 90-Minute Morning Protocol</a> &mdash; detailed molecular rationale for the morning sequence</li>
+      <li><a href="./complete-protocol.html">Complete 24-Hour Protocol</a> &mdash; the full clinical-level protocol with doses and timing</li>
+      <li><a href="./exercise.html">Exercise as Molecular Medicine</a> &mdash; why movement is medicine for Marshall discs</li>
+      <li><a href="./aquatic-therapy.html">Aquatic Therapy</a> &mdash; why swimming is the ideal exercise</li>
+      <li><a href="./multi-mechanism-pain.html">Multi-Mechanism Pain: 5 Independent Drivers</a> &mdash; understanding the different types of pain</li>
+      <li><a href="../monitoring/sleep.html">Sleep &amp; Circadian Health</a> &mdash; monitoring sleep quality</li>
+      <li><a href="../emerging/nocturnal-destruction.html">The Nocturnal Destruction Window</a> &mdash; the science behind the midnight&ndash;4 AM vulnerability</li>
+      <li><a href="../emerging/circadian-disc-clock.html">Circadian Biology &amp; the Disc Clock</a> &mdash; the BMAL1 research behind morning exercise timing</li>
+      <li><a href="../living/school-504.html">School 504 Plan</a> &mdash; how to get accommodations for movement breaks and seating</li>
+      <li><a href="../resources/clinical-summary.html">Clinical Summary for Specialists</a> &mdash; hand this to your doctor</li>
+    </ul>
+
+    <div class="callout callout-tip">
+      <strong>You can do this.</strong> Managing Marshall syndrome day-to-day can feel overwhelming. But the core of this schedule is simple: feed them something before supplements, get them moving in the morning, keep them moving at school, time the evening supplements, and protect sleep. Those five things, done consistently, are working with your child&rsquo;s biology in a way that adds up over time. You&rsquo;re not expected to be perfect &mdash; you&rsquo;re expected to be consistent.
+    </div>
+
+    <div class="callout callout-warning">
+      <strong>Safety Reminders</strong>
+      <ul style="margin-top: 8px;">
+        <li>Discuss <strong>all</strong> supplements and exercise changes with your child&rsquo;s medical team before starting.</li>
+        <li>Every child with Marshall syndrome is different. What works for one family may need adjustment for another.</li>
+        <li>If your child has <strong>cervical spine involvement</strong> (CCI, myelopathy), exercise selection must be guided by their spine specialist. See <a href="../spine/cervical-myelopathy.html">Cervical Myelopathy</a>.</li>
+        <li>If your child has undiagnosed <strong>sleep-disordered breathing</strong>, treating that should be priority #1 &mdash; before optimizing supplements or exercise timing.</li>
+        <li>This page is information, not a prescription. The goal is to help you have a better conversation with your medical team.</li>
+      </ul>
+    </div>
+
+  </div>
+  </div>
+
+  <div class="prev-next">
+    <a href="./daily-guide.html" class="prev-next-link">&larr; Practical Daily Guide</a>
+    <a href="./complete-protocol.html" class="prev-next-link">Complete 24-Hour Protocol &rarr;</a>
+  </div>
+
+</div>
+</div>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top">&#8593;</button>
+<script src="../nav.js"></script>
+</body>
+</html>
