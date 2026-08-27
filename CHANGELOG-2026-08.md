@@ -110,4 +110,49 @@ The 2026-03-09 research plan at `C:\Cortex\docs\marshall-research-plan.md` was r
 - `living/eye-management.html` — Camp RR 0.23; AAO PPP; NCT07146516; COL11A1 RD numbers
 - `CHANGELOG-2026-08.md` — this file
 
-No Soma/Cortex branding. No new speculative essay pages. No commit required by the task; working tree is on `research-update-2026-08`.
+First push: commit `20cb04a` fast-forwarded to `master` and pushed to `origin/master` and `origin/research-update-2026-08`. GitHub Pages deploys from master.
+
+---
+
+## Deep dive (same day, after first push)
+
+Systematic audit of site-asserted science against PubMed, ClinicalTrials.gov, FDA/EMA, AAO, company registries. No invented papers. Speculative research-plan tracks were scored, not implemented as new essays.
+
+### Now true (with citations)
+
+1. Still **no COL11A1-directed** ASO/CRISPR/gene-therapy trial. n-Lorem public gene list does not include COL11A1. Crooke et al. *NAR* 2026;54(10):gkag504.
+2. Stickler-spectrum interventional trial exists: **NCT07146516** laser prophylaxis, Type 1 and 2.
+3. DiscGenics **NCT07254806** recruiting (last CT.gov 7 Aug 2026). **CONFIRM/DGX-A03 not registered.**
+4. Mesoblast **NCT06325566** / MSB-DR004: **350 treated** 16 Aug 2026; topline mid-2027.
+5. Kolon **NCT06144970** not yet recruiting; knee P3 miss Jul 2026.
+6. Zevaskyn FDA 28 Apr 2025; Vyjuvek EU/Japan/UK follow-on. Skin COL7A1 only.
+7. FDA Plausible Mechanism still **draft** (FDA-2026-D-1256, “Not for implementation”).
+8. Ebselen SPI-1005: BTD late 2025; NCT06859788 enrollment complete 14 Jul 2026; **not approved**.
+9. Carpenter 2026 IPD meta: COL2A1 RD 47% vs COL11A1 28% (PMID 40825394). Constant 2026: similar RD rate, earlier COL11A1 onset (PMID 40930209). Camp 2025 laser RR 0.23 (PMID 40370211). AAO 2025 PPP 360° laser for genetically verified Stickler.
+10. Qin *Cell Metab* 2026 17% cartilage: n=20, HA+semaglutide, OA/obesity. Systemic GLP-1 NP concentration unmeasured; rat *intradiscal* exenatide exists.
+11. Mannarino *Sci Adv* 2025 (PMID 40085710); Novais *Bone Res* 2026 D+Q in SM/J. Not pediatric Marshall.
+12. Tonabersat DRCR Protocol AN *Ophthalmol Sci* 2026: DME CST **P=0.08 miss**. No disc trial.
+13. ClinVar Miner ~130 P + ~149 LP unique COL11A1 variants (not “186”).
+14. No Marshall-specific OrphanAnesthesia rec found. Airway series: 502 events, *Anesth Analg* 2021;132:202–209.
+15. “7/8 cascade coverage” is a site hypothesis. Homepage and metformin page now say so.
+
+### Claims demoted
+
+- Tonabersat “protects disc AND retina simultaneously” / dual-organ Marshall opportunity as if clinical
+- OrphanAnesthesia “guidelines for Stickler/Marshall” as a named download
+- Homepage metformin+doxy “covers 7–8 of 8 cascades” as a finding
+- DiscGenics CONFIRM as an open twin trial
+- Ebselen “likely FDA approval 2027–2028” as a date
+- ClinVar “~186 P/LP as of 2025”
+- future/index “no active trials for Stickler treatment specifically” (laser prophylaxis exists)
+- Doctor-letter personalized generate implying Cortex is required for the letter to exist
+
+### Site audit
+
+**Fixed:** 3 sitemap orphans (`clinical-summary`, `daily-schedule`, `multi-mechanism-pain`); emergency protocol ↔ wallet card cross-links; last-reviewed on key safety/science pages; doctor-letter GitHub Pages fallback copy; internal-link crawl 2792 hrefs / 0 real broken files (2 JS template false positives).
+
+**Left as recs (no rebuild):** two emergency-card URLs should someday become one with print modes; doctor-letter Cortex API will never work on Pages; last-reviewed not on all 220 HTML pages; 8-cascade essays still long; cascade-sim / symptom tools are client-side localStorage (OK); prevalence “1 in 7,500–9,000” on wallet card is Stickler-range, likely too common for Marshall-only; Cx43 “clinical proof of wave blockade from migraine aura” remains oversold deeper in that essay.
+
+### Research-plan tracks (C:\Cortex\docs\marshall-research-plan.md)
+
+Worth a short site note (done via latest-research / trial pages): Track 13 TTR/ASO lessons (n-Lorem NAR); Track 15 senolytic timing; Track 6 Cx43 (now with DME miss); Track 14 vitreous/laser; GLP-1 cartilage. Still speculative, no new essays: Track 1 chaperone COL11A1, 2 interspecies, 3 OSKM, 4 engineered exosomes, 5 matrix-mimetic XI, 7 immune checkpoint, 8 acoustic, 9 microbiome engineering, 11 AI de novo, 12 THz/magnetogenetics.

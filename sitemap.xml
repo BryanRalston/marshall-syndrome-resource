@@ -580,6 +580,11 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://bryanralston.github.io/marshall-syndrome-resource/resources/clinical-summary.html</loc>
+    <lastmod>2026-08-27</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://bryanralston.github.io/marshall-syndrome-resource/resources/emergency-card.html</loc>
     <priority>0.8</priority>
   </url>
@@ -761,6 +766,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://bryanralston.github.io/marshall-syndrome-resource/treatment/daily-schedule.html</loc>
+    <lastmod>2026-08-27</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://bryanralston.github.io/marshall-syndrome-resource/treatment/deconditioning-spiral.html</loc>
     <priority>0.7</priority>
   </url>
@@ -822,6 +832,11 @@
   </url>
   <url>
     <loc>https://bryanralston.github.io/marshall-syndrome-resource/treatment/multi-organ-protection.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bryanralston.github.io/marshall-syndrome-resource/treatment/multi-mechanism-pain.html</loc>
+    <lastmod>2026-08-27</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
