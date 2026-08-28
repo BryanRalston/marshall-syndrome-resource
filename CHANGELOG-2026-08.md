@@ -151,7 +151,17 @@ Systematic audit of site-asserted science against PubMed, ClinicalTrials.gov, FD
 
 **Fixed:** 3 sitemap orphans (`clinical-summary`, `daily-schedule`, `multi-mechanism-pain`); emergency protocol ↔ wallet card cross-links; last-reviewed on key safety/science pages; doctor-letter GitHub Pages fallback copy; internal-link crawl 2792 hrefs / 0 real broken files (2 JS template false positives).
 
-**Left as recs (no rebuild):** two emergency-card URLs should someday become one with print modes; doctor-letter Cortex API will never work on Pages; last-reviewed not on all 220 HTML pages; 8-cascade essays still long; cascade-sim / symptom tools are client-side localStorage (OK); prevalence “1 in 7,500–9,000” on wallet card is Stickler-range, likely too common for Marshall-only; Cx43 “clinical proof of wave blockade from migraine aura” remains oversold deeper in that essay.
+**Left as recs (no rebuild):** doctor-letter Cortex API will never work on Pages; last-reviewed not on all 220 HTML pages; 8-cascade essays still long; cascade-sim / symptom tools are client-side localStorage (OK).
+
+---
+
+## Honesty pass (2026-08-27, after `704d96d`)
+
+Bryan: “ok do it.” Three cuts only.
+
+1. **Emergency cards merged.** Canonical `living/emergency-card.html` has Protocol (phone/ER) and Wallet print modes (`?mode=wallet`). `resources/emergency-card.html` is a redirect to wallet mode. Both URLs still work. Nav: Protocol vs Wallet. Home still one-tap to living URL.
+2. **Prevalence.** Wallet copy no longer claims Marshall is 1:7,500–9,000. Marshall is ultra-rare / not well characterized (often &lt;1 in 1,000,000). Stickler spectrum ~1:7,500–9,000 is why some ER docs may have heard of a related condition. `resources/clinical-summary.html` already distinguished correctly and was not changed.
+3. **Cx43.** Removed “clinical proof of wave blockade” / “direct clinical evidence in humans” equating migraine-with-aura to disc/retina death waves. DME Phase 2 miss stays. Dual-organ “one pill” / off-label-as-available leftovers rewritten as hypothesis. Actionability Watch. Essay kept.
 
 ### Research-plan tracks (C:\Cortex\docs\marshall-research-plan.md)
 

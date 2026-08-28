@@ -3,32 +3,75 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Printable emergency protocol card for Marshall syndrome. Critical medical information for ER doctors and first responders.">
-<meta name="keywords" content="emergency card, Marshall syndrome, emergency protocol, ER information, medical alert, first responders">
-<meta property="og:title" content="Emergency Protocol Card — Marshall Syndrome Resource">
-<meta property="og:description" content="Printable emergency protocol card for Marshall syndrome. Critical medical information for ER doctors and first responders.">
+<meta name="description" content="Marshall syndrome emergency card: phone/ER protocol and printable wallet card. Airway, cervical spine, retinal detachment, MedicAlert, travel.">
+<meta name="keywords" content="emergency card, Marshall syndrome, emergency protocol, wallet card, MedicAlert, ICE, travel, ER information, medical alert, first responders">
+<meta property="og:title" content="Emergency Card — Marshall Syndrome Resource">
+<meta property="og:description" content="Phone/ER protocol and printable wallet card. Airway, cervical spine, retinal detachment, MedicAlert, travel.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://bryanralston.github.io/marshall-syndrome-resource/living/emergency-card.html">
 <meta property="og:site_name" content="Marshall Syndrome Resource">
-<title>Emergency Protocol Card — Marshall Syndrome Resource</title>
+<title>Emergency Card (Protocol &amp; Wallet) — Marshall Syndrome Resource</title>
 <link rel="stylesheet" href="../styles.css">
 <style>
 /* ===== EMERGENCY CARD PAGE STYLES ===== */
 
-/* Print: strip site chrome, show only the card */
+/* Print: strip site chrome; print only the selected mode */
 @media print {
   .site-header, .sidebar, .sidebar-overlay, .breadcrumb, .back-to-top,
   .prev-next, .no-print, .emergency-instructions, #backToTop,
-  .hamburger, .search-wrapper, .search-count, .page-header {
+  .hamburger, .search-wrapper, .search-count, .page-header,
+  .mode-toggle, .last-reviewed, .wallet-extras {
     display: none !important;
   }
   .main { margin: 0 !important; padding: 0 !important; }
   .content { max-width: 100% !important; padding: 10px !important; }
   body { background: #fff !important; }
+  body.mode-protocol .wallet-panel { display: none !important; }
+  body.mode-wallet .protocol-panel { display: none !important; }
   .er-card { box-shadow: none !important; border: 2px solid #000 !important; }
   .er-card-critical { border-left-color: #000 !important; }
   .er-card-important { border-left-color: #555 !important; }
   .er-scenario-table th { background: #ddd !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .emergency-card {
+    border: 2px solid #000 !important;
+    background: #fff !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    page-break-inside: avoid;
+    font-size: 11pt;
+  }
+  .emergency-card .card-alert-banner {
+    background: #000 !important;
+    color: #fff !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+body.mode-protocol .wallet-panel { display: none; }
+body.mode-wallet .protocol-panel { display: none; }
+
+.mode-toggle {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 0 0 16px;
+}
+.mode-toggle button {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 2px solid var(--sage-400);
+  background: #fff;
+  color: var(--sage-700);
+  cursor: pointer;
+}
+.mode-toggle button.active {
+  background: var(--sage-600);
+  color: #fff;
+  border-color: var(--sage-600);
 }
 
 /* Instruction block at top */
@@ -261,9 +304,130 @@
 .er-priority-amber {
   background: #d97706;
 }
+
+/* Wallet card (from former resources/emergency-card.html) */
+.emergency-card {
+  border: 2px solid var(--warm-400);
+  border-radius: 12px;
+  padding: 24px;
+  margin: 24px 0;
+  background: var(--warm-50);
+}
+.card-alert-banner {
+  background: #b91c1c;
+  color: #fff;
+  text-align: center;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+.card-alert-banner small {
+  display: block;
+  font-weight: 400;
+  font-size: 0.75rem;
+  letter-spacing: 0;
+  margin-top: 4px;
+  opacity: 0.9;
+}
+.critical-alert {
+  border: 2px solid #b91c1c;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  background: #fef2f2;
+}
+.critical-alert strong { color: #b91c1c; }
+.card-section { margin-bottom: 20px; }
+.card-section h3 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 2px solid var(--warm-300);
+  padding-bottom: 6px;
+  margin-bottom: 10px;
+}
+.card-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 6px;
+  align-items: baseline;
+}
+.card-row .label { font-weight: 600; min-width: 120px; flex-shrink: 0; }
+.fill-line {
+  flex: 1;
+  border-bottom: 1px dashed var(--warm-400);
+  min-width: 100px;
+  height: 1.2em;
+}
+.checkbox-item {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+.checkbox-item input[type="checkbox"] { width: 16px; height: 16px; flex-shrink: 0; margin-top: 2px; }
+.fill-inline {
+  border-bottom: 1px dashed var(--warm-400);
+  min-width: 80px;
+  display: inline-block;
+}
+.specialist-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+  align-items: baseline;
+}
+.specialist-row .label { font-weight: 600; min-width: 180px; flex-shrink: 0; }
+.specialist-row .fill-line { flex: 1; }
+.med-line {
+  border-bottom: 1px dashed var(--warm-400);
+  height: 1.6em;
+  margin-bottom: 4px;
+}
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 16px 0;
+}
+.bracelet-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  margin: 16px 0;
+}
+.bracelet-option {
+  border: 1px solid var(--warm-300);
+  border-radius: 8px;
+  padding: 16px;
+  background: var(--warm-50);
+}
+.engrave-example {
+  background: var(--warm-200);
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-family: monospace;
+  font-size: 0.95rem;
+  text-align: center;
+  margin: 12px 0;
+  letter-spacing: 0.03em;
+  border: 1px solid var(--warm-300);
+}
 </style>
 </head>
-<body>
+<body class="mode-protocol">
 
 <header class="site-header">
   <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation">&#9776;</button>
@@ -284,18 +448,20 @@
   <nav class="breadcrumb" id="breadcrumb"></nav>
 
   <div class="page-header">
-    <h1>Emergency Protocol Card</h1>
+    <h1>Emergency Card</h1>
   </div>
 
   <div class="page-body">
 
-    <!-- ============================================================ -->
-    <!-- INSTRUCTIONS (hidden when printing) -->
-    <!-- ============================================================ -->
-    <p class="last-reviewed no-print">Last reviewed: 2026-08-27. Phone card for 2am. Wallet version: <a href="../resources/emergency-card.html">Emergency Medical Card</a>.</p>
+    <p class="last-reviewed no-print">Last reviewed: 2026-08-27. One page, two print modes: phone/ER protocol and wallet card. Bookmark this URL.</p>
+
+    <div class="mode-toggle no-print" role="tablist" aria-label="Card mode">
+      <button type="button" id="btnProtocol" class="active" onclick="setEmergencyMode('protocol')">Protocol (phone / ER)</button>
+      <button type="button" id="btnWallet" onclick="setEmergencyMode('wallet')">Wallet card</button>
+    </div>
 
     <div class="emergency-instructions no-print">
-      <p><strong>Show this page to the ER team.</strong> It contains critical safety information about your child's rare connective tissue disorder. Hand your phone to the triage nurse or attending physician and let them read the card below. Bookmark this URL. Also print the <a href="../resources/emergency-card.html">wallet card</a>.</p>
+      <p><strong>Show the Protocol to the ER team.</strong> Hand your phone to the triage nurse. Print the Wallet card for a purse, backpack, or school nurse. Fill in names below; they stay on this device.</p>
 
       <p>Fill in your child's details so the card is ready when you need it:</p>
 
@@ -322,6 +488,7 @@
     </div>
 
 
+    <div class="protocol-panel">
     <!-- ============================================================ -->
     <!-- THE EMERGENCY CARD -->
     <!-- ============================================================ -->
@@ -409,9 +576,19 @@
         </ul>
       </div>
 
-      <!-- 7. Joint Laxity -->
+      <!-- 7. Fluoroquinolones / local anesthetic (wallet-card items, kept on protocol) -->
       <div class="er-card-important">
-        <h4><span class="er-priority er-priority-amber">7</span> JOINT LAXITY</h4>
+        <h4><span class="er-priority er-priority-amber">7</span> FLUOROQUINOLONES &amp; LOCAL ANESTHETIC</h4>
+        <ul>
+          <li><strong>AVOID fluoroquinolones</strong> (ciprofloxacin, levofloxacin) if possible &mdash; tendon-rupture risk in collagen disorders</li>
+          <li><strong>Local anesthetic resistance</strong> is common in collagen disorders. Prefer <strong>articaine</strong> over lidocaine; allow extra onset time; consider a nerve block if infiltration fails</li>
+          <li>Known allergies: see wallet card / parent</li>
+        </ul>
+      </div>
+
+      <!-- 8. Joint Laxity -->
+      <div class="er-card-important">
+        <h4><span class="er-priority er-priority-amber">8</span> JOINT LAXITY</h4>
         <ul>
           <li>Joints are <strong>hypermobile and prone to subluxation/dislocation</strong></li>
           <li><strong>Gentle handling</strong> during positioning, transfers, and procedures</li>
@@ -475,6 +652,133 @@
 
     </div>
     <!-- end .er-card -->
+    </div>
+    <!-- end .protocol-panel -->
+
+    <div class="wallet-panel">
+      <div class="callout callout-warning no-print">
+        <strong>Carry a printed wallet card and a medical ID bracelet.</strong> ER doctors will not know Marshall syndrome. Marshall is ultra-rare (prevalence not well characterized; often cited as fewer than 1 in 1,000,000). Stickler syndrome (COL2A1 / COL11A1 spectrum) is about 1 in 7,500&ndash;9,000 &mdash; which is why some ER docs may have heard of a related condition.
+      </div>
+      <p class="no-print">Two situations make this especially urgent: a <a href="../treatment/anesthesia.html">difficult airway</a> (know before the first intubation attempt) and a <a href="../monitoring/red-flags.html">sudden vision emergency</a> (vitreoretinal consult, not a routine eye complaint).</p>
+      <div class="no-print" style="text-align:center; margin: 16px 0;">
+        <button type="button" onclick="window.print()" class="print-btn">Print wallet card</button>
+        <p style="font-size:0.85rem; color: var(--warm-500); margin-top:8px;">Prints only the wallet card. Protocol mode prints the ER protocol instead.</p>
+      </div>
+
+      <div class="emergency-card" id="emergencyCard">
+        <div class="card-alert-banner">
+          MARSHALL SYNDROME &mdash; MEDICAL ALERT
+          <small>COL11A1 collagen XI disorder &bull; Stickler spectrum type 2</small>
+        </div>
+        <div class="card-section">
+          <h3>Patient Information</h3>
+          <div class="card-row"><span class="label">Name:</span> <span class="fill-line"></span></div>
+          <div class="card-row"><span class="label">Date of Birth:</span> <span class="fill-line"></span></div>
+          <div class="card-row"><span class="label">Diagnosis:</span> Marshall syndrome (COL11A1; Stickler type 2 spectrum)</div>
+          <div class="card-row"><span class="label">Gene:</span> COL11A1 mutation &mdash; <span class="fill-line"></span></div>
+          <div class="card-row"><span class="label">Inheritance:</span> Autosomal dominant</div>
+        </div>
+        <div class="card-section">
+          <h3>Critical Alerts</h3>
+          <div class="critical-alert"><strong>DIFFICULT AIRWAY:</strong> Micrognathia and midface hypoplasia. Request experienced anesthesiologist. Video laryngoscopy first-line. Multiple attempts more common than usual. Do NOT hyperextend the neck.</div>
+          <div class="critical-alert"><strong>CERVICAL SPINE:</strong> Ligamentous laxity / possible CCI. Do NOT hyperextend neck without imaging. C-collar if trauma. Standard NEXUS clearance may not apply.</div>
+          <div class="critical-alert"><strong>RETINAL DETACHMENT:</strong> High risk in the Stickler/Marshall spectrum. Sudden flashes, new floaters, or curtain over vision = emergency vitreoretinal consult. Do not wait overnight.</div>
+          <div class="critical-alert"><strong>OTOTOXIC DRUGS:</strong> Sensorineural hearing loss &mdash; avoid aminoglycosides if possible; caution with high-dose loop diuretics and vancomycin.</div>
+          <div class="critical-alert"><strong>WOUND HEALING:</strong> Collagen disorder. Extra care with closure; longer suture retention; atraumatic needle for LP (dural tears more likely).</div>
+          <div class="critical-alert"><strong>DO NOT USE (allergies/reactions):</strong> <span class="fill-line" style="display:inline-block; min-width:250px;"></span></div>
+          <div class="critical-alert"><strong>LOCAL ANESTHETIC:</strong> Resistance common in collagen disorders. Prefer articaine (not lidocaine). Allow extra onset time.</div>
+          <div class="critical-alert"><strong>FLUOROQUINOLONES:</strong> Avoid cipro/levofloxacin if possible &mdash; tendon rupture risk.</div>
+          <div class="critical-alert"><strong>CARDIAC:</strong> MVP reported in Stickler/Marshall series. Echo if palpitations/chest pain. Note known MVP below.</div>
+        </div>
+        <div class="card-section">
+          <h3>Active Conditions</h3>
+          <div class="checkbox-item"><input type="checkbox"> Hearing loss (type: <span class="fill-inline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>)</div>
+          <div class="checkbox-item"><input type="checkbox"> High myopia (diopters: <span class="fill-inline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>)</div>
+          <div class="checkbox-item"><input type="checkbox"> Previous retinal detachment / prophylaxis done</div>
+          <div class="checkbox-item"><input type="checkbox"> Scoliosis (degrees: <span class="fill-inline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>)</div>
+          <div class="checkbox-item"><input type="checkbox"> Pierre Robin sequence / cleft palate</div>
+          <div class="checkbox-item"><input type="checkbox"> Sleep apnea / CPAP</div>
+          <div class="checkbox-item"><input type="checkbox"> Mitral valve prolapse</div>
+          <div class="checkbox-item"><input type="checkbox"> Cervical instability</div>
+          <div class="checkbox-item"><input type="checkbox"> Chronic pain medication use</div>
+        </div>
+        <div class="card-section">
+          <h3>Current Medications</h3>
+          <div class="med-line"></div>
+          <div class="med-line"></div>
+          <div class="med-line"></div>
+          <div class="med-line"></div>
+        </div>
+        <div class="card-section">
+          <h3>Specialists &amp; Emergency Contacts</h3>
+          <div class="specialist-row"><span class="label">Geneticist:</span> <span class="fill-line"></span></div>
+          <div class="specialist-row"><span class="label">Vitreoretinal surgeon:</span> <span class="fill-line"></span></div>
+          <div class="specialist-row"><span class="label">Orthopedic spine:</span> <span class="fill-line"></span></div>
+          <div class="specialist-row"><span class="label">ENT / Audiologist:</span> <span class="fill-line"></span></div>
+          <div class="specialist-row"><span class="label">Primary care:</span> <span class="fill-line"></span></div>
+          <div class="specialist-row"><span class="label">Emergency contact:</span> <span class="fill-line"></span></div>
+        </div>
+        <div class="card-section">
+          <h3>Key References for Treating Physician</h3>
+          <ul style="margin:0; padding-left:20px; font-size:0.9rem;">
+            <li><strong>This site (protocol):</strong> living/emergency-card.html on the Marshall Syndrome Resource</li>
+            <li><strong>Airway series:</strong> Stickler/Marshall, 502 anesthetic events, <em>Anesth Analg</em> 2021;132:202&ndash;209</li>
+            <li><strong>GeneReviews:</strong> ncbi.nlm.nih.gov/books/NBK1302/ &mdash; Stickler syndrome overview</li>
+          </ul>
+        </div>
+        <p style="font-size:0.75rem; text-align:center; margin-bottom:0; color:#666;">
+          Card date: ______/______/______ &nbsp;&bull;&nbsp; Review annually or after any new diagnosis.
+        </p>
+      </div>
+
+      <div class="wallet-extras no-print">
+        <h2>Medical ID Bracelets</h2>
+        <p>A bracelet alerts first responders if the patient cannot speak. For Marshall syndrome, the airway alert alone justifies wearing one.</p>
+        <h3>What to Engrave</h3>
+        <div class="engrave-example">
+          MARSHALL SYNDROME<br>
+          DIFFICULT AIRWAY - COL11A1<br>
+          SEE WALLET CARD
+        </div>
+        <p>If space allows, add: <strong>NO NECK HYPEREXTENSION</strong> and any critical drug allergies.</p>
+        <h3>Recommended Services</h3>
+        <div class="bracelet-options">
+          <div class="bracelet-option"><h4>MedicAlert Foundation</h4><p>24/7 hotline and full medical profile. Recommended for children. medicalert.org</p></div>
+          <div class="bracelet-option"><h4>Road ID</h4><p>QR-linked profile, no annual fee for basic service. roadid.com</p></div>
+          <div class="bracelet-option"><h4>American Medical ID</h4><p>Custom engraving, one-time purchase. americanmedical-id.com</p></div>
+          <div class="bracelet-option"><h4>StickyJ Medical ID</h4><p>Kid-friendly designs. stickyj.com</p></div>
+        </div>
+        <p>Start wearing one immediately after diagnosis. Update after surgery or new medications. A QR code on the wallet card or bracelet that opens a cloud medical summary (MedicAlert, hospital portal, or a private Drive/PDF) helps ED staff when the paper card is too short.</p>
+
+        <h2>Digital Emergency Information</h2>
+        <p>First responders are trained to check phones.</p>
+        <h3>Apple Health Medical ID (iPhone)</h3>
+        <ol>
+          <li>Health app &rarr; profile &rarr; Medical ID &rarr; Edit.</li>
+          <li>Conditions: Marshall syndrome (COL11A1) &mdash; difficult airway &mdash; cervical precautions &mdash; high retinal detachment risk.</li>
+          <li>Notes: Do NOT hyperextend neck. Video laryngoscopy first. See wallet card.</li>
+          <li>Enable <strong>Show When Locked</strong>.</li>
+        </ol>
+        <h3>Google Emergency Information (Android)</h3>
+        <p>Settings &rarr; Safety &amp; emergency &rarr; Medical information. Same content. Add emergency contacts there too.</p>
+        <h3>ICE Contacts</h3>
+        <p>Prefix key contacts <strong>ICE</strong> (In Case of Emergency): &ldquo;ICE - Mom,&rdquo; &ldquo;ICE - Dad,&rdquo; &ldquo;ICE - Dr. [Geneticist].&rdquo;</p>
+
+        <h2>School Emergency Card</h2>
+        <p>Give the school nurse a printed wallet card at the start of each year. Pair it with a <a href="./school-504.html">504 plan</a>. Add PE restrictions, hearing/vision accommodations, authorized pickup, and when to call 911 vs the nurse.</p>
+
+        <h2>Travel</h2>
+        <ul>
+          <li>Printed wallet card in carry-on, wallet, and checked bag. Geneticist letter on letterhead. Cloud copy of records.</li>
+          <li>TSA Notification Card (tsa.gov). Hearing aids may stay in. TSA Cares: 855-787-2227.</li>
+          <li>Translate: &ldquo;difficult airway &mdash; do not force intubation,&rdquo; &ldquo;do not hyperextend the neck,&rdquo; &ldquo;high risk of retinal detachment.&rdquo; Identify the nearest vitreoretinal surgeon before you go.</li>
+          <li>Travel insurance: pre-existing-condition waiver and evacuation coverage. MedicAlert multilingual hotline if subscribed.</li>
+          <li>EarPlanes or oxymetazoline before descent if eustachian tubes are poor. Neck pillow. Walk every 2 hours.</li>
+        </ul>
+        <p>Related: <a href="./travel-planning.html">Travel &amp; Vacation Planning</a> &middot; <a href="../treatment/anesthesia.html">Anesthesia Safety</a> &middot; <a href="../monitoring/red-flags.html">Red Flags</a></p>
+      </div>
+    </div>
+    <!-- end .wallet-panel -->
 
   </div>
   <!-- end .page-body -->
@@ -490,5 +794,28 @@
 <button class="back-to-top" id="backToTop" aria-label="Back to top">&#8593;</button>
 
 <script src="../nav.js"></script>
+<script>
+function setEmergencyMode(mode) {
+  var wallet = (mode === 'wallet');
+  document.body.classList.toggle('mode-wallet', wallet);
+  document.body.classList.toggle('mode-protocol', !wallet);
+  var bp = document.getElementById('btnProtocol');
+  var bw = document.getElementById('btnWallet');
+  if (bp) bp.classList.toggle('active', !wallet);
+  if (bw) bw.classList.toggle('active', wallet);
+  try {
+    var url = wallet ? (location.pathname + '?mode=wallet') : location.pathname;
+    history.replaceState(null, '', url);
+  } catch (e) {}
+}
+(function () {
+  var q = (location.search || '') + (location.hash || '');
+  if (/mode=wallet/i.test(q) || /wallet/i.test(location.hash)) {
+    setEmergencyMode('wallet');
+  } else {
+    setEmergencyMode('protocol');
+  }
+})();
+</script>
 </body>
 </html>

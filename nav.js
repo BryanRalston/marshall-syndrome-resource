@@ -206,7 +206,7 @@
         { file: 'living/wound-healing.html', title: 'Wound Healing & Skin', k: 'wound healing scar skin collagen surgery suture dehiscence tensile strength connective tissue dermal fragility bruising surgical recovery closure' },
         { file: 'living/travel-planning.html', title: 'Travel & Vacation Planning', k: 'travel flying airplane altitude retinal detachment cabin pressure medical kit hearing aid airport security medication time zone specialist road trip amusement park camp international vacation' },
         { file: 'living/pregnancy-management.html', title: 'Pregnancy & Obstetric Management', k: 'pregnancy obstetric high-risk MFM maternal fetal medicine cervical competence cerclage epidural cesarean retinal Valsalva relaxin postpartum breastfeeding newborn PGT-M prenatal airway anesthesia' },
-        { file: 'living/emergency-card.html', title: 'Emergency Protocol Card', k: 'emergency ER protocol card triage airway difficult intubation cervical spine CCI retinal detachment ototoxic aminoglycoside wound healing joint laxity dislocation phone nurse hospital crisis 2am' }
+        { file: 'living/emergency-card.html', title: 'Emergency Card (Protocol)', k: 'emergency ER protocol card triage airway difficult intubation cervical spine CCI retinal detachment ototoxic aminoglycoside wound healing joint laxity dislocation phone nurse hospital crisis 2am MedicAlert ICE wallet travel QR' }
       ]
     },
     {
@@ -217,7 +217,7 @@
         { file: 'resources/latest-research.html', title: 'Latest Research', k: 'latest research papers publications PubMed studies new findings 2025 2026' },
         { file: 'resources/support.html', title: 'Support Resources', k: 'support groups families communities online forums Facebook foundation Stickler Involved People' },
         { file: 'resources/references.html', title: 'References', k: 'references bibliography citations sources papers journals authors' },
-        { file: 'resources/emergency-card.html', title: 'Emergency Medical Card', k: 'emergency card medical alert ID bracelet travel school nurse print airway cervical spine retinal detachment MedicAlert ICE 504 IEP sedation anesthesia AI diagnostics cervical precautions NEXUS QR code wound care' },
+        { file: 'living/emergency-card.html?mode=wallet', title: 'Emergency Card (Wallet)', k: 'emergency card medical alert ID bracelet travel school nurse print airway cervical spine retinal detachment MedicAlert ICE 504 IEP wallet QR code wound care' },
         { file: 'resources/surgical-checklist.html', title: 'Pre-Surgical Checklist', k: 'surgical checklist pre-surgical airway micrognathia midface hypoplasia cervical spine anesthetic resistance articaine lidocaine tissue fragility wound healing mitral valve prolapse retinal detachment eye protection fluoroquinolone letter template' },
         { file: 'resources/surgery-checklist.html', title: 'Pre-Surgery Checklist', k: 'surgery checklist pre-operative preparation anesthesia cervical spine clearance wound healing letter template print OrphanAnesthesia intubation pain recovery procedure' },
         { file: 'resources/newly-diagnosed.html', title: 'Newly Diagnosed: First 30 Days', k: 'newly diagnosed first 30 days start here guide roadmap specialists tests school accommodations emotional support onboarding triage checklist' },
